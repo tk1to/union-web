@@ -5,8 +5,8 @@ gem 'bcrypt',       '3.1.7'    #暗号系
 gem 'pg',             '0.18.4' #PostgreSQL
 
 # gem 'bootstrap-sass',       '3.2.0.0'
-gem 'sass-rails',        '5.0.2' #
-gem 'autoprefixer-rails'         #ベンダープレフィクス自動化
+gem 'sass-rails',         '5.0.6' #
+gem 'autoprefixer-rails', '6.7.2' #ベンダープレフィクス自動化
 
 gem 'uglifier',     '2.5.3' #Javascriptを軽量化
 gem 'coffee-rails', '4.1.0'
