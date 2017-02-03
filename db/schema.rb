@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170203154244) do
+ActiveRecord::Schema.define(version: 20170203184947) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20170203154244) do
     t.string   "password_digest"
     t.string   "remember_digest"
     t.string   "introduce"
-    t.string   "action"
+    t.string   "want_to_do"
     t.string   "hobby"
   end
 

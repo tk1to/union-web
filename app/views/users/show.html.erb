@@ -8,8 +8,8 @@
 
   <div class="profile-content">
     <h3>やりたいこと</h3>
-    <div><%= current_user.action %></div>
-    <%= link_to '編集', edit_user_path(current_user, edit_label: "action"), class: "edit-btn" %>
+    <div><%= current_user.want_to_do %></div>
+    <%= link_to '編集', edit_user_path(current_user, edit_label: "want_to_do"), class: "edit-btn" %>
   </div>
 
   <div class="profile-content">
