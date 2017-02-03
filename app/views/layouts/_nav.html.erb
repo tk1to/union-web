@@ -1,12 +1,14 @@
-<nav>
-  <%= link_to image_tag('top.jpg'), root_path %>
-  <%= link_to_if(logged_in?, image_tag('search.jpg') ) %>
-  <%= link_to_if(logged_in?, image_tag('message.jpg') ) %>
-  <%= link_to_if(logged_in?, image_tag('alertion.jpg') ) %>
-  <%= link_to_if(logged_in?, image_tag('mypage.jpg'), current_user) %>
-  <% if logged_in? %>
-    <%= link_to "ログアウト", logout_path, method: "delete" %>
-  <% else %>
-    <%= link_to "ログイン", login_path %>
-  <% end %>
+<nav class="nav">
+  <ul>
+    <li><%= link_to image_tag('top.jpg'), root_path %></li>
+    <li><%= link_to_if(logged_in?, image_tag('search.jpg') ) %></li>
+    <li><%= link_to_if(logged_in?, image_tag('message.jpg') ) %></li>
+    <li><%= link_to_if(logged_in?, image_tag('alertion.jpg') ) %></li>
+    <li><%= link_to_if(logged_in?, image_tag('mypage.jpg'), current_user) %></li>
+    <% if logged_in? %>
+      <li><%= link_to "ログアウト", logout_path, method: "delete" %></li>
+    <% else %>
+      <li><%= link_to "ログイン", login_path %></li>
+    <% end %>
+  </ul>
 </nav>
