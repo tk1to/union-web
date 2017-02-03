@@ -1,8 +1,21 @@
-<table>
-  <thead>
-    <th>名前</th>
-  </thead>
-  <tbody>
-    <td><%= current_user.name %></td>
-  </tbody>
-</table>
+<div class="profile">
+
+  <div class="profile-content">
+    <h3>自己紹介</h3>
+    <div><%= current_user.introduce %></div>
+    <%= link_to '編集', edit_user_path(current_user, edit_label: "introduce"), class: "edit-btn" %>
+  </div>
+
+  <div class="profile-content">
+    <h3>やりたいこと</h3>
+    <div><%= current_user.action %></div>
+    <%= link_to '編集', edit_user_path(current_user, edit_label: "action"), class: "edit-btn" %>
+  </div>
+
+  <div class="profile-content">
+    <h3>趣味</h3>
+    <div><%= current_user.hobby %></div>
+    <%= link_to '編集', edit_user_path(current_user, edit_label: "hobby"), class: "edit-btn" %>
+  </div>
+
+</div>

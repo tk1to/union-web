@@ -17,6 +17,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    @edit_item = params[:edit_label]
   end
 
   def show

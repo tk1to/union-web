@@ -1,5 +1,6 @@
 <%= form_for(@user) do |f| %>
   <%= render 'shared/error_messages' %>
-
+  <%= f.label @edit_item %>
+  <%= f.text_field @edit_item %>
   <%= f.submit "更新" %>
 <% end %>
