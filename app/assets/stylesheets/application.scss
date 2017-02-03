@@ -14,7 +14,8 @@
  *= require_self
  */
 
-body {
+body, h1, h2, h3,
+li, ul {
   margin: 0;
   padding: 0;
 }
@@ -27,13 +28,9 @@ body {
     height: 50px;
   }
   ul {
-    padding: 0;
-    margin: 0;
     text-align: center;
   }
   li {
-    padding: 0;
-    margin: 0;
     list-style: none;
     display: inline-block;
   }
