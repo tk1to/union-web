@@ -9,7 +9,9 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
 
-  validates { :introduce, :action, :hobby }, length: { maximum: 500 }
+  validates :introduce, length: { maximum: 500 }
+  validates :action, length: { maximum: 500 }
+  validates :hobby, length: { maximum: 500 }
 
   # 与えられた文字列のハッシュ値を返す
   def User.digest(string)
