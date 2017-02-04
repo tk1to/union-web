@@ -1,5 +1,5 @@
 <%= form_for(@user) do |f| %>
-  <%= render 'shared/error_messages' %>
+  <%= render 'shared/error_messages', object: f.object %>
   <%= f.label @edit_item %>
   <%= f.text_area @edit_item %>
   <%= f.hidden_field :edit_item, :value =>  @edit_item %>
