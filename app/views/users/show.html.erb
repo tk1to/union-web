@@ -2,20 +2,26 @@
 
   <div class="profile-content">
     <h3>自己紹介</h3>
-    <div><%= current_user.introduce %></div>
-    <%= link_to '編集', edit_user_path(current_user, edit_item: "introduce"), class: "edit-btn" %>
+    <div><%= @shown_user.introduce %></div>
+    <% if current_user?(@shown_user) %>
+      <%= link_to '編集', edit_user_path(current_user, edit_item: "introduce"), class: "edit-btn" %>
+    <% end %>
   </div>
 
   <div class="profile-content">
     <h3>やりたいこと</h3>
-    <div><%= current_user.want_to_do %></div>
-    <%= link_to '編集', edit_user_path(current_user, edit_item: "want_to_do"), class: "edit-btn" %>
+    <div><%= @shown_user.want_to_do %></div>
+    <% if current_user?(@shown_user) %>
+      <%= link_to '編集', edit_user_path(current_user, edit_item: "want_to_do"), class: "edit-btn" %>
+    <% end %>
   </div>
 
   <div class="profile-content">
     <h3>趣味</h3>
-    <div><%= current_user.hobby %></div>
-    <%= link_to '編集', edit_user_path(current_user, edit_item: "hobby"), class: "edit-btn" %>
+    <div><%= @shown_user.hobby %></div>
+    <% if current_user?(@shown_user) %>
+      <%= link_to '編集', edit_user_path(current_user, edit_item: "hobby"), class: "edit-btn" %>
+    <% end %>
   </div>
 
 </div>
