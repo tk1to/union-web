@@ -7,6 +7,7 @@ class CirclesController < ApplicationController
     @circle = Circle.new(circle_params)
     if @circle.save
       flash[:success] = "作成完了"
+      @membership = Membership.create(member_id: current_user.id, circle_id: @circle.id)
       redirect_to @circle
     else
       render 'new'
@@ -15,6 +16,8 @@ class CirclesController < ApplicationController
 
   def show
     @circle = Circle.find(params[:id])
+    @members = @circle.members
+    @be_member = @members.include?(current_user)
   end
 
   private
