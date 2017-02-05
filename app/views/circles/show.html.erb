@@ -1,1 +1,18 @@
 <h1><%= @circle.name %></h1>
+
+<% if @members.any? %>
+  <div class="members_wrap">
+    <span>団体員</span>
+    <ul>
+      <% @members.each do |member| %>
+        <li><%= link_to member.name, member %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<% if @be_member %>
+  <p>ブログを作成</p>
+<% else %>
+  <p>メンバー申請</p>
+<% end %>
