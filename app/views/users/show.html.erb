@@ -1,5 +1,8 @@
-<div class="profile">
+<% if current_user?(@shown_user) %>
+  <%= link_to "+", new_circle_path, class: "create_circle_btn"%>
+<% end %>
 
+<div class="profile">
   <div class="profile-content">
     <h3>自己紹介</h3>
     <div><%= @shown_user.introduce %></div>

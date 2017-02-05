@@ -3,3 +3,11 @@
 <% else %>
   <p><%= link_to "ログアウト", logout_path, method: "delete" %></p>
 <% end %>
+
+<% if @circles.any? %>
+  <ul>
+    <% @circles.each do |circle| %>
+      <li><%= link_to circle.name, circle %></li>
+    <% end %>
+  </ul>
+<% end %>

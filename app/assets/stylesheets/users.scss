@@ -2,10 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.profile {
-  width: 400px;
-  margin: 0 auto;
+.create_circle_btn {
+  display: inline-block;
+  float: right;
+  color: #000;
+  border: 2px solid #000;
+  text-decoration: none;
+  width: 50px;
+  height: 50px;
+  margin: 20px 20px 0 0;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 5px;
+  font-size: 45px;
 }
+
 .profile-content {
   clear: both;
   margin-bottom: 10px;

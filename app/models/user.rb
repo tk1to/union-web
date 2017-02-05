@@ -13,6 +13,9 @@ class User < ActiveRecord::Base
   validates :want_to_do, length: { maximum: 500 }
   validates :hobby, length: { maximum: 500 }
 
+  has_many :circles, through: :memberships
+  has_many :memberships
+
   # 与えられた文字列のハッシュ値を返す
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
