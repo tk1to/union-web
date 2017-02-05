@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
   has_many :circles, through: :memberships
   has_many :memberships
 
+  has_many :blogs
+
   # 与えられた文字列のハッシュ値を返す
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
