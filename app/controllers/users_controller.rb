@@ -20,7 +20,11 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    @edit_item = params[:edit_item]
+    if params[:edit_item]
+      @edit_item = params[:edit_item]
+    else
+      redirect_to @user
+    end
   end
 
   def update
