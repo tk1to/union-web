@@ -19,10 +19,13 @@ li, ul {
   margin: 0;
   padding: 0;
 }
+li {
+  list-style: none;
+}
 
 .whole_wrap {
   width: 400px;
-  margin: 0 auto;
+  margin: 10px auto 0;
 }
 
 .nav {
