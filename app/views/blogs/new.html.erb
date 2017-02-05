@@ -1,0 +1,17 @@
+<h1>ブログ作成</h1>
+
+<div>
+  <%= form_for(@blog) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+
+    <%= f.hidden_field :circle_id, :value => @circle_id %>
+
+    <%= f.submit "投稿" %>
+  <% end %>
+</div>

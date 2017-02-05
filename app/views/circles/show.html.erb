@@ -2,7 +2,7 @@
 
 <% if @members.any? %>
   <div class="members_wrap">
-    <span>団体員</span>
+    <h2>団体員</h2>
     <ul>
       <% @members.each do |member| %>
         <li><%= link_to member.name, member %></li>
@@ -11,8 +11,19 @@
   </div>
 <% end %>
 
+<h2>ブログ一覧</h2>
+<% if @blogs.any? %>
+  <ul>
+    <% @blogs.each do |blog| %>
+      <li><%= link_to blog.title, blog %></li>
+    <% end %>
+  </ul>
+<% else %>
+<p>ブログがありません。</p>
+<% end %>
+
 <% if @be_member %>
-  <p>ブログを作成</p>
+  <%= link_to "ブログを作成", new_blog_path(circle_id: @circle.id) %>
 <% else %>
   <p>メンバー申請</p>
 <% end %>
