@@ -46,15 +46,13 @@ ActiveRecord::Schema.define(version: 20170205043015) do
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "password_digest"
     t.string   "remember_digest"
     t.string   "introduce"
     t.string   "want_to_do"
     t.string   "hobby"
-    t.string   "activation_digest"
-    t.boolean  "activated",         default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
