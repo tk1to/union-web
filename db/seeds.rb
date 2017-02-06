@@ -8,15 +8,26 @@
 
 # coding: utf-8
 
-User.create(name:  "てすと太郎",
-            email: "taro@test.com",
-            password:              "rails",
-            password_confirmation: "rails"
-            )
-User.create(name: "てすと次郎",
-            email: "jiro@test.com",
-            password:              "rails",
-            password_confirmation: "rails"
-            )
+User.create(
+  id: 1,
+  name:  "てすと太郎",
+  email: "taro@test.com",
+  password:              "rails",
+  password_confirmation: "rails"
+)
+User.create(
+  id: 2,
+  name: "てすと次郎",
+  email: "jiro@test.com",
+  password:              "rails",
+  password_confirmation: "rails"
+)
 
-# Circle.create(name: "freecious")
+Circle.create(
+  id: 1,
+  name: "太郎の部屋",
+)
+Membership.create(
+  member_id: 1,
+  circle_id: 1,
+)
