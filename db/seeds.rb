@@ -31,3 +31,10 @@ Membership.create(
   member_id: 1,
   circle_id: 1,
 )
+
+Blog.create(
+  title: "太郎のブログ",
+  content: "あああああああああああ、いいいいいいいいい、ううううううううううう",
+  circle_id: 1,
+  author_id: 1,
+)

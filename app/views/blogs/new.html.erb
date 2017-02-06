@@ -10,7 +10,7 @@
     <%= f.label :content %>
     <%= f.text_area :content %>
 
-    <%= f.hidden_field :circle_id, :value => @circle_id %>
+    <%= f.hidden_field :circle_id, :value => params[:circle_id] %>
 
     <%= f.submit "投稿" %>
   <% end %>

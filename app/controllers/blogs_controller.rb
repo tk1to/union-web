@@ -2,11 +2,11 @@ class BlogsController < ApplicationController
 
   def new
     @blog = Blog.new
-    # @circle_id = params[:circle_id]
   end
 
   def create
-    @blog = Blog.new(blog_params, )
+    @blog = Blog.new(blog_params)
+    @blog.author_id = current_user.id
     if @blog.save
       flash[:success] = "投稿完了"
       redirect_to @blog
@@ -17,6 +17,7 @@ class BlogsController < ApplicationController
 
   def show
     @blog = Blog.find(params[:id])
+    @author = User.find(@blog.author_id)
   end
 
   def edit
