@@ -11,7 +11,6 @@ class ContactsController < ApplicationController
     @contact.send_user_id      = current_user.id
     @contact.receive_circle_id = params[:circle_id]
     if @contact.save
-      debugger
       flash[:success] = "送信完了"
       redirect_to @contact.receive_circle
     else
