@@ -25,8 +25,16 @@ class CirclesController < ApplicationController
   end
 
   def edit
+    @circle = Circle.find(params[:id])
   end
   def update
+    @circle = Circle.find(params[:id])
+    if @circle.update_attributes(circle_params)
+      flash[:success] = "編集完了"
+      redirect_to @circle
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -36,6 +44,7 @@ class CirclesController < ApplicationController
     def circle_params
       params.require(:circle).permit(
           :name,
+          :description
         )
     end
 end

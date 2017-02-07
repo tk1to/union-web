@@ -1,4 +1,8 @@
 <h1><%= @circle.name %></h1>
+<p><%= @circle.description %></p>
+<% if @be_member %>
+  <%= link_to "編集", edit_circle_path(@circle) %>
+<% end %>
 
 <% if @members.any? %>
   <div class="members_wrap">
