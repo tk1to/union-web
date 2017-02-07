@@ -1,8 +1,8 @@
 class CirclesController < ApplicationController
+
   def new
     @circle = Circle.new
   end
-
   def create
     @circle = Circle.new(circle_params)
     if @circle.save

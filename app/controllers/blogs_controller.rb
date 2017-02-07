@@ -3,7 +3,6 @@ class BlogsController < ApplicationController
   def new
     @blog = Blog.new
   end
-
   def create
     @blog = Blog.new(blog_params)
     @blog.circle_id = params[:circle_id]
@@ -19,7 +18,7 @@ class BlogsController < ApplicationController
   def show
     @blog = Blog.find(params[:id])
     @circle = Circle.find(@blog.circle_id)
-    @author = User.find(@blog.author_id)
+    @author = @blog.author
   end
 
   def edit
