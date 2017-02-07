@@ -5,6 +5,7 @@ class EventsController < ApplicationController
   end
   def create
     @event = Event.new(event_params)
+    @event.circle_id = params[:circle_id]
     if @event.save
       flash[:success] = "作成完了"
       redirect_to [@event.circle, @event]
@@ -35,7 +36,7 @@ class EventsController < ApplicationController
 
   def destroy
     @event = Event.find(params[:id])
-    @circle = Circle.find(@event.circle_id)
+    @circle = @event.circle
     @event.destroy
     flash[:success] = "削除完了"
     redirect_to @circle

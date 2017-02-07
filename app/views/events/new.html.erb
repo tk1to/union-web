@@ -1,7 +1,7 @@
 <h1>イベント作成</h1>
 
 <div>
-  <%= form_for([@event.circle, @event]) do |f| %>
+  <%= form_for([:circle, @event]) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
 
     <%= f.label :title %>
