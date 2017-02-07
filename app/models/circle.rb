@@ -5,4 +5,5 @@ class Circle < ActiveRecord::Base
   has_many :memberships
   has_many :blogs
   has_many :events
+  has_many :contacts
 end

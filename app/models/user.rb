@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   has_many :memberships
 
   has_many :blogs
+  has_many :contacts
 
   # 与えられた文字列のハッシュ値を返す
   def User.digest(string)
