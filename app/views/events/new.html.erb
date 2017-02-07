@@ -1,7 +1,7 @@
 <h1>イベント作成</h1>
 
 <div>
-  <%= form_for(@event) do |f| %>
+  <%= form_for([@event.circle, @event]) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
 
     <%= f.label :title %>
@@ -9,8 +9,6 @@
 
     <%= f.label :content %>
     <%= f.text_area :content %>
-
-    <%= f.hidden_field :circle_id, :value => params[:circle_id] %>
 
     <%= f.submit "投稿" %>
   <% end %>

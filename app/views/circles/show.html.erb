@@ -41,7 +41,7 @@
   <% if @events.any? %>
     <ul>
       <% @events.each do |event| %>
-        <li><%= link_to event.title, event %></li>
+        <li><%= link_to event.title, [@circle, event] %></li>
       <% end %>
     </ul>
   <% else %>
@@ -49,7 +49,7 @@
   <% end %>
 
   <% if @be_member %>
-    <%= link_to "イベントを作成", new_event_path(circle_id: @circle.id) %>
+    <%= link_to "イベントを作成", [:new, @circle, :event] %>
   <% end %>
 </div>
 
