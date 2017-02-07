@@ -32,6 +32,15 @@ Membership.create(
   member_id: 1,
   circle_id: 1,
 )
+Circle.create(
+  id: 2,
+  name: "次郎の部屋",
+  description: "次郎のサークル",
+)
+Membership.create(
+  member_id: 2,
+  circle_id: 2,
+)
 
 Blog.create(
   title: "太郎のブログ",
@@ -39,3 +48,10 @@ Blog.create(
   circle_id: 1,
   author_id: 1,
 )
+Event.create(
+  title: "勉強会",
+  content: "なんでも勉強会です。",
+  circle_id: 2,
+)
+
+
