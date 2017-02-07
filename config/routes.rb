@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   resources :circles
   resources :blogs
   resources :events
+  resources :contacts
 end

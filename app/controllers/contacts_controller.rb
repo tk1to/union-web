@@ -9,7 +9,7 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new
     if @contact.update_attributes(contact_params)
-      flash[:success] = "作成完了"
+      flash[:success] = "送信完了"
       redirect_to @event
     else
       render 'new'
