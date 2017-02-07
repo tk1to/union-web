@@ -11,19 +11,40 @@
   </div>
 <% end %>
 
-<h2>ブログ一覧</h2>
-<% if @blogs.any? %>
-  <ul>
-    <% @blogs.each do |blog| %>
-      <li><%= link_to blog.title, blog %></li>
-    <% end %>
-  </ul>
-<% else %>
-<p>ブログがありません。</p>
-<% end %>
+<div class="blog_wrap">
+  <h2>ブログ一覧</h2>
+  <% if @blogs.any? %>
+    <ul>
+      <% @blogs.each do |blog| %>
+        <li><%= link_to blog.title, blog %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>ブログがありません。</p>
+  <% end %>
 
-<% if @be_member %>
-  <%= link_to "ブログを作成", new_blog_path(circle_id: @circle.id) %>
-<% else %>
+  <% if @be_member %>
+    <%= link_to "ブログを作成", new_blog_path(circle_id: @circle.id) %>
+  <% end %>
+</div>
+
+<div class="event_wrap">
+  <h2>イベント一覧</h2>
+  <% if @events.any? %>
+    <ul>
+      <% @events.each do |event| %>
+        <li><%= link_to event.title, event %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>イベントがありません。</p>
+  <% end %>
+
+  <% if @be_member %>
+    <%= link_to "イベントを作成", new_event_path(circle_id: @circle.id) %>
+  <% end %>
+</div>
+
+<% if !@be_member %>
   <p>メンバー申請</p>
 <% end %>

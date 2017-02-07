@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   resources :users
   resources :circles
   resources :blogs
+  resources :events
 end

@@ -16,8 +16,11 @@ class CirclesController < ApplicationController
 
   def show
     @circle = Circle.find(params[:id])
+
     @members = @circle.members
     @blogs   = @circle.blogs
+    @events  = @circle.events
+
     @be_member = @members.include?(current_user)
   end
 
