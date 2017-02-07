@@ -26,6 +26,7 @@ User.create(
 Circle.create(
   id: 1,
   name: "太郎の部屋",
+  description: "サークルの説明文が入る場所",
 )
 Membership.create(
   member_id: 1,
