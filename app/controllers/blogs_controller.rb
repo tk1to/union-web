@@ -22,8 +22,16 @@ class BlogsController < ApplicationController
   end
 
   def edit
+    @blog = Blog.find(params[:id])
   end
   def update
+    @blog = Blog.find(params[:id])
+    if @blog.update_attributes(blog_params)
+      flash[:success] = "編集完了"
+      redirect_to @blog
+    else
+      render 'edit'
+    end
   end
 
   def destroy

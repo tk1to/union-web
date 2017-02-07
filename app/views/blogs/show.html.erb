@@ -1,4 +1,9 @@
 <h1><%= @blog.title %></h1>
 <p><%= @blog.content %></p>
-<p><%= link_to @author.name, @author %></p>
-<p><%= link_to @circle.name, @circle %></p>
+
+<% if @author == current_user %>
+  <%= link_to "編集", edit_blog_path(@blog) %>
+<% end %>
+
+<p>投稿者：<%= link_to @author.name, @author %></p>
+<p>サークル：<%= link_to @circle.name, @circle %></p>
