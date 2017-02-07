@@ -9,4 +9,4 @@
 
   <%= f.submit "更新" %>
 <% end %>
-<%= link_to "このイベントを削除", event_path(@event), method: :delete %>
+<%= link_to "このイベントを削除", event_path(@event), method: :delete, data: { confirm: "本当に削除しますか？" } %>

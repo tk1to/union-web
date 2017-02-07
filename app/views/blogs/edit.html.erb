@@ -9,4 +9,4 @@
 
   <%= f.submit "更新" %>
 <% end %>
-<%= link_to "このブログを削除", blog_path(@blog), method: :delete %>
+<%= link_to "このブログを削除", blog_path(@blog), method: :delete, data: { confirm: "本当に削除しますか？" } %>

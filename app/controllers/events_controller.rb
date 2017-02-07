@@ -33,6 +33,14 @@ class EventsController < ApplicationController
     end
   end
 
+  def destroy
+    @event = Event.find(params[:id])
+    @circle = Circle.find(@event.circle_id)
+    @event.destroy
+    flash[:success] = "削除完了"
+    redirect_to @circle
+  end
+
   private
     def event_params
       params.require(:event).permit(
