@@ -37,7 +37,7 @@ class BlogsController < ApplicationController
 
   def destroy
     @blog = Blog.find(params[:id])
-    @circle = Circle.find(@blog.circle_id)
+    @circle = @blog.circle
     @blog.destroy
     flash[:success] = "削除完了"
     redirect_to @circle
