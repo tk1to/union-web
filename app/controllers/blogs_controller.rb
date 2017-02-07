@@ -17,6 +17,7 @@ class BlogsController < ApplicationController
 
   def show
     @blog = Blog.find(params[:id])
+    @circle = Circle.find(@blog.circle_id)
     @author = User.find(@blog.author_id)
   end
 
