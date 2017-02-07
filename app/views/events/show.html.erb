@@ -1,3 +1,8 @@
 <h1><%= @event.title %></h1>
 <p><%= @event.content %></p>
+
+<% if @be_member %>
+  <%= link_to "編集", edit_event_path(@event) %>
+<% end %>
+
 <p><%= link_to @circle.name, @circle %></p>
