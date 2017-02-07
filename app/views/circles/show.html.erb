@@ -24,7 +24,7 @@
   <% if @blogs.any? %>
     <ul>
       <% @blogs.each do |blog| %>
-        <li><%= link_to blog.title, blog %></li>
+        <li><%= link_to blog.title, [@circle, blog] %></li>
       <% end %>
     </ul>
   <% else %>
@@ -32,7 +32,7 @@
   <% end %>
 
   <% if @be_member %>
-    <%= link_to "ブログを作成", new_blog_path(circle_id: @circle.id) %>
+    <%= link_to "ブログを作成", [:new, @circle, :blog] %>
   <% end %>
 </div>
 

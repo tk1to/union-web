@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
 
   resources :users
-  resources :circles
-  resources :blogs
+  resources :circles do
+    resources :blogs
+  end
   resources :events
   resources :contacts
 end

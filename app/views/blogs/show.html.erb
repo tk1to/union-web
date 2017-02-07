@@ -2,7 +2,7 @@
 <p><%= @blog.content %></p>
 
 <% if @author == current_user %>
-  <%= link_to "編集", edit_blog_path(@blog) %>
+  <%= link_to "編集", edit_circle_blog_path(@circle, @blog) %>
 <% end %>
 
 <p>投稿者：<%= link_to @author.name, @author %></p>

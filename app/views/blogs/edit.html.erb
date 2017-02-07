@@ -1,4 +1,6 @@
-<%= form_for(@blog) do |f| %>
+<h2>ブログを編集</h2>
+
+<%= form_for([@blog.circle, @blog]) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
   <%= f.label :title %>
@@ -9,4 +11,4 @@
 
   <%= f.submit "更新" %>
 <% end %>
-<%= link_to "このブログを削除", blog_path(@blog), method: :delete, data: { confirm: "本当に削除しますか？" } %>
+<%= link_to "このブログを削除", [@blog.circle, @blog], method: :delete, data: { confirm: "本当に削除しますか？" } %>

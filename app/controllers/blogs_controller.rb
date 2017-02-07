@@ -6,10 +6,11 @@ class BlogsController < ApplicationController
 
   def create
     @blog = Blog.new(blog_params)
+    @blog.circle_id = params[:circle_id]
     @blog.author_id = current_user.id
     if @blog.save
       flash[:success] = "投稿完了"
-      redirect_to @blog
+      redirect_to [@blog.circle, @blog]
     else
       render 'new'
     end
@@ -28,7 +29,7 @@ class BlogsController < ApplicationController
     @blog = Blog.find(params[:id])
     if @blog.update_attributes(blog_params)
       flash[:success] = "編集完了"
-      redirect_to @blog
+      redirect_to [@blog.circle, @blog]
     else
       render 'edit'
     end
