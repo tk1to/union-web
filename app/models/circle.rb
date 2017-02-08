@@ -5,5 +5,5 @@ class Circle < ActiveRecord::Base
   has_many :memberships
   has_many :blogs
   has_many :events
-  has_many :contacts
+  has_many :contacts, foreign_key: "receive_circle_id"
 end

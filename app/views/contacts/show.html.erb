@@ -1,0 +1,3 @@
+<p><%= @contact.content %></p>
+<p>送信者：<%= link_to @contact.send_user.name, @contact.send_user %></p>
+<p><%= link_to "一覧へ戻る", [:circle, :contacts] %></p>
