@@ -4,6 +4,10 @@ class CirclesController < ApplicationController
     @circle = Circle.new
   end
   def create
+
+    # circle-idのシーケンスを更新
+    ActiveRecord::Base.connection.execute("SELECT setval('circles_id_seq', (SELECT MAX(id) FROM circles));")
+
     @circle = Circle.new(circle_params)
     if @circle.save
       flash[:success] = "作成完了"
