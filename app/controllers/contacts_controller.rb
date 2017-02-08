@@ -1,6 +1,8 @@
 class ContactsController < ApplicationController
 
   def index
+    @circle   = Circle.find(params[:circle_id])
+    @contacts = @circle.contacts
   end
 
   def new

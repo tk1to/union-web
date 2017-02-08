@@ -6,6 +6,8 @@
 
 <% if !@be_member %>
   <%= link_to "お問い合わせ", [:new, @circle, :contact] %>
+<% else %>
+  <%= link_to "お問い合わせ一覧", [@circle, :contacts] %>
 <% end %>
 
 <% if @members.any? %>
