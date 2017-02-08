@@ -12,6 +12,8 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
+  resources :relationships, only: [:create, :destroy]
+
   resources :circles do
     resources :blogs
     resources :events
