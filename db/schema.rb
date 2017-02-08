@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170208111628) do
+ActiveRecord::Schema.define(version: 20170208144616) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,16 +59,16 @@ ActiveRecord::Schema.define(version: 20170208111628) do
   add_index "memberships", ["member_id", "circle_id"], name: "index_memberships_on_member_id_and_circle_id", unique: true, using: :btree
   add_index "memberships", ["member_id"], name: "index_memberships_on_member_id", using: :btree
 
-  create_table "user_relationships", force: :cascade do |t|
+  create_table "relationships", force: :cascade do |t|
     t.integer  "follower_id"
-    t.integer  "followed_id"
+    t.string   "followed_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  add_index "user_relationships", ["followed_id"], name: "index_user_relationships_on_followed_id", using: :btree
-  add_index "user_relationships", ["follower_id", "followed_id"], name: "index_user_relationships_on_follower_id_and_followed_id", unique: true, using: :btree
-  add_index "user_relationships", ["follower_id"], name: "index_user_relationships_on_follower_id", using: :btree
+  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id", using: :btree
+  add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true, using: :btree
+  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

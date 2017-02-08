@@ -21,10 +21,10 @@ class User < ActiveRecord::Base
   has_many :contacts, foreign_key: "send_user_id"
 
   #フォロー関連
-  has_many :active_relationships,  class_name:  "User_relationship",
+  has_many :active_relationships,  class_name:  "Relationship",
                                    foreign_key: "follower_id",
                                    dependent:   :destroy
-  has_many :passive_relationships, class_name:  "User_relationship",
+  has_many :passive_relationships, class_name:  "Relationship",
                                    foreign_key: "followed_id",
                                    dependent:   :destroy
   has_many :following, through: :active_relationships,  source: :followed

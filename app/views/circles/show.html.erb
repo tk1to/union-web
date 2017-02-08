@@ -12,7 +12,7 @@
 
 <% if @members.any? %>
   <div class="members_wrap">
-    <h2>団体員</h2>
+    <h2>団体員(<%= @members.count %>)</h2>
     <ul>
       <% @members.each do |member| %>
         <li><%= link_to member.name, member %></li>
@@ -22,7 +22,7 @@
 <% end %>
 
 <div class="blog_wrap">
-  <h2>ブログ一覧</h2>
+  <h2>ブログ一覧(<%= @blogs.count %>)</h2>
   <% if @blogs.any? %>
     <ul>
       <% @blogs.each do |blog| %>
@@ -39,7 +39,7 @@
 </div>
 
 <div class="event_wrap">
-  <h2>イベント一覧</h2>
+  <h2>イベント一覧(<%= @events.count %>)</h2>
   <% if @events.any? %>
     <ul>
       <% @events.each do |event| %>
