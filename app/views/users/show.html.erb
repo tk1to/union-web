@@ -6,7 +6,8 @@
 </header>
 
 <div class="follow" style="border: 1px solid #000;">
-  <%= @user.following %> フォロー
+  <p><%= @user.following.count %> フォロー</p>
+  <p><%= @user.followers.count %> フォロワー</p>
 </div>
 
 <div class="profile">
