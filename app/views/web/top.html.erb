@@ -4,10 +4,29 @@
   <p><%= link_to "ログアウト", logout_path, method: "delete" %></p>
 <% end %>
 
+<h1>サークル一覧</h1>
 <% if @circles.any? %>
   <ul>
     <% @circles.each do |circle| %>
       <li><%= link_to circle.name, circle %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<h1>ブログ一覧</h1>
+<% if @blogs.any? %>
+  <ul>
+    <% @blogs.each do |blog| %>
+      <li><%= link_to blog.title, [blog.circle, blog] %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<h1>イベント一覧</h1>
+<% if @events.any? %>
+  <ul>
+    <% @events.each do |event| %>
+      <li><%= link_to event.title, [event.circle, event] %></li>
     <% end %>
   </ul>
 <% end %>
