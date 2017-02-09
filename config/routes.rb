@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   end
   resources :relationships, only: [:create, :destroy]
 
+  resources :account_activations, only: [:edit]
+
   resources :circles do
     resources :blogs
     resources :events
