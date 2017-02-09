@@ -44,6 +44,15 @@ class CirclesController < ApplicationController
   def destroy
   end
 
+  def search
+    @search_params = Circle.new
+    if params[:circle].nil?
+      @circles = Circle.all
+    else
+      @circles = Circle.where(Circle.arel_table[:name].matches("%#{ params[:circle][:name] }%"))
+    end
+  end
+
   private
     def circle_params
       params.require(:circle).permit(

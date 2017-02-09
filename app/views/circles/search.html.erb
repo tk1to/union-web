@@ -1,0 +1,17 @@
+<%= form_for @search_params, url: [:search, :circles], html: {method: :get} do |f| %>
+
+  <%= f.label :name, "名前" %>
+  <%= f.text_field :name %>
+
+<%= f.submit "検索" %>
+<% end %>
+
+<% if @circles.any? %>
+  <% @circles.each do |circle| %>
+    <%= link_to circle do %>
+      <div style="height: 100px; border: 1px solid #000;">
+        <%= circle.name %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
