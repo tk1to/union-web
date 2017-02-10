@@ -8,8 +8,9 @@ class UsersController < ApplicationController
   end
   def create
     @user = User.new(user_params)
+    ActiveRecord::Base.connection.execute("SELECT setval('users_id_seq', (SELECT MAX(id) FROM users));")
     if @user.save
-      UserMailer.account_activation(@user).deliver_now
+      @user.send_activation_email
       flash[:info] = "アカウントを有効にするためにメールを確認してください。"
       redirect_to root_url
     else

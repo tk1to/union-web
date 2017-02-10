@@ -13,14 +13,18 @@ User.create(
   name:  "てすと太郎",
   email: "taro@test.com",
   password:              "rails",
-  password_confirmation: "rails"
+  password_confirmation: "rails",
+  activated: true,
+  activated_at: Time.zone.now,
 )
 User.create(
   id: 2,
   name: "てすと次郎",
   email: "jiro@test.com",
   password:              "rails",
-  password_confirmation: "rails"
+  password_confirmation: "rails",
+  activated: true,
+  activated_at: Time.zone.now,
 )
 
 Circle.create(
