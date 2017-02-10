@@ -1,7 +1,7 @@
 <% if !logged_in? %>
   <%= link_to 'what\'s union?', signups_path %>
 <% else %>
-  <p><%= link_to "ログアウト", logout_path, method: "delete" %></p>
+  <p><%= link_to "ログアウト", logout_path, method: :delete %></p>
 <% end %>
 
 <h1>サークル一覧</h1>
