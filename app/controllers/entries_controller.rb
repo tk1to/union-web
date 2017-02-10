@@ -2,6 +2,7 @@ class EntriesController < ApplicationController
 
   def index
     @circle = Circle.find(params[:circle_id])
+    @entries = @circle.entries
   end
 
   def create
@@ -13,6 +14,15 @@ class EntriesController < ApplicationController
   def destroy
     Entry.find(params[:id]).destroy
     flash[:success] = "キャンセルしました"
+    redirect_to controller: :circles, action: :show, id: params[:circle_id]
+  end
+
+  def accept
+    accepted_entry = Entry.find(params[:id])
+    accepted_user  = User.find(accepted_entry.user_id)
+    Circle.find(params[:circle_id]).memberships.create(member_id: accepted_user.id)
+    flash[:success] = "#{accepted_user.name}さんの加入を承認しました"
+    accepted_entry.destroy
     redirect_to controller: :circles, action: :show, id: params[:circle_id]
   end
 end

@@ -20,7 +20,11 @@ Rails.application.routes.draw do
     resources :blogs
     resources :events
     resources :contacts
-    resources :entries
+    resources :entries, only: [:index, :create, :destroy] do
+      member do
+        post :accept
+      end
+    end
     collection do
       get :search
     end

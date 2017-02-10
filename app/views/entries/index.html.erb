@@ -1,2 +1,7 @@
-<h1>Entries#index</h1>
-<p>Find me in app/views/entries/index.html.erb</p>
+<% if @entries.any? %>
+  <ul>
+    <% @entries.each do |entry| %>
+      <li><%= link_to entry.user.name, entry.user %> | <%= link_to "承認", [:accept, @circle, entry], method: :post %></li>
+    <% end %>
+  </ul>
+<% end %>
