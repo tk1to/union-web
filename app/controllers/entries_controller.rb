@@ -11,7 +11,8 @@ class EntriesController < ApplicationController
   end
 
   def destroy
-    debugger
+    Entry.find(params[:id]).destroy
+    flash[:success] = "キャンセルしました"
     redirect_to controller: :circles, action: :show, id: params[:circle_id]
   end
 end

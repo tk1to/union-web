@@ -29,7 +29,7 @@
     <% if !@entrying %>
       <%= link_to "メンバー申請", [@circle, :entries], method: :post %>
     <% else %>
-      <%= link_to "メンバー申請キャンセル", [@circle, :entries], method: "delete" %>
+      <%= link_to "メンバー申請キャンセル", [@circle, @entry], method: :delete %>
     <% end %>
   <% end %>
 </p>

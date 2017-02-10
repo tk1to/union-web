@@ -26,6 +26,15 @@ User.create(
   activated: true,
   activated_at: Time.zone.now,
 )
+User.create(
+  # id: 3,
+  name: "てすと三郎",
+  email: "saburo@test.com",
+  password:              "rails",
+  password_confirmation: "rails",
+  activated: true,
+  activated_at: Time.zone.now,
+)
 
 Circle.create(
   # id: 1,

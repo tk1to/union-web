@@ -6,7 +6,7 @@ class CirclesController < ApplicationController
   def create
 
     # circle-idのシーケンスを更新
-    ActiveRecord::Base.connection.execute("SELECT setval('circles_id_seq', (SELECT MAX(id) FROM circles));")
+    # ActiveRecord::Base.connection.execute("SELECT setval('circles_id_seq', (SELECT MAX(id) FROM circles));")
 
     @circle = Circle.new(circle_params)
     if @circle.save
@@ -27,7 +27,10 @@ class CirclesController < ApplicationController
     @categories = @circle.categories
 
     @be_member = @members.include?(current_user)
-    @entrying  = @circle.entrying_users.include?(current_user)
+
+    if @entrying = @circle.entrying_users.include?(current_user)
+      @entry = @circle.entries.find_by(user_id: current_user.id)
+    end
   end
 
   def edit

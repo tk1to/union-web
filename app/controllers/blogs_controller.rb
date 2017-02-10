@@ -35,9 +35,9 @@ class BlogsController < ApplicationController
   end
 
   def destroy
-    @blog = Blog.find(params[:id])
-    @circle = @blog.circle
-    @blog.destroy
+    blog = Blog.find(params[:id])
+    @circle = blog.circle
+    blog.destroy
     flash[:success] = "削除完了"
     redirect_to @circle
   end
