@@ -1,18 +1,18 @@
 <h1><%= @circle.name %></h1>
 <p><%= @circle.description %></p>
 
-<p>カテゴリー</p>
-
-<% if @categories.any? %>
-<p>
-  <% @categories.each do |category| %>
-    <span><%= category.name %> | </span>
-  <% end %>
-</p>
-<% end %>
-
 <% if @be_member %>
   <%= link_to "編集", edit_circle_path(@circle) %>
+<% end %>
+
+<h2>カテゴリー</h2>
+
+<% if @categories.any? %>
+  <p>
+    <% @categories.each do |category| %>
+      <span><%= category.name %> | </span>
+    <% end %>
+  </p>
 <% end %>
 
 <% if !@be_member %>
