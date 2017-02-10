@@ -9,7 +9,7 @@
 # coding: utf-8
 
 User.create(
-  id: 1,
+  # id: 1,
   name:  "てすと太郎",
   email: "taro@test.com",
   password:              "rails",
@@ -18,7 +18,7 @@ User.create(
   activated_at: Time.zone.now,
 )
 User.create(
-  id: 2,
+  # id: 2,
   name: "てすと次郎",
   email: "jiro@test.com",
   password:              "rails",
@@ -28,7 +28,7 @@ User.create(
 )
 
 Circle.create(
-  id: 1,
+  # id: 1,
   name: "太郎の部屋",
   description: "サークルの説明文が入る場所",
 )
@@ -37,7 +37,7 @@ Membership.create(
   circle_id: 1,
 )
 Circle.create(
-  id: 2,
+  # id: 2,
   name: "次郎の部屋",
   description: "次郎のサークル",
 )
@@ -75,4 +75,9 @@ CircleCategory.create(
 CircleCategory.create(
   circle_id: 2,
   category_id: 2
+)
+
+Entry.create(
+  user_id: 2,
+  circle_id: 1
 )
