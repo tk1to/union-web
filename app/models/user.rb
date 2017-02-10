@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   has_many :blogs
   has_many :contacts, foreign_key: "send_user_id"
 
-  has_many :entrying_circles, through: :entries
+  has_many :entrying_circles, through: :entries, source: :circle
   has_many :entries
 
   #フォロー関連

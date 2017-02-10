@@ -15,11 +15,25 @@
   </p>
 <% end %>
 
-<% if !@be_member %>
-  <%= link_to "お問い合わせ", [:new, @circle, :contact] %>
-<% else %>
-  <%= link_to "お問い合わせ一覧", [@circle, :contacts] %>
-<% end %>
+<p>
+  <% if @be_member %>
+    <%= link_to "お問い合わせ一覧", [@circle, :contacts] %>
+  <% else %>
+    <%= link_to "お問い合わせ", [:new, @circle, :contact] %>
+  <% end %>
+</p>
+<p>
+  <% if @be_member %>
+    <%= link_to "メンバー申請一覧", [@circle, :entries] %>
+  <% else %>
+    <% if !@entrying %>
+      <%= link_to "メンバー申請", [@circle, :entries], method: :post %>
+    <% else %>
+      <%= link_to "メンバー申請キャンセル", [@circle, :entries], method: "delete" %>
+    <% end %>
+  <% end %>
+</p>
+
 
 <% if @members.any? %>
   <div class="members_wrap">
@@ -66,6 +80,3 @@
   <% end %>
 </div>
 
-<% if !@be_member %>
-  <p>メンバー申請</p>
-<% end %>

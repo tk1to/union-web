@@ -27,6 +27,7 @@ class CirclesController < ApplicationController
     @categories = @circle.categories
 
     @be_member = @members.include?(current_user)
+    @entrying  = @circle.entrying_users.include?(current_user)
   end
 
   def edit

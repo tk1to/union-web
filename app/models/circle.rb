@@ -10,6 +10,6 @@ class Circle < ActiveRecord::Base
   has_many :categories, through: :circle_categories
   has_many :circle_categories
 
-  has_many :entrying_users, through: :entries
+  has_many :entrying_users, through: :entries, source: :user
   has_many :entries
 end
