@@ -58,4 +58,21 @@ Event.create(
   circle_id: 2,
 )
 
+Category.create(
+  name: "ボランティア"
+)
+Category.create(
+  name: "海外交流"
+)
+Category.create(
+  name: "フットサル"
+)
 
+CircleCategory.create(
+  circle_id: 1,
+  category_id: 1
+)
+CircleCategory.create(
+  circle_id: 2,
+  category_id: 2
+)
