@@ -65,6 +65,10 @@ class CirclesController < ApplicationController
   def destroy
   end
 
+  def favorited
+    @circle = Circle.find(params[:id])
+  end
+
   def search
     @search_params = Circle.new
     @category_options = Category.all

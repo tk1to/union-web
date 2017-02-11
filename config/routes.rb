@@ -27,6 +27,9 @@ Rails.application.routes.draw do
         post :accept
       end
     end
+    member do
+      get :favorited
+    end
     collection do
       get :search
     end

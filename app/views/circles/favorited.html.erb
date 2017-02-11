@@ -1,0 +1,8 @@
+<% if @circle.favorites.any? %>
+  <ul>
+    <% @circle.favorited_users.each do |user| %>
+      <%= link_to user.name, user %>
+    <% end %>
+  </ul>
+<% end %>
+<p><%= link_to "サークルへ戻る", @circle %></p>

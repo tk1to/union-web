@@ -33,6 +33,12 @@
     <% end %>
   <% end %>
 </p>
+<% if @be_member %>
+<p>
+  <%= link_to "気になる一覧", [:favorited, @circle] %>
+</p>
+<% end %>
+
 
 <% if !@be_member %>
   <% if @favoriting %>
