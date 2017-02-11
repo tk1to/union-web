@@ -12,4 +12,7 @@ class Circle < ActiveRecord::Base
 
   has_many :entrying_users, through: :entries, source: :user
   has_many :entries
+
+  has_many :favorited_users, through: :favorites, source: :user
+  has_many :favorites
 end

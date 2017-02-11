@@ -26,6 +26,9 @@ class User < ActiveRecord::Base
   has_many :entrying_circles, through: :entries, source: :circle
   has_many :entries
 
+  has_many :favoriting_circles, through: :favorites, source: :circle
+  has_many :favorites
+
   #フォロー関連
   has_many :active_relationships,  class_name:  "Relationship",
                                    foreign_key: "follower_id",
