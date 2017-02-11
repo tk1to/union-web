@@ -34,6 +34,14 @@
   <% end %>
 </p>
 
+<% if !@be_member %>
+  <% if @favoriting %>
+    <p><%= link_to "気になる解除", [@circle, @favorite], method: :delete %></p>
+  <% else %>
+    <p><%= link_to "気になる", [@circle, :favorites], method: :post %></p>
+  <% end %>
+<% end %>
+
 
 <% if @members.any? %>
   <div class="members_wrap">

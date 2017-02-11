@@ -53,6 +53,9 @@ class UsersController < ApplicationController
     @users = @user.followers
     render 'follow'
   end
+  def favorites
+    @user = User.find(params[:id])
+  end
 
   private
     def user_params

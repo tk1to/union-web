@@ -45,17 +45,13 @@ Category.create(name: "読書")
 
 Circle.create(name: "太郎の部屋",description: "サークルの説明文が入る場所")
 Circle.create(name: "次郎の部屋",description: "次郎のサークル")
-for i in 3..10 do
+for i in 1..10 do
   Circle.create(name: "#{i}番目の部屋")
   CircleCategory.create(circle_id: i, category_id: rand(3)+1)
 end
 
-CircleCategory.create(
-  circle_id: 1,
-  category_id: 1
-)
-
-
+Membership.create(circle_id: 1, member_id: 1)
+Membership.create(circle_id: 2, member_id: 2)
 
 
 

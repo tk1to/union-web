@@ -1,0 +1,9 @@
+<h1>気になる</h1>
+
+<% if @user.favorites.any? %>
+  <ul>
+    <% @user.favoriting_circles.each do |circle| %>
+      <li><%= link_to circle.name, circle %></li>
+    <% end %>
+  </ul>
+<% end %>

@@ -27,6 +27,8 @@
       <% end %>
     </div>
   <% end %>
+
+  <p><%= link_to @user.favorites.count.to_s+"気になる", [:favorites, @user] %></p>
 </div>
 
 <div class="profile">

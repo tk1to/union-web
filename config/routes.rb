@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :users do
     member do
       get :following, :followers
+      get :favorites
     end
   end
   resources :relationships, only: [:create, :destroy]
@@ -20,7 +21,7 @@ Rails.application.routes.draw do
     resources :blogs
     resources :events
     resources :contacts
-    resources :favorites, only: [:index, :create, :destroy]
+    resources :favorites, only: [:create, :destroy]
     resources :entries, only: [:index, :create, :destroy] do
       member do
         post :accept
