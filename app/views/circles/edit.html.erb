@@ -7,7 +7,7 @@
   <!-- 整列のためのpタグ -->
   <p>
   <% @category_ids.each_with_index do |id, i| %>
-    <%= select :categories, ("category_"+(i+1).to_s).to_sym, @category_options.map{|t| [t.name, t.id.to_i]}, selected: id, include_blank: true %>
+    <%= select :categories, ("category_"+(i+1).to_s).to_sym, @category_options.map{|t| [t.name, t.id]}, selected: id, include_blank: true %>
   <% end %>
   </p>
 

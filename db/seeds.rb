@@ -35,49 +35,32 @@ User.create(
   activated: true,
   activated_at: Time.zone.now,
 )
+Blog.create(title: "太郎のブログ",circle_id: 1, author_id: 1,
+            content: "あああああああああああ、いいいいいいいいい、ううううううううううう")
+Event.create(title: "勉強会",circle_id: 2,content: "なんでも勉強会です。")
+Category.create(name: "ボランティア")
+Category.create(name: "海外交流")
+Category.create(name: "フットサル")
+Category.create(name: "読書")
 
-Circle.create(
-  # id: 1,
-  name: "太郎の部屋",
-  description: "サークルの説明文が入る場所",
-)
-Membership.create(
-  member_id: 1,
-  circle_id: 1,
-)
-Circle.create(
-  # id: 2,
-  name: "次郎の部屋",
-  description: "次郎のサークル",
-)
-Membership.create(
-  member_id: 2,
-  circle_id: 2,
-)
-
-Blog.create(
-  title: "太郎のブログ",
-  content: "あああああああああああ、いいいいいいいいい、ううううううううううう",
-  circle_id: 1,
-  author_id: 1,
-)
-Event.create(
-  title: "勉強会",
-  content: "なんでも勉強会です。",
-  circle_id: 2,
-)
-
-Category.create(
-  name: "ボランティア"
-)
-Category.create(
-  name: "海外交流"
-)
-Category.create(
-  name: "フットサル"
-)
+Circle.create(name: "太郎の部屋",description: "サークルの説明文が入る場所")
+Circle.create(name: "次郎の部屋",description: "次郎のサークル")
+for i in 3..10 do
+  Circle.create(name: "#{i}番目の部屋")
+  CircleCategory.create(circle_id: i, category_id: rand(3)+1)
+end
 
 CircleCategory.create(
   circle_id: 1,
   category_id: 1
 )
+
+
+
+
+
+
+
+
+
+

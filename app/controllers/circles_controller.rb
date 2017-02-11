@@ -60,10 +60,11 @@ class CirclesController < ApplicationController
 
   def search
     @search_params = Circle.new
-    if params[:circle].nil?
-      @circles = Circle.all
-    else
-      @circles = Circle.where(Circle.arel_table[:name].matches("%#{ params[:circle][:name] }%"))
+    @category_options = Category.all
+    @circles = Circle.all
+    if !params[:circle].nil?
+      @circles = @circles.joins(:categories).where(categories: {id: params[:circle][:categories]}) if params[:circle][:categories].present?
+      @circles = @circles.where(Circle.arel_table[:name].matches("%#{ params[:circle][:name] }%"))
     end
   end
 
