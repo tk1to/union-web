@@ -81,12 +81,3 @@ CircleCategory.create(
   circle_id: 1,
   category_id: 1
 )
-CircleCategory.create(
-  circle_id: 2,
-  category_id: 2
-)
-
-Entry.create(
-  user_id: 2,
-  circle_id: 1
-)

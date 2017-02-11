@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170210143247) do
+ActiveRecord::Schema.define(version: 20170211085525) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,7 +39,6 @@ ActiveRecord::Schema.define(version: 20170210143247) do
   end
 
   add_index "circle_categories", ["category_id"], name: "index_circle_categories_on_category_id", using: :btree
-  add_index "circle_categories", ["circle_id", "category_id"], name: "index_circle_categories_on_circle_id_and_category_id", unique: true, using: :btree
   add_index "circle_categories", ["circle_id"], name: "index_circle_categories_on_circle_id", using: :btree
 
   create_table "circles", force: :cascade do |t|
