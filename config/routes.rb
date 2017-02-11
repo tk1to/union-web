@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
 
   resources :users do
+    resources :favorites, only: [:index, :create, :destroy]
     member do
       get :following, :followers
     end
