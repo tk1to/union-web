@@ -8,7 +8,7 @@
   <%= image_tag "foot.png" , class: "header__foot" %>
 </header>
 
-  <% if @be_member %>
+<!--   <% if @be_member %>
     <%= link_to "編集", edit_circle_path(@circle) %>
   <% end %>
 
@@ -51,18 +51,23 @@
       <% end %>
     </ul>
   </div>
-<% end %>
+<% end %> -->
 
-<div class="blog_wrap">
-  <h2>ブログ一覧(<%= @blogs.count %>)</h2>
+<div class="frame">
+  <h2 class="frame__heading">ブログ一覧(<%= @blogs.count %>)</h2>
   <% if @blogs.any? %>
-    <ul>
+  <ul class="frame__list">
       <% @blogs.each do |blog| %>
-        <li><%= link_to blog.title, [@circle, blog] %></li>
+        <li class="media">
+          <div class="media__image"></div>
+          <%= link_to blog.title, [@circle, blog] , class: "media__heading"%>
+          <p class="media__text">ここにテキストが入ります</p>
+          <span class="media__time">日付</span>
+        </li>
       <% end %>
-    </ul>
+  </ul>
   <% else %>
-    <p>ブログがありません。</p>
+    <p class="media media_no">ブログがありません。</p>
   <% end %>
 
   <% if @be_member %>
@@ -70,20 +75,26 @@
   <% end %>
 </div>
 
-<div class="event_wrap">
-  <h2>イベント一覧(<%= @events.count %>)</h2>
+<div class="frame">
+  <h2 class="frame__heading">イベント一覧(<%= @events.count %>)</h2>
   <% if @events.any? %>
-    <ul>
+    <ul class="frame__list">
       <% @events.each do |event| %>
-        <li><%= link_to event.title, [@circle, event] %></li>
+        <li class="media">
+          <div class="media__image"></div>
+          <%= link_to event.title, [@circle, event] , class: "media__heading"%></li>
+          <p class="media__text">ここにテキストが入ります</p>
+          <span class="media__time"></span>
       <% end %>
     </ul>
   <% else %>
-    <p>イベントがありません。</p>
+    <p class="media media_no">イベントがありません。</p>
   <% end %>
 
   <% if @be_member %>
     <%= link_to "イベントを作成", [:new, @circle, :event] %>
   <% end %>
 </div>
+
+
 
