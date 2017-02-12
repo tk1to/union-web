@@ -16,6 +16,8 @@
 		border-radius: 3px;
 		line-height: 2.5rem;
 		margin: 1rem;
+		font-size: 0.8rem;
+		box-shadow:0 1px 0 0 $gray;
 	}
 	&_size_large{
 		width: 15rem;
@@ -23,13 +25,15 @@
 		border-radius: 3px;
 		line-height: 3rem;
 		margin: 1rem;
+		box-shadow:0 1px 0 0 $gray;
 	}
 	&_color_white{
+		background: #ECEFF1;
 		border: 1px solid #00ACC1;
-		color: gray;
+		color: $d-blue;
 	}
 	&_color_blue{
-		background: #00ACC1;
+		background: $d-blue;
 		color: #fff;
 	}
 }
