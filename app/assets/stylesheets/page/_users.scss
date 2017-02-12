@@ -1,0 +1,37 @@
+.test{
+  width: 80%;
+  height: 6%;
+  margin: 1rem auto;
+  border-radius: 5px;
+  border: 1px solid #00ACC1;
+  &__ul{
+    list-style: none;
+  }
+}
+
+.user__body{
+  width: 100%;
+  margin: 2rem auto;
+}
+.introduce{
+  position: relative;
+  margin: 0 1.5rem 5rem;
+    &__heading{
+      color: #405158;
+      font-weight: normal;
+      font-size: 0.8rem;
+    }
+    &__text{
+      width: 75%;
+      word-wrap: break-word;
+      font-size: 0.6rem;
+    }
+    &__btn{
+      position: absolute;
+      top: 0;
+      right: 0;
+  }
+}
+.create_circle_btn{
+
+}
