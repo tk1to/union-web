@@ -1,0 +1,35 @@
+.buttun{
+	display:inline-block;
+	text-align:center;
+	text-decoration: none;
+	&_size_small{
+		width: 3rem;
+	    height: 1.5rem;
+	    border-radius: 3px;
+	    font-size: 0.6rem;
+	    margin:auto;
+	    line-height: 1.5rem;
+	}
+	&_size_medium{
+		width: 7rem;
+		height: 2.5rem;
+		border-radius: 3px;
+		line-height: 2.5rem;
+		margin: 1rem;
+	}
+	&_size_large{
+		width: 15rem;
+		height: 3rem;
+		border-radius: 3px;
+		line-height: 3rem;
+		margin: 1rem;
+	}
+	&_color_white{
+		border: 1px solid #00ACC1;
+		color: gray;
+	}
+	&_color_blue{
+		background: #00ACC1;
+		color: #fff;
+	}
+}
