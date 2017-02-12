@@ -1,13 +1,14 @@
 .members{
   width: 90%;
-  margin: 2rem auto 0;
+  height: 3rem;
+  margin: 1rem auto;
   &__heading {
     width: 95%;
     display: block;
     margin: 0 auto;
-    font-size: 0.5rem;
+    font-size: 0.8rem;
     font-weight: normal;
-    color: gray;
+    color: $gray;
   }
   &__list{
     display: table-cell;
@@ -40,6 +41,13 @@
   }
   &__list{
     list-style: none;
+  }
+  &__more{
+    float: right;
+    font-size: 0.5rem;
+    color: gray;
+    text-decoration: none;
+    padding-top:0.2rem;
   }
   .media{
     position: relative;
@@ -101,4 +109,7 @@
   color: gray;
   text-align: center;
   line-height: 3rem;
+}
+.ta_center{
+  text-align: center;
 }
