@@ -54,12 +54,19 @@
     border-radius: 50%;
     background: #fff;
   }
-  &__subhead{
+  &__subhead_user{
     position: absolute;
     top: 75%;
     left: 30%;
     font-size: 0.8rem;
     color: gray;
+  }
+  &__subhead_circle{
+    font-size: 0.8rem;
+    color: gray;
+    margin: 1.5rem auto;
+    text-align: center;
+    font-size: 0.5rem;
   }
   &__menu_humberger{
     position:absolute;
