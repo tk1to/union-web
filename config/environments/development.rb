@@ -21,7 +21,7 @@ Rails.application.configure do
     port:                 587,
     address:              'smtp.gmail.com',
     domain:               'smtp.gmail.com',
-    user_name:            'uion.development@gmail.com',
+    user_name:            'union.web.fr@gmail.com',
     password:             'union188',
     authentication:       'login',
     enable_starttls_auto: true
