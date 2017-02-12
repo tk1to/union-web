@@ -1,6 +1,7 @@
 <header class="header">
   <h1 class="header__name_circle"><%= @circle.name %></h1>
-  <p><%= @circle.description %></p>
+  <% if @categories.any? %>
+  <% end %>
   <div class="header__background"></div>
   <div class="header__photo_circle"></div>
   <div class="header__change"></div>
@@ -8,25 +9,35 @@
   <%= image_tag "foot.png" , class: "header__foot" %>
 </header>
 
-<!--   <% if @be_member %>
+<% if @be_member %>
     <%= link_to "編集", edit_circle_path(@circle) %>
   <% end %>
-
-  <h2>カテゴリー</h2>
-
+  <!-- カテゴリー -->
   <% if @categories.any? %>
     <p>
       <% @categories.each do |category| %>
-        <span><%= category.name %> | </span>
+        <div class="header__subhead_circle"><%= category.name %> | </div>
       <% end %>
     </p>
   <% end %>
+
+<% if @members.any? %>
+  <div class="members_wrap">
+    <h2>メンバー(<%= @members.count %>)</h2>
+    <ul>
+      <% @members.each do |member| %>
+        <li><%= link_to member.name, member %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
 <p>
   <% if @be_member %>
     <%= link_to "お問い合わせ一覧", [@circle, :contacts] %>
   <% else %>
-    <%= link_to "お問い合わせ", [:new, @circle, :contact] %>
+    <%= link_to "お問い合わせ", [:new, @circle, :contact] , class: "buttun buttun_size_medium buttun_color_white"%>
+    <div class="buttun buttun_size_medium buttun_color_white">気になる</div>
   <% end %>
 </p>
 <p>
@@ -34,7 +45,7 @@
     <%= link_to "メンバー申請一覧", [@circle, :entries] %>
   <% else %>
     <% if !@entrying %>
-      <%= link_to "メンバー申請", [@circle, :entries], method: :post %>
+      <%= link_to "メンバー申請", [@circle, :entries], method: :post , class: "buttun buttun_size_large buttun_color_blue"%>
     <% else %>
       <%= link_to "メンバー申請キャンセル", [@circle, @entry], method: :delete %>
     <% end %>
@@ -42,16 +53,14 @@
 </p>
 
 
-<% if @members.any? %>
-  <div class="members_wrap">
-    <h2>団体員(<%= @members.count %>)</h2>
-    <ul>
-      <% @members.each do |member| %>
-        <li><%= link_to member.name, member %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %> -->
+<% if @be_member %>
+    <%= link_to "ブログを作成", [:new, @circle, :blog] , class: "buttun buttun_size_medium buttun_color_blue"%>
+<% end %>
+<% if @be_member %>
+    <%= link_to "イベントを作成", [:new, @circle, :event] , class: "buttun buttun_size_medium buttun_color_blue"%>
+<% end %>
+
+<p><%= @circle.description %></p>
 
 <div class="frame">
   <h2 class="frame__heading">ブログ一覧(<%= @blogs.count %>)</h2>
@@ -69,30 +78,23 @@
   <% else %>
     <p class="media media_no">ブログがありません。</p>
   <% end %>
-
-  <% if @be_member %>
-    <%= link_to "ブログを作成", [:new, @circle, :blog] %>
-  <% end %>
 </div>
 
 <div class="frame">
   <h2 class="frame__heading">イベント一覧(<%= @events.count %>)</h2>
   <% if @events.any? %>
-    <ul class="frame__list">
+  <ul class="frame__list">
       <% @events.each do |event| %>
         <li class="media">
           <div class="media__image"></div>
-          <%= link_to event.title, [@circle, event] , class: "media__heading"%></li>
+          <%= link_to event.title, [@circle, event] , class: "media__heading"%>
           <p class="media__text">ここにテキストが入ります</p>
-          <span class="media__time"></span>
+          <span class="media__time">日付</span>
+        </li>
       <% end %>
-    </ul>
+  </ul>
   <% else %>
     <p class="media media_no">イベントがありません。</p>
-  <% end %>
-
-  <% if @be_member %>
-    <%= link_to "イベントを作成", [:new, @circle, :event] %>
   <% end %>
 </div>
 
