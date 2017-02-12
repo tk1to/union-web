@@ -1,19 +1,26 @@
-<h1><%= @circle.name %></h1>
-<p><%= @circle.description %></p>
+<header class="header">
+  <h1 class="header__name_circle"><%= @circle.name %></h1>
+  <p><%= @circle.description %></p>
+  <div class="header__background"></div>
+  <div class="header__photo_circle"></div>
+  <div class="header__change"></div>
+  <%= image_tag "menu.svg" , class: "header__menu_humberger" %>
+  <%= image_tag "foot.png" , class: "header__foot" %>
+</header>
 
-<% if @be_member %>
-  <%= link_to "編集", edit_circle_path(@circle) %>
-<% end %>
+  <% if @be_member %>
+    <%= link_to "編集", edit_circle_path(@circle) %>
+  <% end %>
 
-<h2>カテゴリー</h2>
+  <h2>カテゴリー</h2>
 
-<% if @categories.any? %>
-  <p>
-    <% @categories.each do |category| %>
-      <span><%= category.name %> | </span>
-    <% end %>
-  </p>
-<% end %>
+  <% if @categories.any? %>
+    <p>
+      <% @categories.each do |category| %>
+        <span><%= category.name %> | </span>
+      <% end %>
+    </p>
+  <% end %>
 
 <p>
   <% if @be_member %>
