@@ -15,7 +15,7 @@
 		height: 2.5rem;
 		border-radius: 3px;
 		line-height: 2.5rem;
-		margin: 1rem;
+		margin: 0.3rem;
 		font-size: 0.8rem;
 		box-shadow:0 1px 0 0 $gray;
 	}
@@ -24,16 +24,22 @@
 		height: 3rem;
 		border-radius: 3px;
 		line-height: 3rem;
-		margin: 1rem;
+		margin: 0.5rem auto;
 		box-shadow:0 1px 0 0 $gray;
 	}
 	&_color_white{
-		background: #ECEFF1;
+		background: #fff;
 		border: 1px solid #00ACC1;
 		color: $d-blue;
 	}
 	&_color_blue{
 		background: $d-blue;
+		border: 1px solid gray;
 		color: #fff;
+	}
+	&_color_gray{
+		background: #ECEFF1;
+		border: 1px solid #00ACC1;
+		color: $d-blue;
 	}
 }
