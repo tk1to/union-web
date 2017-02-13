@@ -7,6 +7,15 @@
   <%= link_to "新規サークル登録", new_circle_path, class: "create_circle_btn"%><% end %>
   <%= image_tag "menu.svg" , class: "header__menu_humberger" %>
   <%= image_tag "foot.png" , class: "header__foot" %>
+  <% if !current_user?(@user) %>
+    <div id="follow_form" class="buttun buttun_follow butttun_color_white">
+      <% if !current_user.following?(@user) %>
+        <%= render 'follow' %>
+      <% else %>
+        <%= render 'unfollow' %>
+      <% end %>
+    </div>
+  <% end %>
 </header>
 
 <!-- cssまだ -->
@@ -26,15 +35,6 @@
   <p>
     <a href="">お気に入り</a>
   </p>
-  <% if !current_user?(@user) %>
-    <div id="follow_form">
-      <% if !current_user.following?(@user) %>
-        <%= render 'follow' %>
-      <% else %>
-        <%= render 'unfollow' %>
-      <% end %>
-    </div>
-  <% end %>
 </div>
 <!-- cssまだ -->
 
