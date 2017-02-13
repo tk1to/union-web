@@ -1,9 +1,9 @@
 <nav class="nav">
-  <ul>
-    <li><%= link_to image_tag('top.svg'), root_path %></li>
-    <li><%= link_to_if(logged_in?, image_tag('search.svg'), [:search, :circles]) %></li>
-    <li><%= link_to_if(logged_in?, image_tag('message.svg') ) %></li>
-    <li><%= link_to_if(logged_in?, image_tag('notice.svg') ) %></li>
-    <li><%= link_to_if(logged_in?, image_tag('mypage.svg'), current_user) %></li>
+  <ul class="nav__list">
+    <li class="nav__item"><%= link_to image_tag('top.svg'), root_path %></li>
+    <li class="nav__item"><%= link_to_if(logged_in?, image_tag('search.svg'), [:search, :circles]) %></li>
+    <li class="nav__item"><%= link_to_if(logged_in?, image_tag('message.svg') ) %></li>
+    <li class="nav__item"><%= link_to_if(logged_in?, image_tag('notice.svg') ) %></li>
+    <li class="nav__item"><%= link_to_if(logged_in?, image_tag('mypage.svg'), current_user) %></li>
   </ul>
 </nav>

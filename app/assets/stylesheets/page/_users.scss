@@ -1,0 +1,58 @@
+.follow{
+  width: 90%;
+  height: 2.5rem;
+  margin: 0 auto;
+  border: 1px solid $d-blue;
+  border-radius: 3px;
+  line-height: 2.5rem;
+  &__wrap{
+    width:100%;
+    display:flex;
+    justify-content: center;
+    padding:0;
+    list-style: none;
+  }
+  &__list{
+    margin: 0 3%;
+    padding: 0 1.5% ;
+  }
+  &__link{
+    text-decoration: none;
+    color: gray;
+    font-size: 0.5rem;
+  }
+  &__number{
+    display: inline-block;
+    color: black;
+    font-weight: 600;
+    text-align: center;
+  }
+}
+
+.user__body{
+  width: 100%;
+  margin: 2rem auto;
+}
+.introduce{
+  position: relative;
+  margin: 0 1.5rem 5rem;
+    &__heading{
+      color: #405158;
+      font-weight: normal;
+      font-size: 0.8rem;
+      padding-top:0.5rem;
+    }
+    &__text{
+      word-wrap: break-word;
+      font-size: 0.6rem;
+      padding-top:0.5rem;
+    }
+    &__btn{
+      position: absolute;
+      top: 0;
+      right: 0;
+  }
+}
+.create_circle_btn{
+
+}

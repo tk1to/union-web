@@ -1,32 +1,58 @@
+<header class="header">
+  <div class="header__background">特集</div>
+</header>
 <% if !logged_in? %>
   <%= link_to 'what\'s union?', signups_path %>
 <% else %>
   <p><%= link_to "ログアウト", logout_path, method: :delete %></p>
 <% end %>
 
-<h1>サークル一覧</h1>
+<div class="frame">
+  <h1 class="frame__heading frame__heading_underline">サークル一覧</h1>
 <% if @circles.any? %>
-  <ul>
+  <ul class="frame__list ta_center">
     <% @circles.each do |circle| %>
-      <li><%= link_to circle.name, circle %></li>
+      <%= link_to circle do %>
+        <li class="circle">
+          <div class="circle__background"></div>
+          <div class="circle__image"></div>
+          <%= link_to circle.name, circle , class: "circle__name"%>
+          <p class="circle__genre">カテゴリ</p>
+        </li>
+      <% end %>
     <% end %>
   </ul>
 <% end %>
+</div>
 
-<h1>ブログ一覧</h1>
+<div class="frame">
+  <h1 class="frame__heading">ブログ一覧</h1>
 <% if @blogs.any? %>
-  <ul>
+  <ul class="frame__list">
     <% @blogs.each do |blog| %>
-      <li><%= link_to blog.title, [blog.circle, blog] %></li>
+      <li class="article">
+        <div class="article__image"></div>
+        <%= link_to blog.title, [blog.circle, blog] , class: "article__heading" %>
+        <p class="article__text">ここにテキストが入ります</p>
+        <span class="article__time">日付</span>
+      </li>
     <% end %>
   </ul>
 <% end %>
+</div>
 
-<h1>イベント一覧</h1>
+<div class="frame">
+  <h1 class="frame__heading">イベント一覧</h1>
 <% if @events.any? %>
-  <ul>
+  <ul class="frame__list">
     <% @events.each do |event| %>
-      <li><%= link_to event.title, [event.circle, event] %></li>
+      <li class="article">
+        <div class="article__image"></div>
+        <%= link_to event.title, [event.circle, event] , class: "article__heading" %>
+        <p class="article__text">ここにテキストが入ります</p>
+        <span class="article__time">日付</span>
+      </li>
     <% end %>
   </ul>
 <% end %>
+</div>

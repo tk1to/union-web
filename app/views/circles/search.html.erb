@@ -12,8 +12,13 @@
 <% if @circles.any? %>
   <% @circles.each do |circle| %>
     <%= link_to circle do %>
-      <div style="height: 100px; border: 1px solid #000;">
-        <%= circle.name %>
+      <div class="feed">
+      	<div class="feed__background"></div>
+      	<h1 class="feed__heading">見出し</h1>
+      	<p class="feed__subhead">小見出し</p>
+      	<div class="feed__image"></div>
+        <h1 class="feed__name"><%= circle.name %></h1>
+        <p class="feed__category">カテゴリ</p>
       </div>
     <% end %>
   <% end %>

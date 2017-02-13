@@ -1,7 +1,22 @@
-<header class="user_header">
-  <h2><%= @user.name %></h2>
+<header class="header">
+  <div class="header__background"></div>
+  <div class="header__photo_user"></div>
+  <h1 class="header__name_user"><%= @user.name %></h1>
+  <p class="header__subhead_user"><%= %>meiji univ. tokyo</p>
   <% if current_user?(@user) %>
-    <%= link_to "+", new_circle_path, class: "create_circle_btn"%>
+  <%= link_to "新規サークル登録", new_circle_path, class: "create_circle_btn"%><% end %>
+  <%= image_tag "menu.svg" , class: "header__menu_humberger" %>
+  <%= image_tag "foot.png" , class: "header__foot" %>
+  <% if !current_user?(@user) %>
+    <div class="buttun buttun_follow butttun_color_white">
+      <div id="follow_form">
+        <% if !current_user.following?(@user) %>
+          <%= render 'follow' %>
+        <% else %>
+          <%= render 'unfollow' %>
+        <% end %>
+      </div>
+    </div>
   <% end %>
 
   <%= form_for(@user, html: { multipart: true }) do |f| %>
@@ -32,7 +47,12 @@
           "
       %>
     </div>
-    <%= f.submit "更新" %>
+    <%= f.submit "更新",
+      style: "
+        position: absolute;
+        z-index: 9999;
+        "
+      %>
   <% end %>
 </header>
 <script type="text/javascript">
@@ -44,55 +64,54 @@
   });
 </script>
 
-<div class="follow" style="border: 1px solid #000;">
-  <p>
-    <%= link_to [:following, @user] do %>
-      <span id="following_count"><%= @user.following.count %></span>
-      フォロー
-    <% end %>
-  </p>
-  <p>
-    <%= link_to [:followers, @user] do %>
-      <span id="followers_count"><%= @user.followers.count %></span>
-      フォロワー
-    <% end %>
-  </p>
-  <% if !current_user?(@user) %>
-    <div id="follow_form">
-      <% if !current_user.following?(@user) %>
-        <%= render 'follow' %>
-      <% else %>
-        <%= render 'unfollow' %>
+<div class="follow">
+  <ul class="follow__wrap">
+    <li class="follow__list">
+      <%= link_to [:following, @user] , class: "follow__link" do %>
+        <span id="following_count" class="follow__number" ><%= @user.following.count %></span>フォロー
       <% end %>
+    </li>
+    <li class="follow__list">
+      <%= link_to [:followers, @user] , class: "follow__link" do %>
+      <span id="followers_count" class="follow__number" >
+      <%= @user.followers.count %></span>フォロワー
+      <% end %>
+    </li>
+    <li class="follow__list">
+      <%= link_to @user.favorites.count.to_s+" お気に入り", [:favorites, @user],calss: "follow__link" %>
+    </li>
+  </ul>
+</div>
+
+<section class="user__body">
+  <div class="introduce">
+    <h1 class="introduce__heading">自己紹介</h1>
+    <p class="introduce__text"><%= @user.introduce %></p>
+    <% if current_user?(@user) %>
+    <div class="introduce__btn">
+      <%= link_to '編集', edit_user_path(current_user, edit_item: "introduce"), class: "buttun buttun_size_small buttun_color_white" %>
     </div>
-  <% end %>
-
-  <p><%= link_to @user.favorites.count.to_s+"気になる", [:favorites, @user] %></p>
-</div>
-
-<div class="profile">
-  <div class="profile-content">
-    <h3>自己紹介</h3>
-    <div><%= @user.introduce %></div>
-    <% if current_user?(@user) %>
-      <%= link_to '編集', edit_user_path(current_user, edit_item: "introduce"), class: "edit-btn" %>
     <% end %>
   </div>
 
-  <div class="profile-content">
-    <h3>やりたいこと</h3>
-    <div><%= @user.want_to_do %></div>
+  <div class="introduce">
+    <h1 class="introduce__heading">やりたいこと</h1>
+    <p class="introduce__text"><%= @user.want_to_do %></p>
     <% if current_user?(@user) %>
-      <%= link_to '編集', edit_user_path(current_user, edit_item: "want_to_do"), class: "edit-btn" %>
+    <div class="introduce__btn">
+      <%= link_to '編集', edit_user_path(current_user, edit_item: "want_to_do"), class: "buttun buttun_size_small buttun_color_white" %>
+    </div>
     <% end %>
   </div>
 
-  <div class="profile-content">
-    <h3>趣味</h3>
-    <div><%= @user.hobby %></div>
+  <div class="introduce">
+    <h1 class="introduce__heading">趣味</h1>
+    <p class="introduce__text"><%= @user.hobby %></p>
     <% if current_user?(@user) %>
-      <%= link_to '編集', edit_user_path(current_user, edit_item: "hobby"), class: "edit-btn" %>
+    <div class="introduce__btn">
+      <%= link_to '編集', edit_user_path(current_user, edit_item: "hobby"), class: "buttun buttun_size_small buttun_color_white" %>
+    </div>
     <% end %>
   </div>
 
-</div>
+</section>
