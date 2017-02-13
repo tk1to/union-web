@@ -16,7 +16,9 @@ class User < ActiveRecord::Base
   validates :want_to_do, length: { maximum: 500 }
   validates :hobby, length: { maximum: 500 }
 
+  # 画像関連
   mount_uploader :picture, PictureUploader
+  validate  :picture_size
 
 
   has_many :circles, through: :memberships
@@ -103,5 +105,11 @@ class User < ActiveRecord::Base
     def create_activation_digest
       self.activation_token  = User.new_token
       self.activation_digest = User.digest(activation_token)
+    end
+
+    def picture_size
+      if picture.size > 5.megabytes
+        errors.add(:picture, "should be less than 5MB")
+      end
     end
 end
