@@ -1,0 +1,39 @@
+.keyvisual{
+	position: relative;
+	width:100%;
+	height:30rem;
+	background:gray;
+	&__inner{
+		position: absolute;
+		top: 15rem;
+		width: 100%;
+		margin: 0 auto;
+		text-align: center;
+	}
+}
+.LP{
+	width:100%;
+	height:100%;
+	background:#fff;
+}
+.lp{
+	width:90%;
+	margin:2rem auto;
+	&__heading{
+		text-align:center;
+		font-size: 0.8rem;
+		margin-top: 2rem;
+		line-height: 1.2rem;
+	}
+	&__text{
+		font-size: 0.8rem;
+		margin-top: 1rem;
+	}
+	&__inner{
+		text-align: center;
+	}
+	&__end{
+		text-align: center;
+		font-size: 1.3rem;
+	}
+}
