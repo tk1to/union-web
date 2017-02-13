@@ -38,6 +38,10 @@
     font-weight: normal;
     color: $gray;
     margin: 0.5rem auto;
+    &_underline{
+      border-bottom: 2px solid $d-blue;
+      padding-bottom: 0.3rem;
+    }
   }
   &__list{
     list-style: none;
@@ -49,7 +53,7 @@
     text-decoration: none;
     padding-top:0.2rem;
   }
-  .media{
+  .article{
     position: relative;
     top: 0;
     left: 0;
@@ -105,7 +109,7 @@
     margin-top: 0.20rem;
   }
 }
-.media_no{
+.article_no{
   color: gray;
   text-align: center;
   line-height: 3rem;
