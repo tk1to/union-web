@@ -8,35 +8,36 @@
   <%= image_tag "menu.svg" , class: "header__menu_humberger" %>
   <%= image_tag "foot.png" , class: "header__foot" %>
   <% if !current_user?(@user) %>
-    <div id="follow_form" class="buttun buttun_follow butttun_color_white">
-      <% if !current_user.following?(@user) %>
-        <%= render 'follow' %>
-      <% else %>
-        <%= render 'unfollow' %>
-      <% end %>
+    <div class="buttun buttun_follow butttun_color_white">
+      <div id="follow_form">
+        <% if !current_user.following?(@user) %>
+          <%= render 'follow' %>
+        <% else %>
+          <%= render 'unfollow' %>
+        <% end %>
+      </div>
     </div>
   <% end %>
 </header>
 
-<!-- cssまだ -->
-<div class="follow" style="border: 1px solid #000;">
-  <p>
-    <%= link_to [:following, @user] do %>
-      <span id="following_count"><%= @user.following.count %></span>
-      フォロー
-    <% end %>
-  </p>
-  <p>
-    <%= link_to [:followers, @user] do %>
-      <span id="followers_count"><%= @user.followers.count %></span>
-      フォロワー
-    <% end %>
-  </p>
-  <p>
-    <a href="">お気に入り</a>
-  </p>
+<div class="follow">
+  <ul class="follow__wrap">
+    <li class="follow__list">
+      <%= link_to [:following, @user] , class: "follow__link" do %>
+      <span id="following_count" class="follow__number" ><%= @user.following.count %></span>フォロー
+      <% end %>
+    </li>
+    <li class="follow__list">
+      <%= link_to [:followers, @user] , class: "follow__link" do %>
+      <span id="followers_count" class="follow__number" >
+      <%= @user.followers.count %></span>フォロワー
+      <% end %>
+    </li>
+    <li class="follow__list">
+      <a class="follow__link" href=""><span></span>お気に入り</a>
+    </li>
+  </ul>
 </div>
-<!-- cssまだ -->
 
 <section class="user__body">
   <div class="introduce">
