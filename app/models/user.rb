@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
   validates :want_to_do, length: { maximum: 500 }
   validates :hobby, length: { maximum: 500 }
 
+  mount_uploader :picture, PictureUploader
+
 
   has_many :circles, through: :memberships
   has_many :memberships
