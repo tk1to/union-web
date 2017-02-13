@@ -71,38 +71,38 @@
 <div class="frame">
   <h2 class="frame__heading">ブログ一覧(<%= @blogs.count %>)</h2>
   <% if @blogs.any? %>
-  <ul class="frame__list">
+    <ul class="frame__list">
       <% @blogs.each do |blog| %>
-        <li class="media">
-          <div class="media__image"></div>
-          <%= link_to blog.title, [@circle, blog] , class: "media__heading"%>
-          <p class="media__text">ここにテキストが入ります</p>
-          <span class="media__time">日付</span>
+        <li class="article">
+          <div class="article__image"></div>
+          <%= link_to blog.title, [@circle, blog] , class: "article__heading"%>
+          <p class="article__text">ここにテキストが入ります</p>
+          <span class="article__time">日付</span>
         </li>
       <% end %>
-  </ul>
-  <a class="frame__more" href="">もっと見る>></a>
+    </ul>
+    <a class="frame__more" href="">もっと見る>></a>
   <% else %>
-    <p class="media media_no">ブログがありません。</p>
+    <p class="article article_no">ブログがありません。</p>
   <% end %>
 </div>
 
 <div class="frame">
   <h2 class="frame__heading">イベント一覧(<%= @events.count %>)</h2>
   <% if @events.any? %>
-  <ul class="frame__list">
+    <ul class="frame__list">
       <% @events.each do |event| %>
-        <li class="media">
-          <div class="media__image"></div>
-          <%= link_to event.title, [@circle, event] , class: "media__heading"%>
-          <p class="media__text">ここにテキストが入ります</p>
-          <span class="media__time">日付</span>
+        <li class="article">
+          <div class="article__image"></div>
+          <%= link_to event.title, [@circle, event] , class: "article__heading"%>
+          <p class="article__text">ここにテキストが入ります</p>
+          <span class="article__time">日付</span>
         </li>
       <% end %>
-  </ul>
-  <a class="frame__more" href="">もっと見る>></a>
+    </ul>
+    <a class="frame__more" href="">もっと見る>></a>
   <% else %>
-    <p class="media media_no">イベントがありません。</p>
+    <p class="article article_no">イベントがありません。</p>
   <% end %>
 </div>
 
