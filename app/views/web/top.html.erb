@@ -12,12 +12,14 @@
 <% if @circles.any? %>
   <ul class="frame__list ta_center">
     <% @circles.each do |circle| %>
-      <li class="circle">
-        <div class="circle__background"></div>
-        <div class="circle__image"></div>
-        <%= link_to circle.name, circle , class: "circle__name"%>
-        <p class="circle__genre">カテゴリ</p>
-      </li>
+      <%= link_to circle do %>
+        <li class="circle">
+          <div class="circle__background"></div>
+          <div class="circle__image"></div>
+          <%= link_to circle.name, circle , class: "circle__name"%>
+          <p class="circle__genre">カテゴリ</p>
+        </li>
+      <% end %>
     <% end %>
   </ul>
 <% end %>
