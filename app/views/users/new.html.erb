@@ -1,23 +1,25 @@
 <header>
-    <h1>新規登録</h1>
+    <h1 class="heading ta_center">新規アカウント登録</h1>
 </header>
 
 <div class="form">
   <%= form_for(@user) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
 
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.label :name , class: "form__item" %>
+    <%= f.text_field :name , class: "form__input" %>
 
-    <%= f.label :email %>
-    <%= f.email_field :email %>
+    <%= f.label :email , class: "form__item" %>
+    <%= f.email_field :email , class: "form__input" %>
 
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+    <%= f.label :password , class: "form__item" %>
+    <%= f.password_field :password , class: "form__input" %>
 
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
+    <%= f.label :password_confirmation , class: "form__item" %>
+    <%= f.password_field :password_confirmation , class: "form__input" %>
 
-    <%= f.submit "登録" , class: "buttun buttun_size_large buttun_color_blue" %>
+    <div class="form__buttun">
+        <%= f.submit "登録" , class: "buttun buttun_size_large buttun_color_blue" %>
+    </div>
   <% end %>
 </div>

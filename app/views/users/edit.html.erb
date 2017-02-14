@@ -1,45 +1,55 @@
-<%= form_for(@user) do |f| %>
+<header>
+  <h1 class="heading ta_center">プロフィール編集</h1>
+</header>
+
+<div class="form">
+  <%= form_for(@user) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <% if @edit_item %>
     <%= f.label @edit_item %>
     <%= f.text_area @edit_item %>
     <%= f.hidden_field :edit_item, :value => @edit_item %>
   <% else %>
-    <%= f.label :name, "名前" %>
-    <%= f.text_field :name %>
+    <%= f.label :name, "名前" , class: "form__item" %>
+    <%= f.text_field :name , class: "form__input" %>
 
-    <%= f.label :college, "大学"%>
-    <%= f.text_field :college %>
+    <%= f.label :college, "大学" , class: "form__item" %>
+    <%= f.text_field :college , class: "form__input" %>
 
-    <%= f.label :department, "学部" %>
-    <%= f.text_field :department %>
+    <%= f.label :department, "学部" , class: "form__item form__item_number" %>
+    <%= f.text_field :department , class: "form__input form__input_number" %>
 
-    <%= f.label :grade, "学年" %>
-    <%= f.text_field :grade %>
+    <%= f.label :grade, "学年" , class: "form__item" %>
+    <%= f.text_field :grade , class: "form__input form__input_number" %>
 
-    <p>
-      <%= f.label :picture, "画像" %>
-      <div style="width: 100px;">
+    <div class="form__images ta_center">
+      <%= f.label :picture, "プロフィール画像" , class: "form__item"%>
+      <div>
         <% if @user.picture %>
           <%= image_tag @user.picture.url, class: "user_picture"%>
         <% else %>
           <%= image_tag class: "user_picture"%>
         <% end %>
       </div>
-      <%= f.file_field :picture %>
-    </p>
+      <%= f.file_field :picture , class: "form__file buttun_color_white"%>
+    </div>
 
-    <p>
-      <%= f.label :header_picture, "ヘッダー画像" %>
-      <div style="width: 100px;">
+    <div class="form__images ta_center">
+      <%= f.label :header_picture, "ヘッダー画像" , class: "form__item"%>
+      <div class="ta_center">
         <% if @user.header_picture %>
           <%= image_tag @user.header_picture.url, class: "user_header_picture"%>
         <% else %>
           <%= image_tag class: "user_header_picture"%>
         <% end %>
       </div>
-      <%= f.file_field :header_picture %>
-    </p>
+      <%= f.file_field :header_picture , class: "form__file buttun_color_white"%>
+    </div>
+
   <% end %>
-  <%= f.submit "更新" %>
-<% end %>
+
+    <div class="form__buttun">
+      <%= f.submit "更新" , class: "buttun buttun_size_large buttun_color_blue"%>
+    </div>
+  <% end %>
+</div>
