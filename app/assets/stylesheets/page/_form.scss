@@ -23,7 +23,7 @@
 		font-size:1em;
 		border:solid 1px #ccc;
 		margin: 0.2rem auto 1rem;
-		&_number{
+		&_short{
 		width: 35%;
 		}
 	}
@@ -43,6 +43,7 @@
 	&__buttun{
 		text-align: center;
 		margin-top: 1rem;
+		margin-bottom: 3rem;
 	}
 	&__text{
 		color: gray;
