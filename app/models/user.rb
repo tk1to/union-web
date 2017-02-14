@@ -19,6 +19,8 @@ class User < ActiveRecord::Base
   # 画像関連
   mount_uploader :picture, PictureUploader
   validate  :picture_size
+  mount_uploader :header_picture, PictureUploader
+  validate  :header_picture_size
 
 
   has_many :circles, through: :memberships
@@ -110,6 +112,11 @@ class User < ActiveRecord::Base
     def picture_size
       if picture.size > 5.megabytes
         errors.add(:picture, "should be less than 5MB")
+      end
+    end
+    def header_picture_size
+      if header_picture.size > 5.megabytes
+        errors.add(:header_picture, "should be less than 5MB")
       end
     end
 end

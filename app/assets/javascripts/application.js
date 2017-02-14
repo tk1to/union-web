@@ -16,16 +16,29 @@
 //= require_tree .
 
 $(function(){
+  //サイドメニュー出現
   $(document).on('click', '.header__menu_humberger', function(){
     $('.body_wrap, .aside__menu').css('display', 'block');
-
-    // スクロール禁止
-    // $(window).on('touchmove.noScroll', function(e) {
-    //   e.preventDefault();
-    // });
-
   });
+  //サイドメニュー消失
   $(document).on('click', '.body_wrap, .aside__menu_close',function(){
     $('.body_wrap, .aside__menu').css('display', 'none');
+  });
+
+  $(document).on('change', '#user_picture',function(){
+    var file = $(this).prop('files')[0];
+      var reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = function(e) {
+        $('img.user_picture').attr("src", e.target.result);
+      };
+  });
+  $(document).on('change', '#user_header_picture',function(){
+    var file = $(this).prop('files')[0];
+      var reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = function(e) {
+        $('img.user_header_picture').attr("src", e.target.result);
+      };
   });
 });

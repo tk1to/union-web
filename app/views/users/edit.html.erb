@@ -16,6 +16,26 @@
 
     <%= f.label :grade, "学年" %>
     <%= f.text_field :grade %>
+
+    <p>
+      <%= f.label :picture, "画像" %>
+      <div style="width: 100px;">
+        <% if @user.picture %>
+          <%= image_tag @user.picture.url, class: "user_picture"%>
+        <% end %>
+      </div>
+      <%= f.file_field :picture %>
+    </p>
+
+    <p>
+      <%= f.label :header_picture, "ヘッダー画像" %>
+      <div style="width: 100px;">
+        <% if @user.header_picture %>
+          <%= image_tag @user.header_picture.url, class: "user_header_picture"%>
+        <% end %>
+      </div>
+      <%= f.file_field :header_picture %>
+    </p>
   <% end %>
   <%= f.submit "更新" %>
 <% end %>

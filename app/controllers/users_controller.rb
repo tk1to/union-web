@@ -61,7 +61,7 @@ class UsersController < ApplicationController
           :name, :email, :password, :password_confirmation,
           :introduce, :want_to_do, :hobby,
           :college, :department, :grade,
-          :picture,
+          :picture, :header_picture,
         )
     end
 
