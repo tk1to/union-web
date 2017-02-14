@@ -1,4 +1,4 @@
-.registration{
+.heading{
 	margin:1.5rem;
 	font-size:1.3rem;
 	font-weight:normal;
@@ -20,8 +20,16 @@
 		border:solid 1px #ccc;
 		margin: 0.2rem auto 1rem;
 	}
+	&__checkbox{
+		color: $gray;
+		font-size: 0.8rem;
+	}
 	&__buttun{
 		text-align: center;
 		margin-top: 2rem;
+	}
+	&__text{
+		color: gray;
+		text-decoration: none;
 	}
 }
