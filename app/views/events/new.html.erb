@@ -1,15 +1,19 @@
-<h1>イベント作成</h1>
+<header>
+	<h1 class="heading ta_center">イベント作成</h1>
+</header>
 
-<div>
+<div class="form">
   <%= form_for([:circle, @event]) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
 
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.label :title ,"イベント名", class: "form__item"%>
+    <%= f.text_field :title , class: "form__text_field" %>
 
-    <%= f.label :content %>
-    <%= f.text_area :content %>
-
-    <%= f.submit "投稿" %>
+    <%= f.label :content ,"イベント内容", class: "form__item"%>
+    <%= f.text_area :content , class: "form__text_area"%>
+	<div class="form__buttun">
+		<%= f.submit "投稿" , class: "buttun buttun_size_large buttun_color_blue"%>
+	</div>
   <% end %>
 </div>
+
