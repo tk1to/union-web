@@ -1,21 +1,25 @@
-<h1>log in</h1>
+<header>
+  <h1 class="heading ta_center">ログイン</h1>
+</header>
 
-<div>
+
+<div class="form">
   <%= form_for(:session, url: login_path) do |f| %>
 
-    <%= f.label :email %>
-    <%= f.email_field :email, class: 'form-control' %>
+    <%= f.label :email , class: "form__item" %>
+    <%= f.email_field :email, class: "form__input" %>
 
-    <%= f.label :password %>
-    <%= f.password_field :password, class: 'form-control' %>
+    <%= f.label :password , class: "form__item" %>
+    <%= f.password_field :password, class: "form__input" %>
 
-    <%= f.label :remember_me, class: "checkbox inline" do %>
+    <%= f.label :remember_me, class: "form__checkbox" do %>
       <%= f.check_box :remember_me %>
       <span>ログインを保持する</span>
     <% end %>
-
-    <%= f.submit "ログイン", class: "btn btn-primary" %>
+    <div class="form__buttun">
+      <%= f.submit "ログイン", class: "buttun buttun_size_large buttun_color_blue" %>
+    </div>
   <% end %>
 
-  <p>登録がお済みでない方は<%= link_to "こちら", new_user_path %></p>
+  <p class="form__text ta_center">登録がお済みでない方は<%= link_to "こちら", new_user_path %></p>
 </div>
