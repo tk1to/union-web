@@ -33,7 +33,7 @@
       </div>
   <% end %>
   <h1 class="header__name_user"><%= @user.name %></h1>
-  <p class="header__subhead_user"><%= %>meiji univ. tokyo</p>
+  <p class="header__subhead_user"><%= @user.college %>/<%= @user.department %>/<%= @user.grade %>年</p>
   <% if current_user?(@user) %>
     <%= image_tag "menu.svg" , class: "header__menu_humberger" %>
   <% end %>

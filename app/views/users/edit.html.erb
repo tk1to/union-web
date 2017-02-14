@@ -5,14 +5,17 @@
     <%= f.text_area @edit_item %>
     <%= f.hidden_field :edit_item, :value => @edit_item %>
   <% else %>
-    <%= f.label :name %>
+    <%= f.label :name, "名前" %>
     <%= f.text_field :name %>
 
-    <%= f.label :college %>
+    <%= f.label :college, "大学"%>
     <%= f.text_field :college %>
 
-    <%= f.label :department %>
+    <%= f.label :department, "学部" %>
     <%= f.text_field :department %>
+
+    <%= f.label :grade, "学年" %>
+    <%= f.text_field :grade %>
   <% end %>
   <%= f.submit "更新" %>
 <% end %>
