@@ -1,7 +1,41 @@
 <%= form_for(@user) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <%= f.label @edit_item %>
-  <%= f.text_area @edit_item %>
-  <%= f.hidden_field :edit_item, :value => @edit_item %>
+  <% if @edit_item %>
+    <%= f.label @edit_item %>
+    <%= f.text_area @edit_item %>
+    <%= f.hidden_field :edit_item, :value => @edit_item %>
+  <% else %>
+    <%= f.label :name, "名前" %>
+    <%= f.text_field :name %>
+
+    <%= f.label :college, "大学"%>
+    <%= f.text_field :college %>
+
+    <%= f.label :department, "学部" %>
+    <%= f.text_field :department %>
+
+    <%= f.label :grade, "学年" %>
+    <%= f.text_field :grade %>
+
+    <p>
+      <%= f.label :picture, "画像" %>
+      <div style="width: 100px;">
+        <% if @user.picture %>
+          <%= image_tag @user.picture.url, class: "user_picture"%>
+        <% end %>
+      </div>
+      <%= f.file_field :picture %>
+    </p>
+
+    <p>
+      <%= f.label :header_picture, "ヘッダー画像" %>
+      <div style="width: 100px;">
+        <% if @user.header_picture %>
+          <%= image_tag @user.header_picture.url, class: "user_header_picture"%>
+        <% end %>
+      </div>
+      <%= f.file_field :header_picture %>
+    </p>
+  <% end %>
   <%= f.submit "更新" %>
 <% end %>

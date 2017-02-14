@@ -3,8 +3,6 @@
 </header>
 <% if !logged_in? %>
   <%= link_to 'what\'s union?', signups_path %>
-<% else %>
-  <p><%= link_to "ログアウト", logout_path, method: :delete %></p>
 <% end %>
 
 <div class="frame">
