@@ -1,11 +1,41 @@
+<div class="body_wrap"></div>
+<div class="aside__menu">
+  <ul class="aside__menu_lists">
+    <li class="aside__menu_list aside__menu_close">閉じる</li>
+    <li class="aside__menu_list">
+      <%= link_to "新規サークル登録", new_circle_path, class: "create_circle_btn"%>
+    </li>
+    <li class="aside__menu_list"><%= link_to "ログアウト", logout_path, method: :delete %></li>
+  </ul>
+</div>
+
 <header class="header">
   <div class="header__background"></div>
-  <div class="header__photo_user"></div>
+  <%= form_for(@user, html: { multipart: true }) do |f| %>
+    <div class="header__photo_user" style="background-image: url(<%= @user.picture %>);">
+      <%= f.file_field :picture, id: "user_picture", accept: 'image/jpeg,image/gif,image/png' %>
+    </div>
+    <div style="
+      position: relative;
+      width: 50%;
+      margin: 0 auto;
+    ">
+      <%= f.submit "更新", class: "submit",
+        style: "
+          position: absolute;
+          z-index: 202;
+          top: 60vh;
+          width: 100%;
+          display: none;
+          "
+        %>
+      </div>
+  <% end %>
   <h1 class="header__name_user"><%= @user.name %></h1>
   <p class="header__subhead_user"><%= %>meiji univ. tokyo</p>
   <% if current_user?(@user) %>
-  <%= link_to "新規サークル登録", new_circle_path, class: "create_circle_btn"%><% end %>
-  <%= image_tag "menu.svg" , class: "header__menu_humberger" %>
+    <%= image_tag "menu.svg" , class: "header__menu_humberger" %>
+  <% end %>
   <%= image_tag "foot.png" , class: "header__foot" %>
   <% if !current_user?(@user) %>
     <div class="buttun buttun_follow butttun_color_white">
@@ -18,44 +48,57 @@
       </div>
     </div>
   <% end %>
-
-  <%= form_for(@user, html: { multipart: true }) do |f| %>
-    <div
-      style="
-        display: inline-block;
-        overflow: hidden;
-        position: relative;
-        width: 100px;
-        height: 100px;
-        border: 1px solid #999;
-        border-radius: 50%;
-        background-image: url(<%= @user.picture %>);
-        background-repeat: no-repeat;
-        background-size: cover;
-      ">
-      <%= f.file_field :picture,
-        id: "user_picture",
-        accept: 'image/jpeg,image/gif,image/png',
-        style: "
-          opacity: 0;
-          position: absolute;
-          left: 0;
-          top: 0;
-          margin: 0;
-          font-size: 120px;
-          cursor: pointer;
-          "
-      %>
-    </div>
-    <%= f.submit "更新",
-      style: "
-        position: absolute;
-        z-index: 9999;
-        "
-      %>
-  <% end %>
 </header>
 <script type="text/javascript">
+  $(function(){
+    $('#user_picture').on('change', function(){
+      var cover = $('<div>').css({
+        width: '100%',
+        height: '100vh',
+        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+        position: 'fixed',
+        zIndex: '201',
+        textAlign: 'center'
+      });
+      var cross = "<%= asset_path "cross.png" %>";
+      cover.append($('<div>').css({
+        position: 'absolute',
+        width: '50px',
+        height: '50px',
+        top: '0',
+        right: '0',
+        backgroundImage: 'url(' + cross + ')',
+        backgroundSize: 'cover',
+                                }).addClass(
+        'close_btn'
+      ));
+      $('nav').before(cover);
+      $('.close_btn').on('click', function(){
+        cover.remove();
+        $('.submit').css('display', 'none');
+      });
+      $('.submit').css('display', 'inline-block');
+
+      var file = $(this).prop('files')[0];
+      var reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = function(e) {
+        cover.append($('<div>').css({
+          width: '250px',
+          height: '250px',
+          margin: '40% auto',
+          backgroundPosition: '50%',
+          backgroundImage: "url(" + e.target.result + ")",
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          border: '1px solid #000',
+          borderRadius: '50%',
+        }));
+      };
+    });
+
+  });
+
   $('#user_picture').bind('change', function() {
     var size_in_megabytes = this.files[0].size/1024/1024;
     if (size_in_megabytes > 5) {
