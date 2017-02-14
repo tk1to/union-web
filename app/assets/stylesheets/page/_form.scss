@@ -15,7 +15,7 @@
 			line-height: 1rem;
 		}
 	}
-	&__input{
+	&__text_field{
 		width: 100%;
 		height: 1rem;
 		border-radius: 5px;
@@ -24,16 +24,25 @@
 		border:solid 1px #ccc;
 		margin: 0.2rem auto 1rem;
 		&_number{
-			width: 35%;
+		width: 35%;
 		}
 	}
+	&__text_area{
+		width: 100%;
+		height: 20rem;
+		border-radius: 5px;
+		padding: 0.5rem 0;
+		font-size:1em;
+		border:solid 1px #ccc;
+		margin: 0.2rem auto 1rem;
+		}
 	&__checkbox{
 		color: $gray;
 		font-size: 0.8rem;
 	}
 	&__buttun{
 		text-align: center;
-		margin-top: 2rem;
+		margin-top: 1rem;
 	}
 	&__text{
 		color: gray;
