@@ -1,6 +1,8 @@
-<h1>登録</h1>
+<header>
+    <h1>新規登録</h1>
+</header>
 
-<div>
+<div class="form">
   <%= form_for(@user) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
 
@@ -16,6 +18,6 @@
     <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation %>
 
-    <%= f.submit "Create my account" %>
+    <%= f.submit "登録" , class: "buttun buttun_size_large buttun_color_blue" %>
   <% end %>
 </div>
