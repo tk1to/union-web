@@ -11,16 +11,16 @@
     <%= f.hidden_field :edit_item, :value => @edit_item %>
   <% else %>
     <%= f.label :name, "名前" , class: "form__item" %>
-    <%= f.text_field :name , class: "form__input" %>
+    <%= f.text_field :name , class: "form__text_field" %>
 
     <%= f.label :college, "大学" , class: "form__item" %>
-    <%= f.text_field :college , class: "form__input" %>
+    <%= f.text_field :college , class: "form__text_field" %>
 
     <%= f.label :department, "学部" , class: "form__item form__item_number" %>
-    <%= f.text_field :department , class: "form__input form__input_number" %>
+    <%= f.text_field :department , class: "form__text_field form__text_field_short" %>
 
     <%= f.label :grade, "学年" , class: "form__item" %>
-    <%= f.text_field :grade , class: "form__input form__input_number" %>
+    <%= f.text_field :grade , class: "form__text_field form__text_field_short" %>
 
     <div class="form__images ta_center">
       <%= f.label :picture, "プロフィール画像" , class: "form__item"%>
