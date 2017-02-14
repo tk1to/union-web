@@ -1,8 +1,18 @@
 <%= form_for(@user) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <%  %>
-  <%= f.label @edit_item %>
-  <%= f.text_area @edit_item %>
-  <%= f.hidden_field :edit_item, :value => @edit_item %>
+  <% if @edit_item %>
+    <%= f.label @edit_item %>
+    <%= f.text_area @edit_item %>
+    <%= f.hidden_field :edit_item, :value => @edit_item %>
+  <% else %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :college %>
+    <%= f.text_field :college %>
+
+    <%= f.label :department %>
+    <%= f.text_field :department %>
+  <% end %>
   <%= f.submit "更新" %>
 <% end %>

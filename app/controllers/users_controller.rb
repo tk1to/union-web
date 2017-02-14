@@ -22,8 +22,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if params[:edit_item]
       @edit_item = params[:edit_item]
-    else
-      redirect_to @user
     end
   end
   def update
