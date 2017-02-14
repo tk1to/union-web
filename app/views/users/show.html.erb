@@ -54,7 +54,7 @@
       <% end %>
     </li>
     <li class="follow__list">
-      <%= link_to @user.favorites.count.to_s+" お気に入り", [:favorites, @user],calss: "follow__link" %>
+      <%= link_to @user.favorites.count.to_s+" お気に入り", [:favorites, @user] , class: "follow__link" %>
     </li>
   </ul>
 </div>
