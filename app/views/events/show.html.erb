@@ -1,6 +1,10 @@
 <h1><%= @event.title %></h1>
 <p><%= @event.content %></p>
 
+<div style="width: 30%;">
+  <%= image_tag @event.picture.url %>
+</div>
+
 <% if @be_member %>
   <%= link_to "編集", [:edit, @circle, @event] %>
 <% end %>

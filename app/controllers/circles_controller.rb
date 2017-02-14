@@ -83,7 +83,9 @@ class CirclesController < ApplicationController
     def circle_params
       params.require(:circle).permit(
           :name,
-          :description
+          :description,
+          :picture,
+          :header_picture,
         )
     end
     def update_categories

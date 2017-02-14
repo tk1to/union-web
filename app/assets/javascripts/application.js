@@ -41,4 +41,39 @@ $(function(){
         $('img.user_header_picture').attr("src", e.target.result);
       };
   });
+
+  $(document).on('change', '#circle_picture',function(){
+    var file = $(this).prop('files')[0];
+      var reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = function(e) {
+        $('img.circle_picture').attr("src", e.target.result);
+      };
+  });
+  $(document).on('change', '#circle_header_picture',function(){
+    var file = $(this).prop('files')[0];
+      var reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = function(e) {
+        $('img.circle_header_picture').attr("src", e.target.result);
+      };
+  });
+
+  $(document).on('change', '#blog_picture',function(){
+    var file = $(this).prop('files')[0];
+      var reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = function(e) {
+        $('img.blog_picture').attr("src", e.target.result);
+      };
+  });
+
+  $(document).on('change', '#event_picture',function(){
+    var file = $(this).prop('files')[0];
+      var reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = function(e) {
+        $('img.event_picture').attr("src", e.target.result);
+      };
+  });
 });

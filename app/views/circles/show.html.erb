@@ -1,3 +1,12 @@
+<% if @be_member %>
+  <div class="body_wrap"></div>
+  <div class="aside__menu">
+    <ul class="aside__menu_lists">
+      <li class="aside__menu_list aside__menu_close">閉じる</li>
+      <li class="aside__menu_list"><%= link_to "サークル情報編集", [:edit, @circle] %></li>
+    </ul>
+  </div>
+<% end %>
 
 <header class="header">
   <h1 class="header__name_circle"><%= @circle.name %></h1>
@@ -6,13 +15,12 @@
   <div class="header__background"></div>
   <div class="header__photo_circle"></div>
   <div class="header__change"></div>
-  <%= image_tag "menu.svg" , class: "header__menu_humberger" %>
-  <%= image_tag "foot.png" , class: "header__foot" %>
+  <% if @be_member %>
+    <%= image_tag "menu.svg" , class: "header__menu_humberger" %>
+    <%= image_tag "foot.png" , class: "header__foot" %>
+  <% end %>
 </header>
 
-<!--<% if @be_member %>
-  <%= link_to "編集", edit_circle_path(@circle) %>
-<% end %>-->
 <% if @categories.any? %>
   <p>
     <% @categories.each do |category| %>
@@ -35,10 +43,6 @@
     <a class="members__more" href="">もっと見る>></a>
   </div>
 <% end %>
-<% if @be_member %>
-  <%= link_to "編集", edit_circle_path(@circle) %>
-<% end %>
-
 
 <div class="ta_center">
   <% if @be_member %>

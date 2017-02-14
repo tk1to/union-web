@@ -10,6 +10,18 @@
     <%= f.label :content %>
     <%= f.text_area :content %>
 
+    <p>
+      <%= f.label :picture, "画像" %>
+      <div style="width: 100px;">
+        <% if @blog.picture %>
+          <%= image_tag @blog.picture.url, class: "blog_picture"%>
+        <% else %>
+          <%= image_tag class: "blog_picture"%>
+        <% end %>
+      </div>
+      <%= f.file_field :picture %>
+    </p>
+
     <%= f.submit "投稿" %>
   <% end %>
 </div>

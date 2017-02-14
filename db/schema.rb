@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170214095512) do
+ActiveRecord::Schema.define(version: 20170214141447) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20170214095512) do
     t.datetime "updated_at", null: false
     t.integer  "circle_id"
     t.integer  "author_id"
+    t.string   "picture"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -42,10 +43,12 @@ ActiveRecord::Schema.define(version: 20170214095512) do
   add_index "circle_categories", ["circle_id"], name: "index_circle_categories_on_circle_id", using: :btree
 
   create_table "circles", force: :cascade do |t|
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.string   "name"
     t.string   "description"
+    t.string   "picture"
+    t.string   "header_picture"
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -73,6 +76,7 @@ ActiveRecord::Schema.define(version: 20170214095512) do
     t.string   "title"
     t.text     "content"
     t.integer  "circle_id"
+    t.string   "picture"
   end
 
   create_table "favorites", force: :cascade do |t|

@@ -9,6 +9,18 @@
   <%= f.label :content %>
   <%= f.text_area :content %>
 
+  <p>
+    <%= f.label :picture, "画像" %>
+    <div style="width: 100px;">
+      <% if @blog.picture %>
+        <%= image_tag @blog.picture.url, class: "blog_picture"%>
+      <% else %>
+        <%= image_tag class: "blog_picture"%>
+      <% end %>
+    </div>
+    <%= f.file_field :picture %>
+  </p>
+
   <%= f.submit "更新" %>
 <% end %>
 <%= link_to "このブログを削除", [@blog.circle, @blog], method: :delete, data: { confirm: "本当に削除しますか？" } %>

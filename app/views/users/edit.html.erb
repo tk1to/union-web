@@ -22,6 +22,8 @@
       <div style="width: 100px;">
         <% if @user.picture %>
           <%= image_tag @user.picture.url, class: "user_picture"%>
+        <% else %>
+          <%= image_tag class: "user_picture"%>
         <% end %>
       </div>
       <%= f.file_field :picture %>
@@ -32,6 +34,8 @@
       <div style="width: 100px;">
         <% if @user.header_picture %>
           <%= image_tag @user.header_picture.url, class: "user_header_picture"%>
+        <% else %>
+          <%= image_tag class: "user_header_picture"%>
         <% end %>
       </div>
       <%= f.file_field :header_picture %>

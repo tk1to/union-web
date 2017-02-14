@@ -7,6 +7,18 @@
   <%= f.label :content %>
   <%= f.text_area :content %>
 
+  <p>
+    <%= f.label :picture, "画像" %>
+    <div style="width: 100px;">
+      <% if @event.picture %>
+        <%= image_tag @event.picture.url, class: "event_picture"%>
+      <% else %>
+        <%= image_tag class: "event_picture"%>
+      <% end %>
+    </div>
+    <%= f.file_field :picture %>
+  </p>
+
   <%= f.submit "更新" %>
 <% end %>
 <%= link_to "このイベントを削除", [@event.circle, @event], method: :delete, data: { confirm: "本当に削除しますか？" } %>

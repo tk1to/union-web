@@ -11,5 +11,29 @@
   <% end %>
   </p>
 
+  <p>
+    <%= f.label :picture, "画像" %>
+    <div style="width: 100px;">
+      <% if @circle.picture %>
+        <%= image_tag @circle.picture.url, class: "circle_picture"%>
+      <% else %>
+        <%= image_tag class: "circle_picture"%>
+      <% end %>
+    </div>
+    <%= f.file_field :picture %>
+  </p>
+
+  <p>
+    <%= f.label :header_picture, "ヘッダー画像" %>
+    <div style="width: 100px;">
+      <% if @circle.header_picture %>
+        <%= image_tag @circle.header_picture.url, class: "circle_header_picture"%>
+      <% else %>
+        <%= image_tag class: "circle_header_picture"%>
+      <% end %>
+    </div>
+    <%= f.file_field :header_picture %>
+  </p>
+
   <%= f.submit "更新" %>
 <% end %>

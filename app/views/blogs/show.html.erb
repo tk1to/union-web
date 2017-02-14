@@ -1,6 +1,10 @@
 <h1><%= @blog.title %></h1>
 <p><%= @blog.content %></p>
 
+<div style="width: 30%;">
+  <%= image_tag @blog.picture.url %>
+</div>
+
 <% if @author == current_user %>
   <%= link_to "編集", [:edit, @circle, @blog] %>
 <% end %>
