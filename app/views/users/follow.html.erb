@@ -7,8 +7,12 @@
   	<ul>
     	<% @users.each do |user| %>
       		<li class="list"><%= link_to user.name, user , class: "list__name"%>
-      			<div class="list__image"></div>
-      			<div class="list__subhead">何か情報</div>
+      			<div class="list__image" style="background-image: url(<%= user.picture %>)"></div>
+      			<div class="list__subhead"><%= user.college %>
+            <% if user.grade > 0 %>
+              / <%= user.grade %>
+            <% end %>
+            </div>
       		</li>
     <% end %>
   	</ul>
