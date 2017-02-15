@@ -21,6 +21,9 @@ class Circle < ActiveRecord::Base
   mount_uploader :header_picture, PictureUploader
   validate  :header_picture_size
 
+  scope :ascend, -> { order(:id) }
+  default_scope { order(:id) }
+
   private
     def picture_size
       if picture.size > 5.megabytes

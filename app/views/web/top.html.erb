@@ -12,9 +12,8 @@
     <% @circles.each do |circle| %>
       <%= link_to circle do %>
         <li class="circle">
-          <!-- <div class="circle__background"></div> -->
-          <%= image_tag circle.picture.url, class: "circle__background" %>
-          <div class="circle__image"></div>
+          <div class="circle__background" style="background-image: url(<%= circle.header_picture %>)"></div>
+          <div class="circle__image" style="background-image: url(<%= circle.picture %>)"></div>
           <%= link_to circle.name, circle , class: "circle__name"%>
           <p class="circle__genre">カテゴリ</p>
         </li>
@@ -30,7 +29,7 @@
   <ul class="frame__list">
     <% @blogs.each do |blog| %>
       <li class="article">
-        <div class="article__image"></div>
+        <div class="article__image" style="background-image: url(<%= blog.picture %>)"></div>
         <%= link_to blog.title, [blog.circle, blog] , class: "article__heading" %>
         <p class="article__text">ここにテキストが入ります</p>
         <span class="article__time">日付</span>
@@ -46,7 +45,7 @@
   <ul class="frame__list">
     <% @events.each do |event| %>
       <li class="article">
-        <div class="article__image"></div>
+        <div class="article__image" style="background-image: url(<%= event.picture %>)"></div>
         <%= link_to event.title, [event.circle, event] , class: "article__heading" %>
         <p class="article__text">ここにテキストが入ります</p>
         <span class="article__time">日付</span>

@@ -12,8 +12,8 @@
   <h1 class="header__name_circle"><%= @circle.name %></h1>
   <% if @categories.any? %>
   <% end %>
-  <div class="header__background"></div>
-  <div class="header__photo_circle"></div>
+  <div class="header__background" style="background-image: url(<%= @circle.header_picture %>)"></div>
+  <div class="header__photo_circle" style="background-image: url(<%= @circle.picture %>)"></div>
   <div class="header__change"></div>
   <% if @be_member %>
     <%= image_tag "menu.svg" , class: "header__menu_humberger" %>
@@ -95,7 +95,7 @@
     <ul class="frame__list">
       <% @blogs.each do |blog| %>
         <li class="article">
-          <div class="article__image"></div>
+          <div class="article__image" style="background-image: url(<%= blog.picture %>)"></div>
           <%= link_to blog.title, [@circle, blog] , class: "article__heading"%>
           <p class="article__text">ここにテキストが入ります</p>
           <span class="article__time">日付</span>
@@ -114,7 +114,7 @@
     <ul class="frame__list">
       <% @events.each do |event| %>
         <li class="article">
-          <div class="article__image"></div>
+          <div class="article__image" style="background-image: url(<%= event.picture %>)"></div>
           <%= link_to event.title, [@circle, event] , class: "article__heading"%>
           <p class="article__text">ここにテキストが入ります</p>
           <span class="article__time">日付</span>
