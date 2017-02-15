@@ -28,10 +28,12 @@
 		<p class="lp__end">さあ、UNIONを始めよう！</p>
 	</section>
 
-	<div class="lp">
-		<div class="lp__inner">
-			<%= link_to '新規登録', new_user_path, class: "buttun buttun_size_large buttun_color_blue"%>
-			<%= link_to "ログイン", login_path , class: "buttun buttun_size_large buttun_color_white"%>
+	<% if !logged_in? %>
+		<div class="lp">
+			<div class="lp__inner">
+				<%= link_to '新規登録', new_user_path, class: "buttun buttun_size_large buttun_color_blue"%>
+				<%= link_to "ログイン", login_path , class: "buttun buttun_size_large buttun_color_white"%>
+			</div>
 		</div>
-	</div>
+	<% end %>
 </div>
