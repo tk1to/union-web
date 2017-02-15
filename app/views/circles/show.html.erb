@@ -34,8 +34,8 @@
     <h2 class="members__heading">メンバー(<%= @members.count %>)</h2>
     <ul class="members__list">
       <% @members.each do |member| %>
-        <li>
-          <%= link_to member.name, member , class: "members__name" %>
+        <li class="members__list_item">
+          <!--<%= link_to member.name, member , class: "members__name" %>-->
           <div class="members__image"></div>
         </li>
       <% end %>
