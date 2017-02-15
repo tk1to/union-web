@@ -1,11 +1,16 @@
-<%= form_for([@event.circle, @event]) do |f| %>
+<header>
+  <h2 class="heading ta_center">イベントを編集</h2>
+</header>
+
+<div class="form">
+  <%= form_for([@event.circle, @event]) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+  <%= f.label :title ,"タイトル", class: "form__item"%>
+  <%= f.text_field :title , class: "form__text_field"%>
 
-  <%= f.label :content %>
-  <%= f.text_area :content %>
+  <%= f.label :content ,"イベント内容", class: "form__item"%>
+  <%= f.text_area :content , class: "form__text_area"%>
 
   <p>
     <%= f.label :picture, "画像" %>
@@ -19,6 +24,9 @@
     <%= f.file_field :picture %>
   </p>
 
-  <%= f.submit "更新" %>
-<% end %>
-<%= link_to "このイベントを削除", [@event.circle, @event], method: :delete, data: { confirm: "本当に削除しますか？" } %>
+  <div class="form__buttun">
+    <%= f.submit "更新" , class: "buttun buttun_size_large buttun_color_blue"%>
+  </div>
+  <% end %>
+  <%= link_to "このイベントを削除", [@event.circle, @event], method: :delete, data: { confirm: "本当に削除しますか？" } %>
+</div>
