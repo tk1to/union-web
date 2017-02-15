@@ -103,14 +103,15 @@
     <ul class="frame__list">
       <% @blogs.each do |blog| %>
         <li class="article">
-          <div class="article__image" style="background-image: url(<%= blog.picture %>)"></div>
-          <%= link_to blog.title, [@circle, blog] , class: "article__heading"%>
-          <p class="article__text"><%= blog.content %></p>
-          <span class="article__time"><%= blog.created_at.in_time_zone('Tokyo').strftime("%y/%m/%d  %k:%M") %></span>
+          <%= link_to [@circle, blog], class: "wrap__link" do %>
+            <div class="article__image" style="background-image: url(<%= blog.picture %>)"></div>
+            <p class="article__heading"><%= blog.title %></p>
+            <p class="article__text"><%= blog.content %></p>
+            <span class="article__time"><%= blog.created_at.in_time_zone('Tokyo').strftime("%y/%m/%d  %k:%M") %></span>
+          <% end %>
         </li>
       <% end %>
     </ul>
-    <!-- <a class="frame__more" href="">もっと見る</a> -->
   <% else %>
     <p class="article article_no">ブログがありません。</p>
   <% end %>
@@ -122,14 +123,15 @@
     <ul class="frame__list">
       <% @events.each do |event| %>
         <li class="article">
-          <div class="article__image" style="background-image: url(<%= event.picture %>)"></div>
-          <%= link_to event.title, [@circle, event] , class: "article__heading"%>
-          <p class="article__text"><%= event.content %></p>
-          <span class="article__time"></span>
+          <%= link_to [@circle, event], class: "wrap__link" do %>
+            <div class="article__image" style="background-image: url(<%= event.picture %>)"></div>
+            <p class="article__heading"><%= event.title %></p>
+            <p class="article__text"><%= event.content %></p>
+            <span class="article__time"></span>
+          <% end %>
         </li>
       <% end %>
     </ul>
-    <!-- <a class="frame__more" href="">もっと見る</a> -->
   <% else %>
     <p class="article article_no">イベントがありません。</p>
   <% end %>
