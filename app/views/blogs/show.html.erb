@@ -4,20 +4,20 @@
 	</div>
 	<div class="author">
 		<div class="author__image"></div>
-		<div class="author__name">投稿者：<%= link_to @author.name, @author %></div>
-		<div class="author__circle">サークル：<%= link_to @circle.name, @circle %></div>
+		<div class="author__name"><span class="author__autor">投稿者:</span><%= link_to @author.name, @author , class: "td_none color_black"%></div>
+		<p class="author__subhead"><%= link_to @circle.name, @circle , class: "td_none color_gray"%></p>
 	</div>
 </header>
-<h1><%= @blog.title %></h1>
-<p><%= @blog.content %></p>
+<div class="article">
+	<h1 class="article__title"><%= @blog.title %></h1>
+	<p class="article__text"><%= @blog.content %></p>
 
-<div style="width: 30%;">
-  <%= image_tag @blog.picture.url %>
 </div>
 
+
 <% if @author == current_user %>
-  <%= link_to "編集", [:edit, @circle, @blog] %>
+	<div class="ta_center">
+	  <%= link_to "編集", [:edit, @circle, @blog] , class: "buttun buttun_size_medium buttun_color_blue "%>
+	</div>
 <% end %>
 
-<p>投稿者：<%= link_to @author.name, @author %></p>
-<p>サークル：<%= link_to @circle.name, @circle %></p>

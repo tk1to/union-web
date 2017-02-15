@@ -1,7 +1,19 @@
-<% if @entries.any? %>
-  <ul>
-    <% @entries.each do |entry| %>
-      <li><%= link_to entry.user.name, entry.user %> | <%= link_to "承認", [:accept, @circle, entry], method: :post %></li>
-    <% end %>
-  </ul>
-<% end %>
+<header>
+	<h1 class="heading ta_center">メンバー申請一覧</h1>
+</header>
+
+<div class="list__wrap">
+	<% if @entries.any? %>
+	  <ul>
+	    <% @entries.each do |entry| %>
+	      <li class="list">
+	      	<%= link_to entry.user.name, entry.user , class: "list__name"%>
+	      	<%= link_to "承認", [:accept, @circle, entry], method: :post , class: "list__permit buttun buttun_size_small buttun_color_blue "%>
+	      	<div class="list__image"></div>
+	    	<div class="list__subhead">何か情報</div>
+	      </li>
+	    <% end %>
+	  </ul>
+	<% end %>
+	<%= link_to "サークルへ戻る", @circle ,class: "buttun buttun_size_medium buttun_color_gray"%>
+</div>
