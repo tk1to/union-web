@@ -6,11 +6,11 @@
 <div class="form">
   <%= form_for(:session, url: login_path) do |f| %>
 
-    <%= f.label :email , class: "form__item" %>
-    <%= f.email_field :email, class: "form__input" %>
+    <%= f.label :email ,"メールアドレス", class: "form__item" %>
+    <%= f.email_field :email, class: "form__text_field" %>
 
-    <%= f.label :password , class: "form__item" %>
-    <%= f.password_field :password, class: "form__input" %>
+    <%= f.label :password ,"パスワード", class: "form__item" %>
+    <%= f.password_field :password, class: "form__text_field" %>
 
     <%= f.label :remember_me, class: "form__checkbox" do %>
       <%= f.check_box :remember_me %>
