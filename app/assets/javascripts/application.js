@@ -98,6 +98,13 @@ $(function(){
   // $(document).on('click', '.coming_soon_update',function(){
   //   $('.displayed_coming_soon').remove();
   // });
+  $(document).on('click', '.header__foot',function(){
+    $('body').prepend($('<div>').addClass('displayed_coming_soon'));
+  });
+
+  $(document).on('click', '.coming_soon_update',function(){
+    $('.displayed_coming_soon').remove();
+  });
 });
 
 
