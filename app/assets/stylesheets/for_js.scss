@@ -71,3 +71,16 @@
     border: 2px solid $l-blue;
   }
 }
+
+.header__image_top {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: 50%;
+}
+.header__paragraph {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: #fff;
+}

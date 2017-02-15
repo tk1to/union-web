@@ -28,14 +28,15 @@ class CirclesController < ApplicationController
 
     @be_member = @members.include?(current_user)
 
-    # メンバー申請しているかどうか
-    if @entrying = @circle.entrying_users.include?(current_user)
-      @entry = @circle.entries.find_by(user_id: current_user.id)
-    end
-
-    # 気になるをしているかどうか
-    if @favoriting = current_user.favoriting_circles.include?(@circle)
-      @favorite = current_user.favorites.find_by(circle_id: @circle.id)
+    if logged_in?
+      # メンバー申請しているかどうか
+      if @entrying = @circle.entrying_users.include?(current_user)
+        @entry = @circle.entries.find_by(user_id: current_user.id)
+      end
+      # 気になるをしているかどうか
+      if @favoriting = current_user.favoriting_circles.include?(@circle)
+        @favorite = current_user.favorites.find_by(circle_id: @circle.id)
+      end
     end
 
   end

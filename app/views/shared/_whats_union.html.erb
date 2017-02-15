@@ -1,10 +1,12 @@
 <div class="LP">
 	<div class="keyvisual">
 		<%= image_tag "union_lp.png" %>
-		<div class="keyvisual__inner">
-			<%= link_to '新規登録', new_user_path, class: "buttun buttun_size_medium buttun_color_blue"%>
-			<%= link_to "ログイン", login_path , class: "buttun buttun_size_medium buttun_color_white"%>
-		</div>
+		<% if !logged_in? %>
+			<div class="keyvisual__inner">
+				<%= link_to '新規登録', new_user_path, class: "buttun buttun_size_medium buttun_color_blue"%>
+				<%= link_to "ログイン", login_path , class: "buttun buttun_size_medium buttun_color_white"%>
+			</div>
+		<% end %>
 	</div>
 	<section class="lp">
 		<h1 class="lp__union">What's union?</h1>
@@ -22,7 +24,7 @@
 		<p class="lp__text">UNIONを利用すれば、これまでより効率良くメンバーを勧誘することができます。新歓情報やイベントの告知を一斉にできたり、ブログの更新によって団体の情報を発信することができます。メンバーと新入生のプロフィールが可視化されていることによって、お互いのことをよく知ることができ、サークルと新入生のミスマッチを防ぎます。</p>
 	</section>
 
-	<section　class="lp">
+	<section class="lp">
 		<p class="lp__end">さあ、UNIONを始めよう！</p>
 	</section>
 
