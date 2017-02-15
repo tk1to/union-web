@@ -62,4 +62,34 @@
 		background: gray;
 		border-radius: 3px;
 	}
+	&__select{
+		width: 5.5rem;
+		height: 1rem;
+		overflow: hidden;
+		display: inline-block;
+		// display: inline;
+		// zoom: 1;
+		position: relative;
+		border-radius: 0.2em;
+		border: 1px solid $d-blue;
+		background-color: white;
+		font-size: 0.6rem;
+		margin: 0.3rem auto;
+	}
+}
+.select{
+	width: 130%;
+	padding: 0.6em 2.4em 0.6em 0.6em;
+	font-size: 1rem;
+	&:after{
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		width: 1.8em;
+		display: block;
+		content: "";
+		background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAGFBMVEUAAAAZJCYWISIYIyQYIiUWIiIYIyQYIiXh0rToAAAACHRSTlMA/hTRqiinvwFkb0sAAABCSURBVHjajchBDsAgDAPBOJDw/x+XVN0icQGfPGs3i+2GEqeiLCXWLENzvdzrDfP2ls/NjfKbgimYglfBq2Dm+LwHguMA235EdKYAAAAASUVORK5CYII=") center no-repeat;
+		pointer-events: none;
+	}
 }
