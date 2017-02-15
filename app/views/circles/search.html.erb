@@ -13,16 +13,16 @@
 <% if @circles.any? %>
   <% @circles.each do |circle| %>
     <%= link_to circle do %>
-      <div class="feed">
-      	<div class="feed__background" style="background-image: url(<%= circle.header_picture %>)"></div>
+      <div class="card">
+      	<div class="card__background" style="background-image: url(<%= circle.header_picture %>)"></div>
 
         <!-- 修正が必要 -->
-      	<h1 class="feed__heading"><%= circle.description %></h1>
-      	<p class="feed__subhead"></p>
+      	<h1 class="card__heading"><%= circle.description %></h1>
+      	<p class="card__subhead"></p>
 
-      	<div class="feed__image" style="background-image: url(<%= circle.picture %>)"></div>
-        <h1 class="feed__name"><%= circle.name %></h1>
-        <p class="feed__category">カテゴリ</p>
+      	<div class="card__image" style="background-image: url(<%= circle.picture %>)"></div>
+        <h1 class="card__name"><%= circle.name %></h1>
+        <p class="card__category">カテゴリ</p>
       </div>
     <% end %>
   <% end %>
