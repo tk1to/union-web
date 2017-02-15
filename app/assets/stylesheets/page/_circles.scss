@@ -133,7 +133,7 @@
 .feed{
   position: relative;
   width: 90%;
-  height: 16rem;
+  height: 15rem;
   margin: 0.5rem auto;
   border:2px solid $d-blue;
   border-radius:5px;
@@ -151,6 +151,7 @@
     top: 10.5rem;
     left: 0.5rem;
     font-size: 0.8rem;
+    font-weight: 500;
     text-decoration: none;
     color: $gray;
   }
@@ -165,7 +166,7 @@
   }
   &__image{
     position: absolute;
-    top: 13rem;
+    top: 12rem;
     left: 0.5rem;
     width: 2.5rem;
     height: 2.5rem;
@@ -174,7 +175,7 @@
   }
   &__name{
     position: absolute;
-    top: 13.5rem;
+    top: 12.5rem;
     left: 4rem;
     font-weight: normal;
     font-size: 0.8rem;
@@ -182,7 +183,7 @@
   }
   &__category{
     position: absolute;
-    top: 14.5rem;
+    top: 13.5rem;
     left: 4rem;
     font-size: 0.5rem;
     color: gray;
