@@ -1,0 +1,22 @@
+.footer{
+	width:100%;
+	text-align:center;
+	color: gray;
+	margin-top:10rem;
+	&__copyright{
+		font-size: $x-small;
+	}
+	&__navi{
+		margin:1rem;
+	}
+	&__item{
+		display: inline-block;
+		margin: 0 1rem;
+		font-size: $small;
+	}
+	&__link{
+		text-decoration: none;
+		font-size: $small;
+		color: gray;
+	}
+}
