@@ -39,8 +39,8 @@
             <%= link_to member, class: "members__image" do %>
               <div class="members__image" style="background-image: url(<%= member.picture %>)"></div>
             <% end %>
-              <div class="members__image" style="background-image: url(<%= member.picture %>)"></div>
-            <% else %>
+          <% else %>
+            <div class="members__image" style="background-image: url(<%= member.picture %>)"></div>
           <% end %>
         </li>
       <% end %>
