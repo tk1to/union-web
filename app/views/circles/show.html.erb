@@ -58,7 +58,7 @@
   <% end %>
   <% if !@be_member %>
     <% if @favoriting %>
-      <%= link_to "気になる解除", [@circle, @favorite], method: :delete %>
+      <%= link_to "気になる解除", [@circle, @favorite], method: :delete , class: "buttun buttun_size_medium buttun_color_gray"%>
     <% else %>
       <%= link_to "気になる", [@circle, :favorites], method: :post , class: "buttun buttun_size_medium buttun_color_gray "%>
     <% end %>
