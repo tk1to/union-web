@@ -1,13 +1,14 @@
 <%= form_for @search_params, url: [:search, :circles], html: {method: :get} do |f| %>
 
-  <%= f.label :name, "名前" %>
-  <%= f.text_field :name %>
+<div class="form">
+  <!--<%= f.label :name, "名前" %>-->
+  <%= f.text_field :name , class: "form__text_area_search ta_center md_1rem"%>
 
   <%= f.label :categoies, "カテゴリー" %>
   <%= f.select :categories, @category_options.map{|t| [t.name, t.id]}, include_blank: true %>
-
-<%= f.submit "検索" %>
+    <%= f.submit "検索" , class: "buttun buttun_size_small buttun_color_blue float_right"%>
 <% end %>
+</div>
 
 <% if @circles.any? %>
   <% @circles.each do |circle| %>
