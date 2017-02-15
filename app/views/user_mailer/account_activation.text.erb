@@ -1,5 +1,22 @@
-Hi <%= @user.name %>,
 
-Welcome to the Sample App! Click on the link below to activate your account:
+この度はUnionにご登録いただき、ありがとうございます！
 
-<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
+Unionはサークルを探している「個人」と
+新メンバーを募集している「サークル」(学生団体・部活含む)が
+マッチングできるサービスです。
+
+下記のURLから本登録を完了しよう！
+
+<%= link_to "Activate", edit_account_activation_url(@user.activation_token, email: @user.email) %>
+
+※このメールに覚えがない場合、メールアドレスが誤って送信された可能性があります。大変お手数ですが、破棄してください。
+※このメールには返信できません。
+※ご登録やご利用に際して、ご不明点などございましたら、
+ 下記のメールアドレスにいつでもお気軽にお問い合わせください。
+
+メールアドレス：union.web.fr@gmail.com
+
+————————————————————————————————
+
+Union運営局
+~かけがえのない大学生活をあなたに~
