@@ -21,7 +21,10 @@ $(function(){
     $('.body_wrap, .aside__menu').css('display', 'block');
   });
   //サイドメニュー消失
-  $(document).on('click', '.body_wrap, .aside__menu_close',function(){
+  $(document).on('click', '.body_wrap',function(){
+    $('.body_wrap, .aside__menu').css('display', 'none');
+  });
+  $(document).on('click', '.aside__menu_close',function(){
     $('.body_wrap, .aside__menu').css('display', 'none');
   });
 
@@ -76,4 +79,12 @@ $(function(){
         $('img.event_picture').attr("src", e.target.result);
       };
   });
+
+  // coming soon
+  $(document).on('click', '.coming_soon',function(){
+    $('body').append('<div>').addClass('');
+  });
 });
+
+
+
