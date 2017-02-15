@@ -105,8 +105,8 @@
         <li class="article">
           <div class="article__image" style="background-image: url(<%= blog.picture %>)"></div>
           <%= link_to blog.title, [@circle, blog] , class: "article__heading"%>
-          <p class="article__text">ここにテキストが入ります</p>
-          <span class="article__time">日付</span>
+          <p class="article__text"><%= blog.content %></p>
+          <span class="article__time"><%= blog.created_at.in_time_zone('Tokyo').strftime("%y/%m/%d  %k:%M") %></span>
         </li>
       <% end %>
     </ul>
@@ -124,8 +124,8 @@
         <li class="article">
           <div class="article__image" style="background-image: url(<%= event.picture %>)"></div>
           <%= link_to event.title, [@circle, event] , class: "article__heading"%>
-          <p class="article__text">ここにテキストが入ります</p>
-          <span class="article__time">日付</span>
+          <p class="article__text"><%= event.content %></p>
+          <span class="article__time"></span>
         </li>
       <% end %>
     </ul>
