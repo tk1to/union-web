@@ -19,7 +19,7 @@
   &__link{
     text-decoration: none;
     color: gray;
-    font-size: 0.5rem;
+    font-size: $x-small;
   }
   &__number{
     display: inline-block;
@@ -39,12 +39,12 @@
     &__heading{
       color: #405158;
       font-weight: normal;
-      font-size: 0.8rem;
+      font-size: $normal;
       padding-top:0.5rem;
     }
     &__text{
       word-wrap: break-word;
-      font-size: 0.6rem;
+      font-size: $small;
       padding-top:0.5rem;
     }
     &__btn{
