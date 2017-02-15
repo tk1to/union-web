@@ -12,7 +12,7 @@
       -->
     <% end %>
   </div>
-  
+
 </div>
 
 <% if @circles.any? %>
@@ -27,7 +27,17 @@
 
       	<div class="card__image" style="background-image: url(<%= circle.picture %>)"></div>
         <h1 class="card__name"><%= circle.name %></h1>
-        <p class="card__category">カテゴリ</p>
+        <p class="card__category">
+          <% if circle.categories.first.present? %>
+            <%= circle.categories.first.name %>
+          <% end %>
+          <% if circle.categories.second.present? %>
+            /<%= circle.categories.second.name %>
+          <% end %>
+          <% if circle.categories.third.present? %>
+            /<%= circle.categories.third.name %>
+          <% end %>
+        </p>
       </div>
     <% end %>
   <% end %>
