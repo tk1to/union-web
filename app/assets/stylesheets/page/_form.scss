@@ -38,8 +38,8 @@
 		margin: 0.2rem auto 1rem;
 		}
 	&__text_area_search{
-		width: 99%;
-		height: 1.2rem;
+		width: 80%;
+		height: 1.5rem;
 		background: #fff;
 		border: 1px solid gray;
 		border-radius: 3px;
@@ -83,6 +83,9 @@
 		font-size: 0.6rem;
 		margin: 0.3rem auto;
 	}
+}
+.form__search{
+	padding-top:1rem;
 }
 .select{
 	width: 130%;
