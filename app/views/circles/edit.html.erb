@@ -1,15 +1,23 @@
-<%= form_for(@circle) do |f| %>
+<header>
+  <h1 class="heading ta_center">サークルプロフィール編集</h1>
+</header>
+
+<div class="form">
+  <%= form_for(@circle) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
-  <%= f.label :description %>
-  <%= f.text_area :description %>
+  <%= f.label :description ,"サークル説明文", class: "form__item"%>
+  <%= f.text_area :description , class: "form__text_area" %>
 
   <!-- 整列のためのpタグ -->
-  <p>
-  <% @category_ids.each_with_index do |id, i| %>
-    <%= select :categories, ("category_"+(i+1).to_s).to_sym, @category_options.map{|t| [t.name, t.id]}, selected: id, include_blank: true %>
-  <% end %>
-  </p>
+  <div class="form__item">カテゴリー選択</div>
+  <div class="ta_center">
+      <% @category_ids.each_with_index do |id, i| %>
+    <div class="form__select">
+      <%= select :categories, ("category_"+(i+1).to_s).to_sym, @category_options.map{|t| [t.name, t.id]}, selected: id, include_blank: true , class: "select"%>
+    </div>
+    <% end %>
+  </div>
 
   <p>
     <%= f.label :picture, "画像" %>
@@ -34,6 +42,8 @@
     </div>
     <%= f.file_field :header_picture %>
   </p>
-
-  <%= f.submit "更新" %>
-<% end %>
+  <div class="form__buttun">
+    <%= f.submit "更新" , class: "buttun buttun_size_large buttun_color_blue"%>
+  </div>
+  <% end %>
+</div>
