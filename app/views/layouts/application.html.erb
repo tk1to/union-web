@@ -8,11 +8,21 @@
   <meta name="viewport" content="width=device-whidth, initial-scale=1.0">
 </head>
 <body>
-<%= render 'layouts/nav' %>
-<% flash.each do |message_type, message| %>
-  <div class="flash_message"><%= message %></div>
-<% end %>
+	<%= render 'layouts/nav' %>
+	<% flash.each do |message_type, message| %>
+	  <div class="flash_message"><%= message %></div>
+	<% end %>
+
   <%= yield %>
+
+	<footer class="footer">
+		<ul class="footer__navi">
+			<li class="footer__item">About us</li>
+			<li class="footer__item">利用規約</li>
+			<li class="footer__item">運営情報</li>
+		</ul>
+		<p class="footer__copyright">COPYRIGHT &#169; 2017 UNION ALL RIGHTS RESERVED.	</p>
+	</footer>
 </body>
 </html>
 
