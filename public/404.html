@@ -5,63 +5,81 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
   body {
-    background-color: #EFEFEF;
-    color: #2E2F30;
+    background-color: #FFF;
     text-align: center;
     font-family: arial, sans-serif;
     margin: 0;
   }
 
-  div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
-  }
-
-  div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
-
   h1 {
-    font-size: 100%;
-    color: #730E15;
+    font-size: 1.2rem;
+    color: #405158;
     line-height: 1.5em;
+    font-weight: normal;
   }
+  h2{
+    font-size: 0.8rem;
+    color: gray;
+    line-height: 1.1em;
+    font-weight: normal;
+  }
+  p{
+    color: #405158;
+  }
+  .font_xsmall{
+    font-size: 0.6rem;
+  }
+  .mail{
+    font-size: 1rem;
+    color: #00ACC1;
+  }
+.wrap{
+  width: 90%;
+  margin: 0 auto;
+  border: 5px solid #80DEEA;
+  border-radius: 10px;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+.buttun{
+  display:inline-block;
+  text-align:center;
+  text-decoration: none;
+  -webkit-appearance: none;
+  width: 7rem;
+  height: 2.5rem;
+  border-radius: 3px;
+  line-height: 2.5rem;
+  margin: 0.3rem;
+  font-size: 0.8rem;
+  background: #00ACC1;
+  border: 1px solid gray;
+  color: #fff;
+  margin:2rem auto;
+}
+.error{
+  font-size: 2rem;
+  color: #00ACC1;
+  margin-top: 1rem;
+}
 
-  div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
   </style>
 </head>
 
 <body>
   <!-- This file lives in public/404.html -->
-  <div class="dialog">
+  <div class="error">404ERROR</div>
+  <div class="wrap">
     <div>
-      <h1>The page you were looking for doesn't exist.</h1>
-      <p>You may have mistyped the address or the page may have moved.</p>
+      <h2>The page you were looking for doesn't exist.</h2>
+      <h1>申し訳有りません<br>お探しのページはありません</h1>
+      <h2>You may have mistyped the address <br>or the page may have moved.</h2>
+      <p>アドレスを誤って入力したか<br>ページが移動した可能性があります</p>
+      <a class="buttun" href="">トップページへ</a>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
+    <p class="font_xsmall">以下のメールアドレスまでエラー報告をしていただけると幸いです</p>
+    <a class="mail" href="mailto:union.web.fr@gmail.com">union.web.fr@gmail.com</a>
   </div>
+  <h2>If you are the application owner check the logs for more information.</h2>
 </body>
 </html>
