@@ -26,12 +26,12 @@
 	}
 	&__heading{
 		text-align:center;
-		font-size: 0.8rem;
+		font-size: $normal;
 		margin-top: 2rem;
-		line-height: 1.2rem;
+		line-height: 1.4rem;
 	}
 	&__text{
-		font-size: 0.8rem;
+		font-size: $small;
 		margin-top: 1rem;
 		color: gray;
 	}
