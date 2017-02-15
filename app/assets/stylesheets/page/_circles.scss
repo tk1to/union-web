@@ -48,8 +48,9 @@
     font-weight: normal;
     color: $gray;
     margin: 0.5rem auto;
+    font-size: $large;
     &_underline{
-      border-bottom: 2px solid $d-blue;
+      border-bottom: 1.5px solid $d-blue;
       padding-bottom: 0.3rem;
     }
   }
@@ -58,7 +59,7 @@
   }
   &__more{
     float: right;
-    font-size: 0.5rem;
+    font-size: $small;
     color: gray;
     text-decoration: none;
     padding-top:0.2rem;
@@ -111,7 +112,7 @@
       color: gray;
     }
     &__more{
-      font-size: 0.6rem;
+      font-size: $small;
       color: gray;
       margin-top: 0.3rem;
       text-decoration: none;
