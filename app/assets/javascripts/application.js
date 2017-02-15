@@ -82,7 +82,12 @@ $(function(){
 
   // coming soon
   $(document).on('click', '.coming_soon',function(){
-    $('body').append('<div>').addClass('');
+    $('body').prepend($('<div>').addClass('displayed_coming_soon'));
+    $('.displayed_coming_soon').append($('<div>アップデートをお待ちください！</div>').addClass('coming_soon_update'));
+  });
+
+  $(document).on('click', '.header__foot',function(){
+    $('body').prepend($('<div>').addClass('displayed_coming_soon'));
   });
 });
 
