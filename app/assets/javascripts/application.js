@@ -83,7 +83,8 @@ $(function(){
   // coming soon
   $(document).on('click', '.coming_soon',function(){
     $('body').prepend($('<div>').addClass('displayed_coming_soon'));
-    $('.displayed_coming_soon').append($('<div>アップデートをお待ちください！</div>').addClass('coming_soon_update'));
+    $('.displayed_coming_soon').append($('<div class="coming_soon_update">アップデートをお待ちください！</div>'));
+    // $('.displayed_coming_soon').append($('<div>アップデートをお待ちください！</div>').addClass('coming_soon_update'));
   });
 
   $(document).on('click', '.header__foot',function(){
