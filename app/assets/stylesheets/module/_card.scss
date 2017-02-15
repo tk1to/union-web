@@ -18,10 +18,14 @@
     position: absolute;
     top: 10.5rem;
     left: 0.5rem;
+    width: 95%;
+    height: 0.8rem;
+    line-height: 1rem;
     font-size: 0.8rem;
     font-weight: 500;
     text-decoration: none;
     color: $gray;
+    overflow: hidden;
   }
   &__subhead{
     position: absolute;
