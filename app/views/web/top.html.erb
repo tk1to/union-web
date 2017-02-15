@@ -13,11 +13,15 @@
   <ul class="frame__list ta_center">
     <% @circles.each do |circle| %>
       <li class="circle">
-        <%= link_to circle do %>
+        <%= link_to circle, class: "circle__link" do %>
           <div class="circle__background" style="background-image: url(<%= circle.header_picture %>)"></div>
           <div class="circle__image" style="background-image: url(<%= circle.picture %>)"></div>
           <p class="circle__name"><%= circle.name %></p>
-          <p class="circle__genre">カテゴリ</p>
+          <p class="circle__genre">
+            <% if circle.categories.first.present? %>
+              <%= circle.categories.first.name %>
+            <% end %>
+          </p>
         <% end %>
       </li>
     <% end %>
