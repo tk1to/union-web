@@ -35,10 +35,9 @@
     <ul class="members__list">
       <% @members.each do |member| %>
         <li class="members__list_item">
-          <!--<%= link_to member.name, member , class: "members__name" %>-->
-          <a class="members__image" href="">
-            <div class="members__image"></div>
-          </a>
+          <%= link_to member , class: "members__image" do %>
+            <div class="members__image" style="background-image: url(<%= @user.picture %>)"></div>
+          <% end %>
         </li>
       <% end %>
     </ul>
