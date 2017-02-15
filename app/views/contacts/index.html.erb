@@ -6,10 +6,8 @@
 	<ul>
 	  <% @contacts.each do |contact| %>
 	    <li class="list">
-	    	<%= link_to contact.content, [@circle, contact] %>
-	    	<%= link_to contact.send_user.name, contact.send_user , class: "list__name"%>
-	    	<div class="list__image"></div>
-	    	<div class="list__subhead">何か情報</div>
+	    	<%= link_to contact.send_user.name, contact.send_user , class: "list__name_contact"%>
+	    	<%= link_to contact.content, [@circle, contact] , class: "list__subhead_contact"%>
 	    </li>
 	  <% end %>
 	</ul>
