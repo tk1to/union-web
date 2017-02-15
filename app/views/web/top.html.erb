@@ -13,7 +13,7 @@
   <ul class="frame__list ta_center">
     <% @circles.each do |circle| %>
       <li class="circle">
-        <%= link_to circle, class: "circle__link" do %>
+        <%= link_to circle, class: "wrap__link" do %>
           <div class="circle__background" style="background-image: url(<%= circle.header_picture %>)"></div>
           <div class="circle__image" style="background-image: url(<%= circle.picture %>)"></div>
           <p class="circle__name"><%= circle.name %></p>
@@ -36,10 +36,12 @@
   <ul class="frame__list">
     <% @blogs.each do |blog| %>
       <li class="article">
-        <div class="article__image" style="background-image: url(<%= blog.picture %>)"></div>
-        <%= link_to blog.title, [blog.circle, blog] , class: "article__heading" %>
-        <p class="article__text"><%= blog.content %></p>
-        <span class="article__time"><%= blog.created_at.in_time_zone('Tokyo').strftime("%y/%m/%d  %k:%M") %></span>
+        <%= link_to [blog.circle, blog], class: "wrap__link" do %>
+          <div class="article__image" style="background-image: url(<%= blog.picture %>)"></div>
+          <p class="article__heading"><%= blog.title %></p>
+          <p class="article__text"><%= blog.content %></p>
+          <span class="article__time"><%= blog.created_at.in_time_zone('Tokyo').strftime("%y/%m/%d  %k:%M") %></span>
+        <% end %>
       </li>
     <% end %>
   </ul>
@@ -53,10 +55,12 @@
   <ul class="frame__list">
     <% @events.each do |event| %>
       <li class="article">
-        <div class="article__image" style="background-image: url(<%= event.picture %>)"></div>
-        <%= link_to event.title, [event.circle, event] , class: "article__heading" %>
-        <p class="article__text"><%= event.content %></p>
-        <span class="article__time"></span>
+        <%= link_to [event.circle, event], class: "wrap__link" do %>
+          <div class="article__image" style="background-image: url(<%= event.picture %>)"></div>
+          <p class="article__heading"><%= event.title %></p>
+          <p class="article__text"><%= event.content %></p>
+          <span class="article__time"></span>
+        <% end %>
       </li>
     <% end %>
   </ul>
