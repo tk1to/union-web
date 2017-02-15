@@ -17,16 +17,23 @@
 }
 .lp{
 	width:90%;
-	margin:2rem auto;
+	margin:3rem auto;
+	&__union{
+		font-size: 1.8rem;
+		font-weight: normal;
+		text-align: center;
+		margin:10rem auto;
+	}
 	&__heading{
 		text-align:center;
-		font-size: 0.8rem;
+		font-size: $normal;
 		margin-top: 2rem;
-		line-height: 1.2rem;
+		line-height: 1.4rem;
 	}
 	&__text{
-		font-size: 0.8rem;
+		font-size: $small;
 		margin-top: 1rem;
+		color: gray;
 	}
 	&__inner{
 		text-align: center;
@@ -34,5 +41,6 @@
 	&__end{
 		text-align: center;
 		font-size: 1.3rem;
+		margin:6rem auto;
 	}
 }

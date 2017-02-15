@@ -1,9 +1,16 @@
-<h1>気になる</h1>
+<header>
+	<h1 class="heading ta_center">お気に入り</h1>
+</header>
 
-<% if @user.favorites.any? %>
-  <ul>
-    <% @user.favoriting_circles.each do |circle| %>
-      <li><%= link_to circle.name, circle %></li>
-    <% end %>
-  </ul>
-<% end %>
+<div class="list__wrap">
+	<% if @user.favorites.any? %>
+  	<ul>
+    	<% @user.favoriting_circles.each do |circle| %>
+      		<li class="list"><%= link_to circle.name, circle , class: "list__name"%>
+      			<div class="list__image"></div>
+      			<div class="list__subhead">何か情報</div>
+			</li>
+    	<% end %>
+  	</ul>
+	<% end %> 
+</div>

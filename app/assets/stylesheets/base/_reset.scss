@@ -133,3 +133,7 @@ select {
   color: inherit;
   box-sizing: content-box;
 }
+// 勝手にlist-style:noneを追加
+ul{
+  list-style: none;
+}

@@ -1,9 +1,18 @@
-<h1><%= @title %></h1>
+<header>
+	<h1 class="heading ta_center">フォロー<%= @title %></h1>
+</header>
 
-<% if @users.any? %>
-  <ul>
-    <% @users.each do |user| %>
-      <li><%= link_to user.name, user %></li>
+<div class="list__wrap">
+	<% if @users.any? %>
+  	<ul>
+    	<% @users.each do |user| %>
+      		<li class="list"><%= link_to user.name, user , class: "list__name"%>
+      			<div class="list__image"></div>
+      			<div class="list__subhead">何か情報</div>
+      		</li>
     <% end %>
-  </ul>
-<% end %>
+  	</ul>
+	<% end %>
+</div>
+
+

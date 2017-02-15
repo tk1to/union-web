@@ -7,16 +7,16 @@
     <%= render 'shared/error_messages', object: f.object %>
 
     <%= f.label :name , class: "form__item" %>
-    <%= f.text_field :name , class: "form__input" %>
+    <%= f.text_field :name , class: "form__text_field" %>
 
     <%= f.label :email , class: "form__item" %>
-    <%= f.email_field :email , class: "form__input" %>
+    <%= f.email_field :email , class: "form__text_field" %>
 
     <%= f.label :password , class: "form__item" %>
-    <%= f.password_field :password , class: "form__input" %>
+    <%= f.password_field :password , class: "form__text_field" %>
 
     <%= f.label :password_confirmation , class: "form__item" %>
-    <%= f.password_field :password_confirmation , class: "form__input" %>
+    <%= f.password_field :password_confirmation , class: "form__text_field" %>
 
     <div class="form__buttun">
         <%= f.submit "登録" , class: "buttun buttun_size_large buttun_color_blue" %>

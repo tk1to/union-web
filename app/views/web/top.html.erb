@@ -1,9 +1,9 @@
 <header class="header">
-  <div class="header__background">特集</div>
+  <!--<% if !logged_in? %>-->
+  <!--<% end %>-->
+  <%= link_to 'what\'s union?', signups_path , class: "header__background"%>
+    <!-- <div class="header__background">特集</div> -->
 </header>
-<% if !logged_in? %>
-  <%= link_to 'what\'s union?', signups_path %>
-<% end %>
 
 <div class="frame">
   <h1 class="frame__heading frame__heading_underline">サークル一覧</h1>
@@ -25,7 +25,7 @@
 </div>
 
 <div class="frame">
-  <h1 class="frame__heading">ブログ一覧</h1>
+  <h1 class="frame__heading frame__heading_underline">ブログ一覧</h1>
 <% if @blogs.any? %>
   <ul class="frame__list">
     <% @blogs.each do |blog| %>

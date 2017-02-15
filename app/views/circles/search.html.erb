@@ -1,27 +1,28 @@
 <%= form_for @search_params, url: [:search, :circles], html: {method: :get} do |f| %>
 
-  <%= f.label :name, "名前" %>
-  <%= f.text_field :name %>
+<div class="form">
+  <!--<%= f.label :name, "名前" %>-->
+  <%= f.text_field :name , class: "form__text_area_search ta_center md_1rem"%>
 
   <%= f.label :categoies, "カテゴリー" %>
   <%= f.select :categories, @category_options.map{|t| [t.name, t.id]}, include_blank: true %>
-
-<%= f.submit "検索" %>
+    <%= f.submit "検索" , class: "buttun buttun_size_small buttun_color_blue float_right"%>
 <% end %>
+</div>
 
 <% if @circles.any? %>
   <% @circles.each do |circle| %>
     <%= link_to circle do %>
-      <div class="feed">
-      	<div class="feed__background" style="background-image: url(<%= circle.header_picture %>)"></div>
+      <div class="card">
+      	<div class="card__background" style="background-image: url(<%= circle.header_picture %>)"></div>
 
         <!-- 修正が必要 -->
-      	<h1 class="feed__heading"><%= circle.description %></h1>
-      	<p class="feed__subhead"></p>
+      	<h1 class="card__heading"><%= circle.description %></h1>
+      	<p class="card__subhead"></p>
 
-      	<div class="feed__image" style="background-image: url(<%= circle.picture %>)"></div>
-        <h1 class="feed__name"><%= circle.name %></h1>
-        <p class="feed__category">カテゴリ</p>
+      	<div class="card__image" style="background-image: url(<%= circle.picture %>)"></div>
+        <h1 class="card__name"><%= circle.name %></h1>
+        <p class="card__category">カテゴリ</p>
       </div>
     <% end %>
   <% end %>
