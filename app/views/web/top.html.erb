@@ -10,14 +10,14 @@
 <% if @circles.any? %>
   <ul class="frame__list ta_center">
     <% @circles.each do |circle| %>
-      <%= link_to circle do %>
-        <li class="circle">
+      <li class="circle">
+        <%= link_to circle do %>
           <div class="circle__background" style="background-image: url(<%= circle.header_picture %>)"></div>
           <div class="circle__image" style="background-image: url(<%= circle.picture %>)"></div>
           <%= link_to circle.name, circle , class: "circle__name"%>
           <p class="circle__genre">カテゴリ</p>
-        </li>
-      <% end %>
+        <% end %>
+      </li>
     <% end %>
   </ul>
   <!-- <a class="article__more float_right" href="">もっと見る</a> -->
