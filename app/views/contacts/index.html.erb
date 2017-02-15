@@ -1,6 +1,17 @@
-<ul>
-  <% @contacts.each do |contact| %>
-    <li><%= link_to contact.content, [@circle, contact] %> | <%= link_to contact.send_user.name, contact.send_user %></li>
-  <% end %>
-</ul>
-<p><%= link_to "サークルへ戻る", @circle %></p>
+<header>
+	<h1 class="heading ta_center">お問い合わせ一覧</h1>
+</header>
+
+<div class="list__wrap">
+	<ul>
+	  <% @contacts.each do |contact| %>
+	    <li class="list">
+	    	<%= link_to contact.content, [@circle, contact] %> | <%= link_to contact.send_user.name, contact.send_user , class: "list__name"%>
+	    	<div class="list__image"></div>
+	    	<div class="list__subhead">何か情報</div>
+	    </li>
+	  <% end %>
+	</ul>
+	<p><%= link_to "サークルへ戻る", @circle %></p>
+</div>
+
