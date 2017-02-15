@@ -3,8 +3,9 @@
   width: 90%;
   height: 15rem;
   margin: 0.5rem auto;
-  border:2px solid $d-blue;
-  border-radius:5px;
+  border:1px solid $d-blue;
+  border-radius: 3px;
+  // box-shadow:0 2px 2px 0 $gray;
   &__background{
     position: absolute;
     top: 0;
@@ -34,7 +35,7 @@
     width: 95%;
     font-size: 0.5rem;
     color: gray;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid $l-gray;
   }
   &__image{
     position: absolute;
