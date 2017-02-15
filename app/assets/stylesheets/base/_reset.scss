@@ -133,6 +133,10 @@ select {
   color: inherit;
   box-sizing: content-box;
 }
+// submitボタン
+  input[type="button"],input[type="submit"] {
+    -webkit-appearance: none;
+  }
 // 勝手にlist-style:noneを追加
 ul{
   list-style: none;
