@@ -7,8 +7,12 @@
   	<ul>
     	<% @user.favoriting_circles.each do |circle| %>
       		<li class="list"><%= link_to circle.name, circle , class: "list__name"%>
-      			<div class="list__image"></div>
-      			<div class="list__subhead">何か情報</div>
+      			<div class="list__image" style="background-image: url(<%= circle.picture %>)"></div>
+      			<div class="list__subhead">
+              <% if circle.categories.present? %>
+              <%= circle.categories.first.name %>
+              <% end %>
+            </div>
 			</li>
     	<% end %>
   	</ul>
