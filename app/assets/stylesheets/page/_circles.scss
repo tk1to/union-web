@@ -1,7 +1,8 @@
 .members{
   width: 90%;
-  height: 3rem;
+  height: 4rem;
   margin: 1rem auto;
+  overflow: hidden;
   &__heading {
     width: 95%;
     display: block;
@@ -11,11 +12,20 @@
     color: $gray;
   }
   &__list{
-    display: table-cell;
-    vertical-align: middle;
+    display:flex;
+    justify-content: center;
+    padding:0;
     list-style: none;
-    // width: 3rem;
-    // height: 4rem;
+  }
+  &__list_item{
+    padding: 0 0.5rem;
+  }
+  &__image{
+    width: 2rem;
+    height: 2rem;
+    border-radius:50%;
+    background: gray;
+    margin-top: 0.3rem;
   }
   &__name{
     font-size: 0.1rem;
@@ -27,7 +37,7 @@
     color: gray;
     font-size: 0.5rem;
     float: right;
-    margin-top: 0.20rem;
+    margin-top: 0.3rem;
   }
 }
 .frame{
@@ -99,6 +109,12 @@
       padding: 1.2rem 0;
       font-size: 0.6rem;
       color: gray;
+    }
+    &__more{
+      font-size: 0.6rem;
+      color: gray;
+      margin-top: 0.3rem;
+      text-decoration: none;
     }
   }
   &__create{
