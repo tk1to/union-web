@@ -13,3 +13,10 @@ ja:
         hobby: 趣味
       circle:
         name: サークル名
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: 名前を入力してください

@@ -14,6 +14,7 @@ class UsersController < ApplicationController
       flash[:info] = "アカウントを有効にするためにメールを確認してください。"
       redirect_to root_url
     else
+      flash.now[:error] = "エラーがあります。"
       render 'new'
     end
   end

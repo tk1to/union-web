@@ -6,6 +6,9 @@
   <%= form_for(@circle) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
+  <%= f.label :name ,"サークル名", class: "form__item"%>
+  <%= f.text_field :name , class: "form__text_field" %>
+
   <%= f.label :description ,"サークル説明文", class: "form__item"%>
   <%= f.text_area :description , class: "form__text_area" %>
 
