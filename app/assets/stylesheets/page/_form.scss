@@ -37,6 +37,13 @@
 		border:solid 1px #ccc;
 		margin: 0.2rem auto 1rem;
 		}
+	&__text_area_search{
+		width: 99%;
+		height: 1.2rem;
+		background: #fff;
+		border: 1px solid gray;
+		border-radius: 3px;
+	}
 	&__checkbox{
 		color: $gray;
 		font-size: 0.8rem;
