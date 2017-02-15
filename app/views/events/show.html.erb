@@ -1,12 +1,21 @@
-<h1><%= @event.title %></h1>
-<p><%= @event.content %></p>
+<header class="header">
+	<div class="header__background">
+		<%= image_tag @event.picture.url %>
+	</div>
+	<div class="author">
+		<div class="author__image"></div>
+		<div class="author__circle"><span class="author__autor">主催者:</span><%= link_to @circle.name, @circle , class: "td_none color_black"%></div>
+	</div>
+</header>
+<div class="article">
+	<h1 class="article__title"><%= @event.title %></h1>
+	<p class="article__text"><%= @event.content %></p>
 
-<div style="width: 30%;">
-  <%= image_tag @event.picture.url %>
 </div>
 
-<% if @be_member %>
-  <%= link_to "編集", [:edit, @circle, @event] %>
-<% end %>
 
-<p><%= link_to @circle.name, @circle %></p>
+<% if @author == current_user %>
+	<div class="ta_center">
+	  <%= link_to "編集", [:edit, @circle, @event] , class: "buttun buttun_size_medium buttun_color_blue "%>
+	</div>
+<% end %>
