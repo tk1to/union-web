@@ -21,14 +21,14 @@ $(function(){
     $('.body_wrap, .aside__menu').css('display', 'block');
   });
   //サイドメニュー消失
-  $('.aside__menu_wrap').on('click', '.body_wrap',function(){
-    $('.aside__menu').css('display', 'none');
-    $('.body_wrap').css('display', 'none');
-  });
-  $('.aside__menu').on('click', '.aside__menu_close',function(){
-    $('.body_wrap').css('display', 'none');
-    $('.aside__menu').css('display', 'none');
-  });
+  // $('.aside__menu_wrap').on('click', '.body_wrap',function(){
+  //   $('.aside__menu').css('display', 'none');
+  //   $('.body_wrap').css('display', 'none');
+  // });
+  // $('.aside__menu').on('click', '.aside__menu_close',function(){
+  //   $('.body_wrap').css('display', 'none');
+  //   $('.aside__menu').css('display', 'none');
+  // });
 
   $(document).on('change', '#user_picture',function(){
     var file = $(this).prop('files')[0];

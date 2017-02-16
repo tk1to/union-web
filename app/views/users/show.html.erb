@@ -2,7 +2,9 @@
   <div class="body_wrap"></div>
   <div class="aside__menu">
     <ul class="aside__menu_lists">
-      <li class="aside__menu_list aside__menu_close">閉じる</li>
+      <li class="aside__menu_list aside__menu_close">
+        <%= link_to '閉じる', @user, class: "wrap__link" %>
+      </li>
       <li class="aside__menu_list"><%= link_to "プロフィール編集", [:edit, @user] %></li>
       <li class="aside__menu_list">
         <%= link_to "新規サークル登録", new_circle_path, class: "create_circle_btn"%>
