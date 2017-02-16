@@ -22,10 +22,14 @@ $(function(){
   });
   //サイドメニュー消失
   $(document).on('click', '.body_wrap',function(){
-    $('.body_wrap, .aside__menu').css('display', 'none');
+    // $('.aside__menu').css('display', 'none');
+    // $('.body_wrap').css('display', 'none');
+    $('.aside__menu').hide();
+    $('.body_wrap').hide();
   });
   $(document).on('click', '.aside__menu_close',function(){
-    $('.body_wrap, .aside__menu').css('display', 'none');
+    $('.body_wrap').css('display', 'none');
+    $('.aside__menu').css('display', 'none');
   });
 
   $(document).on('change', '#user_picture',function(){
