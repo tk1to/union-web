@@ -21,7 +21,7 @@ $(function(){
     $('.body_wrap, .aside__menu').css('display', 'block');
   });
   //サイドメニュー消失
-  $('.body_wrap').on('click', '.body_wrap',function(){
+  $('.aside__menu_wrap').on('click', '.body_wrap',function(){
     $('.aside__menu').css('display', 'none');
     $('.body_wrap').css('display', 'none');
   });
@@ -83,7 +83,7 @@ $(function(){
   });
 
   // coming soon
-  $(document).on('click', '.coming_soon .header__foot',function(){
+  $(document).on('click', '.coming_soon, .header__foot',function(){
     $('body').prepend($('<div>').addClass('displayed_coming_soon'));
     $('.displayed_coming_soon').append($('<div class="coming_soon_update">アップデートをお待ちください！</div>'));
 

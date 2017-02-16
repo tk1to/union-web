@@ -1,12 +1,14 @@
-<% if @be_member %>
-  <div class="body_wrap"></div>
-  <div class="aside__menu">
-    <ul class="aside__menu_lists">
-      <li class="aside__menu_list aside__menu_close">閉じる</li>
-      <li class="aside__menu_list"><%= link_to "サークル情報編集", [:edit, @circle] %></li>
-    </ul>
-  </div>
-<% end %>
+<div class="aside__menu_wrap">
+  <% if @be_member %>
+    <div class="body_wrap"></div>
+    <div class="aside__menu">
+      <ul class="aside__menu_lists">
+        <li class="aside__menu_list aside__menu_close">閉じる</li>
+        <li class="aside__menu_list"><%= link_to "サークル情報編集", [:edit, @circle] %></li>
+      </ul>
+    </div>
+  <% end %>
+</div>
 
 <header class="header">
   <h1 class="header__name_circle"><%= @circle.name %></h1>
