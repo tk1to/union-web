@@ -73,6 +73,7 @@
     height: 3rem;
     border: 1px solid $d-blue;
     border-radius: 3px;
+    box-sizing:border-box;
     &__heading{
       position: absolute;
       top: 20%;
