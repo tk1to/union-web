@@ -45,6 +45,16 @@ class User < ActiveRecord::Base
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
 
+  #足跡関連
+  has_many :footer_print, class_name:  "FootPrint",
+                          foreign_key: "footer_id",
+                          dependent: :destroy
+  has_many :footed_print, class_name:  "FootPrint",
+                          foreign_key: "footed_id",
+                          dependent: :destroy
+  has_many :footer_user, through: :footer_print, source: :footed
+  has_many :footed_user, through: :footed_print, source: :footer
+
   # 与えられた文字列のハッシュ値を返す
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
