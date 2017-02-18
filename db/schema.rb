@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170214141447) do
+ActiveRecord::Schema.define(version: 20170218141245) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,11 @@ ActiveRecord::Schema.define(version: 20170214141447) do
   add_index "favorites", ["circle_id", "user_id"], name: "index_favorites_on_circle_id_and_user_id", unique: true, using: :btree
   add_index "favorites", ["circle_id"], name: "index_favorites_on_circle_id", using: :btree
   add_index "favorites", ["user_id"], name: "index_favorites_on_user_id", using: :btree
+
+  create_table "foot_prints", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "memberships", force: :cascade do |t|
     t.datetime "created_at", null: false
