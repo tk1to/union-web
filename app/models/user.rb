@@ -46,14 +46,14 @@ class User < ActiveRecord::Base
   has_many :followers, through: :passive_relationships, source: :follower
 
   #足跡関連
-  has_many :footer_print, class_name:  "FootPrint",
-                          foreign_key: "footer_id",
-                          dependent: :destroy
-  has_many :footed_print, class_name:  "FootPrint",
-                          foreign_key: "footed_id",
-                          dependent: :destroy
-  has_many :footer_user, through: :footer_print, source: :footed
-  has_many :footed_user, through: :footed_print, source: :footer
+  has_many :footer_prints, class_name:  "FootPrint",
+                           foreign_key: "footer_id",
+                           dependent: :destroy
+  has_many :footed_prints, class_name:  "FootPrint",
+                           foreign_key: "footed_id",
+                           dependent: :destroy
+  has_many :footer_users, through: :footer_prints, source: :footed_user
+  has_many :footed_users, through: :footed_prints, source: :footer_user
 
   # 与えられた文字列のハッシュ値を返す
   def User.digest(string)
