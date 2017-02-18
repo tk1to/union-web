@@ -47,10 +47,10 @@ class User < ActiveRecord::Base
 
   #足跡関連
   has_many :footer_prints, class_name:  "FootPrint",
-                           foreign_key: "footer_id",
+                           foreign_key: "footer_user_id",
                            dependent: :destroy
   has_many :footed_prints, class_name:  "FootPrint",
-                           foreign_key: "footed_id",
+                           foreign_key: "footed_user_id",
                            dependent: :destroy
   has_many :footer_users, through: :footer_prints, source: :footed_user
   has_many :footed_users, through: :footed_prints, source: :footer_user

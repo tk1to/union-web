@@ -38,6 +38,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    if !current_user?(@user)
+      current_user.footer_prints.create(footed_user_id: @user.id)
+    end
   end
 
   def following

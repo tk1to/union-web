@@ -1,3 +1,11 @@
+<% if @user.footed_users.present? %>
+  <ul>
+    <% @user.footed_users.each do |footed_user| %>
+      <li>footed_user.name</li>
+    <% end %>
+  </ul>
+<% end %>
+
 <% if current_user?(@user) %>
   <div class="body_wrap"></div>
   <div class="aside__menu">
