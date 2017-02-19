@@ -64,6 +64,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   def foots
+    user = User.find(params[:id])
+    @foots = user.footed_prints
   end
 
   private

@@ -1,12 +1,3 @@
-<% if @user.footed_users.present? %>
-  <p>ついた足跡一覧</p>
-  <ul>
-    <% @user.footed_prints.each do |footed_print| %>
-      <li><%= footed_print.footer_user.name %>/<%= footed_print.updated_at %></li>
-    <% end %>
-  </ul>
-<% end %>
-
 <% if current_user?(@user) %>
   <div class="body_wrap"></div>
   <div class="aside__menu">
@@ -30,8 +21,8 @@
   <p class="header__subhead_user"><%= @user.college %>/<%= @user.department %>/<%= @user.grade %>年</p>
   <% if current_user?(@user) %>
     <%= image_tag "menu.svg" , class: "header__menu_humberger" %>
+    <%= link_to image_tag("foot.png"), [:foots, @user], class: "header__foot" %>
   <% end %>
-  <%= image_tag "foot.png" , class: "header__foot" %>
   <% if !current_user?(@user) %>
     <div class="buttun buttun_follow butttun_color_white">
       <div id="follow_form">
