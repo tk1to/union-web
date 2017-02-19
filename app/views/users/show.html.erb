@@ -9,7 +9,7 @@
       <li class="aside__menu_list">
         <%= link_to "新規サークル登録", new_circle_path, class: "create_circle_btn"%>
       </li>
-      <li class="aside__menu_list"><%= link_to "ログアウト", logout_path, method: :delete %></li>
+      <li class="aside__menu_list"><%= link_to "ログアウト", :logout, method: :delete %></li>
     </ul>
   </div>
 <% end %>
