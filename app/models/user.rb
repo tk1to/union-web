@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
 
 
   has_many :circles, through: :memberships
-  has_many :memberships
+  has_many :memberships, foreign_key: "member_id"
 
   has_many :blogs
   has_many :contacts, foreign_key: "send_user_id"

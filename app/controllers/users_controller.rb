@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :logged_in_user, only: [:edit, :update, :following, :followers]
+  before_action :logged_in_user, only: [:edit, :update, :following, :followers, :show]
   before_action :correct_user,   only: [:edit, :update]
 
   def new
@@ -38,8 +38,13 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    if !current_user?(@user)
-      current_user.footer_prints.create(footed_user_id: @user.id)
+    if !current_user?(@user) && @user.circles.present?
+      if footed_print = @user.footed_prints.find_by(footer_user_id: current_user.id)
+        footed_print.touch
+        footed_print.save
+      else
+        current_user.footer_prints.create(footed_user_id: @user.id)
+      end
     end
   end
 
@@ -57,6 +62,8 @@ class UsersController < ApplicationController
   end
   def favorites
     @user = User.find(params[:id])
+  end
+  def foots
   end
 
   private

@@ -1,7 +1,8 @@
 <% if @user.footed_users.present? %>
+  <p>ついた足跡一覧</p>
   <ul>
-    <% @user.footed_users.each do |footed_user| %>
-      <li>footed_user.name</li>
+    <% @user.footed_prints.each do |footed_print| %>
+      <li><%= footed_print.footer_user.name %>/<%= footed_print.updated_at %></li>
     <% end %>
   </ul>
 <% end %>
