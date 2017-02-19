@@ -23,7 +23,8 @@ Rails.application.configure do
     domain:               'smtp.gmail.com',
     user_name:            'union.web.fr@gmail.com',
     password:             'union188',
-    authentication:       'login',
+    # authentication:       'login',
+    authentication:       :plain,
     enable_starttls_auto: true
   }
   host = 'localhost:3000'
