@@ -22,6 +22,10 @@ gem 'sdoc',         '0.4.0', group: :doc
 
 gem 'rb-readline'
 
+gem 'devise',            '4.2.0'
+gem 'omniauth',          '1.6.1'
+gem 'omniauth-facebook', '4.0.0'
+
 group :development, :test do
   # gem 'sqlite3',     '1.3.9'
   gem 'byebug',      '3.4.0'
