@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   # ログアウト後のリダイレクト
   def after_sign_out_path_for(resource)
-   :root
+    :root
   end
 
   private
