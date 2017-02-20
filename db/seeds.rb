@@ -12,8 +12,8 @@ names = ["太郎", "次郎", "三郎"]
 mails = ["taro", "jiro", "saburo"]
 3.times do |i|
   user = User.create(
-    name: "てすと#{names[i]}"
-    email: "#{mails[i]}@test.com"
+    name: "てすと#{names[i]}",
+    email: "#{mails[i]}@test.com",
     password: "union188"
   )
   user.skip_confirmation!
