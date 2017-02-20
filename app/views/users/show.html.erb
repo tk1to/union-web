@@ -9,7 +9,7 @@
       <li class="aside__menu_list">
         <%= link_to "新規サークル登録", [:new, :circle], class: "create_circle_btn"%>
       </li>
-      <li class="aside__menu_list"><%= link_to "ログアウト", [:destroy, @user, :session], method: :delete %></li>
+      <li class="aside__menu_list"><%= link_to "ログアウト", [:destroy, :user, :session], method: :delete %></li>
     </ul>
   </div>
 <% end %>
