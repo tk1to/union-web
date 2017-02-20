@@ -12,22 +12,22 @@ User.create(
   # id: 1,
   name:  "てすと太郎",
   email: "taro@test.com",
-  password:              "rails",
-  password_confirmation: "rails",
+  # password:              "rails",
+  # password_confirmation: "rails",
 )
 User.create(
   # id: 2,
   name: "てすと次郎",
   email: "jiro@test.com",
-  password:              "rails",
-  password_confirmation: "rails",
+  # password:              "rails",
+  # password_confirmation: "rails",
 )
 User.create(
   # id: 3,
   name: "てすと三郎",
   email: "saburo@test.com",
-  password:              "rails",
-  password_confirmation: "rails",
+  # password:              "rails",
+  # password_confirmation: "rails",
 )
 Circle.create(name: "ボランティアサークル", description: "定期的にボランティアをするサークルです。興味がある方は是非！")
 Blog.create(title: "太郎のサークル設立",circle_id: 1, author_id: 1,

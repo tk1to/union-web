@@ -1,4 +1,10 @@
 
+<% if user_signed_in? %>
+ログアウト
+<%= current_user.email %>
+<% end %>
 <%= link_to "サインアップ", new_user_registration_path %>
+<%= link_to "ログイン", new_user_session_path %>
+<%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
 
 <%= render 'shared/whats_union' %>
