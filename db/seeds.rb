@@ -14,8 +14,6 @@ User.create(
   email: "taro@test.com",
   password:              "rails",
   password_confirmation: "rails",
-  activated: true,
-  activated_at: Time.zone.now,
 )
 User.create(
   # id: 2,
@@ -23,8 +21,6 @@ User.create(
   email: "jiro@test.com",
   password:              "rails",
   password_confirmation: "rails",
-  activated: true,
-  activated_at: Time.zone.now,
 )
 User.create(
   # id: 3,
@@ -32,8 +28,6 @@ User.create(
   email: "saburo@test.com",
   password:              "rails",
   password_confirmation: "rails",
-  activated: true,
-  activated_at: Time.zone.now,
 )
 Circle.create(name: "ボランティアサークル", description: "定期的にボランティアをするサークルです。興味がある方は是非！")
 Blog.create(title: "太郎のサークル設立",circle_id: 1, author_id: 1,
