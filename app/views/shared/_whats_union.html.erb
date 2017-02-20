@@ -1,10 +1,10 @@
 <div class="LP">
 	<div class="keyvisual">
 		<%= image_tag "union_lp.png" %>
-		<% if !logged_in? %>
+		<% if !user_signed_in? %>
 			<div class="keyvisual__inner">
-				<%= link_to '新規登録', new_user_path, class: "buttun buttun_size_medium buttun_color_blue"%>
-				<%= link_to "ログイン", login_path , class: "buttun buttun_size_medium buttun_color_white"%>
+				<%= link_to '新規登録', [:new, :user, :registration], class: "buttun buttun_size_medium buttun_color_blue"%>
+				<%= link_to "ログイン", [:new, :user, :session] , class: "buttun buttun_size_medium buttun_color_white"%>
 			</div>
 		<% end %>
 	</div>
@@ -28,7 +28,7 @@
 		<p class="lp__end">さあ、UNIONを始めよう！</p>
 	</section>
 
-	<% if !logged_in? %>
+	<% if !user_signed_in? %>
 		<div class="lp">
 			<div class="lp__inner">
 				<%= link_to '新規登録', new_user_path, class: "buttun buttun_size_large buttun_color_blue"%>

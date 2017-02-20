@@ -28,7 +28,7 @@ class CirclesController < ApplicationController
 
     @be_member = @members.include?(current_user)
 
-    if logged_in?
+    if user_signed_in?
       # メンバー申請しているかどうか
       if @entrying = @circle.entrying_users.include?(current_user)
         @entry = @circle.entries.find_by(user_id: current_user.id)

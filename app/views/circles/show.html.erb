@@ -39,7 +39,7 @@
     <ul class="members__list">
       <% @members.each do |member| %>
         <li class="members__list_item">
-          <% if logged_in? %>
+          <% if user_signed_in? %>
             <%= link_to member, class: "members__image" do %>
               <div class="members__image" style="background-image: url(<%= member.picture %>)"></div>
             <% end %>
@@ -52,7 +52,7 @@
   </div>
 <% end %>
 
-<% if logged_in? %>
+<% if user_signed_in? %>
   <div class="ta_center">
     <% if @be_member %>
       <%= link_to "お問い合わせ一覧", [@circle, :contacts] , class: "buttun buttun_size_medium buttun_color_gray"%>

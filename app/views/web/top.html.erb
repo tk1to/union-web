@@ -1,7 +1,7 @@
 <header class="header">
   <%= link_to signups_path , class: "header__background" do %>
     <div class="header__image_top" style="background-image: url(<%= asset_path('union_lp_trim.png') %>);"></div>
-    <% if !logged_in? %>
+    <% if !user_signed_in? %>
       <p class="header__paragraph">新規登録・ログインはこちら</p>
     <% end %>
   <% end %>
@@ -26,7 +26,6 @@
       </li>
     <% end %>
   </ul>
-  <!-- <a class="article__more float_right" href="">もっと見る</a> -->
 <% end %>
 </div>
 
@@ -45,7 +44,6 @@
       </li>
     <% end %>
   </ul>
-  <!-- <a class="article__more float_right" href="">もっと見る</a> -->
 <% end %>
 </div>
 
@@ -64,6 +62,5 @@
       </li>
     <% end %>
   </ul>
-  <!-- <a class="article__more float_right" href="">もっと見る</a> -->
 <% end %>
 </div>
