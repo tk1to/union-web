@@ -7,9 +7,11 @@
 	<ul>
 	  <% @circle.favorited_users.each do |user| %>
 	    <li class="list">
-	    	<%= link_to user.name, user , class: "list__name"%>
-	    	<div class="list__image"></div>
-	    	<div class="list__subhead">何か情報</div>
+	    	<%= link_to user, class: "wrap__link" do %>
+		    	<div class="list__name"><%= user.name %></div>
+		    	<div class="list__image"></div>
+		    	<div class="list__subhead">何か情報</div>
+	    	<% end %>
 	    </li>
 	  <% end %>
 	</ul>
