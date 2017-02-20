@@ -2,21 +2,21 @@ class UsersController < ApplicationController
 
   before_action :correct_user,   only: [:edit, :update]
 
-  def new
-    @user = User.new
-  end
-  def create
-    @user = User.new(user_params)
-    ActiveRecord::Base.connection.execute("SELECT setval('users_id_seq', (SELECT MAX(id) FROM users));")
-    if @user.save
-      @user.send_activation_email
-      flash[:info] = "アカウントを有効にするためにメールを確認してください。"
-      redirect_to root_url
-    else
-      flash.now[:error] = "エラーがあります。"
-      render 'new'
-    end
-  end
+  # def new
+  #   @user = User.new
+  # end
+  # def create
+  #   @user = User.new(user_params)
+  #   ActiveRecord::Base.connection.execute("SELECT setval('users_id_seq', (SELECT MAX(id) FROM users));")
+  #   if @user.save
+  #     @user.send_activation_email
+  #     flash[:info] = "アカウントを有効にするためにメールを確認してください。"
+  #     redirect_to root_url
+  #   else
+  #     flash.now[:error] = "エラーがあります。"
+  #     render 'new'
+  #   end
+  # end
 
   def edit
     @user = User.find(params[:id])
