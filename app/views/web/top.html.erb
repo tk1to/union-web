@@ -12,12 +12,12 @@
 <% if @circles.any? %>
   <ul class="frame__list ta_center">
     <% @circles.each do |circle| %>
-      <li class="circle">
+      <li class="miniCard">
         <%= link_to circle, class: "wrap__link" do %>
-          <div class="circle__background" style="background-image: url(<%= circle.header_picture %>)"></div>
-          <div class="circle__image" style="background-image: url(<%= circle.picture %>)"></div>
-          <p class="circle__name"><%= circle.name %></p>
-          <p class="circle__genre">
+          <div class="miniCard__background" style="background-image: url(<%= circle.header_picture %>)"></div>
+          <div class="miniCard__image" style="background-image: url(<%= circle.picture %>)"></div>
+          <p class="miniCard__name"><%= circle.name %></p>
+          <p class="miniCard__genre">
             <% if circle.categories.first.present? %>
               <%= circle.categories.first.name %>
             <% end %>
@@ -34,12 +34,12 @@
 <% if @blogs.any? %>
   <ul class="frame__list">
     <% @blogs.each do |blog| %>
-      <li class="article">
+      <li class="thinCard">
         <%= link_to [blog.circle, blog], class: "wrap__link" do %>
-          <div class="article__image" style="background-image: url(<%= blog.picture %>)"></div>
-          <p class="article__heading"><%= blog.title %></p>
-          <p class="article__text article__text_top"><%= blog.content %></p>
-          <span class="article__time"><%= blog.created_at.in_time_zone('Tokyo').strftime("%y/%m/%d  %k:%M") %></span>
+          <div class="thinCard__image" style="background-image: url(<%= blog.picture %>)"></div>
+          <p class="thinCard__heading"><%= blog.title %></p>
+          <p class="thinCard__text thinCard__text_top"><%= blog.content %></p>
+          <span class="thinCard__time"><%= blog.created_at.in_time_zone('Tokyo').strftime("%y/%m/%d  %k:%M") %></span>
         <% end %>
       </li>
     <% end %>
@@ -52,12 +52,12 @@
 <% if @events.any? %>
   <ul class="frame__list">
     <% @events.each do |event| %>
-      <li class="article">
+      <li class="thinCard">
         <%= link_to [event.circle, event], class: "wrap__link" do %>
-          <div class="article__image" style="background-image: url(<%= event.picture %>)"></div>
-          <p class="article__heading"><%= event.title %></p>
-          <p class="article__text article__text_top"><%= event.content %></p>
-          <span class="article__time"></span>
+          <div class="thinCard__image" style="background-image: url(<%= event.picture %>)"></div>
+          <p class="thinCard__heading"><%= event.title %></p>
+          <p class="thinCard__text thinCard__text_top"><%= event.content %></p>
+          <span class="thinCard__time"></span>
         <% end %>
       </li>
     <% end %>
