@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   root 'web#top'
   get  'signups' => 'web#signups'
 
-  get    'login'  => 'sessions#new'
-  post   'login'  => 'sessions#create'
-  delete 'logout' => 'sessions#destroy'
+  # get    'login'  => 'sessions#new'
+  # post   'login'  => 'sessions#create'
+  # delete 'logout' => 'sessions#destroy'
 
   devise_for :users, controllers: {
     sessions: 'users/sessions'
