@@ -20,9 +20,10 @@ class EntriesController < ApplicationController
   def accept
     accepted_entry = Entry.find(params[:id])
     accepted_user  = User.find(accepted_entry.user_id)
-    Circle.find(params[:circle_id]).memberships.create(member_id: accepted_user.id)
+    circle = Circle.find(params[:circle_id])
+    circle.memberships.create(member_id: accepted_user.id)
     flash[:success] = "#{accepted_user.name}さんの加入を承認しました"
     accepted_entry.destroy
-    redirect_to controller: :circles, action: :show, id: params[:circle_id]
+    redirect_to circle
   end
 end
