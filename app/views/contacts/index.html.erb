@@ -6,8 +6,8 @@
 	<ul>
 	  <% @contacts.each do |contact| %>
 	    <li class="list">
-	    	<%= link_to contact.send_user.name, contact.send_user , class: "list__name_contact"%>
-	    	<%= link_to contact.content, [@circle, contact] , class: "list__subhead_contact"%>
+	    	<%= link_to contact.send_user.name, contact.send_user , class: "thinCard__heading_contact"%>
+	    	<%= link_to contact.content, [@circle, contact] , class: "thinCard__subhead_contact"%>
 	    </li>
 	  <% end %>
 	</ul>
