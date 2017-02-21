@@ -23,7 +23,9 @@
   <p class="header__subhead_user"><%= @user.college %>/<%= @user.department %>/<%= @user.grade %>年</p>
   <% if current_user?(@user) %>
     <%= image_tag "menu.svg" , class: "header__menu_humberger" %>
-    <%= link_to image_tag("foot.png"), [:foots, @user], class: "header__foot" %>
+    <% if @user.circles.any? %>
+      <%= link_to image_tag("foot.png"), [:foots, @user], class: "header__foot" %>
+    <% end %>
   <% end %>
   <% if !current_user?(@user) %>
     <div class="button button_follow button_color_white">
