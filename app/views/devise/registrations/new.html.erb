@@ -1,29 +1,28 @@
-<h2>Sign up</h2>
+<header>
+    <h1 class="formHeading ta_center">新規アカウント登録</h1>
+</header>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<div class="form">
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+      <%= f.label :email , class: "form__item" %>
+      <%= f.email_field :email, autofocus: true , class: "form__text_field" %>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+      <%= f.label :password , "パスワード(6文字以上)" , class: "form__item" %>
+      <% if @minimum_password_length %>
+      <% end %>
+      <%= f.password_field :password, autocomplete: "off" , class: "form__text_field" %>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+      <%= f.label :password_confirmation ,"確認用パスワード", class: "form__item" %>
+      <%= f.password_field :password_confirmation, autocomplete: "off" , class: "form__text_field" %>
+
+      <div class="form__button">
+        <%= f.submit "Sign up" , class: "button button_size_large button_color_blue" %>
+      </div>
+  <% end %>
+
+</div>
 
 <%= render "devise/shared/links" %>

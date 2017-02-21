@@ -1,20 +1,20 @@
 <header>
-	<h1 class="heading ta_center">気になるをくれたユーザー</h1>
+	<h1 class="formHeading ta_center">気になるをくれたユーザー</h1>
 </header>
 
 <div class="list__wrap">
 <% if @circle.favorites.any? %>
 	<ul>
 	  <% @circle.favorited_users.each do |user| %>
-	    <li class="list">
+	    <li class="thinCard">
 	    	<%= link_to user, class: "wrap__link" do %>
-		    	<div class="list__name"><%= user.name %></div>
-		    	<div class="list__image"></div>
-		    	<div class="list__subhead">何か情報</div>
+		    	<div class="thinCard__heading"><%= user.name %></div>
+		    	<div class="thinCard__image"></div>
+		    	<div class="thinCard__subhead">何か情報</div>
 	    	<% end %>
 	    </li>
 	  <% end %>
 	</ul>
 <% end %>
-	<%= link_to "サークルへ戻る", @circle ,class: "buttun buttun_size_medium buttun_color_gray"%>
+	<%= link_to "サークルへ戻る", @circle ,class: "button button_size_medium button_color_gray"%>
 </div>

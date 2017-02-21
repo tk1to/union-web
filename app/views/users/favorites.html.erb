@@ -6,9 +6,9 @@
   <% if @user.favorites.any? %>
     <ul>
       <% @user.favoriting_circles.each do |circle| %>
-          <li class="list"><%= link_to circle.name, circle , class: "list__name"%>
-            <div class="list__image" style="background-image: url(<%= circle.picture %>)"></div>
-            <div class="list__subhead">
+          <li class="thinCard"><%= link_to circle.name, circle , class: "thinCard__heading"%>
+            <div class="thinCard__image" style="background-image: url(<%= circle.picture %>)"></div>
+            <div class="thinCard__subhead">
               <% if circle.categories.present? %>
               <%= circle.categories.first.name %>
               <% end %>

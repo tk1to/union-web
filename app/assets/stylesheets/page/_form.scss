@@ -1,4 +1,4 @@
-.heading{
+.formHeading{
 	margin:1.3rem;
 	font-size:1rem;
 	font-weight:normal;
@@ -19,10 +19,11 @@
 		width: 100%;
 		height: 1rem;
 		border-radius: 5px;
-		padding: 0.5rem 0;
+		padding: 1rem 0;
 		font-size:1em;
 		border:solid 1px #ccc;
 		margin: 0.2rem auto 1rem;
+		box-sizing:border-box;
 		&_short{
 		width: 35%;
 		}
@@ -39,7 +40,7 @@
 		}
 	&__text_area_search{
 		width: 80%;
-		height: 1.5rem;
+		height: 1.3rem;
 		background: #fff;
 		border: 1px solid gray;
 		border-radius: 3px;
@@ -48,7 +49,7 @@
 		color: $gray;
 		font-size: 0.8rem;
 	}
-	&__buttun{
+	&__button{
 		text-align: center;
 		margin-top: 1rem;
 		margin-bottom: 3rem;

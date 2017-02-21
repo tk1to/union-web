@@ -1,19 +1,19 @@
 <header>
-	<h1 class="heading ta_center">メンバー申請一覧</h1>
+	<h1 class="formHeading ta_center">メンバー申請一覧</h1>
 </header>
 
 <div class="list__wrap">
 	<% if @entries.any? %>
 	  <ul>
 	    <% @entries.each do |entry| %>
-	      <li class="list">
+	      <li class="thinCard">
 	      	<%= link_to entry.user.name, entry.user , class: "list__name"%>
-	      	<%= link_to "承認", [:accept, @circle, entry], method: :post , class: "list__permit buttun buttun_size_small buttun_color_blue "%>
-	      	<div class="list__image"></div>
-	    	<div class="list__subhead">何か情報</div>
+	      	<%= link_to "承認", [:accept, @circle, entry], method: :post , class: "thinCard__permit button button_size_small button_color_blue "%>
+	      	<div class="thinCard__image"></div>
+	    	<div class="thinCard__subhead">何か情報</div>
 	      </li>
 	    <% end %>
 	  </ul>
 	<% end %>
-	<%= link_to "サークルへ戻る", @circle ,class: "buttun buttun_size_medium buttun_color_gray"%>
+	<%= link_to "サークルへ戻る", @circle ,class: "button button_size_medium button_color_gray"%>
 </div>

@@ -1,5 +1,5 @@
 <header>
-  <h1 class="heading ta_center">プロフィール編集</h1>
+  <h1 class="formHeading ta_center">プロフィール編集</h1>
 </header>
 
 <div class="form">
@@ -31,7 +31,7 @@
           <%= image_tag class: "user_picture"%>
         <% end %>
       </div>
-      <%= f.file_field :picture , class: "form__file buttun_color_white"%>
+      <%= f.file_field :picture , class: "form__file button_color_white"%>
     </div>
 
     <div class="form__images ta_center">
@@ -43,13 +43,13 @@
           <%= image_tag class: "user_header_picture"%>
         <% end %>
       </div>
-      <%= f.file_field :header_picture , class: "form__file buttun_color_white"%>
+      <%= f.file_field :header_picture , class: "form__file button_color_white"%>
     </div>
 
   <% end %>
 
-    <div class="form__buttun">
-      <%= f.submit "更新" , class: "buttun buttun_size_large buttun_color_blue"%>
+    <div class="form__button">
+      <%= f.submit "更新" , class: "button button_size_large button_color_blue"%>
     </div>
   <% end %>
 </div>
