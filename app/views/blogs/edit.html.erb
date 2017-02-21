@@ -1,5 +1,5 @@
 <header>
-  <h2 class="heading ta_center">ブログを編集</h2>
+  <h2 class="formHeading ta_center">ブログを編集</h2>
 </header>
 
 <div class="form">
@@ -23,8 +23,8 @@
     </div>
     <%= f.file_field :picture %>
   </p>
-  <div class="form__buttun">
-    <%= f.submit "更新" , class: "buttun buttun_size_large buttun_color_blue"%>
+  <div class="form__button">
+    <%= f.submit "更新" , class: "button button_size_large button_color_blue"%>
   </div>
   <% end %>
   <%= link_to "このブログを削除", [@blog.circle, @blog], method: :delete, data: { confirm: "本当に削除しますか？" } %>
