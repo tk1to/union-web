@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170221174025) do
+ActiveRecord::Schema.define(version: 20170221182809) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,10 +43,10 @@ ActiveRecord::Schema.define(version: 20170221174025) do
   add_index "circle_categories", ["circle_id"], name: "index_circle_categories_on_circle_id", using: :btree
 
   create_table "circle_foot_prints", force: :cascade do |t|
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.integer  "footed_circle_id"
-    t.integer  "footer_user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "circle_id"
+    t.integer  "footed_user_id"
   end
 
   create_table "circles", force: :cascade do |t|

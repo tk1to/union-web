@@ -21,7 +21,7 @@
   <div class="header__change"></div>
   <% if @be_member %>
     <%= image_tag "menu.svg" , class: "header__menu_humberger" %>
-    <%= image_tag "foot.png" , class: "header__foot" %>
+    <%= link_to image_tag("foot.png"), [:foots, @circle], class: "header__foot" %>
   <% end %>
 </header>
 

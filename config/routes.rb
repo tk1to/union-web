@@ -35,6 +35,7 @@ Rails.application.routes.draw do
     end
     member do
       get :favorited
+      get :foots
     end
     collection do
       get :search

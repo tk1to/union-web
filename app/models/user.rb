@@ -57,8 +57,6 @@ class User < ActiveRecord::Base
                            dependent: :destroy
   has_many :footed_users, through: :footed_prints, source: :footer_user
 
-  #サークル足跡関連
-
   # 与えられた文字列のハッシュ値を返す
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :

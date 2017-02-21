@@ -1,0 +1,17 @@
+<header>
+  <h1 class="heading ta_center">足跡</h1>
+</header>
+
+<div class="list__wrap">
+  <% if @foots.any? %>
+    <ul>
+      <% @foots.each do |foot| %>
+        <% user = foot.footed_user %>
+        <li class="thinCard"><%= link_to user.name, user, class: "thinCard__heading" %>
+        <div class="thinCard__image" style="background-image: url(<%= user.picture %>)"></div>
+        <div class="thinCard__subhead"><%= user.college %></div>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>

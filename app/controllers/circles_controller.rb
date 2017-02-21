@@ -39,6 +39,16 @@ class CirclesController < ApplicationController
       end
     end
 
+    # 足跡
+    if !@be_member
+      if footed_print = @circle.footed_prints.find_by(footed_user_id: current_user.id)
+        footed_print.touch
+        footed_print.save
+      else
+        @circle.footed_prints.create(footed_user_id: current_user.id)
+      end
+    end
+
   end
 
   def edit
@@ -78,6 +88,11 @@ class CirclesController < ApplicationController
       @circles = @circles.joins(:categories).where(categories: {id: params[:circle][:categories]}) if params[:circle][:categories].present?
       @circles = @circles.where(Circle.arel_table[:name].matches("%#{ params[:circle][:name] }%"))
     end
+  end
+
+  def foots
+    circle = Circle.find(params[:id])
+    @foots = circle.footed_prints
   end
 
   private

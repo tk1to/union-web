@@ -7,15 +7,24 @@ class Circle < ActiveRecord::Base
   has_many :events
   has_many :contacts, foreign_key: "receive_circle_id"
 
+  # カテゴリー関連
   has_many :categories, through: :circle_categories
   has_many :circle_categories
 
+  # メンバー申請関連
   has_many :entrying_users, through: :entries, source: :user
   has_many :entries
 
+  # 気になる関連
   has_many :favorited_users, through: :favorites, source: :user
   has_many :favorites
 
+  # 足跡関連
+  has_many :footed_prints, class_name:  "CircleFootPrint",
+                           dependent: :destroy
+  has_many :footed_users, through: :footed_prints, source: :footed_user
+
+  # 画像関連
   mount_uploader :picture, PictureUploader
   validate  :picture_size
   mount_uploader :header_picture, PictureUploader
