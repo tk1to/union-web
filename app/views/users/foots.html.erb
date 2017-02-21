@@ -7,9 +7,9 @@
     <ul>
       <% @foots.each do |foot| %>
         <% user = foot.footer_user %>
-        <li class="list"><%= link_to user.name, user, class: "list__name" %>
-        <div class="list__image" style="background-image: url(<%= user.picture %>)"></div>
-        <div class="list__subhead"><%= user.college %></div>
+        <li class="thinCard"><%= link_to user.name, user, class: "thinCard__heading" %>
+        <div class="thinCard__image" style="background-image: url(<%= user.picture %>)"></div>
+        <div class="thinCard__subhead"><%= user.college %></div>
         </li>
       <% end %>
     </ul>
