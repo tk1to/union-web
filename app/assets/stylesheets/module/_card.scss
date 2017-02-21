@@ -144,6 +144,9 @@
     font-size: 0.6rem;
     color: gray;
     margin:0 0.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   &__time{
     display: block;
