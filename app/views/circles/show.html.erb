@@ -106,18 +106,18 @@
   <% if @blogs.any? %>
     <ul class="frame__list">
       <% @blogs.each do |blog| %>
-        <li class="article">
+        <li class="thinCard">
           <%= link_to [@circle, blog], class: "wrap__link" do %>
-            <div class="article__image" style="background-image: url(<%= blog.picture %>)"></div>
-            <p class="article__heading"><%= blog.title %></p>
-            <p class="article__text"><%= blog.content %></p>
-            <span class="article__time"><%= blog.created_at.in_time_zone('Tokyo').strftime("%y/%m/%d  %k:%M") %></span>
+            <div class="thinCard__image" style="background-image: url(<%= blog.picture %>)"></div>
+            <p class="thinCard__heading"><%= blog.title %></p>
+            <p class="thinCard__subhead"><%= blog.content %></p>
+            <span class="thinCard__time"><%= blog.created_at.in_time_zone('Tokyo').strftime("%y/%m/%d  %k:%M") %></span>
           <% end %>
         </li>
       <% end %>
     </ul>
   <% else %>
-    <p class="article article_no">ブログがありません。</p>
+    <p class="thinCard thinCard_no">ブログがありません。</p>
   <% end %>
 </div>
 
@@ -126,18 +126,18 @@
   <% if @events.any? %>
     <ul class="frame__list">
       <% @events.each do |event| %>
-        <li class="article">
+        <li class="thinCard">
           <%= link_to [@circle, event], class: "wrap__link" do %>
-            <div class="article__image" style="background-image: url(<%= event.picture %>)"></div>
-            <p class="article__heading"><%= event.title %></p>
-            <p class="article__text"><%= event.content %></p>
-            <span class="article__time"></span>
+            <div class="thinCard__image" style="background-image: url(<%= event.picture %>)"></div>
+            <p class="thinCard__heading"><%= event.title %></p>
+            <p class="thinCard__subhead"><%= event.content %></p>
+            <span class="thinCard__time"></span>
           <% end %>
         </li>
       <% end %>
     </ul>
   <% else %>
-    <p class="article article_no">イベントがありません。</p>
+    <p class="thinCard article_no">イベントがありません。</p>
   <% end %>
 </div>
 
