@@ -55,33 +55,33 @@
 <% if user_signed_in? %>
   <div class="ta_center">
     <% if @be_member %>
-      <%= link_to "お問い合わせ一覧", [@circle, :contacts] , class: "buttun buttun_size_medium buttun_color_gray"%>
+      <%= link_to "お問い合わせ一覧", [@circle, :contacts] , class: "button button_size_medium button_color_gray"%>
     <% else %>
-      <%= link_to "お問い合わせ", [:new, @circle, :contact] , class: "buttun buttun_size_medium buttun_color_gray "%>
+      <%= link_to "お問い合わせ", [:new, @circle, :contact] , class: "button button_size_medium button_color_gray "%>
     <% end %>
 
     <% if @be_member %>
-        <%= link_to "気になる一覧", [:favorited, @circle] , class: "buttun buttun_size_medium buttun_color_gray"%>
+        <%= link_to "気になる一覧", [:favorited, @circle] , class: "button button_size_medium button_color_gray"%>
     <% end %>
     <% if !@be_member %>
       <% if @favoriting %>
-        <%= link_to "気になる解除", [@circle, @favorite], method: :delete , class: "buttun buttun_size_medium buttun_color_gray"%>
+        <%= link_to "気になる解除", [@circle, @favorite], method: :delete , class: "button button_size_medium button_color_gray"%>
       <% else %>
-        <%= link_to "気になる", [@circle, :favorites], method: :post , class: "buttun buttun_size_medium buttun_color_gray "%>
+        <%= link_to "気になる", [@circle, :favorites], method: :post , class: "button button_size_medium button_color_gray "%>
       <% end %>
     <% end %>
   </div>
 
   <div class="ta_center">
     <% if @be_member %>
-      <%= link_to "メンバー申請一覧", [@circle, :entries] , class: "buttun buttun_size_large buttun_color_gray"%>
+      <%= link_to "メンバー申請一覧", [@circle, :entries] , class: "button button_size_large button_color_gray"%>
     <% else %>
       <% if !@entrying %>
       <div class="ta_center">
-        <%= link_to "メンバー申請", [@circle, :entries], method: :post , class: "buttun buttun_size_large buttun_color_blue"%>
+        <%= link_to "メンバー申請", [@circle, :entries], method: :post , class: "button button_size_large button_color_blue"%>
       </div>
       <% else %>
-        <%= link_to "メンバー申請キャンセル", [@circle, @entry], method: :delete , class: "buttun buttun_size_large buttun_color_blue"%>
+        <%= link_to "メンバー申請キャンセル", [@circle, @entry], method: :delete , class: "button button_size_large button_color_blue"%>
       <% end %>
     <% end %>
   </div>
@@ -94,10 +94,10 @@
 
 <div class="ta_center">
   <% if @be_member %>
-    <%= link_to "ブログを作成", [:new, @circle, :blog] , class: "buttun buttun_size_medium buttun_color_blue"%>
+    <%= link_to "ブログを作成", [:new, @circle, :blog] , class: "button button_size_medium button_color_blue"%>
   <% end %>
   <% if @be_member %>
-    <%= link_to "イベントを作成", [:new, @circle, :event] , class: "buttun buttun_size_medium buttun_color_blue"%>
+    <%= link_to "イベントを作成", [:new, @circle, :event] , class: "button button_size_medium button_color_blue"%>
   <% end %>
 </div>
 
