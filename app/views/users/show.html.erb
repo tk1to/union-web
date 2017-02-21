@@ -48,19 +48,20 @@
 
 <div class="follow">
   <ul class="follow__wrap">
-    <li class="follow__list">
+    <li class="follow__list follow__list_border_right">
       <%= link_to [:following, @user] , class: "follow__link" do %>
-        <span id="following_count" class="follow__number" ><%= @user.following.count %></span>フォロー
+        <div id="following_count" class="follow__number" ><%= @user.following.count %></div>フォロー
       <% end %>
     </li>
-    <li class="follow__list">
+    <li class="follow__list follow__list_border_right">
       <%= link_to [:followers, @user] , class: "follow__link" do %>
-      <span id="followers_count" class="follow__number" >
-      <%= @user.followers.count %></span>フォロワー
+        <div id="followers_count" class="follow__number" ><%= @user.followers.count %></div>フォロワー
       <% end %>
     </li>
     <li class="follow__list">
-      <%= link_to @user.favorites.count.to_s+" お気に入り", [:favorites, @user] , class: "follow__link" %>
+      <%= link_to [:favorites, @user] , class: "follow__link" do %>
+        <div id="favorites_count" class="follow__number" ><%= @user.favorites.count %></div>気になる
+      <% end %>
     </li>
   </ul>
 </div>
