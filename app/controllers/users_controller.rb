@@ -42,7 +42,7 @@ class UsersController < ApplicationController
         footed_print.touch
         footed_print.save
       else
-        current_user.footer_prints.create(footed_user_id: @user.id)
+        @user.footed_prints.create(footer_user_id: current_user.id)
       end
     end
   end
