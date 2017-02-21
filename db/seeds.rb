@@ -21,26 +21,28 @@ mails = ["taro", "jiro", "saburo"]
 end
 
 Circle.create(name: "ボランティアサークル", description: "定期的にボランティアをするサークルです。興味がある方は是非！")
-# Blog.create(title: "太郎のサークル設立",circle_id: 1, author_id: 1,
-#             content: "サークルを設立しました！ボランティアに興味がある方は是非入ってください！")
-# Event.create(title: "〇〇町ゴミ拾い！１",circle_id: 2,content: "ゴミ拾いを〇〇町で行います！少しでも興味がある方は是非参加してください！誰でも歓迎です！")
+Membership.create(circle_id: 1, member_id: 1)
+Blog.create(title: "太郎のサークル設立",circle_id: 1, author_id: 1,
+            content: "サークルを設立しました！ボランティアに興味がある方は是非入ってください！")
+Event.create(title: "〇〇町ゴミ拾い！１", circle_id: 1, content: "ゴミ拾いを〇〇町で行います！少しでも興味がある方は是非参加してください！誰でも歓迎です！")
+
+Contact.create(content: "テスト用お問い合わせ、内容が入る場所", send_user_id: 2, receive_circle_id: 1)
+Entry.create(circle_id: 1, user_id: 2)
+
+Relationship.create(follower_id: 1, followed_id: 2)
+Relationship.create(follower_id: 1, followed_id: 3)
+
+Favorite.create(circle_id: 1, user_id: 2)
+
+FootPrint.create(footed_user_id: 1, footer_user_id: 2)
+FootPrint.create(footed_user_id: 1, footer_user_id: 3)
+
 Category.create(name: "ボランティア")
 Category.create(name: "海外交流")
 Category.create(name: "フットサル")
 Category.create(name: "テニス")
 Category.create(name: "バスケ")
 Category.create(name: "イベント")
-
-# Circle.create(name: "太郎の部屋",description: "サークルの説明文が入る場所")
-# Circle.create(name: "次郎の部屋",description: "次郎のサークル")
-
-Membership.create(circle_id: 1, member_id: 1)
-# Membership.create(circle_id: 2, member_id: 2)
-
-
-
-
-
 
 
 
