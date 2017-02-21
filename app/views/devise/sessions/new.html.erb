@@ -1,26 +1,26 @@
-<h2>Log in</h2>
+<header class="formHeading ta_center">
+  <h1>ログイン</h1>
+</header>
+
+<div class="form">
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+    <%= f.label :email , class: "form__item" %>
+    <%= f.email_field :email, autofocus: true , class: "form__text_field" %>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+    <%= f.label :password , class: "form__item" %>
+    <%= f.password_field :password, autocomplete: "off" , class: "form__text_field" %>
 
   <% if devise_mapping.rememberable? -%>
-    <div class="field">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
-    </div>
   <% end -%>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+  <div class="form__buttun">
+    <%= f.submit "ログイン" , class: "buttun buttun_size_large buttun_color_blue" %>
   </div>
+
+</div>
 <% end %>
 
 <%= render "devise/shared/links" %>
