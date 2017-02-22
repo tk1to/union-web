@@ -41,21 +41,21 @@
   }
 }
 .frame{
-  width: 90%;
-  margin: 1rem auto;
+  width: 100%;
+  margin: 1rem auto 0;
   padding: 0.5rem 0.5rem;
+  box-sizing: border-box;
   &__heading{
     font-weight: normal;
     color: $gray;
     margin: 0.5rem auto;
     font-size: $large;
+    padding-left: 0.5rem;
     &_underline{
       border-bottom: 1.5px solid $d-blue;
+      border-left: 5px solid $d-blue;
       padding-bottom: 0.3rem;
     }
-  }
-  &__list{
-    list-style: none;
   }
   &__more{
     float: right;
