@@ -1,22 +1,11 @@
 <header>
-	<h1 class="formHeading ta_center"><%= @title %></h1>
+  <h1 class="formHeading ta_center"><%= @title %></h1>
 </header>
 
 <div class="list__wrap">
-	<% if @users.any? %>
-  	<ul>
-    	<% @users.each do |user| %>
-      		<li class="thinCard"><%= link_to user.name, user , class: "thinCard__heading"%>
-      			<div class="thinCard__image" style="background-image: url(<%= user.picture %>)"></div>
-      			<div class="thinCard__subhead"><%= user.college %>
-            <% if user.grade.present? && user.grade > 0 %>
-              / <%= user.grade %>
-            <% end %>
-            </div>
-      		</li>
-    <% end %>
-  	</ul>
-	<% end %>
+  <% if @users.any? %>
+    <%= render "shared/thin_cards", objects: @users %>
+  <% end %>
 </div>
 
 

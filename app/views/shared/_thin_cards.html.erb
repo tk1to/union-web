@@ -9,7 +9,10 @@ heading_sym   = oc_eq_user ? :name : :title
   <% objects.each do |object| %>
     <li class="thinCard">
 
-      <% link_url = oc_eq_user ? object : [object.circle, object] %>
+      <%
+      link_url = oc_eq_user    ? object :
+                 oc_eq_contact ? [object.receive_circle, object] : [object.circle, object]
+      %>
       <%= link_to link_url, class: "wrap__link" do %>
 
       <% if !oc_eq_contact %>
@@ -26,7 +29,7 @@ heading_sym   = oc_eq_user ? :name : :title
 
       <p class="thinCard__subhead"><%=
         if oc_eq_user
-          "#{object.college}/#{object.department}/#{object.grate}"
+          "#{object.college}/#{object.department}/#{object.grade}"
         else
           object.content
         end

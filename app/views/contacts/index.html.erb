@@ -1,15 +1,8 @@
 <header>
-	<h1 class="formHeading ta_center">お問い合わせ一覧</h1>
+  <h1 class="formHeading ta_center">お問い合わせ一覧</h1>
 </header>
 
 <div class="list__wrap">
-	<ul>
-	  <% @contacts.each do |contact| %>
-	    <li class="list">
-	    	<%= link_to contact.send_user.name, contact.send_user , class: "thinCard__heading_contact"%>
-	    	<%= link_to contact.content, [@circle, contact] , class: "thinCard__subhead_contact"%>
-	    </li>
-	  <% end %>
-	</ul>
-	<%= link_to "サークルへ戻る", @circle ,class: "button button_size_medium button_color_gray"%>
+  <%= render "shared/thin_cards", objects: @contacts %>
+  <%= link_to "サークルへ戻る", @circle ,class: "button button_size_medium button_color_gray"%>
 </div>

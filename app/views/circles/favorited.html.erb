@@ -4,17 +4,7 @@
 
 <div class="list__wrap">
 <% if @circle.favorites.any? %>
-	<ul>
-	  <% @circle.favorited_users.each do |user| %>
-	    <li class="thinCard">
-	    	<%= link_to user, class: "wrap__link" do %>
-		    	<div class="thinCard__heading"><%= user.name %></div>
-		    	<div class="thinCard__image"></div>
-		    	<div class="thinCard__subhead">何か情報</div>
-	    	<% end %>
-	    </li>
-	  <% end %>
-	</ul>
+	<%= render "shared/thin_cards", objects: @circle.favorited_users %>
 <% end %>
 	<%= link_to "サークルへ戻る", @circle ,class: "button button_size_medium button_color_gray"%>
 </div>
