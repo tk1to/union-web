@@ -10,7 +10,7 @@
 <div class="frame">
   <h1 class="frame__heading frame__heading_underline">サークル一覧</h1>
 <% if @circles.any? %>
-  <ul class="frame__list ta_center">
+  <ul class="sride-miniCard frame__list ta_center">
     <% @circles.each do |circle| %>
       <li class="miniCard">
         <%= link_to circle, class: "wrap__link" do %>
@@ -38,7 +38,7 @@
         <%= link_to [blog.circle, blog], class: "wrap__link" do %>
           <div class="thinCard__image" style="background-image: url(<%= blog.picture %>)"></div>
           <p class="thinCard__heading"><%= blog.title %></p>
-          <p class="thinCard__text thinCard__text_top"><%= blog.content %></p>
+          <p class="thinCard__subhead "><%= blog.content %></p>
           <span class="thinCard__time"><%= blog.created_at.in_time_zone('Tokyo').strftime("%y/%m/%d  %k:%M") %></span>
         <% end %>
       </li>
@@ -56,7 +56,7 @@
         <%= link_to [event.circle, event], class: "wrap__link" do %>
           <div class="thinCard__image" style="background-image: url(<%= event.picture %>)"></div>
           <p class="thinCard__heading"><%= event.title %></p>
-          <p class="thinCard__text thinCard__text_top"><%= event.content %></p>
+          <p class="thinCard__subhead "><%= event.content %></p>
           <span class="thinCard__time"></span>
         <% end %>
       </li>
