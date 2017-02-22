@@ -1,6 +1,21 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  # You should configure your model like this:
-  # devise :omniauthable, omniauth_providers: [:twitter]
+  include Devise::Controllers::Rememberable
+
+  def facebook
+    auth = request.env['omniauth.auth']
+    user = User.find_or_create_by(
+      provider: auth.provider,
+      uid: auth.uid
+    )
+
+    remember_me(user)
+
+    sign_in_and_redirect user, event: :authentication
+  end
+
+  def failure
+    redirect_to root_path
+  end
 
   # You should also create an action method in this controller like this:
   # def twitter
@@ -11,11 +26,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   # GET|POST /resource/auth/twitter
   # def passthru
-  #   super
-  # end
-
-  # GET|POST /users/auth/twitter/callback
-  # def failure
   #   super
   # end
 
