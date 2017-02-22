@@ -7,11 +7,12 @@
 	box-sizing: border-box;
 	&_size_small{
 		width: 3rem;
-	    height: 1.5rem;
-	    border-radius: 3px;
-	    font-size: 0.6rem;
-	    margin:auto;
-	    line-height: 1.4rem;
+    height: 1.5rem;
+    border-radius: 3px;
+    font-size: 0.6rem;
+    margin: 0 auto;
+    line-height: 1.5rem;
+    padding: 0;
 	}
 	&_size_medium{
 		width: 7rem;
