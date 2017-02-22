@@ -1,6 +1,5 @@
 <%= form_for @search_params, url: [:search, :circles], html: {method: :get} do |f| %>
 
-<div class="whole_wrap">
       <!--<%= f.label :name, "名前" %>-->
         <div class=""></div>
         <%= f.text_field :name ,:placeholder => "キーワードを入力" , class: "form__text_area_search ta_center "%>
@@ -38,4 +37,3 @@
     <% end %>
   <% end %>
 <% end %>
-</div>
