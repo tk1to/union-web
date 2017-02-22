@@ -1,0 +1,41 @@
+<%
+oclass        = objects.first.class
+oc_eq_user    = oclass == User
+oc_eq_contact = oclass == Contact
+oc_eq_blog    = oclass == Blog
+heading_sym   = oc_eq_user ? :name : :title
+%>
+<ul class="frame__list">
+  <% objects.each do |object| %>
+    <li class="thinCard">
+
+      <% link_url = oc_eq_user ? object : [object.circle, object] %>
+      <%= link_to link_url, class: "wrap__link" do %>
+
+      <% if !oc_eq_contact %>
+        <div class="thinCard__image" style="background-image: url(<%= object.picture %>)"></div>
+      <% end %>
+
+      <%
+      if !oc_eq_contact
+        heading = object[heading_sym]
+      else
+        heading = object.send_user.name
+      end %>
+      <p class="thinCard__heading"><%= heading %></p>
+
+      <p class="thinCard__subhead"><%=
+        if oc_eq_user
+          "#{object.college}/#{object.department}/#{object.grate}"
+        else
+          object.content
+        end
+      %></p>
+
+      <% if oc_eq_blog %>
+        <span class="thinCard__time"><%= object.created_at.in_time_zone('Tokyo').strftime("%y/%m/%d  %k:%M") %></span>
+      <% end %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
