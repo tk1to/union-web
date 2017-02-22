@@ -32,35 +32,13 @@
 <div class="frame">
   <h1 class="frame__heading frame__heading_underline">ブログ一覧</h1>
 <% if @blogs.any? %>
-  <ul class="frame__list">
-    <% @blogs.each do |blog| %>
-      <li class="thinCard">
-        <%= link_to [blog.circle, blog], class: "wrap__link" do %>
-          <div class="thinCard__image" style="background-image: url(<%= blog.picture %>)"></div>
-          <p class="thinCard__heading"><%= blog.title %></p>
-          <p class="thinCard__subhead "><%= blog.content %></p>
-          <span class="thinCard__time"><%= blog.created_at.in_time_zone('Tokyo').strftime("%y/%m/%d  %k:%M") %></span>
-        <% end %>
-      </li>
-    <% end %>
-  </ul>
+  <%= render "shared/thin_cards", objects: @blogs %>
 <% end %>
 </div>
 
 <div class="frame">
   <h1 class="frame__heading frame__heading_underline">イベント一覧</h1>
 <% if @events.any? %>
-  <ul class="frame__list">
-    <% @events.each do |event| %>
-      <li class="thinCard">
-        <%= link_to [event.circle, event], class: "wrap__link" do %>
-          <div class="thinCard__image" style="background-image: url(<%= event.picture %>)"></div>
-          <p class="thinCard__heading"><%= event.title %></p>
-          <p class="thinCard__subhead "><%= event.content %></p>
-          <span class="thinCard__time"></span>
-        <% end %>
-      </li>
-    <% end %>
-  </ul>
+  <%= render "shared/thin_cards", objects: @events %>
 <% end %>
 </div>
