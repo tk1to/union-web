@@ -148,14 +148,6 @@
     color: $gray;
     margin:0 0.5rem;
   }
-  &__heading_contact{
-    position: absolute;
-    top:0.5rem;
-    left: 0.5rem;
-    text-decoration: none;
-    color: $gray;
-    font-size: 0.8rem;
-  }
   &__image{
     position: absolute;
     top: 0;
@@ -174,19 +166,7 @@
     font-size: 0.6rem;
     color: gray;
     margin:0 0 0 0.5rem;
-    width: 52%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  &__subhead_contact{
-    position: absolute;
-    top:1.5rem;
-    left: 0.5rem;
-    color: $l-gray;
-    font-size: 0.6rem;
-    width: 95%;
-    height: 1rem;
+    width: 75%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -212,6 +192,40 @@
         top: 25%;
         right: 5%;
   }
+}
+// ブログ一覧用のスタイル
+.frame_blog .thinCard__subhead{
+    position: absolute;
+    top: 55%;
+    left: 17%;
+    font-size: 0.6rem;
+    color: gray;
+    margin:0 0 0 0.5rem;
+    width: 52%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+// お問い合わせ一覧用のスタイル
+.contacts_list .thinCard__heading{
+    position: absolute;
+    top:0.5rem;
+    left: 0.5rem;
+    text-decoration: none;
+    color: $gray;
+    font-size: 0.8rem;
+}
+.contacts_list .thinCard__subhead{
+    position: absolute;
+    top:1.5rem;
+    left: 0.5rem;
+    color: gray;
+    font-size: 0.6rem;
+    width: 95%;
+    height: 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 // 一覧表示するものがない場合
 .thinCard_no{
