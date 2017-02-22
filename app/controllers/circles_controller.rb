@@ -40,7 +40,7 @@ class CirclesController < ApplicationController
     end
 
     # 足跡
-    if !@be_member
+    if current_user && !@be_member
       if footed_print = @circle.footed_prints.find_by(footed_user_id: current_user.id)
         footed_print.touch
         footed_print.save
