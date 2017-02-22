@@ -1,3 +1,8 @@
-<p><%= @contact.content %></p>
-<p>送信者：<%= link_to @contact.send_user.name, @contact.send_user %></p>
-<p><%= link_to "一覧へ戻る", [:circle, :contacts] %></p>
+<header>
+  <h1 class="formHeading ta_center">お問い合わせ</h1>
+</header>
+<div class="content content__border">
+<div class="contact__text"><%= @contact.content %></div>
+<div class="contact__user">送信者：<%= link_to @contact.send_user.name, @contact.send_user , class: "contact__user_name"%></div>
+</div>
+<%= link_to "一覧へ戻る", [:circle, :contacts] , class: "button button_size_medium button_color_gray"%>
