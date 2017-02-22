@@ -7,6 +7,9 @@
 # Ignore bundler config.
 /.bundle
 
+# Ignore bundler gems.
+vendor/bundle
+
 # Ignore all logfiles and tempfiles.
 /log/*
 !/log/.keep
@@ -19,3 +22,12 @@ Gemfile.lock
 
 # Ignore uploaded test images.
 /public/uploads
+
+# Ignore other unneeded files.
+doc/
+*.swp
+*~
+.project
+.DS_Store
+.idea
+.secret
