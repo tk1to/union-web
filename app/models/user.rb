@@ -108,6 +108,19 @@ class User < ActiveRecord::Base
     UserMailer.account_activation(self).deliver_now
   end
 
+  def self.find_for_facebook_oauth(auth)
+    user = User.where(provider: auth.provider, uid: auth.uid).first
+    unless user
+      user = User.create( name:     auth.extra.raw_info.name,
+                          provider: auth.provider,
+                          uid:      auth.uid,
+                          email:    auth.info.email,
+                          token:    auth.credentials.token,
+                          password: Devise.friendly_token[0,20] )
+    end
+    user
+  end
+
   private
 
     # メールアドレスをすべて小文字にする
