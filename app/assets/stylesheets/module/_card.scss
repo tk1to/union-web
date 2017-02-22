@@ -67,7 +67,8 @@
 .miniCard{
   display:inline-block;
   position: relative;
-  width:100%;
+  min-width: 10rem;
+  max-width: 10rem;
   height:9rem;
   border:1px solid $d-blue;
   border-radius:5px;
@@ -97,9 +98,14 @@
     position: absolute;
     top: 6.5rem;
     left: 3.5rem;
+    display: inline-block;
     text-decoration: none;
     font-size: 0.8rem;
     color: $gray;
+    width: 6rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   &__genre{
     position: absolute;
@@ -111,9 +117,10 @@
 }
 .sride-miniCard{
   display: flex;
-  // padding: 20px 0;
   overflow-x: scroll;
+  overflow-y: hidden;
   white-space: nowrap;
+  z-index: 100;
 }
 // ブログとかの一覧系
 .thinCard{
