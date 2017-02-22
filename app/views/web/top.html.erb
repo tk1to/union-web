@@ -10,7 +10,7 @@
 <div class="frame">
   <h1 class="frame__heading frame__heading_underline">サークル一覧</h1>
 <% if @circles.any? %>
-  <ul class="sride-miniCard frame__list ta_center">
+  <ul class="sride-miniCard">
     <% @circles.each do |circle| %>
       <li class="miniCard">
         <%= link_to circle, class: "wrap__link" do %>
