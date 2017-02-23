@@ -47,6 +47,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    debugger
+    if params[:delete_confirmed]
+      @user.destroy
+      flash[:notice] = "アカウント削除完了"
+      redirect_to :root
+    else
+      render "delete_confirm"
+    end
+  end
+
   def following
     @title = "フォロー"
     @user  = User.find(params[:id])
