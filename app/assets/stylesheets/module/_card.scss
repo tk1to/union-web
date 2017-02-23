@@ -1,12 +1,12 @@
 // 大きいカード(サークル一覧)
 .card{
   position: relative;
-  width: 90%;
+  width: 95%;
   height: 15rem;
   margin: 0.5rem auto;
   border:1px solid $d-blue;
   border-radius: 3px;
-  // box-shadow:0 2px 2px 0 $gray;
+  // box-shadow:0 2px 2px $gray;
   &__background{
     position: absolute;
     top: 0;
