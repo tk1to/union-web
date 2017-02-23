@@ -5,6 +5,7 @@
       <ul class="aside__menu_lists">
         <li class="aside__menu_list aside__menu_close"><%= link_to '閉じる', @circle, class: "wrap__link" %></li>
         <li class="aside__menu_list"><%= link_to "サークル情報編集", [:edit, @circle] %></li>
+        <li class="aside__menu_list"><%= link_to "サークル退団", [:resign, @circle], method: :delete %></li>
         <li class="aside__menu_list"><%= link_to "サークル削除", @circle, method: :delete %></li>
       </ul>
     </div>

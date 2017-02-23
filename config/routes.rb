@@ -38,8 +38,9 @@ Rails.application.routes.draw do
       end
     end
     member do
-      get :favorited
-      get :foots
+      get    :favorited
+      get    :foots
+      delete :resign
     end
     collection do
       get :search

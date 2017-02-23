@@ -48,10 +48,8 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
-    debugger
     if params[:delete_confirmed]
-      @user.destroy
+      current_user.destroy
       flash[:notice] = "アカウント削除完了"
       redirect_to :root
     else

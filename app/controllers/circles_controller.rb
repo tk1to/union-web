@@ -75,9 +75,24 @@ class CirclesController < ApplicationController
 
   def destroy
     @circle = Circle.find(params[:id])
-    @circle.destroy
-    flash[:notice] = "削除完了"
-    redirect_to :root
+    if params[:delete_confirmed]
+      @circle.destroy
+      flash[:notice] = "削除完了"
+      redirect_to :root
+    else
+      render "delete_confirm"
+    end
+  end
+
+  def resign
+    @circle = Circle.find(params[:id])
+    if params[:resign_confirmed]
+      current_user.memberships.find_by(circle_id: params[:id]).destroy
+      flash[:notice] = "退団完了"
+      redirect_to :root
+    else
+      render "resign_confirm"
+    end
   end
 
   def favorited
