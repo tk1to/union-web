@@ -74,6 +74,10 @@ class CirclesController < ApplicationController
   end
 
   def destroy
+    @circle = Circle.find(params[:id])
+    @circle.destroy
+    flash[:notice] = "削除完了"
+    redirect_to :root
   end
 
   def favorited
