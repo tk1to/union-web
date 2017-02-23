@@ -58,12 +58,34 @@
 		color: gray;
 		text-decoration: none;
 	}
+	&__upload{
+		display: inline-block;
+		overflow: hidden;
+		position: relative;
+		// padding: 1em;
+		width: 100%;
+		height: 2.5rem;
+		background: #fff;
+		border: 1px solid $d-blue;
+		border-radius:3px;
+		color:$d-blue;
+		font-size: 0.8rem;
+		line-height: 2.5rem;
+		box-sizing:border-box;
+	}
 	&__file{
-		border-radius: 3px;
+		opacity: 0;
+		filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+		position: absolute;
+		right: 0;
+		top: 0;
+		margin: 0;
+		font-size: 100px;
+		cursor: pointer;
 	}
-	&__images{
-		margin-bottom: 1rem;
-	}
+	// &__images{
+	// 	margin-bottom: 1rem;
+	// }
 	&__picture{
 		width: 3rem;
 		height: 3rem;
