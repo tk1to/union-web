@@ -37,14 +37,17 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    if !current_user?(@user) && @user.circles.present?
-      if footed_print = @user.footed_prints.find_by(footer_user_id: current_user.id)
-        footed_print.touch
-        footed_print.save
-      else
-        @user.footed_prints.create(footer_user_id: current_user.id)
-      end
-    end
+    print_foot
+    @profiles = {
+      birth_place:  "出身地",
+      home_place:   "住んでるところ",
+      my_like_atom: "好きな雰囲気",
+      career:       "これまでやっていたこと",
+      introduce:    "自己紹介",
+      want_to_do:   "大学でやりたいこと",
+      hobby:        "趣味",
+      future:       "将来",
+    }
   end
 
   def destroy
@@ -90,6 +93,17 @@ class UsersController < ApplicationController
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)
+    end
+
+    def print_foot
+      if !current_user?(@user) && @user.circles.present?
+        if footed_print = @user.footed_prints.find_by(footer_user_id: current_user.id)
+          footed_print.touch
+          footed_print.save
+        else
+          @user.footed_prints.create(footer_user_id: current_user.id)
+        end
+      end
     end
 
 end

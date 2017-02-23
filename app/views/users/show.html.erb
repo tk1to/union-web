@@ -4,13 +4,9 @@
   <div class="body_wrap"></div>
   <div class="aside__menu">
     <ul class="aside__menu_lists">
-      <li class="aside__menu_list aside__menu_close">
-        <%= link_to '閉じる', @user, class: "wrap__link" %>
-      </li>
+      <li class="aside__menu_list aside__menu_close"><%= link_to '閉じる', @user, class: "wrap__link" %></li>
       <li class="aside__menu_list"><%= link_to "プロフィール編集", [:edit, @user] %></li>
-      <li class="aside__menu_list">
-        <%= link_to "新規サークル登録", [:new, :circle], class: "create_circle_btn"%>
-      </li>
+      <li class="aside__menu_list"><%= link_to "新規サークル登録", [:new, :circle], class: "create_circle_btn"%></li>
       <li class="aside__menu_list"><%= link_to "ログアウト", [:destroy, :user, :session], method: :delete %></li>
       <li class="aside__menu_list"><%= link_to "アカウントを削除", @user, method: :delete %></li>
     </ul>
@@ -70,35 +66,18 @@
 </div>
 
 <section class="user__body">
-  <div class="introduce">
-    <h1 class="introduce__heading">自己紹介</h1>
-    <p class="introduce__text"><%= @user.introduce %></p>
-    <% if current_user?(@user) %>
-    <div class="introduce__btn">
-      <%= link_to '編集', edit_user_path(current_user, edit_item: "introduce"), class: "button button_size_small button_color_white" %>
-    </div>
-    <% end %>
-  </div>
 
-  <div class="introduce">
-    <h1 class="introduce__heading">やりたいこと</h1>
-    <p class="introduce__text"><%= @user.want_to_do %></p>
-    <% if current_user?(@user) %>
-    <div class="introduce__btn">
-      <%= link_to '編集', edit_user_path(current_user, edit_item: "want_to_do"), class: "button button_size_small button_color_white" %>
+  <% @profiles.each do |key, value| %>
+    <div class="introduce">
+      <h1 class="introduce__heading"><%= value %></h1>
+      <p class="introduce__text"><%= @user[key] %></p>
+      <% if current_user?(@user) %>
+        <div class="introduce__btn">
+          <%= link_to '編集', [:edit, @user, edit_item: key], class: "button button_size_small button_color_white" %>
+        </div>
+      <% end %>
     </div>
-    <% end %>
-  </div>
-
-  <div class="introduce">
-    <h1 class="introduce__heading">趣味</h1>
-    <p class="introduce__text"><%= @user.hobby %></p>
-    <% if current_user?(@user) %>
-    <div class="introduce__btn">
-      <%= link_to '編集', edit_user_path(current_user, edit_item: "hobby"), class: "button button_size_small button_color_white" %>
-    </div>
-    <% end %>
-  </div>
+  <% end %>
 
 </section>
 
