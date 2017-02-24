@@ -3,6 +3,9 @@
 </header>
 
 <div class="list__wrap">
-  <%= render "shared/thin_cards", objects: @contacts %>
+	<div class="contacts_list">
+  	<%= render "shared/thin_cards", objects: @contacts %>
+  </div>
+</div>
   <%= link_to "サークルへ戻る", @circle ,class: "button button_size_medium button_color_gray"%>
 </div>

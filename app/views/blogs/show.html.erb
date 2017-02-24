@@ -6,8 +6,8 @@
 		</div>
 		<div class="author">
 			<div class="author__image"></div>
-			<div class="author__name"><span class="author__autor">投稿者:</span><%= link_to @author.name, @author , class: "td_none color_black"%></div>
-			<p class="author__subhead"><%= link_to @circle.name, @circle , class: "td_none color_gray"%></p>
+			<div class="author__name"><span class="author__autor">投稿者:</span><%= link_to @author.name, @author , class: "text_decoration_none color_black"%></div>
+			<p class="author__subhead"><%= link_to @circle.name, @circle , class: "text_decoration_none color_gray"%></p>
 		</div>
 	</header>
 	<div class="article">
@@ -15,6 +15,8 @@
 		<p class="article__text"><%= @blog.content %></p>
 
 	</div>
+	<a href="https://twitter.com/share" class="twitter-share-button" data-dnt="true">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+	<a href="http://www.facebook.com/share.php?u=">facebookでシェア</a>
 
 
 	<% if @author == current_user %>

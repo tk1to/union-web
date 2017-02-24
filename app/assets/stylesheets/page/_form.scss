@@ -33,17 +33,18 @@
 		height: 15rem;
 		border-radius: 5px;
 		padding: 0.5rem 0;
-		font-size:0.5em;
-		line-height: 0.7rem;
+		font-size:1rem;
+		line-height: 1rem;
 		border:solid 1px #ccc;
 		margin: 0.2rem auto 1rem;
 		}
 	&__text_area_search{
 		width: 80%;
-		height: 1.3rem;
+		height: 1.5rem;
 		background: #fff;
 		border: 1px solid gray;
 		border-radius: 3px;
+		box-sizing:border-box;
 	}
 	&__checkbox{
 		color: $gray;
@@ -58,39 +59,75 @@
 		color: gray;
 		text-decoration: none;
 	}
+	&__upload{
+		display: inline-block;
+		overflow: hidden;
+		position: relative;
+		// padding: 1em;
+		width: 100%;
+		height: 2.5rem;
+		background: #fff;
+		border: 1px solid $d-blue;
+		border-radius:3px;
+		color:$d-blue;
+		font-size: 0.8rem;
+		line-height: 2.5rem;
+		box-sizing:border-box;
+	}
 	&__file{
-		border-radius: 3px;
+		opacity: 0;
+		filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+		position: absolute;
+		right: 0;
+		top: 0;
+		margin: 0;
+		font-size: 100px;
+		cursor: pointer;
 	}
-	&__images{
-		margin-bottom: 1rem;
-	}
+	// &__images{
+	// 	margin-bottom: 1rem;
+	// }
 	&__picture{
 		width: 3rem;
 		height: 3rem;
 		background: gray;
 		border-radius: 3px;
 	}
-	&__select{
-		appearance: none;
-		-webkit-appearance: none;
-		-moz-appearance: none;
-		// width: 5.5rem;
-		// height: 1rem;
-		// overflow: hidden;
-		// display: inline-block;
-		// // display: inline;
-		// // zoom: 1;
-		// position: relative;
-		// border-radius: 0.2em;
-		// border: 1px solid $d-blue;
-		// background-color: white;
-		// font-size: 0.6rem;
-		// margin: 0.3rem auto;
+	&__search{
+		width: 95%;
+		margin: 0.5rem auto 0;
 	}
 }
-.form__search{
-	padding-top:1rem;
-}
+.select{
+		width: 5.5rem;
+		height: 1rem;
+		overflow: hidden;
+		display: inline-block;
+		zoom: 1;
+		position: relative;
+		border-radius: 0.2em;
+		border: 1px solid $d-blue;
+		background-color: white;
+		font-size: 0.6rem;
+		margin: 0.3rem auto;
+		line-height: 1rem;
+		color: gray;
+		&__choice{
+			position:absolute ;
+	    zoom:1.1;
+	    z-index: 1000;
+	    opacity: 0;
+	    border:0;
+	    width:6rem;
+	    height:1rem;
+			&_top{
+
+			}
+		}
+	}
+// .form__search{
+// 	padding-top:1rem;
+// }
 // .select{
 // 	width: 30%;
 // 	padding: 0.6em 2.4em 0.6em 0.6em;
