@@ -48,6 +48,15 @@ class UsersController < ApplicationController
       hobby:        "趣味",
       future:       "将来",
     }
+
+    # require 'net/http'
+    # require 'uri'
+    # require 'json'
+
+    # uri = URI.parse('http://webservice.recruit.co.jp/shingaku/school/v2?format=json&keyword=a&key=4b0ca9238f706863')
+    # json = Net::HTTP.get(uri)
+    # @result = JSON.parse(json)
+
   end
 
   def destroy

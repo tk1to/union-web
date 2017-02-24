@@ -20,7 +20,7 @@
     <%= f.text_field :department , class: "form__text_field form__text_field_short" %>
 
     <%= f.label :grade, "学年" , class: "form__item" %>
-    <%= f.text_field :grade , class: "form__text_field form__text_field_short" %>
+    <%= f.select :grade, ["1", "2", "3", "4", "修士1", "修士2", "その他"], class: "form__text_field form__text_field_short" %>
 
     <div class="form__images ta_center">
       <%= f.label :picture, "プロフィール画像" , class: "form__item"%>
