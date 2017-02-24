@@ -65,6 +65,10 @@
   </ul>
 </div>
 
+<% if !current_user?(@user) %>
+  <%# link_to "メッセージ" %>
+<% end %>
+
 <section class="user__body">
 
   <% @profiles.each do |key, value| %>
