@@ -21,11 +21,14 @@
         <%= image_tag class: "blog_picture"%>
       <% end %>
     </div>
-    <%= f.file_field :picture %>
+    <div class="form__upload ta_center">画像を選択
+    <%= f.file_field :picture , class: "form__file"%>
+    </div>
   </p>
   <div class="form__button">
     <%= f.submit "更新" , class: "button button_size_large button_color_blue"%>
-  </div>
+  
   <% end %>
-  <%= link_to "このブログを削除", [@blog.circle, @blog], method: :delete, data: { confirm: "本当に削除しますか？" } %>
+  <%= link_to "このブログを削除", [@blog.circle, @blog], method: :delete, data: { confirm: "本当に削除しますか？" } , class: "button button_size_large button_color_red"%>
+  </div>
 </div>
