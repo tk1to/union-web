@@ -133,10 +133,11 @@ class UsersController < ApplicationController
             category_ids[i].destroy
           else
             category_ids[i].update_attribute(:category_id, new_category_ids[i])
+            category_ids[i].update_attribute(:priority,    i)
           end
         else
           if !new_category_ids[i].nil?
-            @user.user_categories.create(category_id: new_category_ids[i])
+            @user.user_categories.create(category_id: new_category_ids[i], priority: i)
           end
         end
       end

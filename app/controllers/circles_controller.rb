@@ -106,6 +106,10 @@ class CirclesController < ApplicationController
   end
   def feed
     @circles = Circle.all
+    if (fed_category = current_user.categories.first).present?
+      # @circle_categories = CircleCategory.where(category_id: fed_category.id, priority: 0)
+      # @circles = @circles.joins(:circle_categories).where(circle_categories: {category_id: fed_category.id}).where(categories: {priority: 0})
+    end
   end
 
   def foots
@@ -132,10 +136,11 @@ class CirclesController < ApplicationController
             category_ids[i].destroy
           else
             category_ids[i].update_attribute(:category_id, new_category_ids[i])
+            category_ids[i].update_attribute(:priority,    i)
           end
         else
           if !new_category_ids[i].nil?
-            @circle.circle_categories.create(category_id: new_category_ids[i])
+            @circle.circle_categories.create(category_id: new_category_ids[i], priority: i)
           end
         end
       end
