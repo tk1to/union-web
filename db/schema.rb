@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170225171600) do
+ActiveRecord::Schema.define(version: 20170225194701) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 20170225171600) do
     t.integer  "circle_id"
     t.integer  "author_id"
     t.string   "picture"
+    t.string   "header_1"
+    t.string   "header_2"
+    t.string   "header_3"
+    t.text     "content_1"
+    t.text     "content_2"
+    t.text     "content_3"
+    t.string   "picture_1"
+    t.string   "picture_2"
+    t.string   "picture_3"
   end
 
   create_table "categories", force: :cascade do |t|

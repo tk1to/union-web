@@ -9,20 +9,23 @@
     <%= f.label :title ,"ブログタイトル", class: "form__item"%>
     <%= f.text_field :title , class: "form__text_field" %>
 
-    <%= f.label :content ,"本文", class: "form__item"%>
-    <%= f.text_area :content , class: "form__text_area" %>
+    <% for i in 1..3 %>
+      <%= f.label "header_#{i}".to_sym, "見出し#{i}", class: "form__item"%>
+      <%= f.text_field "header_#{i}".to_sym, class: "form__text_field" %>
 
-    <p>
-      <%= f.label :picture, "画像" %>
-      <div style="width: 100px;">
-        <% if @blog.picture %>
-          <%= image_tag @blog.picture.url, class: "blog_picture"%>
-        <% else %>
-          <%= image_tag class: "blog_picture"%>
-        <% end %>
-      </div>
-      <%= f.file_field :picture %>
-    </p>
+      <% plab = "picture_#{i}" %>
+      <p>
+        <%= f.label plab.to_sym, "画像#{i}" %>
+        <div style="width: 100px;">
+          <%= image_tag @blog[plab] ? @blog[plab].url : nil , class: "blog_picture_#{i}"%>
+        </div>
+        <%= f.file_field "picture_#{i}".to_sym %>
+      </p>
+
+      <%= f.label "content_#{i}".to_sym, "内容#{i}", class: "form__item"%>
+      <%= f.text_field "content_#{i}".to_sym, class: "form__text_area" %>
+
+    <% end %>
     <div class="form__button">
       <%= f.submit "確認" , class: "button button_size_large button_color_blue"%>
     </div>

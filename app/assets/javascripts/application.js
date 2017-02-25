@@ -64,12 +64,28 @@ $(function(){
       };
   });
 
-  $(document).on('change', '#blog_picture',function(){
+  $(document).on('change', '#blog_picture_1',function(){
     var file = $(this).prop('files')[0];
       var reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = function(e) {
-        $('img.blog_picture').attr("src", e.target.result);
+        $('img.blog_picture_1').attr("src", e.target.result);
+      };
+  });
+  $(document).on('change', '#blog_picture_2',function(){
+    var file = $(this).prop('files')[0];
+      var reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = function(e) {
+        $('img.blog_picture_2').attr("src", e.target.result);
+      };
+  });
+  $(document).on('change', '#blog_picture_3',function(){
+    var file = $(this).prop('files')[0];
+      var reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = function(e) {
+        $('img.blog_picture_3').attr("src", e.target.result);
       };
   });
 
