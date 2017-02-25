@@ -8,7 +8,9 @@
   <meta name="viewport" content="width=device-whidth, initial-scale=1.0">
 </head>
 <body>
-  <div class="whole_wrap">
+  <% if !(params[:controller] == "message_rooms" && params[:action] == "show") %>
+    <div class="whole_wrap">
+  <% end %>
     <%= render 'layouts/nav' %>
     <% flash.each do |message_type, message| %>
       <div class="flash_message"><%= message %></div>
@@ -16,10 +18,12 @@
 
     <%= yield %>
 
-    <footer class="footer">
-      <p class="footer__copyright">COPYRIGHT &#169; 2017 UNION ALL RIGHTS RESERVED. </p>
-    </footer>
-  </div>
+    <% if !(params[:controller] == "message_rooms" && params[:action] == "show") %>
+      <footer class="footer">
+        <p class="footer__copyright">COPYRIGHT &#169; 2017 UNION ALL RIGHTS RESERVED. </p>
+      </footer>
+      </div>
+    <% end %>
   <%= debug(params) if Rails.env.development? %>
 </body>
 </html>
