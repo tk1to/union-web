@@ -5,9 +5,6 @@ class CirclesController < ApplicationController
   end
   def create
 
-    # circle-idのシーケンスを更新
-    # ActiveRecord::Base.connection.execute("SELECT setval('circles_id_seq', (SELECT MAX(id) FROM circles));")
-
     @circle = Circle.new(circle_params)
     if @circle.save
       flash[:success] = "作成完了"
@@ -53,10 +50,9 @@ class CirclesController < ApplicationController
 
   def edit
     @circle     = Circle.find(params[:id])
+
     @categories = @circle.categories
-
     @category_options = Category.all
-
     @category_ids = Array.new
     for i in 0..Category.max-1 do
       @category_ids[i] = @categories[i].nil? ? nil : @categories[i].id

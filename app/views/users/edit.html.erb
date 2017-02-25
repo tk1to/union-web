@@ -5,10 +5,28 @@
 <div class="form">
   <%= form_for(@user) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
+
   <% if @edit_item %>
-    <%= f.label @edit_item %>
-    <%= f.text_area @edit_item %>
-    <%= f.hidden_field :edit_item, :value => @edit_item %>
+    <% if @edit_item != "categories" %>
+      <%= f.label @edit_item %>
+      <%= f.text_area @edit_item %>
+      <%= f.hidden_field :edit_item, :value => @edit_item %>
+    <% else %>
+      <% @category_ids.each_with_index do |id, i| %>
+        <div class="select">
+          <%= select :categories, ("category_"+(i+1).to_s).to_sym, @category_options.map{|t| [t.name, t.id]}, selected: id, include_blank: true , class: "select__choice"%>
+          <div class="select__choice_top">タップして選択</div>
+          <script>
+            jQuery(function(){
+                jQuery("select#sentakushi_form").change(function(){
+                    jQuery("div#sentakushi_form2").text(jQuery("option:selected",this).text());
+                }).trigger("change");
+            });
+          </script>
+        </div>
+      <% end %>
+    <% end %>
+
   <% else %>
     <%= f.label :name, "名前" , class: "form__item" %>
     <%= f.text_field :name , class: "form__text_field" %>

@@ -22,16 +22,30 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if params[:edit_item]
       @edit_item = params[:edit_item]
+      if @edit_item == "categories"
+        @categories = @user.categories
+        @category_options = Category.all
+        @category_ids = Array.new
+        for i in 0..Category.max-1 do
+          @category_ids[i] = @categories[i].nil? ? nil : @categories[i].id
+        end
+      end
     end
   end
   def update
     @user = User.find(params[:id])
-    if @user.update_attributes(user_params)
+    if params[:categories].present?
+      update_categories
       flash[:success] = "編集完了"
       redirect_to @user
     else
-      @edit_item = params[:user][:edit_item]
-      render 'edit'
+      if @user.update_attributes(user_params)
+        flash[:success] = "編集完了"
+        redirect_to @user
+      else
+        @edit_item = params[:user][:edit_item]
+        render 'edit'
+      end
     end
   end
 
@@ -41,6 +55,7 @@ class UsersController < ApplicationController
     @profiles = {
       birth_place:  "出身地",
       home_place:   "住んでるところ",
+      categories:   "興味のあるカテゴリー",
       my_like_atom: "好きな雰囲気",
       career:       "これまでやっていたこと",
       introduce:    "自己紹介",
@@ -87,6 +102,8 @@ class UsersController < ApplicationController
           :introduce, :want_to_do, :hobby,
           :college, :department, :grade,
           :picture, :header_picture,
+          :birth_place, :home_place, :my_like_atom,
+          :career, :future
         )
     end
 
@@ -102,6 +119,25 @@ class UsersController < ApplicationController
           footed_print.save
         else
           @user.footed_prints.create(footer_user_id: current_user.id)
+        end
+      end
+    end
+
+    def update_categories
+      new_category_ids = params[:categories].values.reject(&:empty?).map{|str| str.to_i}
+      new_category_ids.uniq!
+      category_ids = @user.user_categories
+      for i in 0..Category.max-1 do
+        if !category_ids[i].nil?
+          if new_category_ids[i].nil?
+            category_ids[i].destroy
+          else
+            category_ids[i].update_attribute(:category_id, new_category_ids[i])
+          end
+        else
+          if !new_category_ids[i].nil?
+            @user.user_categories.create(category_id: new_category_ids[i])
+          end
         end
       end
     end

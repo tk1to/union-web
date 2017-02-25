@@ -15,19 +15,19 @@
   <!-- 整列のためのpタグ -->
   <div class="form__item">カテゴリー選択</div>
   <div class="ta_center">
-      <% @category_ids.each_with_index do |id, i| %>
-    <div class="select">
-      <%= select :categories, ("category_"+(i+1).to_s).to_sym, @category_options.map{|t| [t.name, t.id]}, selected: id, include_blank: true , class: "select__choice"%>
-      <div class="select__choice_top">タップして選択</div>
-      <script>
-        jQuery(function(){
-            jQuery("select#sentakushi_form").change(function(){
-                jQuery("div#sentakushi_form2").text(jQuery("option:selected",this).text());
-            }).trigger("change");
-        });
-     </script>
-    </div>
-  <% end %>
+    <% @category_ids.each_with_index do |id, i| %>
+      <div class="select">
+        <%= select :categories, ("category_"+(i+1).to_s).to_sym, @category_options.map{|t| [t.name, t.id]}, selected: id, include_blank: true , class: "select__choice"%>
+        <div class="select__choice_top">タップして選択</div>
+        <script>
+          jQuery(function(){
+              jQuery("select#sentakushi_form").change(function(){
+                  jQuery("div#sentakushi_form2").text(jQuery("option:selected",this).text());
+              }).trigger("change");
+          });
+       </script>
+      </div>
+    <% end %>
   </div>
 
   <div class="ta_center">

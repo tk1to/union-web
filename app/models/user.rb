@@ -63,33 +63,37 @@ class User < ActiveRecord::Base
   has_many :created_message_rooms, class_name: "MessageRoom",
                                   foreign_key: "created_id"
 
+  #カテゴリー関連
+  has_many :categories, through: :user_categories
+  has_many :user_categories
+
   # 与えられた文字列のハッシュ値を返す
-  def User.digest(string)
-    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
-                                                  BCrypt::Engine.cost
-    BCrypt::Password.create(string, cost: cost)
-  end
+  # def User.digest(string)
+  #   cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+  #                                                 BCrypt::Engine.cost
+  #   BCrypt::Password.create(string, cost: cost)
+  # end
 
   # ランダムなトークンを返す
-  def User.new_token
-    SecureRandom.urlsafe_base64
-  end
+  # def User.new_token
+  #   SecureRandom.urlsafe_base64
+  # end
   # 永続的セッションで使用するユーザーをデータベースに記憶する
-  def remember
-    self.remember_token = User.new_token
-    update_attribute(:remember_digest, User.digest(remember_token))
-  end
+  # def remember
+  #   self.remember_token = User.new_token
+  #   update_attribute(:remember_digest, User.digest(remember_token))
+  # end
   # 渡されたトークンがダイジェストと一致したらtrueを返す
-  def authenticated?(attribute, token)
-    digest = send("#{attribute}_digest")
-    return false if digest.nil?
-    BCrypt::Password.new(digest).is_password?(token)
-  end
+  # def authenticated?(attribute, token)
+  #   digest = send("#{attribute}_digest")
+  #   return false if digest.nil?
+  #   BCrypt::Password.new(digest).is_password?(token)
+  # end
 
   # ユーザーログインを破棄する
-  def forget
-    update_attribute(:remember_digest, nil)
-  end
+  # def forget
+  #   update_attribute(:remember_digest, nil)
+  # end
 
   # ユーザーをフォローする
   def follow(other_user)
@@ -105,14 +109,14 @@ class User < ActiveRecord::Base
   end
 
   # アカウントを有効にする
-  def activate
-    update_attribute(:activated,    true)
-    update_attribute(:activated_at, Time.zone.now)
-  end
+  # def activate
+  #   update_attribute(:activated,    true)
+  #   update_attribute(:activated_at, Time.zone.now)
+  # end
   # 有効化用のメールを送信する
-  def send_activation_email
-    UserMailer.account_activation(self).deliver_now
-  end
+  # def send_activation_email
+  #   UserMailer.account_activation(self).deliver_now
+  # end
 
   def self.find_for_facebook_oauth(auth)
     user = User.where(provider: auth.provider, uid: auth.uid).first
