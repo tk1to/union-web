@@ -1,6 +1,7 @@
-
-<%= link_to "フィード", [:feed, :circles] %>
-<%= link_to "探す", [:search, :circles] %>
+<div class="wrap-search ta_center">
+  <%= link_to "フィード", [:feed, :circles] , class: "button button_feed button_feed_current"%>
+  <%= link_to "探す", [:search, :circles] , class: "button button_search"%>
+</div>
 
 <% if @circles.any? %>
   <% @circles.each do |circle| %>
