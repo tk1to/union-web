@@ -1,0 +1,9 @@
+
+<%= link_to "フィード", [:feed, :circles] %>
+<%= link_to "探す", [:search, :circles] %>
+
+<% if @circles.any? %>
+  <% @circles.each do |circle| %>
+    <%= render "circle_card", circle: circle %>
+  <% end %>
+<% end %>
