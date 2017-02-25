@@ -6,7 +6,12 @@
   <% if @message_rooms.any? %>
     <ul class="wrap-thinCard">
       <% @message_rooms.each do |message_room| %>
-        <li class="thinCard"><%= link_to message_room.opponent(current_user.id).name, message_room %></li>
+        <li class="thinCard">
+          <%= link_to message_room.opponent(current_user.id).name, message_room , class: "thinCard__heading"%>
+          <div class="thinCard__image"></div>
+          <div class="thinCard__subhead">メッセージが入ります。</div>
+          <div class="thinCard__time">時間</div>
+        </li>
       <% end %>
     </ul>
   <% end %>
