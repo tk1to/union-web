@@ -74,8 +74,31 @@
 	&_feed{
 		width: 5rem;
 		height: 2rem;
+		line-height: 2rem;
 		background: #fff;
 		border: 1px solid #00ACC1;
-		color: $d-blue;
+		color: $l-gray;
+		border-top-left-radius:5px;
+		border-bottom-left-radius:5px;
+		letter-spacing:normal;
+		&_current{
+			color: #fff;
+			background: $d-blue;
+		}
+	}
+	&_search{
+		width: 5rem;
+		height: 2rem;
+		line-height: 2rem;
+		background: #fff;
+		border: 1px solid #00ACC1;
+		color: $l-gray;
+		border-top-right-radius:5px;
+		border-bottom-right-radius:5px;
+		letter-spacing:normal;
+		&_current{
+			color: #fff;
+			background: $d-blue;
+		}
 	}
 }
