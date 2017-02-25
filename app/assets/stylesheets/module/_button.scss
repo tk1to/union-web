@@ -66,4 +66,16 @@
 		border: 1px solid #00ACC1;
 		color: $d-blue;
 	}
+	&_color_red{
+		background:#c62828;
+		color: #fff;
+		border: 1px solid #c62828;
+	}
+	&_feed{
+		width: 5rem;
+		height: 2rem;
+		background: #fff;
+		border: 1px solid #00ACC1;
+		color: $d-blue;
+	}
 }
