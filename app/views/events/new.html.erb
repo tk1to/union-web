@@ -3,27 +3,6 @@
 </header>
 
 <div class="form">
-  <%= form_for([:circle, @event]) do |f| %>
-    <%= render 'shared/error_messages', object: f.object %>
-
-    <%= f.label :title ,"イベント名", class: "form__item"%>
-    <%= f.text_field :title , class: "form__text_field" %>
-    <p>
-      <%= f.label :picture, "画像" %>
-      <div style="width: 100px;">
-        <% if @event.picture %>
-          <%= image_tag @event.picture.url, class: "event_picture"%>
-        <% else %>
-          <%= image_tag class: "event_picture"%>
-        <% end %>
-      </div>
-      <%= f.file_field :picture %>
-    </p>
-    <%= f.label :content ,"イベント内容", class: "form__item"%>
-    <%= f.text_area :content , class: "form__text_area"%>
-    <div class="form__button">
-      <%= f.submit "投稿" , class: "button button_size_large button_color_blue"%>
-    </div>
-  <% end %>
+  <%= render "form", label: "投稿", circle: :circle %>
 </div>
 

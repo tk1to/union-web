@@ -1,0 +1,37 @@
+<%= form_for([circle, @event]) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <%= f.label :title ,"イベント名", class: "form__item"%>
+  <%= f.text_field :title , class: "form__text_field"%>
+
+  <p>
+    <%= f.label :picture, "画像" %>
+    <div style="width: 100px;">
+      <% if @event.picture %>
+        <%= image_tag @event.picture.url, class: "event_picture"%>
+      <% else %>
+        <%= image_tag class: "event_picture"%>
+      <% end %>
+    </div>
+    <%= f.file_field :picture %>
+  </p>
+
+  <%= f.label :content ,"イベント内容", class: "form__item"%>
+  <%= f.text_area :content , class: "form__text_area"%>
+
+  <%= f.label :schedule ,"開催日時", class: "form__item"%>
+  <%= f.text_field :schedule , class: "form__text_field"%>
+
+  <%= f.label :fee ,"参加費", class: "form__item"%>
+  <%= f.text_field :fee , class: "form__text_field"%>
+
+  <%= f.label :capacity ,"定員", class: "form__item"%>
+  <%= f.text_field :capacity , class: "form__text_field"%>
+
+  <%= f.label :place ,"開催場所", class: "form__item"%>
+  <%= f.text_field :place , class: "form__text_field"%>
+
+  <div class="form__button">
+    <%= f.submit label , class: "button button_size_large button_color_blue"%>
+  </div>
+<% end %>

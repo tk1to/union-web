@@ -3,30 +3,6 @@
 </header>
 
 <div class="form">
-  <%= form_for([@event.circle, @event]) do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
-
-  <%= f.label :title ,"タイトル", class: "form__item"%>
-  <%= f.text_field :title , class: "form__text_field"%>
-
-  <%= f.label :content ,"イベント内容", class: "form__item"%>
-  <%= f.text_area :content , class: "form__text_area"%>
-
-  <p>
-    <%= f.label :picture, "画像" %>
-    <div style="width: 100px;">
-      <% if @event.picture %>
-        <%= image_tag @event.picture.url, class: "event_picture"%>
-      <% else %>
-        <%= image_tag class: "event_picture"%>
-      <% end %>
-    </div>
-    <%= f.file_field :picture %>
-  </p>
-
-  <div class="form__button">
-    <%= f.submit "更新" , class: "button button_size_large button_color_blue"%>
-  </div>
-  <% end %>
+  <%= render "form", label: "編集", circle: @event.circle %>
   <%= link_to "このイベントを削除", [@event.circle, @event], method: :delete, data: { confirm: "本当に削除しますか？" } %>
 </div>
