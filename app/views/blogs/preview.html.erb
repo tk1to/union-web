@@ -1,0 +1,26 @@
+<header class="header">
+  <div class="header__background" style="overflow: hidden;">
+    <%= image_tag @blog.picture.url %>
+  </div>
+  <div class="author">
+    <div class="author__image"></div>
+    <div class="author__name"><span class="author__autor">投稿者:</span><span class="text_decoration_none color_black"><%= current_user.name %></span></div>
+    <p class="author__subhead"><span class="text_decoration_none color_gray"><%= @circle.name %></span></p>
+  </div>
+</header>
+<div class="article">
+  <h1 class="article__title"><%= @blog.title %></h1>
+  <p class="article__text"><%= @blog.content %></p>
+</div>
+
+<div class="ta_center">
+  <%= form_for([@circle, @blog]) do |f| %>
+    <%= f.hidden_field :title, value: @blog.title %>
+    <%= f.hidden_field :content, value: @blog.content %>
+    <%= f.hidden_field :picture, value: @blog.picture.url %>
+    <%= f.hidden_field :previewed, value: true %>
+    <div class="form__button">
+      <%= f.submit "投稿" , class: "button button_size_large button_color_blue"%>
+    </div>
+  <% end %>
+</div>

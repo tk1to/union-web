@@ -2,7 +2,6 @@
 	<h1 class="formHeading ta_center">ブログ作成</h1>
 </header>
 
-
 <div class="form">
   <%= form_for([:circle, @blog]) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
@@ -25,7 +24,7 @@
       <%= f.file_field :picture %>
     </p>
     <div class="form__button">
-      <%= f.submit "投稿" , class: "button button_size_large button_color_blue"%>
+      <%= f.submit "確認" , class: "button button_size_large button_color_blue"%>
     </div>
   <% end %>
 </div>

@@ -5,11 +5,18 @@ class BlogsController < ApplicationController
   end
   def create
     @blog = Blog.new(blog_params)
-    @blog.circle_id = params[:circle_id]
-    @blog.author_id = current_user.id
-    if @blog.save
-      flash[:success] = "投稿完了"
-      redirect_to [@blog.circle, @blog]
+    @circle = Circle.find(params[:circle_id])
+    if @blog.valid?
+      if params[:blog][:previewed]
+        @blog.circle_id = params[:circle_id]
+        @blog.author_id = current_user.id
+        @blog.save
+        flash[:success] = "投稿完了"
+        redirect_to [@blog.circle, @blog]
+      else
+        flash[:success] = "プレビュー（まだ投稿は完了していません）"
+        render 'preview'
+      end
     else
       render 'new'
     end

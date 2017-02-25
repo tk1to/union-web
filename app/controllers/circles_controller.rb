@@ -107,8 +107,7 @@ class CirclesController < ApplicationController
   def feed
     @circles = Circle.all
     if (fed_category = current_user.categories.first).present?
-      # @circle_categories = CircleCategory.where(category_id: fed_category.id, priority: 0)
-      # @circles = @circles.joins(:circle_categories).where(circle_categories: {category_id: fed_category.id}).where(categories: {priority: 0})
+      @circles = @circles.joins(:categories).where(categories: {id: fed_category.id})
     end
   end
 
