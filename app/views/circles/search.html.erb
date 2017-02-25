@@ -1,6 +1,7 @@
-
-<%= link_to "フィード", [:feed, :circles] %>
-<%= link_to "探す", [:search, :circles] %>
+<div>
+  <%= link_to "フィード", [:feed, :circles] %>
+  <%= link_to "探す", [:search, :circles] %>
+</div>
 
 <%= form_for @search_params, url: [:search, :circles], html: {method: :get} do |f| %>
 
