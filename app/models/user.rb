@@ -57,6 +57,12 @@ class User < ActiveRecord::Base
                            dependent: :destroy
   has_many :footed_users, through: :footed_prints, source: :footer_user
 
+  #メッセージ関連
+  has_many :creater_message_rooms, class_name: "MessageRoom",
+                                  foreign_key: "creater_id"
+  has_many :created_message_rooms, class_name: "MessageRoom",
+                                  foreign_key: "created_id"
+
   # 与えられた文字列のハッシュ値を返す
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
@@ -119,6 +125,13 @@ class User < ActiveRecord::Base
                           password: Devise.friendly_token[0,20] )
     end
     user
+  end
+
+  def message_rooms
+    cr_rooms = self.creater_message_rooms
+    cd_rooms = self.created_message_rooms
+
+    cr_rooms.push(cd_rooms)
   end
 
   private

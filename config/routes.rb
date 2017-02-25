@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   end
   resources :relationships, only: [:create, :destroy]
   resources :messages
+  resources :message_rooms
 
   resources :account_activations, only: [:edit]
 
