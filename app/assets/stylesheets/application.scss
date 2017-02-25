@@ -13,24 +13,26 @@
  *= require_self
  */
 
-@import "base/_reset.scss";
-@import "_variables.scss";
-@import "convenient/_convenient.scss";
+@import "base/_reset";
+@import "_variables";
+@import "convenient/_convenient";
 @import "layout/_navigation";
 @import "layout/_header";
 @import "layout/_footer";
 @import "layout/_content";
-@import "module/_button.scss";
-@import "module/_card.scss";
-@import "module/_flash.scss";
-@import "page/_lp.scss";
-@import "page/_users.scss";
-@import "page/_circles.scss";
-@import "page/_form.scss";
-@import "page/_article.scss";
+@import "module/_button";
+@import "module/_card";
+@import "module/_flash";
+@import "page/_lp";
+@import "page/_users";
+@import "page/_circles";
+@import "page/_form";
+@import "page/_article";
 @import "page/_message";
+@import "page/_search";
+@import "page/_delete";
 
-@import "for_js.scss";
+@import "for_js";
 
 
 
