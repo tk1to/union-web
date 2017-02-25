@@ -1,0 +1,35 @@
+// テキストフィールドのwrap
+.message{
+  width: 95%;
+  margin: 0 auto;
+  box-sizing: bolder-box;
+}
+// メッセージ
+.wrap-message__text{
+  margin: 0.5rem;
+  box-sizing: border-box;
+}
+.message__text{
+  background: $d-blue;
+  padding: 0.5rem;
+  max-width: 80%;
+  min-width: 0%;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+.sender{
+  background: $d-blue;
+  color: #fff;
+  float: right;
+}
+.receiver{
+  background: $l-gray;
+  color: $gray;
+  float: left;
+}
+
+.clearfix:after {
+    content:" ";
+    display:block;
+    clear:both;
+}

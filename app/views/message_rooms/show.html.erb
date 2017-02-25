@@ -1,13 +1,17 @@
 <% @messages.each do |message| %>
-  <p class="<%= message.sender_id == current_user.id ? "sender" : "receiver" %>">
-    <%= message.content %>
-  </p>
+  <div class="wrap-message__text clearfix">
+    <p class="<%= message.sender_id == current_user.id ? "sender" : "receiver" %> message__text">
+      <%= message.content %>
+    </p>
+  </div>
 <% end %>
 
-<%= form_for(@new_message) do |f| %>
-  <%= f.text_field :content %>
-  <%= f.hidden_field :sender_id %>
-  <%= f.hidden_field :receiver_id %>
-  <%= f.hidden_field :message_room_id %>
-  <%= f.submit "送信" %>
-<% end %>
+<div class="ta_center">
+  <%= form_for(@new_message) do |f| %>
+    <%= f.text_field :content , class: "form__text_area_search"%>
+    <%= f.hidden_field :sender_id %>
+    <%= f.hidden_field :receiver_id %>
+    <%= f.hidden_field :message_room_id %>
+    <%= f.submit "送信" , class: "button button_size_small button_color_blue"%>
+  <% end %>
+</div>
