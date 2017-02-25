@@ -11,19 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170225194701) do
+ActiveRecord::Schema.define(version: 20170225211816) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "blogs", force: :cascade do |t|
     t.string   "title"
-    t.text     "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "circle_id"
     t.integer  "author_id"
-    t.string   "picture"
     t.string   "header_1"
     t.string   "header_2"
     t.string   "header_3"

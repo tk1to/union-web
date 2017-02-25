@@ -16,7 +16,8 @@ heading_sym   = oc_eq_user ? :name : :title
       <%= link_to link_url, class: "wrap__link" do %>
 
       <% if !oc_eq_contact %>
-        <div class="thinCard__image" style="background-image: url(<%= object.picture %>)"></div>
+        <% picture = oc_eq_blog ? object.picture_1 : object.picture %>
+        <div class="thinCard__image" style="background-image: url(<%= picture %>)"></div>
       <% end %>
 
       <%
@@ -30,6 +31,8 @@ heading_sym   = oc_eq_user ? :name : :title
       <p class="thinCard__subhead"><%=
         if oc_eq_user
           "#{object.college}/#{object.department}/#{object.grade}"
+        elsif oc_eq_blog
+          object.content_1
         else
           object.content
         end

@@ -7,6 +7,17 @@ class Blog < ActiveRecord::Base
   mount_uploader :picture_3, PictureUploader
   validate  :picture_size
 
+  def picture(i)
+    return_picture = nil
+    if i == 1
+      return_picture = self.picture_1
+    elsif i == 2
+      return_picture = self.picture_2
+    elsif i == 3
+      return_picture = self.picture_3
+    end
+  end
+
   private
     def picture_size
       if picture_1.size > 5.megabytes

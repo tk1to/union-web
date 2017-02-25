@@ -2,7 +2,7 @@
 
   <header class="header">
     <div class="header__background" style="overflow: hidden;">
-      <%= image_tag @blog.picture.url %>
+      <%= image_tag @blog.picture_1 ? @blog.picture_1 : nil %>
     </div>
     <div class="author">
       <div class="author__image"></div>
@@ -15,7 +15,8 @@
 
     <% for i in 1..3 do %>
       <h2><%= @blog["header_#{i}"] %></h2>
-      <%# image_tag  %>
+      <%= image_tag @blog["picture_#{i}"] ? @blog.picture(i).url : nil %>
+      <p><%= @blog["content_#{i}"] %></p>
     <% end %>
 
   </div>
