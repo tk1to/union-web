@@ -101,7 +101,7 @@
   <% end %>
 </div>
 
-<div class="frame">
+<div class="frame frame_blog">
   <h2 class="frame__heading">ブログ一覧(<%= @blogs.count %>)</h2>
   <% if @blogs.any? %>
     <%= render "shared/thin_cards", objects: @blogs %>
