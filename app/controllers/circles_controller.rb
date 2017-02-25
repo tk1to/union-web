@@ -108,6 +108,9 @@ class CirclesController < ApplicationController
       @circles = @circles.where(Circle.arel_table[:name].matches("%#{ params[:circle][:name] }%"))
     end
   end
+  def feed
+    @circles = Circle.all
+  end
 
   def foots
     circle = Circle.find(params[:id])

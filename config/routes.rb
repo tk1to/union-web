@@ -46,6 +46,7 @@ Rails.application.routes.draw do
     end
     collection do
       get :search
+      get :feed
     end
   end
 end
