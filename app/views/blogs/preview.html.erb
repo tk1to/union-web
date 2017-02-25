@@ -17,7 +17,7 @@
   <%= form_for([@circle, @blog]) do |f| %>
     <%= f.hidden_field :title, value: @blog.title %>
     <%= f.hidden_field :content, value: @blog.content %>
-    <%= f.hidden_field :picture, value: @blog.picture.url %>
+    <%= f.file_field :picture, value: @blog.picture.url %>
     <%= f.hidden_field :previewed, value: true %>
     <div class="form__button">
       <%= f.submit "投稿" , class: "button button_size_large button_color_blue"%>
