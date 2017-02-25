@@ -1,9 +1,9 @@
 class MessageRoomsController < ApplicationController
 
+  def index
+    @message_rooms = current_user.message_rooms
+  end
   def new
-    # if !@message_room =
-    #   current_user.message_rooms.find_by(created_id: params[:user_id])||
-    #   current_user.message_rooms.find_by(creater_id: params[:user_id])
     mid = current_user.id
     yid = params[:user_id].to_i
     rooms = current_user.message_rooms

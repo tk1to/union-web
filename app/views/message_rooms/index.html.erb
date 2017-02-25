@@ -1,0 +1,7 @@
+<% if @message_rooms.any? %>
+  <ul>
+    <% @message_rooms.each do |message_room| %>
+      <li><%= link_to message_room.opponent(current_user.id).name, message_room %></li>
+    <% end %>
+  </ul>
+<% end %>

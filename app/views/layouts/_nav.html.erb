@@ -2,7 +2,7 @@
   <ul class="nav__list">
     <li class="nav__item"><%= link_to image_tag('top.svg'), root_path %></li>
     <li class="nav__item"><%= link_to_if(user_signed_in?, image_tag('search.svg'), [:search, :circles]) %></li>
-    <li class="nav__item coming_soon"><%= link_to_if(false, image_tag('message.svg') ) %></li>
+    <li class="nav__item coming_soon"><%= link_to_if(user_signed_in?, image_tag('message.svg'), :message_rooms) %></li>
     <li class="nav__item coming_soon"><%= link_to_if(false, image_tag('notice.svg') ) %></li>
     <li class="nav__item"><%= link_to_if(user_signed_in?, image_tag('mypage.svg'), current_user) %></li>
   </ul>
