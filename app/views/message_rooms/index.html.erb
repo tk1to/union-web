@@ -1,7 +1,13 @@
-<% if @message_rooms.any? %>
-  <ul>
-    <% @message_rooms.each do |message_room| %>
-      <li><%= link_to message_room.opponent(current_user.id).name, message_room %></li>
-    <% end %>
-  </ul>
-<% end %>
+<header>
+  <h1 class="formHeading ta_center">メッセージ</h1>
+</header>
+
+<div class="message">
+  <% if @message_rooms.any? %>
+    <ul class="wrap-thinCard">
+      <% @message_rooms.each do |message_room| %>
+        <li class="thinCard"><%= link_to message_room.opponent(current_user.id).name, message_room %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
