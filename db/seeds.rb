@@ -23,7 +23,7 @@ end
 Circle.create(name: "ボランティアサークル", description: "定期的にボランティアをするサークルです。興味がある方は是非！")
 Membership.create(circle_id: 1, member_id: 1)
 Blog.create(title: "太郎のサークル設立",circle_id: 1, author_id: 1,
-            content: "サークルを設立しました！ボランティアに興味がある方は是非入ってください！")
+            content_1: "サークルを設立しました！ボランティアに興味がある方は是非入ってください！")
 Event.create(title: "〇〇町ゴミ拾い！１", circle_id: 1, content: "ゴミ拾いを〇〇町で行います！少しでも興味がある方は是非参加してください！誰でも歓迎です！")
 
 Contact.create(content: "テスト用お問い合わせ、内容が入る場所", send_user_id: 2, receive_circle_id: 1)
