@@ -10,13 +10,18 @@ class ContactsController < ApplicationController
   end
   def create
     @contact = Contact.new(contact_params)
-    @contact.send_user_id      = current_user.id
-    @contact.receive_circle_id = params[:circle_id]
-    if @contact.save
-      flash[:success] = "送信完了"
-      redirect_to @contact.receive_circle
+    if @contact.valid?
+      if params[:contact][:confirmed]
+        @contact.send_user_id      = current_user.id
+        @contact.receive_circle_id = params[:circle_id]
+        @contact.save
+        flash[:success] = "送信完了"
+        redirect_to @contact.receive_circle
+      else
+        render "confirm"
+      end
     else
-      render 'new'
+      render "new"
     end
   end
 

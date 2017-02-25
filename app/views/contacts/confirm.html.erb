@@ -1,0 +1,15 @@
+<header>
+  <h1 class="formHeading ta_center">お問い合わせ内容確認</h1>
+</header>
+<div class="content content__border">
+  <div class="contact__text"><%= simple_format(h(@contact.content)) %></div>
+</div>
+<%# link_to "一覧へ戻る", [:circle, :contacts] , class: "button button_size_medium button_color_gray"%>
+<%= form_for([:circle, @contact]) do |f| %>
+  <%= f.hidden_field :content, value: @contact.content %>
+  <%= f.hidden_field :confirmed, value: true %>
+  <div class="form__button">
+    <%= link_to "戻る" , [:new, :circle, :contact], class: "button button_size_large button_color_blue" %>
+    <%= f.submit "送信" , class: "button button_size_large button_color_blue" %>
+  </div>
+<% end %>
