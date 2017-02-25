@@ -24,15 +24,20 @@
       <%= link_to image_tag("foot.png"), [:foots, @user], class: "header__foot" %>
     <% end %>
   <% end %>
-  <% if !current_user?(@user) %>
-    <div id="follow_form">
-      <% if !current_user.following?(@user) %>
-        <%= render 'follow' %>
-      <% else %>
-        <%= render 'unfollow' %>
-      <% end %>
-    </div>
-  <% end %>
+  <div class="message_follow">
+    <% if !current_user?(@user) %>
+      <div id="follow_form">
+        <% if !current_user.following?(@user) %>
+          <%= render 'follow' %>
+        <% else %>
+          <%= render 'unfollow' %>
+        <% end %>
+      </div>
+    <% end %>
+    <% if !current_user?(@user) %>
+      <%= link_to image_tag('message_blue.svg'), [:new, :message_room, user_id: @user.id] , class: "header__message"%>
+    <% end %>
+  </div>
 </header>
 <script type="text/javascript">
   $('#user_picture').bind('change', function() {
@@ -62,10 +67,6 @@
     </li>
   </ul>
 </div>
-
-<% if !current_user?(@user) %>
-  <%= link_to "メッセージ", [:new, :message_room, user_id: @user.id] %>
-<% end %>
 
 <section class="user__body">
 
