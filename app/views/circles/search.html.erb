@@ -1,6 +1,6 @@
-<div class="wrap-search">
-  <%= link_to "ふぃーど", [:feed, :circles] , class: "button_feed"%>
-  <%= link_to "さがす", [:search, :circles] , class: "button_search"%>
+<div class="wrap-search ta_center">
+  <%= link_to "フィード", [:feed, :circles] , class: "button button_feed"%>
+  <%= link_to "検索", [:search, :circles] , class: "button button_search button_search_current"%>
 </div>
 
 <%= form_for @search_params, url: [:search, :circles], html: {method: :get} do |f| %>
