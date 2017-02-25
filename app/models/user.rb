@@ -131,7 +131,14 @@ class User < ActiveRecord::Base
     cr_rooms = self.creater_message_rooms
     cd_rooms = self.created_message_rooms
 
-    cr_rooms.push(cd_rooms)
+    rooms = []
+    cr_rooms.each do |room|
+      rooms << room
+    end
+    cd_rooms.each do |room|
+      rooms << room
+    end
+    rooms
   end
 
   private

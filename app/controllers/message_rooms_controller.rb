@@ -1,11 +1,17 @@
 class MessageRoomsController < ApplicationController
 
   def new
-    if !@message_room =
-      current_user.message_rooms.find_by(created_id: params[:created_id])||
-      current_user.message_rooms.find_by(creater_id: params[:created_id])
-
-      MessageRoom.create(creater_id: current_user.id, created_id: params[:created_id])
+    # if !@message_room =
+    #   current_user.message_rooms.find_by(created_id: params[:user_id])||
+    #   current_user.message_rooms.find_by(creater_id: params[:user_id])
+    mid = current_user.id
+    yid = params[:user_id].to_i
+    rooms = current_user.message_rooms
+    if rooms.select{|r|r.creater_id==yid||r.created_id==yid}.blank?
+      @message_room = MessageRoom.new(creater_id: current_user.id, created_id: params[:user_id])
+      @message_room.save
+    else
+      @message_room = rooms.select{|r|r.creater_id==yid||r.created_id==yid}[0]
     end
     redirect_to @message_room
   end
