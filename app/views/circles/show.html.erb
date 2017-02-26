@@ -14,14 +14,11 @@
 
 <header class="header">
   <h1 class="header__name_circle"><%= @circle.name %></h1>
-  <% if @categories.any? %>
-  <% end %>
   <div class="header__background" style="background-image: url(<%= @circle.header_picture %>)"></div>
   <div class="header__photo_circle" style="background-image: url(<%= @circle.picture %>)"></div>
   <div class="header__change"></div>
   <% if @be_member %>
     <%= image_tag "menu.svg" , class: "header__menu_humberger" %>
-    <%# link_to image_tag("foot.png"), [:foots, @circle], class: "header__foot" %>
   <% end %>
 </header>
 
@@ -35,7 +32,7 @@
 
 <% if @members.any? %>
   <div class="members">
-    <h2 class="members__heading">メンバー(<%= @members.count %>)</h2>
+    <h2 class="members__heading">メンバー(<%= @circle.members.count %>)</h2>
     <ul class="members__list">
       <% @members.each do |member| %>
         <li class="members__list_item">
@@ -85,7 +82,7 @@
       <% end %>
     <% end %>
   </div>
-  <% @be_member %>
+  <% if @be_member %>
     <div class="ta_center">
       <%= link_to "ブログを作成", [:new, @circle, :blog] , class: "button button_size_medium button_color_blue"%>
       <%= link_to "イベントを作成", [:new, @circle, :event] , class: "button button_size_medium button_color_blue"%>
@@ -100,7 +97,7 @@
 <!-- <div class="description"><p><%# @circle.activity %></p></div> -->
 
 <div class="frame frame_blog">
-  <h2 class="frame__heading">ブログ一覧(<%= @blogs.count %>)</h2>
+  <h2 class="frame__heading">ブログ一覧(<%= @circle.blogs.count %>)</h2>
   <% if @blogs.any? %>
     <%= render "shared/thin_cards", objects: @blogs %>
   <% else %>
@@ -109,18 +106,10 @@
 </div>
 
 <div class="frame">
-  <h2 class="frame__heading">イベント一覧(<%= @events.count %>)</h2>
+  <h2 class="frame__heading">イベント一覧(<%= @circle.events.count %>)</h2>
   <% if @events.any? %>
     <%= render "shared/thin_cards", objects: @events %>
   <% else %>
     <p class="thinCard thinCard_no">イベントがありません。</p>
   <% end %>
 </div>
-
-<%# @informations.each do |key, value| %>
-  <!-- タグは適当、ここをテーブルに！ -->
-  <!-- <h2><%# value %></h2>
-  <p><%# @circle[key] %></p> -->
-<%# end %>
-
-
