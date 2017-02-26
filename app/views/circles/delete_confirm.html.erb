@@ -1,3 +1,9 @@
+<header>
+  <h1 class="formHeading ta_center">最終確認</h1>
+</header>
 
-<h1>本当にサークルを削除してもよろしいですか？</h1>
-<p><%= link_to "サークルを削除", [@circle, delete_confirmed: true], method: :delete %></p>
+<p class="alert ta_center">本当にサークルを削除しても<br>よろしいですか？</p>
+
+<div class="ta_center">
+  <%= link_to "サークルを削除", [@circle, delete_confirmed: true], method: :delete , class: "button button_size_large button_color_red "%>
+</div>
