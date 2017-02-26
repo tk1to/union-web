@@ -1,0 +1,10 @@
+
+ja:
+  devise:
+    confirmations:
+      confirmed: "ログイン完了1"
+      user:
+        confirmed: "ログイン完了2"
+    sessions:
+      user:
+        signed_in: "ログイン完了"
