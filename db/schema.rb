@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170225233007) do
+ActiveRecord::Schema.define(version: 20170226054316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,12 +58,19 @@ ActiveRecord::Schema.define(version: 20170225233007) do
   end
 
   create_table "circles", force: :cascade do |t|
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.string   "name"
-    t.string   "description"
+    t.text     "description"
     t.string   "picture"
     t.string   "header_picture"
+    t.text     "activity"
+    t.string   "join_colleges"
+    t.string   "people_scale"
+    t.string   "activity_place"
+    t.string   "activity_frequency"
+    t.string   "annual_fee"
+    t.string   "party_frequency"
   end
 
   create_table "contacts", force: :cascade do |t|

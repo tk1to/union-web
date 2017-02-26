@@ -85,21 +85,16 @@
       <% end %>
     <% end %>
   </div>
+  <div class="ta_center">
+    <%= link_to "ブログを作成", [:new, @circle, :blog] , class: "button button_size_medium button_color_blue"%>
+    <%= link_to "イベントを作成", [:new, @circle, :event] , class: "button button_size_medium button_color_blue"%>
+  </div>
 <% end %>
 
 <div class="separate"></div>
 
 <div class="description"><p><%= @circle.description %></p></div>
-
-
-<div class="ta_center">
-  <% if @be_member %>
-    <%= link_to "ブログを作成", [:new, @circle, :blog] , class: "button button_size_medium button_color_blue"%>
-  <% end %>
-  <% if @be_member %>
-    <%= link_to "イベントを作成", [:new, @circle, :event] , class: "button button_size_medium button_color_blue"%>
-  <% end %>
-</div>
+<div class="description"><p><%= @circle.activity %></p></div>
 
 <div class="frame frame_blog">
   <h2 class="frame__heading">ブログ一覧(<%= @blogs.count %>)</h2>
@@ -119,5 +114,10 @@
   <% end %>
 </div>
 
+<% @informations.each do |key, value| %>
+  <!-- タグは適当、ここをテーブルに！ -->
+  <h2><%= value %></h2>
+  <p><%= @circle[key] %></p>
+<% end %>
 
 

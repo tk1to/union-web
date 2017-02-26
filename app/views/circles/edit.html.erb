@@ -9,8 +9,11 @@
   <%= f.label :name ,"サークル名", class: "form__item"%>
   <%= f.text_field :name , class: "form__text_field" %>
 
-  <%= f.label :description ,"サークル説明文", class: "form__item"%>
+  <%= f.label :description ,"サークル概要", class: "form__item"%>
   <%= f.text_area :description , class: "form__text_area" %>
+
+  <%# f.label :activity ,"活動内容", class: "form__item"%>
+  <%# f.text_area :activity , class: "form__text_area" %>
 
   <!-- 整列のためのpタグ -->
   <div class="form__item">カテゴリー選択</div>
@@ -31,7 +34,6 @@
   </div>
 
   <div class="ta_center">
-    <!--<%= f.label :picture, "画像" %>-->
     <div style="width: 100px;">
       <% if @circle.picture %>
         <%= image_tag @circle.picture.url, class: "circle_picture"%>
@@ -45,7 +47,6 @@
   </div>
 
   <div class="ta_center">
-    <!--<%= f.label :header_picture, "ヘッダー画像" %>-->
     <div style="width: 100px;">
       <% if @circle.header_picture %>
         <%= image_tag @circle.header_picture.url, class: "circle_header_picture"%>
@@ -57,6 +58,12 @@
       <%= f.file_field :header_picture , class: "form__file"%>
     </div>
   </div>
+
+  <!-- text_areaの高さ半分くらいの方がいいかも -->
+  <%# @informations.each do |key, value| %>
+    <%# f.label key , value, class: "form__item"%>
+    <%# f.text_area key , class: "form__text_area" %>
+  <%# end %>
 
   <div class="form__buttun ta_center">
     <%= f.submit "更新" , class: "button button_size_large button_color_blue"%>

@@ -13,7 +13,15 @@ heading_sym   = oc_eq_user ? :name : :title
       link_url = oc_eq_user    ? object :
                  oc_eq_contact ? [object.receive_circle, object] : [object.circle, object]
       %>
-      <%= link_to link_url, class: "wrap__link" do %>
+      <%= link_to link_url, class: "wrap__link wrap__link_accept" do %>
+
+      <% if params[:controller] == "entries" && params[:action] == "index" %>
+        <%
+        circle = Circle.find(params[:circle_id])
+        entry  = object.entries.find_by(circle_id: params[:circle_id])
+        %>
+        <%= link_to "承認", [:accept, circle, entry], method: :post , class: "thinCard__permit button button_size_small button_color_blue "%>
+      <% end %>
 
       <% if !oc_eq_contact %>
         <% picture = oc_eq_blog ? object.picture_1 : object.picture %>

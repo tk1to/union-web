@@ -46,6 +46,15 @@ class CirclesController < ApplicationController
       end
     end
 
+    # @informations = {
+    #   join_colleges: "参加大学",
+    #   people_scale:  "人数(男女比)",
+    #   activity_place: "活動場所",
+    #   activity_frequency: "活動頻度",
+    #   annual_fee: "会費",
+    #   party_frequency: "飲み会頻度",
+    # }
+
   end
 
   def edit
@@ -57,11 +66,20 @@ class CirclesController < ApplicationController
     for i in 0..Category.max-1 do
       @category_ids[i] = @categories[i].nil? ? nil : @categories[i].id
     end
+    # @informations = {
+    #   join_colleges: "参加大学",
+    #   people_scale:  "人数(男女比)",
+    #   activity_place: "活動場所",
+    #   activity_frequency: "活動頻度",
+    #   annual_fee: "会費",
+    #   party_frequency: "飲み会頻度",
+    # }
   end
   def update
     @circle = Circle.find(params[:id])
     update_categories
     if @circle.update_attributes(circle_params)
+      @circle.save
       flash[:success] = "編集完了"
       redirect_to @circle
     else
@@ -123,6 +141,9 @@ class CirclesController < ApplicationController
           :description,
           :picture,
           :header_picture,
+          :activity, :join_colleges, :people_scale,
+          :activity_place, :activity_frequency,
+          :annual_fee, :party_frequency,
         )
     end
     def update_categories
