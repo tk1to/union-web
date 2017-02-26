@@ -60,9 +60,9 @@ class UsersController < ApplicationController
     }
     if @user.circles.any?
       @profiles.merge!({
-        oppotunity:     "団体に入ったきっかけ",
+        oppotunity:     "サークルに入ったきっかけ",
         career:         "これまでやっていたこと",
-        my_circle_atom: "団体の雰囲気",
+        my_circle_atom: "サークルの雰囲気",
       })
     end
   end
