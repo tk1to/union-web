@@ -12,12 +12,13 @@
 .miniCard__background,
 .miniCard__image,
 .thinCard__image,
-.author__image
-.card__background
-.card__image
+.author__image,
+.card__background,
+.card__image,
+.c_pict,
  {
   background-size: cover !important;
-  background-position: 50% !important;
+  background-position: 50% 50% !important;
 }
 
 .body_wrap {

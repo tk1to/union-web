@@ -72,7 +72,7 @@
 <section class="frame">
 <div class="frame__heading">所属サークル</div>
   <% @user.circles.each do |circle| %>
-  　<div class="belong">
+    <div class="belong">
       <%= link_to circle do %>
         <div class="belong__image"></div>
         <div class="belong__heading"><%= circle.name %></div>

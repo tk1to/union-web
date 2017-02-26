@@ -93,8 +93,9 @@
 
 <div class="separate"></div>
 
-<div class="description"><p><%= @circle.description %></p></div>
-<div class="description"><p><%= @circle.activity %></p></div>
+<h2 class="frame__heading frame__heading_underline">サークル概要</h2>
+<div class="description"><%= simple_format(h(@circle.description)) %></div>
+<!-- <div class="description"><p><%# @circle.activity %></p></div> -->
 
 <div class="frame frame_blog">
   <h2 class="frame__heading">ブログ一覧(<%= @blogs.count %>)</h2>
@@ -114,10 +115,10 @@
   <% end %>
 </div>
 
-<% @informations.each do |key, value| %>
+<%# @informations.each do |key, value| %>
   <!-- タグは適当、ここをテーブルに！ -->
-  <h2><%= value %></h2>
-  <p><%= @circle[key] %></p>
-<% end %>
+  <!-- <h2><%# value %></h2>
+  <p><%# @circle[key] %></p> -->
+<%# end %>
 
 
