@@ -107,6 +107,9 @@ class User < ActiveRecord::Base
   def following?(other_user)
     following.include?(other_user)
   end
+  def mutual_follow?(user)
+    self.following?(user) && user.following?(self)
+  end
 
   # アカウントを有効にする
   # def activate

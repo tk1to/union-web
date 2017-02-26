@@ -35,7 +35,7 @@
       </div>
     <% end %>
     <% if !current_user?(@user) %>
-      <%= link_to_if ( ,image_tag('message_blue.svg'), [:new, :message_room, user_id: @user.id]), class: "header__message"%>
+      <%= link_to_if (current_user.mutual_follow?(@user), image_tag('message_blue.svg'), [:new, :message_room, user_id: @user.id]), class: "header__message"%>
     <% end %>
   </div>
 </header>
