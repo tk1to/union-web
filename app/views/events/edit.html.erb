@@ -3,6 +3,8 @@
 </header>
 
 <div class="form">
-  <%= render "form", label: "編集", circle: @event.circle %>
-  <%= link_to "このイベントを削除", [@event.circle, @event], method: :delete, data: { confirm: "本当に削除しますか？" } %>
+    <%= render "form", label: "編集", circle: @event.circle %>
+  <div class="form__button">
+    <%= link_to "このイベントを削除", [@event.circle, @event], method: :delete, data: { confirm: "本当に削除しますか？" } , class: "button button_size_large button_color_red"%>
+  </div>
 </div>
