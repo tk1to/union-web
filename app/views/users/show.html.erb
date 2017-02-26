@@ -68,6 +68,17 @@
   </ul>
 </div>
 
+<!-- 入ってるサークルの情報 -->
+<section>
+  <% @user.circles.each do |circle| %>
+    <%= link_to circle do %>
+      <div class="circle_no_image_ga_hairu_div"></div>
+      <div><%= circle.name %></div>
+      <div><%= circle.description %></div>
+    <% end %>
+  <% end %>
+</section>
+
 <section class="user__body">
 
   <% @profiles.each do |key, value| %>
