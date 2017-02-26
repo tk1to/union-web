@@ -4,7 +4,6 @@ class BlogsController < ApplicationController
     @blogs = Blog.all.order("created_at DESC")
   end
   def index
-
   end
 
   def new

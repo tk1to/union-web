@@ -33,7 +33,7 @@
   <h1 class="frame__heading frame__heading_underline">ブログ一覧</h1>
 <% if @blogs.any? %>
   <%= render "shared/thin_cards", objects: @blogs %>
-  <p style="text-align: right;"><%# link_to "もっと見る", :blogs, style: "color: gray; text-decoration: none;" %></p>
+  <p style="text-align: right;"><%= link_to "もっと見る", :blogs, style: "color: gray; text-decoration: none;" %></p>
 <% end %>
 </div>
 
@@ -41,6 +41,6 @@
   <h1 class="frame__heading frame__heading_underline">イベント一覧</h1>
 <% if @events.any? %>
   <%= render "shared/thin_cards", objects: @events %>
-  <p style="text-align: right;"><%# link_to "もっと見る", :events, style: "color: gray; text-decoration: none;" %></p>
+  <p style="text-align: right;"><%= link_to "もっと見る", :events, style: "color: gray; text-decoration: none;" %></p>
 <% end %>
 </div>

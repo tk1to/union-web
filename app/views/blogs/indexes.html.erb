@@ -1,0 +1,9 @@
+<header>
+  <h1 class="formHeading ta_center">ブログ一覧</h1>
+</header>
+
+<div class="list__wrap">
+  <% if @blogs.any? %>
+    <%= render "shared/thin_cards", objects: @blogs %>
+  <% end %>
+</div>
