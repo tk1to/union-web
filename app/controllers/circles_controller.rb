@@ -37,14 +37,14 @@ class CirclesController < ApplicationController
     end
 
     # 足跡
-    if current_user && !@be_member
-      if footed_print = @circle.footed_prints.find_by(footed_user_id: current_user.id)
-        footed_print.touch
-        footed_print.save
-      else
-        @circle.footed_prints.create(footed_user_id: current_user.id)
-      end
-    end
+    # if current_user && !@be_member
+    #   if footed_print = @circle.footed_prints.find_by(footed_user_id: current_user.id)
+    #     footed_print.touch
+    #     footed_print.save
+    #   else
+    #     @circle.footed_prints.create(footed_user_id: current_user.id)
+    #   end
+    # end
 
     # @informations = {
     #   join_colleges: "参加大学",
