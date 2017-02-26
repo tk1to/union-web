@@ -31,6 +31,9 @@
     <%= f.label :name, "名前" , class: "form__item" %>
     <%= f.text_field :name , class: "form__text_field" %>
 
+    <%= f.label :sex, "性別" , class: "form__item" %>
+    <%= f.select :sex, {"男性" => 0, "女性" => 1}, selected: @user.id, include_blank: true, class: "" %>
+
     <%= f.label :college, "大学" , class: "form__item" %>
     <%= f.text_field :college , class: "form__text_field" %>
 

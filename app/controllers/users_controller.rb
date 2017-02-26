@@ -57,10 +57,14 @@ class UsersController < ApplicationController
       home_place:     "住んでるところ",
       categories:     "興味のあるカテゴリー",
       introduce:      "自己紹介",
-      oppotunity:     "団体に入ったきっかけ",
-      career:         "これまでやっていたこと",
-      my_circle_atom: "団体の雰囲気",
     }
+    if @user.circles.any?
+      @profiles.merge!({
+        oppotunity:     "団体に入ったきっかけ",
+        career:         "これまでやっていたこと",
+        my_circle_atom: "団体の雰囲気",
+      })
+    end
   end
 
   def destroy
