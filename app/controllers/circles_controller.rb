@@ -1,5 +1,8 @@
 class CirclesController < ApplicationController
 
+  def index
+    @circles = Circle.all.order("created_at DESC")
+  end
   def new
     @circle = Circle.new
   end

@@ -1,0 +1,6 @@
+
+<% if @circles.any? %>
+  <% @circles.each do |circle| %>
+    <%= render "circle_card", circle: circle %>
+  <% end %>
+<% end %>
