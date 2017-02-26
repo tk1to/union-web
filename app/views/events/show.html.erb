@@ -4,24 +4,24 @@
 	</div>
 	<div class="author">
 		<div class="author__image"></div>
-		<div class="author__circle"><span class="author__autor">主催者:</span><%= link_to @circle.name, @circle , class: "td_none color_black"%></div>
+		<div class="author__circle"><span class="author__autor">主催者:</span><%= link_to @circle.name, @circle , class: "text_decoration_none color_black"%></div>
 	</div>
 </header>
 <div class="article">
 	<h1 class="article__title"><%= @event.title %></h1>
 	<p class="article__text"><%= @event.content %></p>
 
-	<p>開催日時</p>
-	<p class="article__text"><%= @event.schedule %></p>
-
-	<p>参加費</p>
-	<p class="article__text"><%= @event.fee %></p>
-
-	<p>定員</p>
-	<p class="article__text"><%= @event.capacity %></p>
-
-	<p>開催場所</p>
-	<p class="article__text"><%= @event.place %></p>
+	<h2 class="frame__heading frame__heading_underline">イベント詳細</h2>
+	<div class="event__detail">
+		<div class="event__detail_head">開催日時</div>
+		<div class="event__detail_item"><%= @event.schedule %></div>
+		<div class="event__detail_head">参加費</div>
+		<div class="event__detail_item"><%= @event.fee %></div>
+		<div class="event__detail_head">定員</div>
+		<div class="event__detail_item"><%= @event.capacity %></div>
+		<div class="event__detail_head">開催場所</div>
+		<div class="event__detail_item"><%= @event.capacity %></div>
+	</div>
 
 </div>
 

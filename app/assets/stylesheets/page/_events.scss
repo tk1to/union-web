@@ -1,0 +1,16 @@
+.event__detail{
+  text-align: center;
+  width: 100%;
+  &_head{
+    background: #4DD0E1;
+    color: #fff;
+    height: 2rem;
+    line-height: 2rem;
+  }
+  &_item{
+    height: 2rem;
+    background: #fff;
+    line-height: 2rem;
+    color: $gray;
+  }
+}

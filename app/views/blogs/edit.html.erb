@@ -14,15 +14,15 @@
       <%= f.text_field "header_#{i}".to_sym, class: "form__text_field" %>
 
       <% plab = "picture_#{i}" %>
-      <p>
-        <%= f.label plab.to_sym, "画像#{i}" %>
+      <div class="blog_picture_wrap">
+        <%= f.label plab.to_sym, "画像#{i}" , class: "form__item"%>
         <div style="width: 100px;">
           <%= image_tag @blog[plab] ? @blog.picture(i) : nil , class: "blog_picture_#{i}"%>
         </div>
         <div class="form__upload ta_center">画像を選択
           <%= f.file_field "picture_#{i}".to_sym, class: "form__file" %>
         </div>
-      </p>
+      </div>
 
       <%= f.label "content_#{i}".to_sym, "内容#{i}", class: "form__item"%>
       <%= f.text_area "content_#{i}".to_sym, class: "form__text_area" %>
@@ -30,9 +30,8 @@
     <% end %>
     <div class="form__button">
       <%= f.submit "編集" , class: "button button_size_large button_color_blue"%>
-    </div>
 
-  <% end %>
-  <%= link_to "このブログを削除", [@blog.circle, @blog], method: :delete, data: { confirm: "本当に削除しますか？" } , class: "button button_size_large button_color_red"%>
-  </div>
+      <% end %>
+      <%= link_to "このブログを削除", [@blog.circle, @blog], method: :delete, data: { confirm: "本当に削除しますか？" } , class: "button button_size_large button_color_red"%>
+    </div>
 </div>
