@@ -43,13 +43,19 @@
 	margin:0 auto;
 	&__title{
 		margin: 0.5rem auto 1rem;;
-		font-size: $large;
+		font-size: 1.4rem;
+	}
+	&__subhead{
 	}
 	&__text{
 		font-size: $normal;
 		line-height: 1.2rem;
 		margin-bottom: 2rem;
 	}
+}
+// ブログの写真を囲むdiv
+.blog_picture_wrap{
+	margin-bottom:1rem;
 }
 .sns{
 	width: 95%;
