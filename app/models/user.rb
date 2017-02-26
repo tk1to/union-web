@@ -22,6 +22,8 @@ class User < ActiveRecord::Base
   validates :want_to_do, length: { maximum: 500 }
   validates :hobby, length: { maximum: 500 }
 
+  enum sex: {male: 0, female: 1}
+
   # 画像関連
   mount_uploader :picture, PictureUploader
   validate  :picture_size

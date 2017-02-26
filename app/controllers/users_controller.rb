@@ -101,11 +101,11 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(
           :name, :email, :password, :password_confirmation,
-          :introduce, :want_to_do, :hobby,
-          :college, :department, :grade,
+          :sex, :college, :department, :grade,
           :picture, :header_picture,
-          :birth_place, :home_place, :my_like_atom,
-          :career, :future
+          :birth_place, :home_place,
+          :introduce,
+          :oppotunity, :career, :my_circle_atom,
         )
     end
 
