@@ -56,20 +56,19 @@
 <% if user_signed_in? %>
   <div class="ta_center">
     <% if @be_member %>
-      <%= link_to "お問い合わせ一覧", [@circle, :contacts] , class: "button button_size_medium button_color_gray"%>
-    <% else %>
-      <%= link_to "お問い合わせ", [:new, @circle, :contact] , class: "button button_size_medium button_color_gray "%>
-    <% end %>
-
-    <% if @be_member %>
         <%= link_to "気になる一覧", [:favorited, @circle] , class: "button button_size_medium button_color_gray"%>
-    <% end %>
-    <% if !@be_member %>
+    <% else %>
       <% if @favoriting %>
         <%= link_to "気になる解除", [@circle, @favorite], method: :delete , class: "button button_size_medium button_color_gray"%>
       <% else %>
         <%= link_to "気になる", [@circle, :favorites], method: :post , class: "button button_size_medium button_color_gray "%>
       <% end %>
+    <% end %>
+
+    <% if @be_member %>
+      <%= link_to "お問い合わせ一覧", [@circle, :contacts] , class: "button button_size_medium button_color_gray"%>
+    <% else %>
+      <%= link_to "お問い合わせ", [:new, @circle, :contact] , class: "button button_size_medium button_color_gray "%>
     <% end %>
   </div>
 
