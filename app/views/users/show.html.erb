@@ -74,13 +74,15 @@
   <% @user.circles.each do |circle| %>
     <div class="belong">
       <%= link_to circle do %>
-        <div class="belong__image"></div>
+        <div class="belong__image c_pict" style="background-image: url(<%= circle.picture %>)"></div>
         <div class="belong__heading"><%= circle.name %></div>
         <div class="belong__description"><%= circle.description %></div>
       <% end %>
     </div>
   <% end %>
 </section>
+
+<div class="separate"></div>
 
 <section class="user__body">
 
