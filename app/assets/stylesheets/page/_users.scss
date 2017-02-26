@@ -66,11 +66,18 @@
   &__description{
     position: absolute;
     top: 30%;
-    // left: 30%;
     left: 35%;
+    width: 63%;
+    height: 4rem;
     text-decoration: none;
     color: gray;
     font-size: 0.8rem;
+    line-height: 1rem;
+    overflow: hidden;
+    box-sizing: border-box;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
   }
 }
 .user__body{
