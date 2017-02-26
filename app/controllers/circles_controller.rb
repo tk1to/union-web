@@ -21,9 +21,9 @@ class CirclesController < ApplicationController
   def show
     @circle = Circle.find(params[:id])
 
-    @members    = @circle.members
-    @blogs      = @circle.blogs
-    @events     = @circle.events
+    @members    = @circle.members.limit(5)
+    @blogs      = @circle.blogs.limit(5)
+    @events     = @circle.events.limit(5)
     @categories = @circle.categories
 
     @be_member = @members.include?(current_user)

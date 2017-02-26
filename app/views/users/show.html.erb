@@ -7,7 +7,7 @@
       <li class="aside__menu_list aside__menu_close"><%= link_to '閉じる', @user, class: "wrap__link" %></li>
       <li class="aside__menu_list"><%= link_to "プロフィール編集", [:edit, @user] %></li>
       <li class="aside__menu_list"><%= link_to "新規サークル登録", [:new, :circle], class: "create_circle_btn"%></li>
-      <li class="aside__menu_list"><%= link_to "ログアウト", [:destroy, :user, :session], method: :delete %></li>
+      <li class="aside__menu_list"><%= link_to "ログアウト", [:destroy, :user, :session], method: :delete, data: { confirm: "本当に削除しますか？" } %></li>
       <li class="aside__menu_list"><%= link_to "アカウントを削除", @user, method: :delete %></li>
     </ul>
   </div>
@@ -35,7 +35,7 @@
       </div>
     <% end %>
     <% if !current_user?(@user) %>
-      <%= link_to image_tag('message_blue.svg'), [:new, :message_room, user_id: @user.id] , class: "header__message"%>
+      <%= link_to_if ( ,image_tag('message_blue.svg'), [:new, :message_room, user_id: @user.id]), class: "header__message"%>
     <% end %>
   </div>
 </header>

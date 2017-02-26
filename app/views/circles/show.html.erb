@@ -85,10 +85,12 @@
       <% end %>
     <% end %>
   </div>
-  <div class="ta_center">
-    <%= link_to "ブログを作成", [:new, @circle, :blog] , class: "button button_size_medium button_color_blue"%>
-    <%= link_to "イベントを作成", [:new, @circle, :event] , class: "button button_size_medium button_color_blue"%>
-  </div>
+  <% @be_member %>
+    <div class="ta_center">
+      <%= link_to "ブログを作成", [:new, @circle, :blog] , class: "button button_size_medium button_color_blue"%>
+      <%= link_to "イベントを作成", [:new, @circle, :event] , class: "button button_size_medium button_color_blue"%>
+    </div>
+  <% end %>
 <% end %>
 
 <div class="separate"></div>
