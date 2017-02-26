@@ -14,9 +14,9 @@
     <h1 class="article__title"><%= @blog.title %></h1>
 
     <% for i in 1..3 do %>
-      <h2><%= @blog["header_#{i}"] %></h2>
-      <%= image_tag @blog["picture_#{i}"] ? @blog.picture(i).url : nil %>
-      <p><%= @blog["content_#{i}"] %></p>
+      <h2 class="article__subhead"><%= @blog["header_#{i}"] %></h2>
+      <%= image_tag @blog["picture_#{i}"] ? @blog.picture(i).url : nil , class: "article__image"%>
+      <p class="article__text"><%= @blog["content_#{i}"] %></p>
     <% end %>
 
   </div>
