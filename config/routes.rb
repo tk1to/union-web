@@ -42,6 +42,7 @@ Rails.application.routes.draw do
     member do
       get    :favorited
       get    :foots
+      get    :members
       delete :resign
     end
     collection do

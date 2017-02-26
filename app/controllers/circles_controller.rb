@@ -134,6 +134,11 @@ class CirclesController < ApplicationController
     @foots = circle.footed_prints
   end
 
+  def members
+    @circle = Circle.find(params[:id])
+    @members = @circle.members
+  end
+
   private
     def circle_params
       params.require(:circle).permit(

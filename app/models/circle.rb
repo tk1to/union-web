@@ -31,7 +31,7 @@ class Circle < ActiveRecord::Base
   validate  :header_picture_size
 
   scope :ascend, -> { order(:id) }
-  default_scope { order(:id) }
+  # default_scope { order(:id) }
 
   private
     def picture_size
