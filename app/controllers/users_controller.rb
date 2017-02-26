@@ -53,15 +53,13 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     print_foot
     @profiles = {
-      birth_place:  "出身地",
-      home_place:   "住んでるところ",
-      categories:   "興味のあるカテゴリー",
-      my_like_atom: "好きな雰囲気",
-      career:       "これまでやっていたこと",
-      introduce:    "自己紹介",
-      want_to_do:   "大学でやりたいこと",
-      hobby:        "趣味",
-      future:       "将来",
+      birth_place:    "出身地",
+      home_place:     "住んでるところ",
+      categories:     "興味のあるカテゴリー",
+      introduce:      "自己紹介",
+      oppotunity:     "団体に入ったきっかけ",
+      career:         "これまでやっていたこと",
+      my_circle_atom: "団体の雰囲気",
     }
   end
 
