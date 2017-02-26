@@ -69,13 +69,16 @@
 </div>
 
 <!-- 入ってるサークルの情報 -->
-<section>
+<section class="frame">
+<div class="frame__heading">所属サークル</div>
   <% @user.circles.each do |circle| %>
-    <%= link_to circle do %>
-      <div class="circle_no_image_ga_hairu_div"></div>
-      <div><%= circle.name %></div>
-      <div><%= circle.description %></div>
-    <% end %>
+  　<div class="belong">
+      <%= link_to circle do %>
+        <div class="belong__image"></div>
+        <div class="belong__heading"><%= circle.name %></div>
+        <div class="belong__description"><%= circle.description %></div>
+      <% end %>
+    </div>
   <% end %>
 </section>
 
