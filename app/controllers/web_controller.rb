@@ -8,4 +8,7 @@ class WebController < ApplicationController
 
   def signups
   end
+
+  def privacypolicy
+  end
 end

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root 'web#top'
   get  'signups' => 'web#signups'
+  get  "privacypolicy" => "web#privacypolicy"
 
   get  "blogs"   => "blogs#indexes"
   get  "events"  => "events#indexes"
