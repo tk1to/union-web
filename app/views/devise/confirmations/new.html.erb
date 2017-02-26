@@ -1,15 +1,17 @@
-<h2>確認メール再送信</h2>
+<header class="formHeading ta_center">
+  <h2>確認メール再送信</h2>
+</header>
 
 <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+  <div class="form">
+    <%= f.label :email , class: "form__item" %><br />
+    <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) , class: "form__text_field"%>
   </div>
 
-  <div class="actions">
-    <%= f.submit "再送信" %>
+  <div class="form__button">
+    <%= f.submit "再送信" , class: "button button_size_large button_color_blue"%>
   </div>
 <% end %>
 

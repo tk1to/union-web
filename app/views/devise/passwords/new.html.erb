@@ -1,15 +1,17 @@
-<h2>パスワードリセットメールを送信</h2>
+<header class="formHeading ta_center">
+  <h2>パスワードリセットメールを送信</h2>
+</header>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+  <div class="form">
+    <%= f.label :email , class: "form__item"%><br />
+    <%= f.email_field :email, autofocus: true , class: "form__text_field"%>
   </div>
 
-  <div class="actions">
-    <%= f.submit "送信" %>
+  <div class="form__button">
+    <%= f.submit "送信" , class: "button button_size_large button_color_blue"%>
   </div>
 <% end %>
 
