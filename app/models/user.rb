@@ -22,8 +22,6 @@ class User < ActiveRecord::Base
   validates :want_to_do, length: { maximum: 500 }
   validates :hobby, length: { maximum: 500 }
 
-  enum sex: {male: 0, female: 1}
-
   # 画像関連
   mount_uploader :picture, PictureUploader
   validate  :picture_size
@@ -131,6 +129,15 @@ class User < ActiveRecord::Base
                           password: Devise.friendly_token[0,20] )
     end
     user
+  end
+
+  def sex_label
+    label = nil
+    if self.sex == 0
+      label = "男性"
+    elsif self.sex == 1
+      label = "女性"
+    end
   end
 
   def message_rooms
