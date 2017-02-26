@@ -19,10 +19,12 @@
       <%= f.password_field :password_confirmation, autocomplete: "off" , class: "form__text_field" %>
 
       <div class="form__button">
-        <%= f.submit "Sign up" , class: "button button_size_large button_color_blue" %>
+        <%= f.submit "登録" , class: "button button_size_large button_color_blue" %>
       </div>
   <% end %>
 
 </div>
 
-<%= render "devise/shared/links" %>
+<%= link_to "確認メールが届かない方", new_confirmation_path(resource_name) %>
+
+<%# render "devise/shared/links" %>

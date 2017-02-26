@@ -1,5 +1,12 @@
 class BlogsController < ApplicationController
 
+  def indexes
+    @blogs = Blog.all.order("created_at DESC")
+  end
+  def index
+
+  end
+
   def new
     @blog = Blog.new
   end

@@ -1,5 +1,11 @@
 class EventsController < ApplicationController
 
+  def indexes
+    @events = Event.all.order("created_at DESC")
+  end
+  def index
+    
+  end
   def new
     @event = Event.new
   end

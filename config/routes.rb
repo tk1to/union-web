@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root 'web#top'
   get  'signups' => 'web#signups'
 
+  get  "blogs"   => "blogs#indexes"
+  get  "events"  => "events#indexes"
+
   # get    'login'  => 'sessions#new'
   # post   'login'  => 'sessions#create'
   # delete 'logout' => 'sessions#destroy'
