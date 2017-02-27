@@ -125,11 +125,6 @@ class CirclesController < ApplicationController
     end
   end
 
-  # def foots
-  #   circle = Circle.find(params[:id])
-  #   @foots = circle.footed_prints
-  # end
-
   def members
     @circle = Circle.find(params[:id])
     @members = @circle.members
