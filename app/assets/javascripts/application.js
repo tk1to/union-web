@@ -20,16 +20,18 @@ $(function(){
   $(document).on('click', '.header__menu_humberger', function(){
     $('.body_wrap, .aside__menu').css('display', 'block');
   });
-  //サイドメニュー消失
-  // $('.aside__menu_wrap').on('click', '.body_wrap',function(){
-  //   $('.aside__menu').css('display', 'none');
-  //   $('.body_wrap').css('display', 'none');
-  // });
-  // $('.aside__menu').on('click', '.aside__menu_close',function(){
-  //   $('.body_wrap').css('display', 'none');
-  //   $('.aside__menu').css('display', 'none');
-  // });
 
+  filereader();
+
+  // $('.input_file').bind('change', function() {
+  //   var size_in_megabytes = this.files[0].size/1024/1024;
+  //   if (size_in_megabytes > 5) {
+  //     alert("ファイルの最大サイズは5MBです。");
+  //   }
+  // });
+});
+
+function filereader(){
   $(document).on('change', '#user_picture',function(){
     var file = $(this).prop('files')[0];
       var reader = new FileReader();
@@ -88,7 +90,6 @@ $(function(){
         $('img.blog_picture_3').attr("src", e.target.result);
       };
   });
-
   $(document).on('change', '#event_picture',function(){
     var file = $(this).prop('files')[0];
       var reader = new FileReader();
@@ -97,17 +98,9 @@ $(function(){
         $('img.event_picture').attr("src", e.target.result);
       };
   });
+}
 
-  // coming soon
-  // $(document).on('click', '.coming_soon, .header__foot',function(){
-  //   $('body').prepend($('<div>').addClass('displayed_coming_soon'));
-  //   $('.displayed_coming_soon').append($('<div class="coming_soon_update">アップデートをお待ちください！</div>'));
 
-  //   $(document).on('click', '.coming_soon_update',function(){
-  //     $('.displayed_coming_soon').remove();
-  //   });
-  // });
-});
 
 
 

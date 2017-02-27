@@ -7,13 +7,9 @@
   <p>
     <%= f.label :picture, "画像" %>
     <div style="width: 100px;">
-      <% if @event.picture %>
-        <%= image_tag @event.picture.url, class: "event_picture"%>
-      <% else %>
-        <%= image_tag class: "event_picture"%>
-      <% end %>
+      <%= image_tag @event.picture ? @event.picture.url : nil, class: "event_picture"%>
     </div>
-    <%= f.file_field :picture %>
+    <%= f.file_field :picture, class: "form__file" %>
   </p>
 
   <%= f.label :content ,"イベント内容", class: "form__item"%>

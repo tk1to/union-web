@@ -44,13 +44,8 @@
     <%= f.select :grade, ["1", "2", "3", "4", "修士1", "修士2", "その他"], class: "form__text_field form__text_field_short" %>
 
     <div class="form__images ta_center">
-      <!--<%= f.label :picture, "プロフィール画像" , class: "form__item"%>-->
       <div>
-        <% if @user.picture %>
-          <%= image_tag @user.picture.url, class: "user_picture"%>
-        <% else %>
-          <%= image_tag class: "user_picture"%>
-        <% end %>
+        <%= image_tag @user.picture ? @user.picture.url : nil, class: "user_picture"%>
       </div>
       <div class="form__upload">プロフィール画像を選択
         <%= f.file_field :picture , class: "form__file"%>
@@ -58,13 +53,8 @@
     </div>
 
     <div class="form__images ta_center">
-      <!--<%= f.label :header_picture, "ヘッダー画像" , class: "form__item"%>-->
       <div class="ta_center">
-        <% if @user.header_picture %>
-          <%= image_tag @user.header_picture.url, class: "user_header_picture"%>
-        <% else %>
-          <%= image_tag class: "user_header_picture"%>
-        <% end %>
+        <%= image_tag @user.header_picture ? @user.header_picture.url : nil, class: "user_header_picture"%>
       </div>
       <div class="form__upload">ヘッダー画像を選択
         <%= f.file_field :header_picture, class: "form__file"%>
