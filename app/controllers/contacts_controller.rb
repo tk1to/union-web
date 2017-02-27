@@ -1,5 +1,7 @@
 class ContactsController < ApplicationController
 
+  before_action :authenticate_user!
+
   def index
     @circle   = Circle.find(params[:circle_id])
     @contacts = @circle.contacts
@@ -33,7 +35,6 @@ class ContactsController < ApplicationController
   end
   def update
   end
-
   def destroy
   end
 

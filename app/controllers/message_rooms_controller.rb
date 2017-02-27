@@ -1,5 +1,7 @@
 class MessageRoomsController < ApplicationController
 
+  before_action :authenticate_user!
+
   def index
     @message_rooms = current_user.message_rooms
   end

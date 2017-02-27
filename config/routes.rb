@@ -4,13 +4,6 @@ Rails.application.routes.draw do
   get  'signups' => 'web#signups'
   get  "privacypolicy" => "web#privacypolicy"
 
-  get  "blogs"   => "blogs#indexes"
-  get  "events"  => "events#indexes"
-
-  # get    'login'  => 'sessions#new'
-  # post   'login'  => 'sessions#create'
-  # delete 'logout' => 'sessions#destroy'
-
   devise_for :users, controllers: {
     sessions:      'users/sessions',
     confirmations: 'users/confirmations',
@@ -31,7 +24,10 @@ Rails.application.routes.draw do
   resources :messages
   resources :message_rooms
 
-  resources :account_activations, only: [:edit]
+  # resources :account_activations, only: [:edit]
+
+  get  "blogs"   => "blogs#indexes"
+  get  "events"  => "events#indexes"
 
   resources :circles do
     resources :blogs

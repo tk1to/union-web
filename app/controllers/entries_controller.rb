@@ -1,5 +1,7 @@
 class EntriesController < ApplicationController
 
+  before_action :authenticate_user!
+
   def index
     @circle = Circle.find(params[:circle_id])
     @entries = @circle.entries
