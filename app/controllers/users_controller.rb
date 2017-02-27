@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+  before_action :authenticate_user!, except: [:show]
   before_action :correct_user,   only: [:edit, :update]
 
   # def new
@@ -51,7 +52,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    print_foot
+    print_foot if user_signed_in?
     @profiles = {
       birth_place:    "出身地",
       home_place:     "住んでるところ",
