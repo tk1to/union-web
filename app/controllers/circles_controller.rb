@@ -149,6 +149,7 @@ class CirclesController < ApplicationController
         redirect_to :root
       end
     end
+
     def update_categories
       new_category_ids = params[:categories].values.reject(&:empty?).map{|str| str.to_i}
       new_category_ids.uniq!

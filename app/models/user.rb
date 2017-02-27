@@ -134,16 +134,16 @@ class User < ActiveRecord::Base
     user
   end
 
-  def free
-    return false if !self.name
-    return false if !self.college
-    return false if !self.department
-    return false if !self.sex
-    return false if !self.birth_place
-    return false if !self.home_place
-    return false if !self.categories.any?
-    true
-  end
+  # def free
+  #   return false if !self.name
+  #   return false if !self.college
+  #   return false if !self.department
+  #   return false if !self.sex
+  #   return false if !self.birth_place
+  #   return false if !self.home_place
+  #   return false if !self.categories.any?
+  #   true
+  # end
 
   def sex_label
     label = nil
