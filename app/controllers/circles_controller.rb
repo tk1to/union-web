@@ -1,5 +1,7 @@
 class CirclesController < ApplicationController
 
+  before_action :authenticate_user!, except: [:index, :show, :feed, :search]
+
   def index
     @circles = Circle.all.order("created_at DESC")
   end
@@ -127,7 +129,7 @@ class CirclesController < ApplicationController
   end
   def feed
     @circles = Circle.all
-    if (fed_category = current_user.categories.first).present?
+    if user_signed_in? && (fed_category = current_user.categories.first).present?
       @circles = @circles.joins(:categories).where(categories: {id: fed_category.id})
     end
   end
