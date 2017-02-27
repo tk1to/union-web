@@ -1,6 +1,7 @@
 class CirclesController < ApplicationController
 
   before_action :authenticate_user!, except: [:index, :show, :feed, :search]
+  before_action :member_check, only: [:edit, :update, :destroy, :resign, :favorited]
 
   def index
     @circles = Circle.all.order("created_at DESC")
@@ -40,16 +41,6 @@ class CirclesController < ApplicationController
         @favorite = current_user.favorites.find_by(circle_id: @circle.id)
       end
     end
-
-    # 足跡
-    # if current_user && !@be_member
-    #   if footed_print = @circle.footed_prints.find_by(footed_user_id: current_user.id)
-    #     footed_print.touch
-    #     footed_print.save
-    #   else
-    #     @circle.footed_prints.create(footed_user_id: current_user.id)
-    #   end
-    # end
 
     # @informations = {
     #   join_colleges: "参加大学",
@@ -134,10 +125,10 @@ class CirclesController < ApplicationController
     end
   end
 
-  def foots
-    circle = Circle.find(params[:id])
-    @foots = circle.footed_prints
-  end
+  # def foots
+  #   circle = Circle.find(params[:id])
+  #   @foots = circle.footed_prints
+  # end
 
   def members
     @circle = Circle.find(params[:id])
@@ -155,6 +146,13 @@ class CirclesController < ApplicationController
           :activity_place, :activity_frequency,
           :annual_fee, :party_frequency,
         )
+    end
+    def member_check
+      circle = Circle.find(params[:id])
+      unless circle.members.include?(current_user)
+        flash[:failure] = "メンバーのみの機能です"
+        redirect_to :root
+      end
     end
     def update_categories
       new_category_ids = params[:categories].values.reject(&:empty?).map{|str| str.to_i}

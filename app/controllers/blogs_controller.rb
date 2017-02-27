@@ -1,7 +1,8 @@
 class BlogsController < ApplicationController
 
   before_action :authenticate_user!, except: [:show, :indexes]
-  before_action :be_member, only: [:new, :create, :edit, ]
+  before_action :member_check, only: [:new, :edit, :create, :update, :destroy]
+  before_action :correct_author, only: [:edit, :update, :destroy]
 
   def indexes
     @blogs = Blog.all.order("created_at DESC")
@@ -24,10 +25,10 @@ class BlogsController < ApplicationController
         flash[:success] = "投稿完了"
         redirect_to [@blog.circle, @blog]
       else
-        # render 'preview'
+        # render "preview"
       end
     else
-      render 'new'
+      render "new"
     end
   end
 
@@ -68,10 +69,17 @@ class BlogsController < ApplicationController
         :picture_1, :picture_2, :picture_3,
       )
     end
-    def be_member
+    def member_check
       circle = Circle.find(params[:circle_id])
       unless circle.members.include?(current_user)
         flash[:failure] = "メンバーのみの機能です"
+        redirect_to :root
+      end
+    end
+    def correct_author
+      blog = Blog.find(params[:id])
+      unless blog.author == current_user
+        flash[:failure] = "ブログを投稿したユーザーのみが編集できます"
         redirect_to :root
       end
     end

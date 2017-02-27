@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
 
   before_action :authenticate_user!, except: [:show, :indexes]
+  before_action :member_check, only: [:new, :edit, :create, :update, :destroy]
 
   def indexes
     @events = Event.all.order("created_at DESC")
@@ -58,5 +59,12 @@ class EventsController < ApplicationController
           :picture,
           :schedule, :fee, :capacity, :place,
         )
+    end
+    def member_check
+      circle = Circle.find(params[:circle_id])
+      unless circle.members.include?(current_user)
+        flash[:failure] = "メンバーのみの機能です"
+        redirect_to :root
+      end
     end
 end
