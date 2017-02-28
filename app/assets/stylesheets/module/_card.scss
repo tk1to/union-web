@@ -195,6 +195,22 @@
         top: 25%;
         right: 5%;
   }
+  &__notice{
+    position: absolute;
+    top: 1.2rem;
+    right: 0.5rem;
+    min-width: 1rem;
+    height: 1.2rem;
+    background: $d-blue;
+    border-radius:0.6rem;
+    padding:0 0.3rem;
+    border: 1px solid $d-blue;
+    color: #fff;
+    font-size: 0.6rem;
+    line-height: 1.2rem;
+    text-align: center;
+    box-sizing: border-box;
+  }
 }
 // ブログ一覧用のスタイル
 .frame_blog .thinCard__subhead{
@@ -229,6 +245,28 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+// メッセージ一覧
+.message_list .thinCard__subhead{
+  position: absolute;
+  top: 55%;
+  left: 17%;
+  font-size: 0.6rem;
+  color: gray;
+  margin:0 0 0 0.5rem;
+  width: 65%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.message_list .thinCard__time{
+  display: block;
+  position: absolute;
+  top: -0.8rem;
+  right: 3%;
+  padding: 1.2rem 0;
+  font-size: 0.6rem;
+  color: gray;
 }
 // 一覧表示するものがない場合
 .thinCard_no{
