@@ -13,16 +13,30 @@ class ApplicationController < ActionController::Base
 
   def news_check
     if user_signed_in?
-      if current_user.new_messages_exist
+      user = current_user
+      if user.new_messages_exist
+        rooms = []
+        user.message_rooms.each do |room|
+          rooms << room if room.new_messages_exist
+        end
+        user.new_messages_count = 0
+        rooms.each do |room|
+          room.new_messages_count = room.messages.where(checked: false).count
+          user.new_messages_count += room.new_messages_count
+          room.new_messages_exist = false
+          room.save
+        end
+        user.new_messages_exist = false
       end
-      if current_user.new_notifications_exist
-        current_user.new_notifications_count = current_user.notifications.where(checked: false).count
-        current_user.update_attribute(:new_notifications_exist, false)
+      if user.new_notifications_exist
+        user.new_notifications_count = user.notifications.where(checked: false).count
+        user.new_notifications_exist = false
       end
-      if current_user.new_foots_exist
-        current_user.new_foots_count = current_user.footed_prints.where(checked: false).count
-        current_user.update_attribute(:new_foots_exist, false)
+      if user.new_foots_exist
+        user.new_foots_count = user.footed_prints.where(checked: false).count
+        user.new_foots_exist = false
       end
+      user.save
     end
   end
 
