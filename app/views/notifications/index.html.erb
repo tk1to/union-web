@@ -6,8 +6,8 @@
   <ul>
     <% @notifications.each do |notification| %>
       <li>
-        <% if notification.from_user? %>
-          
+        <% if notification.followed? %>
+          <%= "#{notification.user.name}さんからフォローされました。" %>
         <% end %>
       </li>
     <% end %>

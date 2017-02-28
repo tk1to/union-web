@@ -1,6 +1,8 @@
 class NotificationsController < ApplicationController
 
+  before_action :authenticate_user!
+
   def index
-    @notifications = Notification.all
+    @notifications = Notification.where(hold_user_id: current_user)
   end
 end

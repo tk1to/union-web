@@ -6,5 +6,5 @@ class Notification < ActiveRecord::Base
   belongs_to :user
 
   validates :hold_user_id, presence: true
-  enum type: {from_user: 0, from_circle: 1}
+  enum notification_type: {followed: 0}
 end

@@ -60,7 +60,9 @@
 
 <!-- 入ってるサークルの情報 -->
 <section class="frame">
-<div class="frame__heading">所属サークル</div>
+  <% if @user.circles.any? %>
+    <div class="frame__heading">所属サークル</div>
+  <% end %>
   <% @user.circles.each do |circle| %>
     <div class="belong">
       <%= link_to circle do %>
