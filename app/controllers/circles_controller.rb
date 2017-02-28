@@ -119,10 +119,11 @@ class CirclesController < ApplicationController
     end
   end
   def feed
-    @circles = Circle.all
-    if user_signed_in? && (fed_category = current_user.categories.first).present?
-      @circles = @circles.joins(:categories).where(categories: {id: fed_category.id})
-    end
+    circles = Circle.all
+    @circles = circles.shuffle
+    # if user_signed_in? && (fed_category = current_user.categories.first).present?
+    #   @circles = @circles.joins(:categories).where(categories: {id: fed_category.id})
+    # end
   end
 
   def members

@@ -6,7 +6,9 @@
   <ul>
     <% @notifications.each do |notification| %>
       <li>
-        
+        <% if notification.from_user? %>
+          
+        <% end %>
       </li>
     <% end %>
   </ul>
