@@ -1,29 +1,24 @@
-<!-- <header>
-  <h1 class="formHeading ta_center">通知</h1>
-</header>
-
-<div class="list__wrap">
-  <ul>
-    <% @notifications.each do |notification| %>
-      <li>
-        <% if notification.followed? %>
-          <%= "#{notification.user.name}さんからフォローされました。" %>
-        <% end %>
-      </li>
-    <% end %>
-  </ul>
-</div> -->
 
 <header>
   <h1 class="formHeading ta_center">通知</h1>
 </header>
 
-<div class="notice">
-  <div class="notice__description">たかしさんがあなたをフォローしました。</div>
-  <div class="notice__content noticeFollow">
-    <div class="noticeFollow__image"></div>
-    <div class="noticeFollow__heading">たかし</div>
-    <div class="noticeFollow__subhead">サークル未所属</div>
-    <div class="noticeFollow__follow button button_size_small button_color_white">フォロー</div>
-  </div>
-</div>
+<ul>
+  <% @notifications.each do |notification| %>
+    <li class="notice">
+      <% if notification.followed? %>
+        <% user = notification.user %>
+        <%= link_to user do %>
+          <div class="notice__description"><%= user.name %>さんがあなたをフォローしました。</div>
+          <div class="notice__content noticeFollow">
+            <div class="noticeFollow__image" style="background-image: url(<%= user.header_picture %>)"></div>
+            <div class="noticeFollow__heading"><%= user.name %></div>
+            <div class="noticeFollow__subhead">
+              <%= user.college %>/<%= user.department %>/<%= user.grade %>年
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
