@@ -19,16 +19,16 @@ mails = ["taro", "jiro", "saburo"]
   user.skip_confirmation!
   user.save
 end
-9.times do |i|
-  user = User.create(
-    name: "てすと#{i.to_s}",
-    email: "a#{i.to_s}@test.com",
-    password: "union188"
-  )
-  user.skip_confirmation!
-  user.save
-  Membership.create(circle_id: 1, member_id: user.id)
-end
+# 9.times do |i|
+#   user = User.create(
+#     name: "てすと#{i.to_s}",
+#     email: "a#{i.to_s}@test.com",
+#     password: "union188"
+#   )
+#   user.skip_confirmation!
+#   user.save
+#   Membership.create(circle_id: 1, member_id: user.id)
+# end
 
 Circle.create(name: "ボランティアサークル", description: "定期的にボランティアをするサークルです。興味がある方は是非！")
 Membership.create(circle_id: 1, member_id: 1)
