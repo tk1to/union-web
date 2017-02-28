@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   resources :messages
   resources :message_rooms, only: [:index, :new, :show]
 
-  # resources :account_activations, only: [:edit]
+  resources :notifications
 
   get  "blogs"   => "blogs#indexes"
   get  "events"  => "events#indexes"
