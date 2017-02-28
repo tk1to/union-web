@@ -1,5 +1,9 @@
-.notice{
+.wrap_notice{
+  margin: 0 auto;
   width: 95%;
+}
+.notice{
+  width: 100%;
   border: 1px solid $d-blue;
   padding: 0.5rem;
   border-radius: 3px;
