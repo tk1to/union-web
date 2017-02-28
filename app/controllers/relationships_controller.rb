@@ -8,6 +8,7 @@ class RelationshipsController < ApplicationController
 
     if Notification.find_by(notification_type: 0, hold_user_id: @user.id, user_id: current_user.id).nil?
       @user.notifications.create(notification_type: 0, user_id: current_user.id)
+      @user.update_attribute(:new_notifications_exist, true)
     end
 
     respond_to do |format|

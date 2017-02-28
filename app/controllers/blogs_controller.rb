@@ -26,6 +26,7 @@ class BlogsController < ApplicationController
 
         current_user.followers.each do |user|
           user.notifications.create(notification_type: 1, user_id: current_user.id, blog_id: @blog.id)
+          user.update_attribute(:new_notifications_exist, true)
         end
 
         redirect_to [@blog.circle, @blog]

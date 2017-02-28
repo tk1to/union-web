@@ -23,7 +23,9 @@
     <% if @user.circles.any? %>
       <div class="header__foot">
         <%= link_to image_tag("foot.png"), [:foots, @user], class: "foot" %>
-        <div class="header__notice">2</div>
+        <% if user_signed_in? && current_user.new_foots_count && 0 < current_user.new_foots_count %>
+          <div class="header__notice"><%= current_user.new_foots_count %></div>
+        <% end %>
       </div>
     <% end %>
   <% end %>

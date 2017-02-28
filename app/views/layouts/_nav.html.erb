@@ -3,10 +3,14 @@
     <li class="nav__item"><%= link_to image_tag('top.svg'), root_path %></li>
     <li class="nav__item"><%= link_to image_tag('search.svg'), [:feed, :circles] %></li>
     <li class="nav__item"><%= link_to_if(user_signed_in?, image_tag('message.svg'), :message_rooms) %>
-      <div class="nav__notice">3</div>
+      <% if user_signed_in? && current_user.new_messages_count && 0 < current_user.new_messages_count %>
+        <div class="nav__notice"><%= current_user.new_messages_count %></div>
+      <% end %>
     </li>
     <li class="nav__item"><%= link_to_if(user_signed_in?, image_tag('notice.svg'), :notifications) %>
-      <div class="nav__notice">3</div>
+      <% if user_signed_in? && current_user.new_notifications_count && 0 < current_user.new_notifications_count %>
+        <div class="nav__notice"><%= current_user.new_notifications_count %></div>
+      <% end %>
     </li>
     <li class="nav__item"><%= link_to_if(user_signed_in?, image_tag('mypage.svg'), current_user) %></li>
   </ul>

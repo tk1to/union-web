@@ -78,8 +78,13 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   def foots
-    @user = User.find(params[:id])
+    @user = current_user
     @foots = @user.footed_prints
+
+    @user.update_attributes(new_foots_exist: false, new_foots_count: 0)
+    @foots.where(checked: false).each do |foot|
+      foot.update_attribute(:checked, true)
+    end
   end
 
   private
@@ -106,6 +111,7 @@ class UsersController < ApplicationController
           footed_print.save
         else
           @user.footed_prints.create(footer_user_id: current_user.id)
+          @user.update_attribute(:new_foots_exist, true)
         end
       end
     end
