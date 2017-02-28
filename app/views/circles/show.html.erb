@@ -23,11 +23,11 @@
 </header>
 
 <% if @categories.any? %>
-  <p>
+    <div class="ta_center">
     <% @categories.each do |category| %>
-      <div class="header__subhead_circle"><%= category.name %> | </div>
+        <div class="header__subhead_circle"><%= category.name %> | </div>
     <% end %>
-  </p>
+    </div>
 <% end %>
 
 <% if @members.any? %>
