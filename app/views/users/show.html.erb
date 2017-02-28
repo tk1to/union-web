@@ -21,7 +21,10 @@
   <% if current_user?(@user) %>
     <%= image_tag "menu.svg" , class: "header__menu_humberger" %>
     <% if @user.circles.any? %>
-      <%= link_to image_tag("foot.png"), [:foots, @user], class: "header__foot" %>
+      <div class="header__foot">
+        <%= link_to image_tag("foot.png"), [:foots, @user], class: "foot" %>
+        <div class="header__notice">2</div>
+      </div>
     <% end %>
   <% end %>
   <div class="message_follow">
