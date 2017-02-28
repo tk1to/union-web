@@ -28,7 +28,7 @@
 }
 .message__text{
   background: $d-blue;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   max-width: 80%;
   min-width: 0%;
   border-radius: 3px;
@@ -38,6 +38,12 @@
   background: $d-blue;
   color: #fff;
   float: right;
+}
+.sender__image{
+  width: 2rem;
+  height: 2rem;
+  background: gray;
+  border-radius:50%;
 }
 .receiver{
   background: #ECEFF1;
