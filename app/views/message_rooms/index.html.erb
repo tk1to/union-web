@@ -7,7 +7,7 @@
     <ul class="wrap-thinCard">
       <% @message_rooms.each do |message_room| %>
         <% opp_user = message_room.opponent(current_user.id) %>
-        <li class="thinCard">
+        <li class="thinCard frame_blog">
           <%= link_to opp_user.name, message_room , class: "thinCard__heading"%>
           <div class="thinCard__image" style="background-image: url(<%= opp_user.picture %>)"></div>
           <div class="thinCard__subhead"><%= message_room.newest_message.content if message_room.messages.any? %></div>
