@@ -3,7 +3,7 @@
   <h1 class="formHeading ta_center">通知</h1>
 </header>
 
-<ul>
+<ul class="wrap_notice">
   <% @notifications.each do |notification| %>
     <li class="notice">
       <% if notification.followed? %>
