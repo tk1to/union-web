@@ -32,16 +32,20 @@
     <%= f.text_field :name , class: "form__text_field" %>
 
     <%= f.label :sex, "性別" , class: "form__item" %>
-    <%= f.select :sex, {"男性" => 0, "女性" => 1}, selected: @user.sex, include_blank: true, class: "" %>
+    <div class="wrap_select">
+      <%= f.select :sex, {"男性" => 0, "女性" => 1}, {include_blank: true}, {class: "selectbox"} %>
+    </div>
 
     <%= f.label :college, "大学" , class: "form__item" %>
     <%= f.text_field :college , class: "form__text_field" %>
 
     <%= f.label :department, "学部" , class: "form__item form__item_number" %>
-    <%= f.text_field :department , class: "form__text_field form__text_field_short" %>
+    <%= f.text_field :department , class: "form__text_field form__text_field" %>
 
     <%= f.label :grade, "学年" , class: "form__item" %>
-    <%= f.select :grade, ["1", "2", "3", "4", "修士1", "修士2", "その他"], class: "form__text_field form__text_field_short" %>
+    <div class="wrap_select">
+      <%= f.select :grade, ["1", "2", "3", "4", "修士1", "修士2", "その他"], {include_blank: true}, {class: "selectbox"} %>
+    </div>
 
     <div class="form__images ta_center">
       <div>
