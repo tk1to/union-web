@@ -23,6 +23,11 @@ class BlogsController < ApplicationController
         @blog.author_id = current_user.id
         @blog.save
         flash[:success] = "投稿完了"
+
+        current_user.followers.each do |user|
+          user.notifications.create()
+        end
+
         redirect_to [@blog.circle, @blog]
       else
         # render "preview"
