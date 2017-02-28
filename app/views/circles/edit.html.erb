@@ -15,12 +15,12 @@
   <%# f.label :activity ,"活動内容", class: "form__item"%>
   <%# f.text_area :activity , class: "form__text_area" %>
 
-  <div class="form__item">カテゴリー選択</div>
   <div class="ta_center">
+    <div class="form__item">カテゴリー選択</div>
     <% @category_ids.each_with_index do |id, i| %>
-      <div class="select">
-        <%= select :categories, ("category_"+(i+1).to_s).to_sym, @category_options.map{|t| [t.name, t.id]}, selected: id, include_blank: true , class: "select__choice"%>
-        <div class="select__choice_top">タップして選択</div>
+      <div class="wrap_select margin_0_auto">
+        <%= select :categories, ("category_"+(i+1).to_s).to_sym, @category_options.map{|t| [t.name, t.id]}, {selected: id, include_blank: true}, {class: "selectbox"}%>
+        <!-- <div class="select__choice_top">タップして選択</div> -->
         <script>
           jQuery(function(){
               jQuery("select#sentakushi_form").change(function(){
