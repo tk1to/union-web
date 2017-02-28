@@ -5,33 +5,35 @@
 
 <ul class="wrap_notice">
   <% @notifications.each do |notification| %>
+    <% user = notification.user %>
+    <% circle = notification.circle %>
+    <% blog = notification.blog %>
     <li class="notice">
+      <!-- フォローされました通知 -->
       <% if notification.followed? %>
-        <% user = notification.user %>
         <%= link_to user do %>
           <div class="notice__description"><%= user.name %>さんがあなたをフォローしました。</div>
           <div class="notice__content noticeFollow">
-            <div class="noticeFollow__image" style="background-image: url(<%= user.header_picture %>)"></div>
+            <div class="noticeFollow__image" style="background-image: url(<%= user.picture %>)"></div>
             <div class="noticeFollow__heading"><%= user.name %></div>
             <div class="noticeFollow__subhead">
               <%= user.college %>/<%= user.department %>/<%= user.grade %>年
             </div>
           </div>
         <% end %>
+      <% elsif notification.new_user_blog? %>
+        <%= link_to [blog.circle, blog] do %>
+          <div class="notice__description"><%= user.name %>さんが新しいブログを投稿しました。</div>
+          <div class="notice__content noticeBlog">
+            <div class="noticeBlog__image" style="background-image: url(<%= user.picture %>)"></div>
+            <div class="noticeBlog__heading"><%= blog.title %></div>
+            <div class="noticeBlog__subhead"><%= blog.content_1 %></div>
+          </div>
+        <% end %>
       <% end %>
     </li>
 
-    <li class="notice">
-      <div class="notice__description"><%= user.name %>さんが新しいブログを作成しました。</div>
-      <div class="notice__content noticeBlog">
-        <div class="noticeBlog__image" style="background-image: url(<%= user.header_picture %>)"></div>
-        <div class="noticeBlog__heading">ブログタイトル</div>
-        <div class="noticeBlog__subhead">初めまして、ブログの中身が入ります。初めまして、ブログの中身が入ります。初めまして、ブログの中身が入ります。初めまして、ブログの中身が入ります。初めまして、ブログの中身が入ります。初めまして、ブログの中身が入ります。初めまして、ブログの中身が入ります。初めまして、ブログの中身が入ります。初めまして、ブログの中身が入ります。初めまして、ブログの中身が入ります。初めまして、ブログの中身が入ります。
-        </div>
-      </div>
-    </li>
-
-    <li class="notice">
+    <!-- <li class="notice">
       <div class="notice__description">さーくるさんが新しいブログを作成しました。</div>
       <div class="notice__content noticeBlog">
         <div class="noticeBlog__image" ></div>
@@ -39,6 +41,6 @@
         <div class="noticeBlog__subhead">初めまして、ブログの中身が入ります。初めまして、ブログの中身が入ります。初めまして、ブログの中身が入ります。初めまして、ブログの中身が入ります。初めまして、ブログの中身が入ります。初めまして、ブログの中身が入ります。初めまして、ブログの中身が入ります。初めまして、ブログの中身が入ります。初めまして、ブログの中身が入ります。初めまして、ブログの中身が入ります。初めまして、ブログの中身が入ります。
         </div>
       </div>
-    </li>
+    </li> -->
   <% end %>
 </ul>

@@ -19,7 +19,7 @@
   <div class="ta_center">
     <% @category_ids.each_with_index do |id, i| %>
       <div class="select">
-        <%= select :categories, ("category_"+(i+1).to_s).to_sym, @category_options.map{|t| [t.name, t.id]}, selected: id, include_blank: true , class: "select__choice"%>
+        <%= select :categories, ("category_"+(i+1).to_s).to_sym, @category_options.map{|t| [t.name, t.id]}, {selected: id, include_blank: true}, {class: "select__choice"}%>
         <div class="select__choice_top">タップして選択</div>
         <script>
           jQuery(function(){

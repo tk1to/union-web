@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170228093512) do
+ActiveRecord::Schema.define(version: 20170228155707) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -151,6 +151,7 @@ ActiveRecord::Schema.define(version: 20170228093512) do
     t.string   "content"
     t.integer  "notification_type"
     t.integer  "hold_user_id"
+    t.integer  "blog_id"
   end
 
   create_table "relationships", force: :cascade do |t|

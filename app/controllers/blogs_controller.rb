@@ -25,7 +25,7 @@ class BlogsController < ApplicationController
         flash[:success] = "投稿完了"
 
         current_user.followers.each do |user|
-          user.notifications.create()
+          user.notifications.create(notification_type: 1, user_id: current_user.id, blog_id: @blog.id)
         end
 
         redirect_to [@blog.circle, @blog]
