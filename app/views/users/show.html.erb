@@ -20,14 +20,12 @@
   <p class="header__subhead_user"><%= @user.college %>/<%= @user.department %>/<%= @user.grade %>年</p>
   <% if current_user?(@user) %>
     <%= image_tag "menu.svg" , class: "header__menu_humberger" %>
-    <% if @user.circles.any? %>
-      <div class="header__foot">
-        <%= link_to image_tag("foot.png"), [:foots, @user], class: "foot" %>
-        <% if user_signed_in? && current_user.new_foots_count && 0 < current_user.new_foots_count %>
-          <div class="header__notice"><%= current_user.new_foots_count %></div>
-        <% end %>
-      </div>
-    <% end %>
+    <div class="header__foot">
+      <%= link_to image_tag("foot.png"), [:foots, @user], class: "foot" %>
+      <% if user_signed_in? && current_user.new_foots_count && 0 < current_user.new_foots_count %>
+        <div class="header__notice"><%= current_user.new_foots_count %></div>
+      <% end %>
+    </div>
   <% end %>
   <div class="message_follow">
     <% if user_signed_in? && !current_user?(@user) %>

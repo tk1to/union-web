@@ -105,7 +105,7 @@ class UsersController < ApplicationController
     end
 
     def print_foot
-      if !current_user?(@user) && @user.circles.present?
+      if !current_user?(@user)
         if footed_print = @user.footed_prints.find_by(footer_user_id: current_user.id)
           footed_print.touch
           footed_print.save
