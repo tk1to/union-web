@@ -45,7 +45,7 @@ Relationship.create(follower_id: 1, followed_id: 3)
 Favorite.create(circle_id: 1, user_id: 2)
 
 # FootPrint.create(footed_user_id: 1, footer_user_id: 2)
-# FootPrint.create(footed_user_id: 1, footer_user_id: 3)
+# FootPrint.create(footed_user_id: 1, footer_user_id: 3)s
 
 Category.create(name: "ボランティア")
 Category.create(name: "海外交流")

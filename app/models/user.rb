@@ -82,15 +82,15 @@ class User < ActiveRecord::Base
     self.following?(user) && user.following?(self)
   end
 
-  def self.find_for_facebook_oauth(auth)
-    user = User.where(provider: auth.provider, uid: auth.uid).first
+  def self.find_for_oauth(auth)
+    user = User.where(uid: auth.uid, provider: auth.provider).first
     unless user
-      user = User.create( name:     auth.extra.raw_info.name,
-                          provider: auth.provider,
-                          uid:      auth.uid,
-                          email:    auth.info.email,
-                          token:    auth.credentials.token,
-                          password: Devise.friendly_token[0,20] )
+      user = User.create(
+        uid: auth.uid,
+        provider: auth.provider,
+        name: auth.info.name,
+        email: User.get_email(auth),
+        password: Devise.friendly_token[4, 30])
     end
     user
   end
@@ -151,5 +151,11 @@ class User < ActiveRecord::Base
       if header_picture.size > 5.megabytes
         errors.add(:header_picture, "should be less than 5MB")
       end
+    end
+
+    def self.get_email(auth)
+      email = auth.info.email
+      email = "#{auth.provider}-#{auth.uid}@example.com" if email.blank?
+      email
     end
 end
