@@ -15,17 +15,17 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       user = current_user
       if user.new_messages_exist
-        # rooms = []
-        # user.message_rooms.each do |room|
-        #   rooms << room if room.new_messages_exist
-        # end
-        # user.new_messages_count = 0
-        # rooms.each do |room|
-        #   room.new_messages_count = room.messages.where(checked: false).count
-        #   user.new_messages_count += room.new_messages_count
-        #   room.save
-        # end
-        # user.new_messages_exist = false
+        rooms = []
+        user.message_rooms.each do |room|
+          rooms << room if room.new_messages_exist && room.last_sender_id != user.id
+        end
+        user.new_messages_count = 0
+        rooms.each do |room|
+          room.new_messages_count = room.messages.where(checked: false).count
+          user.new_messages_count += room.new_messages_count
+          room.save
+        end
+        user.new_messages_exist = false
       end
       if user.new_notifications_exist
         user.new_notifications_count = user.notifications.where(checked: false).count
