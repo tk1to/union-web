@@ -26,21 +26,30 @@ class MessageRoomsController < ApplicationController
 
     opponent_id   = @message_room.creater_id == current_user.id ? @message_room.created_id : @message_room.creater_id
     @new_message  = Message.new(sender_id: current_user.id, receiver_id: opponent_id, message_room_id: @message_room.id)
+
+    # if @message_room.new_messages_count && 0 < @message_room.new_messages_count
+    #   current_user.new_messages_count -= @message_room.new_messages_count
+    #   current_user.save
+    #   @message_room.update_attributes(new_messages_count: 0, new_messages_exist: false)
+    #   @message_room.messages.each do |message|
+    #     message.update_attribute(checked: true)
+    #   end
+    # end
   end
 
   private
-  def valid_room
-    if !params[:user_id]
-      flash[:failure] = "不正なアクセスです"
-      redirect_to :root
+    def valid_room
+      if !params[:user_id]
+        flash[:failure] = "不正なアクセスです"
+        redirect_to :root
+      end
     end
-  end
-  def correct_user
-    mr = MessageRoom.find(params[:id])
-    mid = current_user.id
-    unless mid == (mr.creater_id || mr.created_id)
-      flash[:failure] = "不正なアクセスです"
-      redirect_to :root
+    def correct_user
+      mr = MessageRoom.find(params[:id])
+      mid = current_user.id
+      unless mid == mr.creater_id || mid == mr.created_id
+        flash[:failure] = "不正なアクセスです"
+        redirect_to :root
+      end
     end
-  end
 end

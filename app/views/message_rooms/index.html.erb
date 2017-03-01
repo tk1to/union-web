@@ -14,7 +14,9 @@
           <div class="thinCard__time">
             <%= message_room.newest_message.created_at.in_time_zone('Tokyo').strftime("%m/%d  %k:%M") if message_room.messages.any? %>
           </div>
-          <div class="thinCard__notice">52</div>
+          <%# if message_room.new_messages_count && 0 < message_room.new_messages_count %>
+            <!-- <div class="thinCard__notice"><%# message_room.new_messages_count %></div> -->
+          <%# end %>
         </li>
       <% end %>
     </ul>
