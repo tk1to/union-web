@@ -13,9 +13,8 @@
       <%= f.hidden_field :edit_item, :value => @edit_item %>
     <% else %>
       <% @category_ids.each_with_index do |id, i| %>
-        <div class="select">
-          <%= select :categories, ("category_"+(i+1).to_s).to_sym, @category_options.map{|t| [t.name, t.id]}, selected: id, include_blank: true , class: "select__choice"%>
-          <div class="select__choice_top">タップして選択</div>
+        <div class="wrap_select">
+          <%= select :categories, ("category_"+(i+1).to_s).to_sym, @category_options.map{|t| [t.name, t.id]}, {selected: id, include_blank: true} , {class: "selectbox"}%>
           <script>
             jQuery(function(){
                 jQuery("select#sentakushi_form").change(function(){
