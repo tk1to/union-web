@@ -12,8 +12,9 @@ heading_sym   = oc_eq_user ? :name : :title
       <%
       link_url = oc_eq_user    ? object :
                  oc_eq_contact ? [object.receive_circle, object] : [object.circle, object]
+      accept_class = @accept_btn ? "wrap__link_accept" : nil
       %>
-      <%= link_to link_url, class: "wrap__link wrap__link_accept" do %>
+      <%= link_to link_url, class: "wrap__link #{accept_class}" do %>
 
       <% if params[:controller] == "entries" && params[:action] == "index" %>
         <%

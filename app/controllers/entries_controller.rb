@@ -7,6 +7,8 @@ class EntriesController < ApplicationController
   def index
     @circle = Circle.find(params[:circle_id])
     @entries = @circle.entries
+
+    @accept_btn = true
   end
 
   def create
