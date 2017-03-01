@@ -5,7 +5,7 @@ class MessageRoomsController < ApplicationController
   before_action :correct_user, only: [:show]
 
   def index
-    @message_rooms = current_user.message_rooms
+    @message_rooms = current_user.message_rooms.sort_by{|mr|mr.updated_at}.reverse
   end
   def new
     mid = current_user.id
@@ -31,8 +31,8 @@ class MessageRoomsController < ApplicationController
       current_user.new_messages_count -= @message_room.new_messages_count if current_user.new_messages_count
       current_user.save
       @message_room.update_attributes(new_messages_count: 0, new_messages_exist: false)
-      @message_room.messages.each do |message|
-        message.update_attribute(checked: true)
+      @message_room.messages.where(checked: false).each do |message|
+        message.update_attributes(checked: true)
       end
     end
   end
