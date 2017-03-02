@@ -1,17 +1,3 @@
-<div class="aside__menu_wrap">
-  <% if @be_member %>
-    <div class="body_wrap"></div>
-    <div class="aside__menu">
-      <ul class="aside__menu_lists">
-        <li class="aside__menu_list aside__menu_close"><%= link_to '閉じる', @circle, class: "wrap__link" %></li>
-        <li class="aside__menu_list"><%= link_to "サークル情報編集", [:edit, @circle] %></li>
-        <li class="aside__menu_list"><%= link_to "サークル退団", [:resign, @circle], method: :delete %></li>
-        <li class="aside__menu_list"><%= link_to "サークル削除", @circle, method: :delete %></li>
-      </ul>
-    </div>
-  <% end %>
-</div>
-
 <header class="header">
   <h1 class="header__name_circle"><%= @circle.name %></h1>
   <div class="header__background" style="background-image: url(<%= @circle.header_picture %>)"></div>
@@ -21,6 +7,20 @@
     <%= image_tag "menu.svg" , class: "header__menu_humberger" %>
   <% end %>
 </header>
+
+<!-- <div class="aside__menu_wrap"> -->
+  <% if @be_member %>
+    <!-- <div class="body_wrap"></div> -->
+    <div class="aside__menu">
+      <ul class="aside__menu_lists">
+        <li class="aside__menu_list">閉じる</li>
+        <li class="aside__menu_list"><%= link_to "サークル情報編集", [:edit, @circle] %></li>
+        <li class="aside__menu_list"><%= link_to "サークル退団", [:resign, @circle], method: :delete %></li>
+        <li class="aside__menu_list"><%= link_to "サークル削除", @circle, method: :delete %></li>
+      </ul>
+    </div>
+  <% end %>
+<!-- </div> -->
 
 <% if @categories.any? %>
     <div class="ta_center">
