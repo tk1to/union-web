@@ -131,9 +131,6 @@ class CirclesController < ApplicationController
     @members = @circle.members
   end
 
-  def status_setting
-  end
-
   private
     def circle_params
       params.require(:circle).permit(

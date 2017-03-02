@@ -9,9 +9,6 @@ Rails.application.routes.draw do
     confirmations: 'users/confirmations',
     omniauth_callbacks: 'users/omniauth_callbacks',
   }
-  # devise_scope :user do
-  #   delete :sign_out, to: 'devise/sessions#destroy', as: :destroy_user_session
-  # end
 
   resources :users do
     member do
@@ -21,13 +18,13 @@ Rails.application.routes.draw do
     end
   end
   resources :relationships, only: [:create, :destroy]
-  resources :messages
-  resources :message_rooms, only: [:index, :new, :show]
+  resources :messages, path: "message"
+  resources :message_rooms, only: [:index, :new, :show], path: "messages"
 
   resources :notifications
 
-  get  "blogs"   => "blogs#indexes"
-  get  "events"  => "events#indexes"
+  get "blogs"   => "blogs#indexes"
+  get "events"  => "events#indexes"
 
   resources :circles do
     resources :blogs
@@ -43,7 +40,7 @@ Rails.application.routes.draw do
       get    :favorited
       get    :members
       delete :resign
-      get    :status_setteing
+      get    :status, to: "memberships#status_edit"
     end
     collection do
       get :search
