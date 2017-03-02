@@ -43,6 +43,7 @@ Rails.application.routes.draw do
       get    :favorited
       get    :members
       delete :resign
+      get    :status_setteing
     end
     collection do
       get :search
