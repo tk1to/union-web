@@ -15,13 +15,24 @@
 //= require turbolinks
 //= require_tree .
 
-$(function(){
+// $(function(){
   //サイドメニュー出現
-  $(document).on('click', '.header__menu_humberger', function(){
-    $('.body_wrap, .aside__menu').css('display', 'block');
-  });
+  // $(document).on('click', '.header__menu_humberger', function(){
+  //   $('.body_wrap, .aside__menu').css('display', 'block');
+  // });
 
-  filereader();
+// nagashitest
+$(function(){
+  $('.header__menu_humberger').click(function(){
+        $('.aside__menu').toggleClass('showMenue');
+      });
+  $('.aside__menu_list').click(function(){
+      $('.aside__menu').toggleClass('showMenue');
+      });
+  });
+// testend
+
+  // filereader();
 
   // $('.input_file').bind('change', function() {
   //   var size_in_megabytes = this.files[0].size/1024/1024;
@@ -29,7 +40,7 @@ $(function(){
   //     alert("ファイルの最大サイズは5MBです。");
   //   }
   // });
-});
+// });
 
 function filereader(){
   $(document).on('change', '#user_picture',function(){
