@@ -10,9 +10,12 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
   # end
 
   # GET /resource/confirmation?confirmation_token=abcdef
-  # def show
-  #   super
-  # end
+  def show
+    super
+    if resource.joining_circle_id
+      resource.memberships.create(circle_id: resource.joining_circle_id)
+    end
+  end
 
   # protected
 
