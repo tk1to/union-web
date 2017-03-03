@@ -125,6 +125,43 @@
   white-space: nowrap;
   z-index: 100;
 }
+// 一覧横並び系
+.menbarCard{
+  width: 32%;
+  height: 7rem;
+  box-sizing: border-box;
+  padding-top:0.3rem;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  &__image{
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background: gray;
+    margin: 0 auto;
+  }
+  &__heading{
+    color: $gray;
+    font-size: 0.8rem;
+    line-height: 1rem;
+    text-align: center;
+    margin-top: 0.5rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+  &__subhead{
+    color: gray;
+    font-size: 0.7rem;
+    text-align: center;
+    margin-top: 0.3rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+}
 // ブログとかの一覧系
 .wrap-thinCard{
   width: 100%;
