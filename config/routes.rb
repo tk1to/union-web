@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   get  "privacypolicy" => "web#privacypolicy"
 
   devise_for :users, controllers: {
-    sessions:      'users/sessions',
-    confirmations: 'users/confirmations',
+    sessions:           'users/sessions',
+    registrations:      'users/registrations',
+    confirmations:      'users/confirmations',
     omniauth_callbacks: 'users/omniauth_callbacks',
   }
 
@@ -23,8 +24,10 @@ Rails.application.routes.draw do
 
   resources :notifications
 
-  get "blogs"   => "blogs#indexes"
-  get "events"  => "events#indexes"
+  get "blogs"  => "blogs#indexes"
+  get "events" => "events#indexes"
+
+  get "entry/:key" => "web#circle_key"
 
   resources :circles do
     resources :blogs

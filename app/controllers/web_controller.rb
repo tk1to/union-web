@@ -8,7 +8,11 @@ class WebController < ApplicationController
 
   def signups
   end
-
   def privacypolicy
+  end
+
+  def circle_key
+    # session["circle_id"] = params[:key]
+    redirect_to [:new, :user, :registration]
   end
 end
