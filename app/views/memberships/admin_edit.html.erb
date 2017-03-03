@@ -1,9 +1,24 @@
+<header class="ta_center">
+  <h1 class="formHeading">管理者を選択し、更新してください</h1>
+</header>
+
+<div class="frame">
 <%= form_tag [:admin, @circle], method: :patch do %>
   <% @members.each do |member| %>
-    <p>
-      <%= member.name %>
-      <%= check_box "admin", member.id, {}, true, false %>
-    </p>
+    <ul class="wrap-thinCard">
+      <label for="checkbox">
+        <li class="thinCard">
+            <input type="checkbox" class="thinCard__permit" id="checkbox">
+            <div class="thinCard__image"></div>
+            <div class="thinCard__heading"><%= member.name %></div>
+            <div class="thinCard__subhead">ああああ</div>
+        </li>
+      </label>
+    </ul>
   <% end %>
-  <%= submit_tag "変更" %>
+</div>
+  <div class="ta_center">
+    <%= submit_tag "更新" , class: "button button_size_medium button_color_blue"%>
+  </div>
 <% end %>
+
