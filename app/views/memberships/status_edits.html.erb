@@ -1,5 +1,9 @@
-<h1>管理者設定</h1>
+<header>
+  <h1 class="formHeading ta_center">管理者設定</h1>
+</header>
 
-<%= link_to "代表者", nil %>
-<%= link_to "管理者", [:admin, @circle] %>
-<%= link_to "編集者", nil %>
+<div class="ta_center">
+  <%= link_to "代表者", nil , class: "button button_size_large button_color_blue"%>
+  <%= link_to "管理者", [:admin, @circle] , class: "button button_size_large button_color_blue"%>
+  <%= link_to "編集者", nil , class: "button button_size_large button_color_blue"%>
+</div>
