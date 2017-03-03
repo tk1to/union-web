@@ -1,0 +1,9 @@
+<%= form_tag [:admin, @circle], method: :patch do %>
+  <% @members.each do |member| %>
+    <p>
+      <%= member.name %>
+      <%= check_box "admin", 3, {}, true, false %>
+    </p>
+  <% end %>
+  <%= submit_tag "変更" %>
+<% end %>

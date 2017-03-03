@@ -40,8 +40,10 @@ Rails.application.routes.draw do
       get    :favorited
       get    :members
       delete :resign
+
       get    :status, to: "memberships#status_edits"
       get    :admin,  to: "memberships#admin_edit"
+      patch  :admin,  to: "memberships#admin_update"
     end
     collection do
       get :search
