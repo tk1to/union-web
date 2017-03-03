@@ -12,7 +12,9 @@ class WebController < ApplicationController
   end
 
   def circle_key
-    # session["circle_id"] = params[:key]
+    keys = params[:key].chars
+    
+    # session["circle_id"] = circle_id_from_key
     redirect_to [:new, :user, :registration]
   end
 end
