@@ -70,3 +70,26 @@
   width: 90%;
   margin:2rem auto;
 }
+
+.table{
+  border-collapse: collapse;
+  text-align: center;
+  &__head{
+    width: 150px;
+    padding:10px;
+    font-weight: normal;
+    vertical-align: top;
+    border:1px solid gray;
+    color: #fff;
+    background: $d-blue;
+    font-size: 0.8rem;
+  }
+  &__deta{
+    width: 350px;
+    padding:10px;
+    vertical-align: top;
+    border: 1px solid gray;
+    font-size: 0.8rem;
+    color: $gray;
+  }
+}

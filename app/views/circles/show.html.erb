@@ -51,10 +51,12 @@
   </div>
 <% end %>
 
+<div class="separate"></div>
+
 <% if user_signed_in? %>
   <div class="ta_center">
     <% if @be_member %>
-        <%= link_to "気になる一覧", [:favorited, @circle] , class: "button button_size_medium button_color_gray"%>
+        <%= link_to "気になる一覧", [:favorited, @circle] , class: "button button_square button_color_gray"%>
     <% else %>
       <% if @favoriting %>
         <%= link_to "気になる解除", [@circle, @favorite], method: :delete , class: "button button_size_medium button_color_gray"%>
@@ -64,15 +66,15 @@
     <% end %>
 
     <% if @be_member %>
-      <%= link_to "お問い合わせ一覧", [@circle, :contacts] , class: "button button_size_medium button_color_gray"%>
+      <%= link_to "お問い合わせ", [@circle, :contacts] , class: "button button_square button_color_gray"%>
     <% else %>
       <%= link_to "お問い合わせ", [:new, @circle, :contact] , class: "button button_size_medium button_color_gray "%>
     <% end %>
-  </div>
+  <!-- </div> -->
 
-  <div class="ta_center">
+  <!-- <div class="ta_center"> -->
     <% if @be_member %>
-      <%= link_to "メンバー申請一覧", [@circle, :entries] , class: "button button_size_large button_color_gray"%>
+      <%= link_to "メンバー申請", [@circle, :entries] , class: "button button_square button_color_gray"%>
     <% else %>
       <% if !@entrying %>
       <div class="ta_center">
@@ -85,17 +87,47 @@
   </div>
   <% if @be_member %>
     <div class="ta_center">
-      <%= link_to "ブログを作成", [:new, @circle, :blog] , class: "button button_size_medium button_color_blue"%>
-      <%= link_to "イベントを作成", [:new, @circle, :event] , class: "button button_size_medium button_color_blue"%>
+      <%= link_to "ブログを作成", [:new, @circle, :blog] , class: "button button_square button_color_blue"%>
+      <%= link_to "イベントを作成", [:new, @circle, :event] , class: "button button_square button_color_blue"%>
+      <a href="" class="button button_square button_color_blue">イベント管理</a>
     </div>
   <% end %>
 <% end %>
 
-<div class="separate"></div>
+<div class="frame">
+  <h2 class="frame__heading frame__heading_underline">サークル概要</h2>
+  <div class="description"><%= simple_format(h(@circle.description)) %></div>
+  <!-- <div class="description"><p><%# @circle.activity %></p></div> -->
 
-<h2 class="frame__heading frame__heading_underline" style="margin-top: 30px;">サークル概要</h2>
-<div class="description"><%= simple_format(h(@circle.description)) %></div>
-<!-- <div class="description"><p><%# @circle.activity %></p></div> -->
+  <h2 class="frame__heading frame__heading_underline">サークル詳細情報</h2>
+
+  <table class="table">
+    <tr>
+      <th scope="row" class="table__head">参加大学</th>
+      <td class="table__deta">明治大学</td>
+    </tr>
+    <tr>
+      <th scope="row" class="table__head">団体人数</th>
+      <td class="table__deta">30人</td>
+    </tr>
+    <tr>
+      <th scope="row" class="table__head">活動場所</th>
+      <td class="table__deta">御茶ノ水、他</td>
+    </tr>
+    <tr>
+      <th scope="row" class="table__head">年会費</th>
+      <td class="table__deta">3000円</td>
+    </tr>
+    <tr>
+      <th scope="row" class="table__head">男女比</th>
+      <td class="table__deta">5:5</td>
+    </tr>
+    <tr>
+      <th scope="row" class="table__head">その他</th>
+      <td class="table__deta">一緒に楽しみましょう！</td>
+    </tr>
+  </table>
+</div>
 
 <div class="frame frame_blog">
   <h2 class="frame__heading">ブログ一覧(<%= @circle.blogs.count %>)</h2>
