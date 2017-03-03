@@ -118,6 +118,18 @@
     color: gray;
   }
 }
+// サークルもっと見る
+.miniCard__more{
+  color: #fff;
+  text-align: center;
+  line-height: 9rem;
+  border: 1px solid $d-blue;
+  border-radius: 3px;
+  background: $d-blue;
+  &::after{
+    content: url(app/assets/images/>.svg);
+  }
+}
 .sride-miniCard{
   display: flex;
   overflow-x: scroll;
