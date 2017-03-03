@@ -47,6 +47,7 @@ Rails.application.routes.draw do
       get    :status, to: "memberships#status_edits"
       get    :admin,  to: "memberships#admin_edit"
       patch  :admin,  to: "memberships#admin_update"
+      get    :key,    to: "memberships#publish_key"
     end
     collection do
       get :search

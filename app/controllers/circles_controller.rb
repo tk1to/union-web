@@ -1,6 +1,6 @@
 class CirclesController < ApplicationController
 
-  before_action :authenticate_user!, except: [:index, :show, :feed, :search]
+  before_action :authenticate_user!, except: [:index, :show, :feed, :search, :members]
   before_action :member_check, only: [:edit, :update, :destroy, :resign, :favorited]
 
   def index
