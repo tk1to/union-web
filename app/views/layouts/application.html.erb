@@ -9,7 +9,7 @@
 </head>
 <body>
   <% if !(params[:controller] == "message_rooms" && params[:action] == "show") %>
-    <div class="whole_wrap">
+  <div class="whole_wrap">
   <% end %>
     <%= render 'layouts/nav' %>
     <% flash.each do |message_type, message| %>
@@ -17,15 +17,21 @@
     <% end %>
 
     <%= yield %>
+  </div>
 
-    <% if !(params[:controller] == "message_rooms" && params[:action] == "show") %>
-      <footer class="footer">
-        <p><%= link_to "プライバシーポリシー", :privacypolicy, style: "color: gray; text-decoration: none;" %></p>
-        <p class="footer__copyright">COPYRIGHT &#169; 2017 UNION ALL RIGHTS RESERVED. </p>
-      </footer>
-      </div>
+  <% if !(params[:controller] == "message_rooms" && params[:action] == "show") %>
+    <footer class="footer">
+      <p><%= link_to "プライバシーポリシー", :privacypolicy, style: "color: gray; text-decoration: none;" %></p>
+      <p class="footer__copyright">COPYRIGHT &#169; 2017 UNION ALL RIGHTS RESERVED. </p>
+    </footer>
     <% end %>
   <%= debug(params) if Rails.env.development? %>
+  <div id="alert_background">
+    <div id="alertbox">
+      <p>登録を完了させてください。</p>
+      <a href="https://www.google.co.jp/webhp?hl=ja" id="ok" class="button button_size_medium button_color_blue">登録</a>
+    </div>
+  </div>
 </body>
 </html>
 

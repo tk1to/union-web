@@ -26,12 +26,24 @@
 $(function(){
   $('.header__menu_humberger').click(function(){
         $('.aside__menu').toggleClass('showMenue');
-        $('.whole_wrap').css("background", "#fff");
+        $("#alert_background").fadeIn(500);
       });
   $('.aside__menu_list').click(function(){
       $('.aside__menu').toggleClass('showMenue');
+      $("#alert_background").fadeOut(500);
       });
   });
+
+$(function(){
+  $("#alert_background").hide();
+
+//   $(".nav__item").click(function(){
+//     $("#alert_background").fadeIn(300);
+//   });
+//   $("#ok").click(function(){
+//     $("#alert_background").fadeOut(300);
+//   });
+});
 // testend
 
   // filereader();
@@ -112,8 +124,3 @@ function filereader(){
       };
   });
 }
-
-
-
-
-
