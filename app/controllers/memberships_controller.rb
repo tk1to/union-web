@@ -6,6 +6,8 @@ class MembershipsController < ApplicationController
     @circle = Circle.find(params[:id])
   end
 
+  def chief_edit
+  end
   def admin_edit
     @circle  = Circle.find(params[:id])
     @members = @circle.members
