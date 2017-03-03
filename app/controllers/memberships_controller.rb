@@ -11,7 +11,6 @@ class MembershipsController < ApplicationController
     @members = @circle.members
   end
   def admin_update
-    debugger
     circle = Circle.find(params[:id])
     redirect_to [:admin, circle]
   end

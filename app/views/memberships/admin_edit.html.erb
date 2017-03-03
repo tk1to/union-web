@@ -2,7 +2,7 @@
   <% @members.each do |member| %>
     <p>
       <%= member.name %>
-      <%= check_box "admin", 3, {}, true, false %>
+      <%= check_box "admin", member.id, {}, true, false %>
     </p>
   <% end %>
   <%= submit_tag "変更" %>
