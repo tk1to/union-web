@@ -134,6 +134,7 @@
   <h2 class="frame__heading">ブログ一覧(<%= @circle.blogs.count %>)</h2>
   <% if @blogs.any? %>
     <%= render "shared/thin_cards", objects: @blogs %>
+    <!-- <div class="thinCard thinCard_no">ブログをもっと見る</div> -->
   <% else %>
     <p class="thinCard thinCard_no">ブログがありません。</p>
   <% end %>
