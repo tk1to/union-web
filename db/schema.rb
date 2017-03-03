@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170302140022) do
+ActiveRecord::Schema.define(version: 20170303092820) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -224,6 +224,7 @@ ActiveRecord::Schema.define(version: 20170302140022) do
     t.integer  "new_foots_count"
     t.boolean  "new_notifications_exist"
     t.boolean  "new_foots_exist"
+    t.integer  "joining_circle_id"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

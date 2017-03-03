@@ -3,14 +3,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
 # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  def new
-    super
-  end
-
-  # POST /resource
-  # def create
+  # def new
   #   super
   # end
+
+  # POST /resource
+  def create
+    super
+    resource.update_attribute(:joining_circle_id, session[:joining_circle_id])
+    session.delete(:joining_circle_id)
+  end
 
   # GET /resource/edit
   # def edit
