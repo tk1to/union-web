@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require_tree .
 
+
 // $(function(){
   //サイドメニュー出現
   // $(document).on('click', '.header__menu_humberger', function(){
@@ -25,6 +26,7 @@
 $(function(){
   $('.header__menu_humberger').click(function(){
         $('.aside__menu').toggleClass('showMenue');
+        $('.whole_wrap').css("background", "#fff");
       });
   $('.aside__menu_list').click(function(){
       $('.aside__menu').toggleClass('showMenue');
