@@ -4,11 +4,15 @@
     <div class="aside__menu">
       <ul class="aside__menu_lists">
         <li class="aside__menu_list aside__menu_close"><%= link_to '閉じる', @circle, class: "wrap__link" %></li>
-        <li class="aside__menu_list"><%= link_to "サークル情報編集", [:edit, @circle] %></li>
-        <li class="aside__menu_list"><%= link_to "管理者設定", [:status, :edit, @circle] %></li>
-        <li class="aside__menu_list"><%= link_to "メンバー用URL発行", [:key, @circle] %></li>
+        <% if @status_num <= 1 %>
+          <li class="aside__menu_list"><%= link_to "サークル情報編集", [:edit, @circle] %></li>
+          <li class="aside__menu_list"><%= link_to "管理者設定", [:status, :edit, @circle] %></li>
+          <li class="aside__menu_list"><%= link_to "メンバー用URL発行", [:key, @circle] %></li>
+        <% end %>
         <li class="aside__menu_list"><%= link_to "サークル退団", [:resign, @circle], method: :delete %></li>
-        <li class="aside__menu_list"><%= link_to "サークル削除", @circle, method: :delete %></li>
+        <% if @status == "chief" %>
+          <li class="aside__menu_list"><%= link_to "サークル削除", @circle, method: :delete %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>

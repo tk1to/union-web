@@ -29,7 +29,11 @@ class CirclesController < ApplicationController
     @events     = @circle.events.limit(5)
     @categories = @circle.categories
 
-    @be_member = @members.include?(current_user)
+    if @be_member = @members.include?(current_user)
+      membership  = @circle.memberships.find_by(member_id: current_user.id)
+      @status     = membership.status
+      @status_num = membership[:status]
+    end
 
     if user_signed_in?
       # メンバー申請しているかどうか
