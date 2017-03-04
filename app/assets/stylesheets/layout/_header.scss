@@ -7,7 +7,7 @@
   &__name_user{
     position: absolute;
     top: 66%;
-    left: 30%;
+    left: 32%;
     font-weight: normal;
     color: #fff;
     text-shadow: 0 1px 3px gray;
@@ -31,11 +31,11 @@
     background: gray;
   }
   &__photo_user{
-    width: 60px;
-    height: 60px;
+    width: 5rem;
+    height: 5rem;
     position: absolute;
-    top: 63%;
-    left: 8.5%;
+    top: 58%;
+    left: 6%;
     border-radius: 50%;
     border-style: solid;
     border-width: 1px;
@@ -58,7 +58,7 @@
   &__subhead_user{
     position: absolute;
     top: 78%;
-    left: 30%;
+    left: 32%;
     font-size: 0.8rem;
     color: gray;
   }
