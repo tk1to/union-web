@@ -1,6 +1,6 @@
 .members{
   width: 90%;
-  height: 4rem;
+  height: 5rem;
   margin: 2rem auto 1rem;
   overflow: hidden;
   &__heading {
@@ -8,6 +8,7 @@
     display: block;
     margin: 0 auto;
     font-size: 0.8rem;
+    line-height: 1rem;
     font-weight: normal;
     color: $gray;
   }
@@ -21,8 +22,8 @@
     padding: 0 0.5rem;
   }
   &__image{
-    width: 2rem;
-    height: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
     border-radius:50%;
     background: gray;
     margin-top: 0.3rem;
@@ -79,7 +80,7 @@
     padding:10px;
     font-weight: normal;
     vertical-align: top;
-    border:1px solid gray;
+    border:1px solid $l-gray;
     color: #fff;
     background: $d-blue;
     font-size: 0.8rem;
@@ -88,7 +89,7 @@
     width: 350px;
     padding:10px;
     vertical-align: top;
-    border: 1px solid gray;
+    border: 1px solid $l-gray;
     font-size: 0.8rem;
     color: $gray;
   }

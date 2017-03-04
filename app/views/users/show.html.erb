@@ -17,7 +17,7 @@
   <div class="header__background" style="background-image: url(<%= @user.header_picture %>)"></div>
   <div class="header__photo_user" style="background-image: url(<%= @user.picture %>);"></div>
   <h1 class="header__name_user"><%= @user.name %></h1>
-  <p class="header__subhead_user"><%= @user.college %>/<%= @user.department %>/<%= @user.grade %>年</p>
+  <p class="header__subhead_user"><%= @user.college %>/<%= @user.department %>/<%= @user.grade %>/<%= @user.sex %></p>
   <% if current_user?(@user) %>
     <%= image_tag "menu.svg" , class: "header__menu_humberger" %>
     <div class="header__foot">
