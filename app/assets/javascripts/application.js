@@ -16,13 +16,13 @@
 //= require turbolinks
 //= require_tree .
 
-$(function(){
+// $(function(){
   //サイドメニュー出現
-  $(document).on('click', '.header__menu_humberger', function(){
-    $('.body_wrap, .aside__menu').css('display', 'block');
-  });
+  // $(document).on('click', '.header__menu_humberger', function(){
+  //   $('.body_wrap, .aside__menu').css('display', 'block');
+  // });
 
-  filereader();
+  // filereader();
 
   // $('.input_file').bind('change', function() {
   //   var size_in_megabytes = this.files[0].size/1024/1024;
@@ -30,7 +30,7 @@ $(function(){
   //     alert("ファイルの最大サイズは5MBです。");
   //   }
   // });
-});
+// });
 
 function filereader(){
   $(document).on('change', '#user_picture',function(){
@@ -101,7 +101,46 @@ function filereader(){
   });
 }
 
+// kou
+// 相互フォローでない人にメッセージを送ろうとした場合のポップアップ
+$(function(){
+  $(".alert").hide();
+  $(".header__message").click(function(){
+    $(".alert").fadeIn(300);
+    return false;
+  });
+  $(".alert__button").click(function(){
+    $(".alert").fadeOut(300);
+  });
+});
+// ハンバーガーメニューの開閉
+$(function(){
+  $('.white_back').hide();
+  $('.header__menu_humberger').click(function(){
+    $('.sideMenu').toggleClass('sideMenu_show');
+    $('.white_back').fadeIn(300);
+  });
+  $('.sideMenu_close').click(function(){
+    $('.sideMenu').toggleClass('sideMenu_show');
+    $('.white_back').fadeOut(300);
+  });
+});
+// 個人ページ、プロフィール画像からの編集
+$(function(){
+  $(".user__image_zoom").hide();
+  $(".header__photo_user").click(function(){
+    $(".user__image_zoom").fadeIn(100);
+  });
+  $(".user__image_zoom").click(function(){
+    $(".user__image_zoom").fadeOut(100);
+  });
+});
 
+$(function(){
+  $('.checkbox_cover').click(function(){
+    $('.checkbox_style').toggleClass('checkbox_select');
+  });
+});
 
 
 
