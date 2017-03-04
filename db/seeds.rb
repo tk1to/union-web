@@ -8,9 +8,9 @@
 
 # coding: utf-8
 
-names = ["太郎", "次郎", "三郎"]
-mails = ["taro", "jiro", "saburo"]
-3.times do |i|
+names = ["太郎", "次郎", "三郎", "四郎", "五朗"]
+mails = ["taro", "jiro", "saburo", "shiro", "goro"]
+5.times do |i|
   user = User.create(
     name: "てすと#{names[i]}",
     email: "#{mails[i]}@test.com",
@@ -19,19 +19,14 @@ mails = ["taro", "jiro", "saburo"]
   user.skip_confirmation!
   user.save
 end
-# 9.times do |i|
-#   user = User.create(
-#     name: "てすと#{i.to_s}",
-#     email: "a#{i.to_s}@test.com",
-#     password: "union188"
-#   )
-#   user.skip_confirmation!
-#   user.save
-#   Membership.create(circle_id: 1, member_id: user.id)
-# end
 
 Circle.create(name: "ボランティアサークル", description: "定期的にボランティアをするサークルです。興味がある方は是非！")
 Membership.create(circle_id: 1, member_id: 1, status: 0)
+Membership.create(circle_id: 1, member_id: 2, status: 3)
+Membership.create(circle_id: 1, member_id: 3, status: 3)
+Membership.create(circle_id: 1, member_id: 4, status: 3)
+Membership.create(circle_id: 1, member_id: 5, status: 3)
+
 Blog.create(title: "太郎のサークル設立",circle_id: 1, author_id: 1,
             content_1: "サークルを設立しました！ボランティアに興味がある方は是非入ってください！")
 Event.create(title: "〇〇町ゴミ拾い！１", circle_id: 1, content: "ゴミ拾いを〇〇町で行います！少しでも興味がある方は是非参加してください！誰でも歓迎です！")
