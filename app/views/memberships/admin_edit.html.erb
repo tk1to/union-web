@@ -4,25 +4,29 @@
 
 <div class="frame">
 <%= form_tag [:admin, @circle], method: :patch do %>
-  <% @members.each do |member| %>
-    <ul class="wrap-thinCard">
-      <label for="checkbox">
+  <ul class="wrap-thinCard">
+    <% @memberships.each do |membership| %>
+      <% member = membership.member
+         checked = membership.admin? %>
+      <%= label_tag "member#{member.id}", {class: "test"} do %>
         <li class="thinCard">
-            <input type="checkbox" class="thinCard__permit" id="checkbox">
-            <div class="thinCard__image"></div>
-            <div class="thinCard__heading"><%= member.name %></div>
-            <div class="thinCard__subhead">ああああ</div>
-            <div class="checkbox_style"></div>
+          <%= check_box "admin_edit", membership.id, {id: "member#{member.id}", class: "thinCard__permit", checked: checked}, true, false %>
+          <div class="thinCard__image"></div>
+          <div class="thinCard__heading"><%= member.name %></div>
+          <div class="thinCard__subhead">ああああ</div>
+          <div class="checkbox_style"></div>
         </li>
-      </label>
-    </ul>
-  <% end %>
+      <% end %>
+    <% end %>
+  </ul>
 </div>
 
   <div class="ta_center">
     <%= submit_tag "更新" , class: "button button_size_medium button_color_blue"%>
   </div>
 <% end %>
+
+
 
 <div class="frame">
   <div class="frame__heading frame__heading_underline">代表</div>
