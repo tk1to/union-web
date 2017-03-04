@@ -1,14 +1,14 @@
 <div class="aside__menu_wrap">
   <% if @be_member %>
     <div class="body_wrap"></div>
-    <div class="aside__menu">
-      <ul class="aside__menu_lists">
-        <li class="aside__menu_list aside__menu_close"><%= link_to '閉じる', @circle, class: "wrap__link" %></li>
-        <li class="aside__menu_list"><%= link_to "サークル情報編集", [:edit, @circle] %></li>
-        <li class="aside__menu_list"><%= link_to "管理者設定", [:status, @circle] %></li>
-        <li class="aside__menu_list"><%= link_to "メンバー用URL発行", [:key, @circle] %></li>
-        <li class="aside__menu_list"><%= link_to "サークル退団", [:resign, @circle], method: :delete %></li>
-        <li class="aside__menu_list"><%= link_to "サークル削除", @circle, method: :delete %></li>
+    <div class="sideMenu">
+      <ul class="sideMenu__lists">
+        <li class="sideMenu__item sideMenu_close">閉じる</li>
+        <li class="sideMenu__item"><%= link_to "サークル情報編集", [:edit, @circle] %></li>
+        <li class="sideMenu__item"><%= link_to "管理者設定", [:status, @circle] %></li>
+        <li class="sideMenu__item"><%= link_to "メンバー用URL発行", [:key, @circle] %></li>
+        <li class="sideMenu__item"><%= link_to "サークル退団", [:resign, @circle], method: :delete %></li>
+        <li class="sideMenu__item"><%= link_to "サークル削除", @circle, method: :delete %></li>
       </ul>
     </div>
   <% end %>
@@ -148,3 +148,5 @@
     <p class="thinCard thinCard_no">イベントがありません。</p>
   <% end %>
 </div>
+
+<div class="white_back"></div>
