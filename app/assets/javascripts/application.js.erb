@@ -103,16 +103,18 @@ function filereader(){
 
 // kou
 // 相互フォローでない人にメッセージを送ろうとした場合のポップアップ
-$(function(){
-  $(".alert").hide();
-  $(".header__message").click(function(){
-    $(".alert").fadeIn(300);
-    return false;
+<% if false %>
+  $(function(){
+    $(".alert").hide();
+    $(".header__message").click(function(){
+      $(".alert").fadeIn(300);
+      return false;
+    });
+    $(".alert__button").click(function(){
+      $(".alert").fadeOut(300);
+    });
   });
-  $(".alert__button").click(function(){
-    $(".alert").fadeOut(300);
-  });
-});
+<% end %>
 // ハンバーガーメニューの開閉
 $(function(){
   $('.white_back').hide();
