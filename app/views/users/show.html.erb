@@ -1,6 +1,8 @@
-<!-- 相互フォローでない人にメッセージを送ろうとした場合のポップアップ -->
+
 <script type="text/javascript">
   $(function(){
+
+    // 相互フォローでない人にメッセージを送ろうとした場合のポップアップ
     $(".alert").hide();
     <% if !current_user.mutual_follow?(@user) %>
       $(".header__message").click(function(){
@@ -11,6 +13,18 @@
         $(".alert").fadeOut(300);
       });
     <% end %>
+
+    // 個人ページ、プロフィール画像からの編集
+    $(".user__image_zoom").hide();
+    <% if current_user?(@user) %>
+      $(".header__photo_user").click(function(){
+        $(".user__image_zoom").fadeIn(100);
+      });
+      $(".user__image_zoom").click(function(){
+        $(".user__image_zoom").fadeOut(100);
+      });
+    <% end %>
+
   });
 </script>
 
@@ -33,7 +47,7 @@
   <div class="header__background" style="background-image: url(<%= @user.header_picture %>)"></div>
   <div class="header__photo_user" style="background-image: url(<%= @user.picture %>);"></div>
   <h1 class="header__name_user"><%= @user.name %></h1>
-  <p class="header__subhead_user"><%= @user.college %>/<%= @user.department %>/<%= @user.grade %>/<%= @user.sex %></p>
+  <p class="header__subhead_user"><%= @user.basic_info %></p>
   <% if current_user?(@user) %>
     <%= image_tag "menu.svg" , class: "header__menu_humberger" %>
     <div class="header__foot">

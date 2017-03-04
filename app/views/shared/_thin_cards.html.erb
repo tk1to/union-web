@@ -3,6 +3,7 @@ oclass        = objects.first.class
 oc_eq_user    = oclass == User
 oc_eq_contact = oclass == Contact
 oc_eq_blog    = oclass == Blog
+oc_eq_event   = oclass == Event
 heading_sym   = oc_eq_user ? :name : :title
 %>
 <ul class="wrap-thinCard">
@@ -53,4 +54,17 @@ heading_sym   = oc_eq_user ? :name : :title
       <% end %>
     </li>
   <% end %>
+
+  <% if (oc_eq_blog || oc_eq_event) %>
+    <li>
+      ここに「もっと見る」
+    </li>
+  <% end %>
+
 </ul>
+
+
+
+
+
+

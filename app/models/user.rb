@@ -106,6 +106,15 @@ class User < ActiveRecord::Base
   #   true
   # end
 
+  def basic_info
+    info = ""
+    info += self.college    + "/" if !self.college.blank?
+    info += self.department + "/" if !self.department.blank?
+    info += self.grade      + "/" if !self.grade.blank?
+    info += self.sex_label  + "/" if !self.sex.blank?
+    info[0..-2]
+  end
+
   def sex_label
     label = nil
     if self.sex == 0
