@@ -2,4 +2,42 @@
   <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
 <% end %>
 
-<%= render 'shared/whats_union' %>
+<div class="LP">
+  <div class="keyvisual">
+    <%= image_tag "union_lp.png" %>
+    <% if !user_signed_in? %>
+      <div class="keyvisual__inner">
+        <%= link_to '新規登録', [:new, :user, :registration], class: "button button_size_medium button_color_blue"%>
+        <%= link_to "ログイン", [:new, :user, :session] , class: "button button_size_medium button_color_white"%>
+      </div>
+    <% end %>
+  </div>
+  <section class="lp">
+    <h1 class="lp__union">What's UNION?</h1>
+    <h2 class="lp__heading">Unionはサークルと新入生をつなぐ<br>ソーシャルプラットホームです。</h2>
+    <p class="lp__text">学内サークル、インカレサークル、学生団体での活動やそこでの出会いを通して、全ての大学生が素敵なキャンパスライフを送れることを願っています。</p>
+  </section>
+  <%= image_tag "union_lp_user.png" %>
+  <section class="lp">
+    <h2 class="lp__heading">あなたにぴったりな<br>サークルが見つかります。</h2>
+    <p class="lp__text">「団体が多すぎてどこが自分にあった団体なのかわからない」こんなお悩みありませんか？Unionでは、活動ジャンルや特定の大学などあなたが求める条件で様々な団体を探せます。また、団体メンバーや団体の雰囲気が可視化されていることで、本当に入りたい団体を見つけることができます。</p>
+  </section>
+  <%= image_tag "union_lp_circle.png" %>
+  <section class="lp">
+    <h2 class="lp__heading">あなたのサークルにぴったりな<br>新入生と出会えます。</h2>
+    <p class="lp__text">学内サークル・インカレサークル・学生団体が、今までより、効率良く新入生を勧誘することができます。団体メンバーと新入生のプロフィールが可視化され、お互いのことをよく知ることで、団体と新入生がベストマッチできる環境を提供します。</p>
+  </section>
+
+  <section class="lp">
+    <p class="lp__end">さあ、UNIONを始めよう！</p>
+  </section>
+
+  <% if !user_signed_in? %>
+    <div class="lp">
+      <div class="lp__inner">
+        <%= link_to '新規登録', [:new, :user, :registration], class: "button button_size_large button_color_blue"%>
+        <%= link_to "ログイン", [:new, :user, :session] , class: "button button_size_large button_color_white"%>
+      </div>
+    </div>
+  <% end %>
+</div>
