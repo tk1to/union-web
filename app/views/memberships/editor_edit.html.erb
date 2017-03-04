@@ -3,25 +3,26 @@
 </header>
 
 <div class="frame">
-<%= form_tag [:editor, @circle], method: :patch do %>
-  <ul class="wrap-thinCard">
-    <% @memberships.each do |membership| %>
-      <% member = membership.member
-         checked = membership.editor? %>
-      <%= label_tag "member#{member.id}", {class: "test"} do %>
-        <li class="thinCard">
-          <%= check_box "editor_edit", membership.id, {id: "member#{member.id}", class: "thinCard__permit", checked: checked}, true, false %>
-          <div class="thinCard__image"></div>
-          <div class="thinCard__heading"><%= member.name %></div>
-          <div class="thinCard__subhead">ああああ</div>
-          <div class="checkbox_style"></div>
-        </li>
+  <%= form_tag [:editor, @circle], method: :patch do %>
+    <ul class="wrap-thinCard">
+      <% @memberships.each do |membership| %>
+        <% member = membership.member
+           checked = membership.editor? %>
+        <%= label_tag "member#{member.id}", {class: "test"} do %>
+          <li class="thinCard">
+            <%= check_box "editor_edit", membership.id, {id: "member#{member.id}", class: "thinCard__permit", checked: checked}, true, false %>
+            <div class="thinCard__image"></div>
+            <div class="thinCard__heading"><%= member.name %></div>
+            <div class="thinCard__subhead">ああああ</div>
+            <div class="checkbox_style"></div>
+            <div class="checkbox_cover"></div>
+          </li>
+        <% end %>
       <% end %>
-    <% end %>
-  </ul>
-</div>
+    </ul>
 
-  <div class="ta_center">
-    <%= submit_tag "更新" , class: "button button_size_medium button_color_blue"%>
-  </div>
-<% end %>
+    <div class="ta_center">
+      <%= submit_tag "更新" , class: "button button_size_medium button_color_blue"%>
+    </div>
+  <% end %>
+</div>
