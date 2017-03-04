@@ -40,6 +40,16 @@
 		line-height: 6rem;
 		margin-bottom: 0.5rem;
 	}
+	&_border{
+		border:1.5px solid #fff;
+		border-radius: 3px;
+		padding: 5px;
+		font-size: 0.8rem;
+		text-decoration: none;
+		color: #fff;
+		line-height: 1rem;
+		margin: 1rem;
+	}
 	&_notice{
 		position: absolute;
 		top: -5%;
