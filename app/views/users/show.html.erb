@@ -1,3 +1,19 @@
+<!-- 相互フォローでない人にメッセージを送ろうとした場合のポップアップ -->
+<script type="text/javascript">
+  $(function(){
+    $(".alert").hide();
+    <% if !current_user.mutual_follow?(@user) %>
+      $(".header__message").click(function(){
+        $(".alert").fadeIn(300);
+        return false;
+      });
+      $(".alert__button").click(function(){
+        $(".alert").fadeOut(300);
+      });
+    <% end %>
+  });
+</script>
+
 <div class="whole_wrap">
 
 <% if current_user?(@user) %>

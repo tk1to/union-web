@@ -16,13 +16,9 @@
 //= require turbolinks
 //= require_tree .
 
-// $(function(){
-  //サイドメニュー出現
-  // $(document).on('click', '.header__menu_humberger', function(){
-  //   $('.body_wrap, .aside__menu').css('display', 'block');
-  // });
+$(function(){
 
-  // filereader();
+  filereader();
 
   // $('.input_file').bind('change', function() {
   //   var size_in_megabytes = this.files[0].size/1024/1024;
@@ -30,91 +26,24 @@
   //     alert("ファイルの最大サイズは5MBです。");
   //   }
   // });
-// });
+});
 
 function filereader(){
-  $(document).on('change', '#user_picture',function(){
-    var file = $(this).prop('files')[0];
-      var reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = function(e) {
-        $('img.user_picture').attr("src", e.target.result);
-      };
-  });
-  $(document).on('change', '#user_header_picture',function(){
-    var file = $(this).prop('files')[0];
-      var reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = function(e) {
-        $('img.user_header_picture').attr("src", e.target.result);
-      };
-  });
-
-  $(document).on('change', '#circle_picture',function(){
-    var file = $(this).prop('files')[0];
-      var reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = function(e) {
-        $('img.circle_picture').attr("src", e.target.result);
-      };
-  });
-  $(document).on('change', '#circle_header_picture',function(){
-    var file = $(this).prop('files')[0];
-      var reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = function(e) {
-        $('img.circle_header_picture').attr("src", e.target.result);
-      };
-  });
-
-  $(document).on('change', '#blog_picture_1',function(){
-    var file = $(this).prop('files')[0];
-      var reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = function(e) {
-        $('img.blog_picture_1').attr("src", e.target.result);
-      };
-  });
-  $(document).on('change', '#blog_picture_2',function(){
-    var file = $(this).prop('files')[0];
-      var reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = function(e) {
-        $('img.blog_picture_2').attr("src", e.target.result);
-      };
-  });
-  $(document).on('change', '#blog_picture_3',function(){
-    var file = $(this).prop('files')[0];
-      var reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = function(e) {
-        $('img.blog_picture_3').attr("src", e.target.result);
-      };
-  });
-  $(document).on('change', '#event_picture',function(){
-    var file = $(this).prop('files')[0];
-      var reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = function(e) {
-        $('img.event_picture').attr("src", e.target.result);
-      };
-  });
+  <% properties =
+  ["user_picture", "user_header_picture", "circle_picture", "circle_header_picture",
+   "blog_picture_1", "blog_picture_2", "blog_picture_3", "event_picture"] %>
+  <% properties.each do |prop| %>
+    $(document).on('change', "#<%= prop %>",function(){
+      var file = $(this).prop('files')[0];
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function(e) {
+          $("img.<%= prop %>").attr("src", e.target.result);
+        };
+    });
+  <% end %>
 }
 
-// kou
-// 相互フォローでない人にメッセージを送ろうとした場合のポップアップ
-<% if false %>
-  $(function(){
-    $(".alert").hide();
-    $(".header__message").click(function(){
-      $(".alert").fadeIn(300);
-      return false;
-    });
-    $(".alert__button").click(function(){
-      $(".alert").fadeOut(300);
-    });
-  });
-<% end %>
 // ハンバーガーメニューの開閉
 $(function(){
   $('.white_back').hide();
