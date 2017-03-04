@@ -92,7 +92,7 @@ class CirclesController < ApplicationController
     if params[:delete_confirmed]
       @circle.destroy
       flash[:notice] = "削除完了"
-      redirect_to :root
+      redirect_to :top
     else
       render "delete_confirm"
     end
@@ -103,7 +103,7 @@ class CirclesController < ApplicationController
     if params[:resign_confirmed]
       current_user.memberships.find_by(circle_id: params[:id]).destroy
       flash[:notice] = "退団完了"
-      redirect_to :root
+      redirect_to :top
     else
       render "resign_confirm"
     end
@@ -151,7 +151,7 @@ class CirclesController < ApplicationController
       circle = Circle.find(params[:id])
       unless circle.members.include?(current_user)
         flash[:failure] = "メンバーのみの機能です"
-        redirect_to :root
+        redirect_to :top
       end
     end
 

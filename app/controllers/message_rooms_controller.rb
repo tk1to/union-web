@@ -41,7 +41,7 @@ class MessageRoomsController < ApplicationController
     def valid_room
       if !params[:user_id]
         flash[:failure] = "不正なアクセスです"
-        redirect_to :root
+        redirect_to :top
       end
     end
     def correct_user
@@ -49,7 +49,7 @@ class MessageRoomsController < ApplicationController
       mid = current_user.id
       unless mid == mr.creater_id || mid == mr.created_id
         flash[:failure] = "不正なアクセスです"
-        redirect_to :root
+        redirect_to :top
       end
     end
 end

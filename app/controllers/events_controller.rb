@@ -64,7 +64,7 @@ class EventsController < ApplicationController
       circle = Circle.find(params[:circle_id])
       unless circle.members.include?(current_user)
         flash[:failure] = "メンバーのみの機能です"
-        redirect_to :root
+        redirect_to :top
       end
     end
 end

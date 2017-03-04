@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  root 'web#top'
-  get  'signups' => 'web#signups'
+  root 'web#landing'
+  get  'top' => 'web#top'
   get  "privacypolicy" => "web#privacypolicy"
 
   devise_for :users, controllers: {

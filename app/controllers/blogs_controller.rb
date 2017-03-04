@@ -79,14 +79,14 @@ class BlogsController < ApplicationController
       circle = Circle.find(params[:circle_id])
       unless circle.members.include?(current_user)
         flash[:failure] = "メンバーのみの機能です"
-        redirect_to :root
+        redirect_to :top
       end
     end
     def correct_author
       blog = Blog.find(params[:id])
       unless blog.author == current_user
         flash[:failure] = "ブログを投稿したユーザーのみが編集できます"
-        redirect_to :root
+        redirect_to :top
       end
     end
 end
