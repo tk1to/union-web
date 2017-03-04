@@ -1,0 +1,38 @@
+<div class="frame">
+
+  <div class="frame__heading frame__heading_underline">代表</div>
+  <div class="wrap_menbarard">
+    <% @chiefs.each do |ms| %>
+      <% member = ms.member %>
+      <div class="menbarCard">
+        <div class="menbarCard__image"></div>
+        <div class="menbarCard__heading"><%= member.name %></div>
+        <div class="menbarCard__subhead">学年とか</div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="frame__heading frame__heading_underline">管理者</div>
+  <div>
+    <% @admins.each do |ms| %>
+      <% member = ms.member %>
+      <div class="menbarCard">
+        <div class="menbarCard__image"></div>
+        <div class="menbarCard__heading"><%= member.name %></div>
+        <div class="menbarCard__subhead">大学、学年大学、学年大学、学年大学、学年あああああ</div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="frame__heading frame__heading_underline">編集者</div>
+  <div>
+    <% @editors.each do |ms| %>
+      <% member = ms.member %>
+      <div class="menbarCard">
+        <div class="menbarCard__image"></div>
+        <div class="menbarCard__heading"><%= member.name %></div>
+        <div class="menbarCard__subhead">大学、学年</div>
+      </div>
+    <% end %>
+  </div>
+</div>

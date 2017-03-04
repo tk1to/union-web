@@ -1,9 +1,9 @@
 
-<h1>管理者更新確認</h1>
+<h1>編集者更新確認</h1>
 
 <h2>権限を追加</h2>
 <ul>
-  <% @added_admins.each do |ms| %>
+  <% @added_editors.each do |ms| %>
     <li>
       <div>画像はいるとこ</div>
       <div><%= ms.member.name %></div>
@@ -13,7 +13,7 @@
 
 <h2>権限を削除</h2>
 <ul>
-  <% @removed_admins.each do |ms| %>
+  <% @removed_editors.each do |ms| %>
     <li>
       <div>画像はいるとこ</div>
       <div><%= ms.member.name %></div>
@@ -21,15 +21,15 @@
   <% end %>
 </ul>
 
-<%= form_tag [:admin, @circle], method: :patch do %>
-  <% @added_admins.each do |ms| %>
-    <%= hidden_field "added_admin", ms.id %>
+<%= form_tag [:editor, @circle], method: :patch do %>
+  <% @added_editors.each do |ms| %>
+    <%= hidden_field "added_editor", ms.id %>
   <% end %>
-  <% @removed_admins.each do |ms| %>
-    <%= hidden_field "removed_admin", ms.id %>
+  <% @removed_editors.each do |ms| %>
+    <%= hidden_field "removed_editor", ms.id %>
   <% end %>
 
-  <%= hidden_field_tag "admin_update_confirmed", true %>
+  <%= hidden_field_tag "editor_update_confirmed", true %>
   <div class="ta_center">
     <%= submit_tag "更新" , class: "button button_size_medium button_color_blue"%>
   </div>

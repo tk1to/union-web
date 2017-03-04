@@ -1,9 +1,9 @@
 <header class="ta_center">
-  <h1 class="formHeading">管理者を選択し、更新してください</h1>
+  <h1 class="formHeading">編集者を選択し、更新してください</h1>
 </header>
 
 <div class="frame">
-<%= form_tag [:admin, @circle], method: :patch do %>
+<%= form_tag [:editor, @circle], method: :patch do %>
   <ul class="wrap-thinCard">
     <% @memberships.each do |membership| %>
       <% member = membership.member
