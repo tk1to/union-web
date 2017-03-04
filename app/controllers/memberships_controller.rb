@@ -78,8 +78,9 @@ class MembershipsController < ApplicationController
 
   def publish_key
     circle = Circle.find(params[:id])
-    circle_id = params[:id]
+    circle_id = params[:id].to_i
     if circle_id < 10000
+      render "publish_url"
     else
       flash[:failuer] = "失敗"
       redirect_to circle
