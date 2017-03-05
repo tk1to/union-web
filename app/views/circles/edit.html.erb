@@ -59,10 +59,10 @@
   </div>
 
   <!-- text_areaの高さ半分くらいの方がいいかも -->
-  <%# @informations.each do |key, value| %>
-    <%# f.label key , value, class: "form__item"%>
-    <%# f.text_area key , class: "form__text_area" %>
-  <%# end %>
+  <% @informations.each do |key, value| %>
+    <%= f.label key , value, class: "form__item"%>
+    <%= f.text_area key , class: "form__text_area" %>
+  <% end %>
 
   <div class="form__buttun ta_center">
     <%= f.submit "更新" , class: "button button_size_large button_color_blue"%>

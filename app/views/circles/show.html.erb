@@ -100,35 +100,16 @@
 <div class="frame">
   <h2 class="frame__heading frame__heading_underline">サークル概要</h2>
   <div class="description"><%= simple_format(h(@circle.description)) %></div>
-  <!-- <div class="description"><p><%# @circle.activity %></p></div> -->
 
   <h2 class="frame__heading frame__heading_underline">サークル詳細情報</h2>
 
   <table class="table">
-    <tr>
-      <th scope="row" class="table__head">参加大学</th>
-      <td class="table__deta">明治大学</td>
-    </tr>
-    <tr>
-      <th scope="row" class="table__head">団体人数</th>
-      <td class="table__deta">30人</td>
-    </tr>
-    <tr>
-      <th scope="row" class="table__head">活動場所</th>
-      <td class="table__deta">御茶ノ水、他</td>
-    </tr>
-    <tr>
-      <th scope="row" class="table__head">年会費</th>
-      <td class="table__deta">3000円</td>
-    </tr>
-    <tr>
-      <th scope="row" class="table__head">男女比</th>
-      <td class="table__deta">5:5</td>
-    </tr>
-    <tr>
-      <th scope="row" class="table__head">その他</th>
-      <td class="table__deta">一緒に楽しみましょう！</td>
-    </tr>
+    <% @informations.each do |key, value| %>
+      <tr>
+        <th scope="row" class="table__head"><%= value %></th>
+        <td class="table__deta"><%= @circle[key] %></td>
+      </tr>
+    <% end %>
   </table>
 </div>
 
@@ -136,7 +117,6 @@
   <h2 class="frame__heading">ブログ一覧(<%= @circle.blogs.count %>)</h2>
   <% if @blogs.any? %>
     <%= render "shared/thin_cards", objects: @blogs %>
-    <!-- <div class="thinCard thinCard_no">ブログをもっと見る</div> -->
   <% else %>
     <p class="thinCard thinCard_no">ブログがありません。</p>
   <% end %>
