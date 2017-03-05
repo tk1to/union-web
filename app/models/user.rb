@@ -82,28 +82,26 @@ class User < ActiveRecord::Base
     self.following?(user) && user.following?(self)
   end
 
-  # def self.find_for_oauth(auth)
-  #   user = User.where(uid: auth.uid, provider: auth.provider).first
-  #   unless user
-  #     user = User.create(
-  #       uid: auth.uid,
-  #       provider: auth.provider,
-  #       name: auth.info.name,
-  #       email: User.get_email(auth),
-  #       password: Devise.friendly_token[4, 30])
-  #   end
-  #   user
-  # end
-
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
     unless user
       user = User.create(
         uid:      auth.uid,
         provider: auth.provider,
-        email:    User.dummy_email(auth),
-        password: Devise.friendly_token[0, 20]
+        name:     auth.info.name,
+        email:    User.get_email(auth),
+        password: Devise.friendly_token[6, 24],
+        picture:  auth.info.image,
       )
+      user.skip_confirmation!
+      user.save
+    else
+      user.update_attribute(:name, auth.info.name)
+      user.update_attribute(:email, User.get_email(auth))
+      user.update_attribute(:password, Devise.friendly_token[6, 24])
+      user.update_attribute(:picture, auth.info.image)
+      user.skip_confirmation!
+      user.save
     end
     user
   end
@@ -180,7 +178,7 @@ class User < ActiveRecord::Base
       email = "#{auth.provider}-#{auth.uid}@example.com" if email.blank?
       email
     end
-    def self.dummy_email(auth)
-      "#{auth.uid}-#{auth.provider}@example.com"
-    end
+    # def self.dummy_email(auth)
+    #   "#{auth.uid}-#{auth.provider}@example.com"
+    # end
 end
