@@ -9,7 +9,7 @@
         <% member = membership.member
            checked = membership.admin? %>
         <li class="thinCard">
-          <%= label_tag "member#{member.id}", {class: "test"} do %>
+          <%= label_tag "member#{member.id}", {class: "wrap_checkbox"} do %>
             <%= check_box "admin_edit", membership.id, {id: "member#{member.id}", class: "thinCard__checkbox", checked: checked}, true, false %>
             <div class="thinCard__image"></div>
             <div class="thinCard__heading"><%= member.name %></div>
