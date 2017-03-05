@@ -92,6 +92,7 @@ class User < ActiveRecord::Base
         email:    User.get_email(auth),
         password: Devise.friendly_token[6, 24],
         picture:  auth.info.image,
+        first_facebook_login: false,
       )
       user.skip_confirmation!
       user.save
