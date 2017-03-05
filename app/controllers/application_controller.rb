@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
 
   before_action :news_check
 
+  # ログイン後のリダイレクト
+  def after_sign_in_path_for(resource)
+    :top
+  end
   # ログアウト後のリダイレクト
   def after_sign_out_path_for(resource)
     :root

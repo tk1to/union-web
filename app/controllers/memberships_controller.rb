@@ -1,6 +1,8 @@
 class MembershipsController < ApplicationController
 
   before_action :authenticate_user!
+  before_action :correct_chief, only: [:chief_update, :chief_edit, :admin_edit, :admin_update]
+  before_action :correct_admin, only: [:status, :status_edits, :editor_edit, :editor_update, :publish_key]
 
   def status
     @circle     = Circle.find(params[:id])
@@ -16,6 +18,9 @@ class MembershipsController < ApplicationController
 
   def chief_edit
   end
+  def chief_update
+  end
+
   def admin_edit
     @circle  = Circle.find(params[:id])
     @members = @circle.members
@@ -86,4 +91,33 @@ class MembershipsController < ApplicationController
       redirect_to circle
     end
   end
+
+  private
+    def correct_chief
+      circle = Circle.find(params[:id])
+      ms = current_user.memberships.find_by(circle_id: circle.id)
+      if ms.blank?
+        flash[:failure] = "サークルメンバーのみの機能です"
+        redirect_to :top
+      elsif ms[:status] != 0
+        flash[:failure] = "代表のみの機能です"
+        redirect_to circle
+      end
+    end
+    def correct_admin
+      circle = Circle.find(params[:id])
+      ms = current_user.memberships.find_by(circle_id: circle.id)
+      if ms.blank?
+        flash[:failure] = "サークルメンバーのみの機能です"
+        redirect_to :top
+      elsif ms[:status] > 1
+        flash[:failure] = "管理者のみの機能です"
+        redirect_to circle
+      end
+    end
 end
+
+
+
+
+

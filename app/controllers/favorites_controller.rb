@@ -4,9 +4,12 @@ class FavoritesController < ApplicationController
 
   def create
     circle = Circle.find(params[:circle_id])
-    current_user.favorites.create(circle_id: circle.id)
-    flash[:success] = "気になるをしました"
-    redirect_to circle
+    # current_user.favorites.create(circle_id: circle.id)
+    respond_to do |format|
+      format.html { redirect_to :top }
+      format.js
+    end
+    end
   end
 
   def destroy
