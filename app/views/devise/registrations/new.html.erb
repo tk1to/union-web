@@ -29,4 +29,8 @@
 <div class="ta_center">
 <%= link_to "確認メールが届かない方こちら", new_confirmation_path(resource_name) , class: "links__text"%>
 </div>
+
+<div class="ta_center">
+  <%= link_to "Facebook登録はこちら", user_facebook_omniauth_authorize_path , class: "button button_lp button_facebook"%>
+</div>
 <%# render "devise/shared/links" %>

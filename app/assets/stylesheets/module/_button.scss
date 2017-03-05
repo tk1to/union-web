@@ -109,4 +109,28 @@
 			background: $d-blue;
 		}
 	}
+	&_lp{
+		width: 15rem;
+		height: 2rem;
+		font-size: 0.8rem;
+		line-height: 2rem;
+		margin-bottom: 0.5rem;
+		border-radius:3px;
+	}
+	&_facebook{
+		background: #3B579D;
+		color: #fff;
+		&::before{
+			content: "";
+	    width:1.5rem;
+	    height:1.5rem;
+	    background-image: image-url("facebook.png");
+	    background-size: 1.5rem auto;
+	    display: inline-block;
+	    vertical-align: middle;
+	    margin-right: 0.5rem;
+	    // margin-top: 0.4rem;
+	    margin-bottom: 0.5rem;
+		}
+	}
 }
