@@ -1,14 +1,11 @@
-<% if !user_signed_in? %>
-  <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
-<% end %>
-
 <div class="LP">
   <div class="keyvisual">
     <%= image_tag "union_lp.png" %>
     <% if !user_signed_in? %>
       <div class="keyvisual__inner">
-        <%= link_to '新規登録', [:new, :user, :registration], class: "button button_size_medium button_color_blue"%>
-        <%= link_to "ログイン", [:new, :user, :session] , class: "button button_size_medium button_color_white"%>
+        <%= link_to "Facebookで簡単登録", user_facebook_omniauth_authorize_path , class: "button button_lp button_facebook"%>
+        <%= link_to 'E-mailで登録', [:new, :user, :registration], class: "button button_lp button_color_blue"%>
+        <%= link_to "ログイン", [:new, :user, :session] , class: "button button_lp button_color_white"%>
       </div>
     <% end %>
   </div>
@@ -35,8 +32,9 @@
   <% if !user_signed_in? %>
     <div class="lp">
       <div class="lp__inner">
-        <%= link_to '新規登録', [:new, :user, :registration], class: "button button_size_large button_color_blue"%>
-        <%= link_to "ログイン", [:new, :user, :session] , class: "button button_size_large button_color_white"%>
+        <%= link_to "Facebookで簡単登録", user_facebook_omniauth_authorize_path , class: "button button_lp button_facebook"%>
+        <%= link_to 'E-mailで登録', [:new, :user, :registration], class: "button button_lp button_color_blue"%>
+        <%= link_to "ログイン", [:new, :user, :session] , class: "button button_lp button_color_white"%>
       </div>
     </div>
   <% end %>
