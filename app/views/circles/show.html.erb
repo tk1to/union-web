@@ -71,11 +71,9 @@
     <% if @be_member %>
       <%= link_to "お問い合わせ", [@circle, :contacts] , class: "button button_square button_color_gray"%>
     <% else %>
-      <%= link_to "お問い合わせ", [:new, @circle, :contact] , class: "button button_size_medium button_color_gray "%>
+      <%= link_to "お問い合わせ", [:new, @circle, :contact] , class: "button button_size_large button_color_gray "%>
     <% end %>
-  <!-- </div> -->
 
-  <!-- <div class="ta_center"> -->
     <% if @be_member %>
       <%= link_to "メンバー申請", [@circle, :entries] , class: "button button_square button_color_gray"%>
     <% else %>
