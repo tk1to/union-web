@@ -1,25 +1,28 @@
+<header class="ta_center">
+  <h1 class="formHeading">管理者更新確認</h1>
+</header>
 
-<h1>管理者更新確認</h1>
+<div class="frame">
+<h2 class="frame__heading frame__heading_underline">権限を追加</h2>
 
-<h2>権限を追加</h2>
-<ul>
-  <% @added_admins.each do |ms| %>
-    <li>
-      <div>画像はいるとこ</div>
-      <div><%= ms.member.name %></div>
-    </li>
-  <% end %>
-</ul>
+<% @added_admins.each do |ms| %>
+<div class="menbarCard">
+  <div class="menbarCard__image"></div>
+  <div class="menbarCard__heading"><%= ms.member.name %></div>
+  <div class="menbarCard__subhead">学年とか</div>
+</div>
+<% end %>
 
-<h2>権限を削除</h2>
-<ul>
+<h2 class="frame__heading frame__heading_underline">権限を削除</h2>
   <% @removed_admins.each do |ms| %>
-    <li>
-      <div>画像はいるとこ</div>
-      <div><%= ms.member.name %></div>
-    </li>
+    <div class="menbarCard">
+      <div class="menbarCard__image"></div>
+      <div class="menbarCard__heading"><%= ms.member.name %></div>
+      <div class="menbarCard__subhead">学年とか</div>
+    </div>
   <% end %>
-</ul>
+
+</div>
 
 <%= form_tag [:admin, @circle], method: :patch do %>
   <% @added_admins.each do |ms| %>

@@ -8,16 +8,16 @@
       <% @memberships.each do |membership| %>
         <% member = membership.member
            checked = membership.admin? %>
-        <%= label_tag "member#{member.id}", {class: "test"} do %>
-          <li class="thinCard">
+        <li class="thinCard">
+          <%= label_tag "member#{member.id}", {class: "test"} do %>
             <%= check_box "admin_edit", membership.id, {id: "member#{member.id}", class: "thinCard__checkbox", checked: checked}, true, false %>
             <div class="thinCard__image"></div>
             <div class="thinCard__heading"><%= member.name %></div>
-            <div class="thinCard__subhead">ああああ</div>
+            <div class="thinCard__subhead"><%= member.basic_info %></div>
             <div class="checkbox_style"></div>
             <div class="checkbox_cover"></div>
-          </li>
-        <% end %>
+          <% end %>
+        </li>
       <% end %>
     </ul>
 
