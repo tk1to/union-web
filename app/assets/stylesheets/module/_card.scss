@@ -135,6 +135,7 @@
   overflow-y: hidden;
   white-space: nowrap;
   z-index: 100;
+  -webkit-overflow-scrolling: touch;
 }
 // サークルもっと見る
 .miniCard__more{
