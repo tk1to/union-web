@@ -84,7 +84,7 @@ class User < ActiveRecord::Base
 
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
-    unless user
+    if !user
       user = User.create(
         uid:      auth.uid,
         provider: auth.provider,
