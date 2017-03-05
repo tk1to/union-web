@@ -136,11 +136,11 @@ $(function(){
   });
 });
 
-$(function(){
-  $('.checkbox_cover').click(function(){
-    $('.checkbox_style').toggleClass('checkbox_select');
-  });
-});
+// $(function(){
+//   $('#member2').click(function(){
+//     $('.checkbox_style').toggleClass('checkbox_select');
+//   });
+// });
 
 
 
