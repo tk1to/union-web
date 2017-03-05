@@ -6,7 +6,10 @@ class FavoritesController < ApplicationController
     @circle = Circle.find(params[:circle_id])
     current_user.favorites.create(circle_id: @circle.id)
     respond_to do |format|
-      format.html { redirect_to :top }
+      format.html {
+        flash[:success] = "気になるしました"
+        redirect_to request.referer
+      }
       format.js
     end
   end
@@ -15,7 +18,10 @@ class FavoritesController < ApplicationController
     @circle = Circle.find(params[:circle_id])
     Favorite.find_by(circle_id: params[:circle_id], user_id: current_user.id).destroy
     respond_to do |format|
-      format.html { redirect_to :top }
+      format.html {
+        flash[:success] = "気にならなくなりました"
+        redirect_to request.referer
+      }
       format.js
     end
   end

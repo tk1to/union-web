@@ -63,11 +63,6 @@
     <% if @be_member %>
         <%= link_to "気になる一覧", [:favorited, @circle] , class: "button button_square button_color_gray"%>
     <% else %>
-      <%# if @favoriting %>
-        <%# link_to "気になる解除", [@circle, @favorite], method: :delete , class: "button button_size_medium button_color_gray"%>
-      <%# else %>
-        <%# link_to "気になる", [@circle, :favorites], method: :post , class: "button button_size_medium button_color_gray "%>
-      <%# end %>
       <div id="favorite_form_<%= @circle.id %>">
         <%= render !current_user.favorites.find_by(circle_id: @circle.id) ? "favorite" : "unfavorite" , circle: @circle %>
       </div>
