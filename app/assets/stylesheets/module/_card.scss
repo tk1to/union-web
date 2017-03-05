@@ -1,4 +1,7 @@
 // 大きいカード(サークル一覧)
+.wrap_card{
+  position: relative;
+}
 .card{
   position: relative;
   width: 95%;
@@ -183,6 +186,9 @@
   border: 1px solid $d-blue;
   border-radius: 3px;
   box-sizing: border-box;
+  .thinCard:first-child{
+    border-top: none;
+  }
 }
 .thinCard{
   position: relative;
