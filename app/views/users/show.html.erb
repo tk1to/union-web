@@ -36,7 +36,7 @@
     <ul class="sideMenu__lists">
       <li class="sideMenu__item sideMenu_close">閉じる</li>
       <li class="sideMenu__item"><%= link_to "プロフィール編集", [:edit, @user] %></li>
-      <li class="sideMenu__item"><%= link_to "新規サークル登録", [:new, :circle], class: "create_circle_btn"%></li>
+      <li class="sideMenu__item"><%= link_to "新規団体登録", [:new, :circle], class: "create_circle_btn"%></li>
       <li class="sideMenu__item"><%= link_to "ログアウト", [:destroy, :user, :session], method: :delete, data: { confirm: "ログアウトしますか？" } %></li>
       <li class="sideMenu__item"><%= link_to "アカウントを削除", @user, method: :delete %></li>
     </ul>
