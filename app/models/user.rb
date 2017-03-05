@@ -82,15 +82,28 @@ class User < ActiveRecord::Base
     self.following?(user) && user.following?(self)
   end
 
+  # def self.find_for_oauth(auth)
+  #   user = User.where(uid: auth.uid, provider: auth.provider).first
+  #   unless user
+  #     user = User.create(
+  #       uid: auth.uid,
+  #       provider: auth.provider,
+  #       name: auth.info.name,
+  #       email: User.get_email(auth),
+  #       password: Devise.friendly_token[4, 30])
+  #   end
+  #   user
+  # end
+
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
     unless user
       user = User.create(
-        uid: auth.uid,
+        uid:      auth.uid,
         provider: auth.provider,
-        name: auth.info.name,
-        email: User.get_email(auth),
-        password: Devise.friendly_token[4, 30])
+        email:    User.dummy_email(auth),
+        password: Devise.friendly_token[0, 20]
+      )
     end
     user
   end
@@ -166,5 +179,8 @@ class User < ActiveRecord::Base
       email = auth.info.email
       email = "#{auth.provider}-#{auth.uid}@example.com" if email.blank?
       email
+    end
+    def self.dummy_email(auth)
+      "#{auth.uid}-#{auth.provider}@example.com"
     end
 end
