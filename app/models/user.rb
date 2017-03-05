@@ -95,7 +95,8 @@ class User < ActiveRecord::Base
       )
       user.skip_confirmation!
       user.save
-    else
+    elsif user.first_facebook_login
+      user.update_attribute(:first_facebook_login, false)
       user.update_attribute(:name, auth.info.name)
       user.update_attribute(:email, User.get_email(auth))
       user.update_attribute(:password, Devise.friendly_token[6, 24])
