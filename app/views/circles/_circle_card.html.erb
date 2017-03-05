@@ -18,8 +18,9 @@
         /<%= circle.categories.third.name %>
       <% end %>
     </p>
-    <div id="favorite_form">
-      <%= render !current_user.favorites.find_by(circle_id: circle.id) ? "favorite" : "unfavorite" , circle: circle %>
-    </div>
   </div>
 <% end %>
+<div id="favorite_form_<%= circle.id %>">
+  <% @circle = circle %>
+  <%= render !current_user.favorites.find_by(circle_id: @circle.id) ? "favorite" : "unfavorite" , circle: @circle %>
+</div>

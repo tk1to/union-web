@@ -68,6 +68,9 @@
       <%# else %>
         <%# link_to "気になる", [@circle, :favorites], method: :post , class: "button button_size_medium button_color_gray "%>
       <%# end %>
+      <div id="favorite_form_<%= @circle.id %>">
+        <%= render !current_user.favorites.find_by(circle_id: @circle.id) ? "favorite" : "unfavorite" , circle: @circle %>
+      </div>
     <% end %>
 
     <% if @be_member %>
