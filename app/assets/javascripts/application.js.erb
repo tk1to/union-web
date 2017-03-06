@@ -43,6 +43,17 @@ $(function(){
   $('.checkbox_cover').click(function(){
     $('.checkbox_style').toggleClass('checkbox_select');
   });
+
+  // ユーザー必須項目不足時
+  $(".prompt").hide();
+  $(".restricted").click(function(){
+    $(".prompt").fadeIn(300);
+    return false;
+  });
+  $(".prompt").click(function(){
+    $(".prompt").fadeOut(300);
+  });
+
 });
 
 function filereader(){

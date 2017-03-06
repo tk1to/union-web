@@ -11,43 +11,28 @@
   <% if !(params[:controller] == "message_rooms" && params[:action] == "show") %>
     <div class="whole_wrap">
   <% end %>
-    <%= render 'layouts/nav' %>
-    <% flash.each do |message_type, message| %>
-      <div class="flash_message"><%= message %></div>
-    <% end %>
+  <%= render 'layouts/nav' %>
+  <% flash.each do |message_type, message| %>
+    <div class="flash_message"><%= message %></div>
+  <% end %>
 
-    <%= yield %>
+  <%= yield %>
 
-    <% if !(params[:controller] == "message_rooms" && params[:action] == "show") %>
-      <footer class="footer">
-        <p><%= link_to "プライバシーポリシー", :privacypolicy, style: "color: gray; text-decoration: none;" %></p>
-        <p class="footer__copyright">COPYRIGHT &#169; 2017 UNION ALL RIGHTS RESERVED. </p>
-      </footer>
-      </div>
-    <% end %>
-
-    <div class="prompt">
-      <div class="prompt__box">
-        <p class="prompt__text">この機能を利用するには、プロフィールの必須項目を入力してください。</p>
-        <button class="prompt__button button button_size_medium button_color_blue">入力する
-          <%# link_to %>
-        </button>
-          <%= image_tag 'close.svg' , class: "prompt__close"%>
-      </div>
+  <% if !(params[:controller] == "message_rooms" && params[:action] == "show") %>
+    <footer class="footer">
+      <p><%= link_to "プライバシーポリシー", :privacypolicy, style: "color: gray; text-decoration: none;" %></p>
+      <p class="footer__copyright">COPYRIGHT &#169; 2017 UNION ALL RIGHTS RESERVED. </p>
+    </footer>
     </div>
+  <% end %>
 
-    <script>
-    $(function(){
-        $(".prompt").hide();
-          $(".nav_prompt").click(function(){
-            $(".prompt").fadeIn(300);
-            return false;
-          });
-          $(".prompt").click(function(){
-            $(".prompt").fadeOut(300);
-          });
-      });
-    </script>
+  <div class="prompt">
+    <div class="prompt__box">
+      <p class="prompt__text">この機能を利用するには、プロフィールの必須項目を入力してください。</p>
+      <%= link_to "設定", current_user, class: "prompt__button button button_size_medium button_color_blue" %>
+      <%= image_tag 'close.svg' , class: "prompt__close"%>
+    </div>
+  </div>
 
   <%= debug(params) if Rails.env.development? %>
 </body>
