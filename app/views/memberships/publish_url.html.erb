@@ -1,13 +1,13 @@
 <div class="ta_center">
-  <h1 class="formHeading">メンバー用URL発行ページ</h1>
+  <h1 class="formHeading">メンバー用URL発行</h1>
 
 
-<p class="normal_text">(サークル名)のメンバーURLは</p>
+<p class="normal_text"><%= @circle.name %>のメンバーURLは</p>
 
 <div class="form">
-  <input class="form form__text_field" type="text" name=""></input>
+  <input id="fe_text" class="form form__text_field" type="text" value="<%= @published_url %>">
 </div>
-
-<button class="button button_size_large button_color_blue">ボタンをタップでURLをコピー</button>
+<button id="d_clip_button" data-clipboard-target="fe_text"
+        class="button button_size_large button_color_blue">URLをコピー</button>
 
 </div>
