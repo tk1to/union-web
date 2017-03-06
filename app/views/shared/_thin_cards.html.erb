@@ -56,12 +56,14 @@ heading_sym   = oc_eq_user ? :name : :title
   <% end %>
 
   <% if (oc_eq_blog || oc_eq_event) %>
-    <li class="thinCard thinCard__more"><%# link_to "#",  %></li>
+    <li>
+      <%= link_to do %>
+        <div class="thinCard thinCard__more">もっと見る</div>
+      <% end %>
+    </li>
   <% end %>
 
 </ul>
-
-
 
 
 
