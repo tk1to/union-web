@@ -6,9 +6,10 @@ class User < ActiveRecord::Base
          :confirmable,
          :omniauthable, omniauth_providers: [:facebook]
 
-  before_save   :downcase_email
+  before_save :downcase_email
 
   validates :name, length: { maximum: 50 }
+  validates :password, presence: true, length: { minimum: 6, maximum: 24 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :email, presence:   true, length: { maximum: 255 },
                     format:     { with: VALID_EMAIL_REGEX },
@@ -23,7 +24,6 @@ class User < ActiveRecord::Base
   validate  :picture_size
   mount_uploader :header_picture, PictureUploader
   validate  :header_picture_size
-
 
   has_many :circles, through: :memberships
   has_many :memberships, foreign_key: "member_id"
@@ -108,16 +108,17 @@ class User < ActiveRecord::Base
     user
   end
 
-  # def free
-  #   return false if !self.name
-  #   return false if !self.college
-  #   return false if !self.department
-  #   return false if !self.sex
-  #   return false if !self.birth_place
-  #   return false if !self.home_place
-  #   return false if !self.categories.any?
-  #   true
-  # end
+  def free
+    properties = []
+    properties << "名前"                if self.name.blank?
+    properties << "大学"                if self.college.blank?
+    properties << "学部"                if self.department.blank?
+    properties << "性別"                if self.sex.blank?
+    properties << "住んでるところ"       if self.birth_place.blank?
+    properties << "出身地"              if self.home_place.blank?
+    properties << "興味のあるカテゴリー"  if !self.categories.any?
+    [properties.blank?, properties]
+  end
 
   def basic_info
     info = ""
