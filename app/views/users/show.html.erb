@@ -15,7 +15,7 @@
         $(".alert").fadeIn(300);
         return false;
       });
-      $(".alert__button").click(function(){
+      $(".alert").click(function(){
         $(".alert").fadeOut(300);
       });
     }
@@ -79,6 +79,11 @@
 <div class="follow">
   <ul class="follow__wrap">
     <li class="follow__list follow__list_border_right">
+      <%= link_to [:edit, @user] , class: "follow__link" do %>
+        <%= image_tag 'setting_prof.svg' , class: "follow__list_icon"%>
+      <% end %>
+    </li>
+    <li class="follow__list follow__list_border_right">
       <%= link_to [:following, @user] , class: "follow__link" do %>
         <div id="following_count" class="follow__number" ><%= @user.following.count %></div>フォロー
       <% end %>
@@ -138,6 +143,7 @@
   <div class="alert__box">
     <p class="alert__text">メッセージを送るには、相互にフォローしている必要があります。</p>
     <button class="alert__button button button_size_medium button_color_blue">OK</button>
+    <%= image_tag 'close.svg' , class: "prompt__close"%>
   </div>
 </div>
 
