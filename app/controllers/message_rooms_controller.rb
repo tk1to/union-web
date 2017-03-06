@@ -5,7 +5,7 @@ class MessageRoomsController < ApplicationController
   before_action :correct_user, only: [:show]
 
   def index
-    @message_rooms = current_user.message_rooms.sort_by{|mr|mr.newest_message.created_at}.reverse
+    @message_rooms = current_user.message_rooms.sort_by{|mr|mr.updated_at}.reverse
   end
   def new
     mid = current_user.id

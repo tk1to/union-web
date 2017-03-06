@@ -7,10 +7,12 @@
   <% @circles.each do |circle| %>
     <div class="wrap_card">
       <%= render "circle_card", circle: circle %>
-      <div id="favorite_form_<%= circle.id %>">
-        <% @circle = circle %>
-        <%= render !current_user.favorites.find_by(circle_id: @circle.id) ? "favorite" : "unfavorite" , circle: @circle %>
-      </div>
+      <% if user_signed_in? %>
+        <div id="favorite_form_<%= circle.id %>">
+          <% @circle = circle %>
+          <%= render !current_user.favorites.find_by(circle_id: @circle.id) ? "favorite" : "unfavorite" , circle: @circle %>
+        </div>
+      <% end %>
     </div>
   <% end %>
 <% end %>
