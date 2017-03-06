@@ -18,6 +18,37 @@
   <%# image_tag 'maru>.svg' , class: "arrows"%>
 </div>
  -->
+
+<div class="frame">
+  <h1 class="frame__heading frame__heading_underline">サークルランキング</h1>
+</div>
+<div class="wrap_miniCard">
+  <% if @circles.any? %>
+    <ul class="sride-miniCard">
+      <% @circles.each do |circle| %>
+        <li class="miniCard">
+          <%= link_to circle, class: "wrap__link" do %>
+            <div class="miniCard__background" style="background-image: url(<%= circle.header_picture %>)"></div>
+            <div class="miniCard__image" style="background-image: url(<%= circle.picture %>)"></div>
+            <p class="miniCard__name"><%= circle.name %></p>
+            <p class="miniCard__genre">
+              <% if circle.categories.first.present? %>
+                <%= circle.categories.first.name %>
+              <% end %>
+            </p>
+          <% end %>
+        </li>
+      <% end %>
+      <li>
+        <%= link_to :circles do %>
+          <div class="miniCard miniCard__more">read more!!</div>
+        <% end %>
+      </li>
+    </ul>
+  <% end %>
+  <%= image_tag 'maru>.svg' , class: "arrows"%>
+</div>
+
 <div class="frame">
   <h1 class="frame__heading frame__heading_underline">新着サークル一覧</h1>
 </div>
