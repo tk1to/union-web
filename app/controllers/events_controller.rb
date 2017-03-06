@@ -7,6 +7,8 @@ class EventsController < ApplicationController
     @events = Event.all.order("created_at DESC")
   end
   def index
+    @circle = Circle.find(params[:circle_id])
+    @events = Event.where(circle_id: @circle.id).order("created_at DESC")
   end
 
   def new

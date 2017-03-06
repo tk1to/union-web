@@ -8,6 +8,8 @@ class BlogsController < ApplicationController
     @blogs = Blog.all.order("created_at DESC")
   end
   def index
+    @circle = Circle.find(params[:circle_id])
+    @blogs  = Blog.where(circle_id: @circle.id).order("created_at DESC")
   end
 
   def new

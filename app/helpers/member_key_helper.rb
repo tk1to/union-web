@@ -7,4 +7,9 @@ module MemberKeyHelper
     0 #何も当てはまらなかったら0を返す
   end
 
+  def get_alphabet(n)
+    n %= 26
+    ("a".."z").to_a[n] || n.to_s
+  end
+
 end
