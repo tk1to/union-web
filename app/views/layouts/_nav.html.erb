@@ -1,6 +1,6 @@
 <nav class="nav">
   <ul class="nav__list">
-    <li class="nav__item"><%= link_to image_tag('top.svg'), :top %></li>
+    <li class="nav__item"><%= link_to image_tag('home.svg'), :top %></li>
     <li class="nav__item"><%= link_to image_tag('search.svg'), [:feed, :circles] %></li>
     <li class="nav__item"><%= link_to_if(user_signed_in?, image_tag('message.svg'), :message_rooms) %>
       <% if user_signed_in? && current_user.new_messages_count && 0 < current_user.new_messages_count %>
