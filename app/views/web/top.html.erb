@@ -15,7 +15,7 @@
     <li class="genre">ジャンル</li>
     <li class="genre">ジャンル</li>
   </ul>
-  <%= image_tag 'maru>.svg' , class: "arrows"%>
+  <%# image_tag 'maru>.svg' , class: "arrows"%>
 </div>
  -->
 <div class="frame">
@@ -39,7 +39,9 @@
         </li>
       <% end %>
       <li>
-        <div class="miniCard miniCard__more">read more!!</div>
+        <%= link_to :circles do %>
+          <div class="miniCard miniCard__more">read more!!</div>
+        <% end %>
       </li>
     </ul>
   <% end %>
