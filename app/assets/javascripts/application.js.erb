@@ -46,13 +46,15 @@ $(function(){
 
   // ユーザー必須項目不足時
   $(".prompt").hide();
-  $(".restricted").click(function(){
-    $(".prompt").fadeIn(300);
-    return false;
-  });
-  $(".prompt").click(function(){
-    $(".prompt").fadeOut(300);
-  });
+  if(!$("span#user_free")[0]) {
+    $(".restricted").click(function(){
+      $(".prompt").fadeIn(300);
+      return false;
+    });
+    $(".prompt").click(function(){
+      $(".prompt").fadeOut(300);
+    });
+  }
 
 });
 

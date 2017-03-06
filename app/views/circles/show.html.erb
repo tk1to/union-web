@@ -63,15 +63,15 @@
     <% if @be_member %>
         <%= link_to "気になる一覧", [:favorited, @circle] , class: "button button_square button_color_gray"%>
     <% else %>
-      <div id="favorite_form_<%= @circle.id %>">
+      <div id="favorite_form_<%= @circle.id %>" class="restricted">
         <%= render !current_user.favorites.find_by(circle_id: @circle.id) ? "favorite" : "unfavorite" , circle: @circle %>
       </div>
     <% end %>
 
     <% if @be_member %>
-      <%= link_to "お問い合わせ", [@circle, :contacts] , class: "button button_square button_color_gray"%>
+      <%= link_to "お問い合わせ", [@circle, :contacts] , class: "button button_square button_color_gray" %>
     <% else %>
-      <%= link_to "お問い合わせ", [:new, @circle, :contact] , class: "button button_size_large button_color_gray "%>
+      <%= link_to "お問い合わせ", [:new, @circle, :contact] , class: "button button_size_large button_color_gray restricted" %>
     <% end %>
 
     <% if @be_member %>
@@ -79,7 +79,7 @@
     <% else %>
       <% if !@entrying %>
       <div class="ta_center">
-        <%= link_to "メンバー申請", [@circle, :entries], method: :post , class: "button button_size_large button_color_blue"%>
+        <%= link_to "メンバー申請", [@circle, :entries], method: :post , class: "button button_size_large button_color_blue restricted"%>
       </div>
       <% else %>
         <%= link_to "メンバー申請キャンセル", [@circle, @entry], method: :delete , class: "button button_size_large button_color_blue"%>

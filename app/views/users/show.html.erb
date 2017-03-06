@@ -64,7 +64,7 @@
   <% end %>
   <div class="message_follow">
     <% if user_signed_in? && !current_user?(@user) %>
-      <div id="follow_form">
+      <div id="follow_form" class="restricted">
         <%= render !current_user.following?(@user) ? "follow" : "unfollow" %>
       </div>
       <% if current_user.mutual_follow?(@user) %>
