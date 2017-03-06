@@ -44,13 +44,15 @@ Rails.application.routes.draw do
       get    :members
       delete :resign
 
-      get    :status,       to: "memberships#status"
-      get    "status/edit", to: "memberships#status_edits"
-      get    :admin,        to: "memberships#admin_edit"
-      patch  :admin,        to: "memberships#admin_update"
-      get    :editor,       to: "memberships#editor_edit"
-      patch  :editor,       to: "memberships#editor_update"
-      get    :key,          to: "memberships#publish_key"
+      get   :status,       to: "memberships#status"
+      get   "status/edit", to: "memberships#status_edits"
+      get   :chief,        to: "memberships#chief_edit"
+      patch :chief,        to: "memberships#chief_update"
+      get   :admin,        to: "memberships#admin_edit"
+      patch :admin,        to: "memberships#admin_update"
+      get   :editor,       to: "memberships#editor_edit"
+      patch :editor,       to: "memberships#editor_update"
+      get   :key,          to: "memberships#publish_key"
     end
     collection do
       get :search

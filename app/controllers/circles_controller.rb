@@ -13,7 +13,7 @@ class CirclesController < ApplicationController
     @circle = Circle.new(circle_params)
     if @circle.save
       flash[:success] = "作成完了"
-      @membership = Membership.create(member_id: current_user.id, circle_id: @circle.id)
+      @membership = Membership.create(member_id: current_user.id, circle_id: @circle.id, status: 0)
       redirect_to @circle
     else
       render "new"

@@ -1,0 +1,28 @@
+<header class="ta_center">
+  <h1 class="formHeading">代表者を選択し、更新してください</h1>
+</header>
+
+<div class="frame">
+  <%= form_tag [:chief, @circle], method: :patch do %>
+    <ul class="wrap-thinCard">
+      <% @memberships.each do |membership| %>
+        <% member = membership.member
+           checked = membership.chief? %>
+        <li class="thinCard">
+          <%= label_tag "member#{member.id}", {class: "wrap_checkbox"} do %>
+            <%= radio_button "chief_edit", membership.id, {id: "member#{member.id}", class: "thinCard__checkbox", checked: checked}, true, false %>
+            <div class="thinCard__image"></div>
+            <div class="thinCard__heading"><%= member.name %></div>
+            <div class="thinCard__subhead"><%= member.basic_info %></div>
+            <div class="checkbox_style"></div>
+            <div class="checkbox_cover"></div>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+
+    <div class="ta_center">
+      <%= submit_tag "更新" , class: "button button_size_medium button_color_blue"%>
+    </div>
+  <% end %>
+</div>
