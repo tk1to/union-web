@@ -1,10 +1,16 @@
 
+<% if !current_user.mutual_follow?(@user) %><span id="mutual_follow"></span><% end %>
+<% if current_user?(@user) %><span id="current_user"></span><% end %>
+
 <script type="text/javascript">
   $(function(){
 
+    var mutual_follow = $("span#mutual_follow")[0];
+    var current_user  = $("span#current_user")[0];
+
     // 相互フォローでない人にメッセージを送ろうとした場合のポップアップ
     $(".alert").hide();
-    <% if !current_user.mutual_follow?(@user) %>
+    if (mutual_follow) {
       $(".header__message").click(function(){
         $(".alert").fadeIn(300);
         return false;
@@ -12,18 +18,18 @@
       $(".alert__button").click(function(){
         $(".alert").fadeOut(300);
       });
-    <% end %>
+    }
 
     // 個人ページ、プロフィール画像からの編集
     $(".user__image_zoom").hide();
-    <% if current_user?(@user) %>
+    if (current_user) {
       $(".header__photo_user").click(function(){
         $(".user__image_zoom").fadeIn(100);
       });
       $(".user__image_zoom").click(function(){
         $(".user__image_zoom").fadeOut(100);
       });
-    <% end %>
+    }
   });
 </script>
 
