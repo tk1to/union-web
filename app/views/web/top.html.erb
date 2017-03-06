@@ -1,12 +1,12 @@
 <header class="header">
-  <%= link_to :root , class: "header__background" do %>
+  <%= link_to :root, class: "header__background" do %>
     <div class="header__image_top" style="background-image: url(<%= asset_path('union_lp_trim.png') %>);"></div>
     <% if !user_signed_in? %>
       <p class="header__paragraph">新規登録・ログインはこちら</p>
     <% end %>
   <% end %>
 </header>
-<!--
+
 <div class="frame_100">
   <ul class="sride_genre">
     <li class="genre">ジャンル</li>
@@ -15,9 +15,9 @@
     <li class="genre">ジャンル</li>
     <li class="genre">ジャンル</li>
   </ul>
-  <%# image_tag 'maru>.svg' , class: "arrows"%>
+  <%= image_tag 'maru>.svg' , class: "arrows"%>
 </div>
- -->
+
 <div class="frame">
   <h1 class="frame__heading frame__heading_underline">新着サークル一覧</h1>
 </div>
@@ -40,7 +40,7 @@
       <% end %>
       <li>
         <%= link_to :circles do %>
-          <div class="miniCard miniCard__more">read more!!</div>
+          <div class="miniCard miniCard__more">もっと見る</div>
         <% end %>
       </li>
     </ul>
@@ -49,17 +49,15 @@
 </div>
 
 <div class="frame frame_blog">
-  <h1 class="frame__heading frame__heading_underline">ブログ一覧</h1>
+  <h1 class="frame__heading frame__heading_underline">新着ブログ</h1>
 <% if @blogs.any? %>
   <%= render "shared/thin_cards", objects: @blogs %>
-  <!-- <p style="text-align: right;"><%= link_to "もっと見る", :blogs, style: "color: gray; text-decoration: none;" %></p> -->
 <% end %>
 </div>
 
 <div class="frame">
-  <h1 class="frame__heading frame__heading_underline">イベント一覧</h1>
+  <h1 class="frame__heading frame__heading_underline">新着イベント</h1>
 <% if @events.any? %>
   <%= render "shared/thin_cards", objects: @events %>
-  <!-- <p style="text-align: right;"><%= link_to "もっと見る", :events, style: "color: gray; text-decoration: none;" %></p> -->
 <% end %>
 </div>
