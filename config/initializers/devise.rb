@@ -249,7 +249,7 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   # config.omniauth :facebook, ENV['FACEBOOK_ID'], ENV['FACEBOOK_APP_SECRET'], { strategy_class: OmniAuth::Strategies::Facebook, provider_ignores_state: true }
-  config.omniauth :facebook, ENV['FACEBOOK_ID'], ENV['FACEBOOK_APP_SECRET'], callback_url: "https://union-web-staging.herokuapp.com/users/auth/facebook/callback"
+  config.omniauth :facebook, ENV['FACEBOOK_ID'], ENV['FACEBOOK_APP_SECRET'], callback_url: "https://union-web.herokuapp.com/users/auth/facebook/callback"
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
