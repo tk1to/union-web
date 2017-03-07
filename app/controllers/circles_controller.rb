@@ -2,6 +2,7 @@ class CirclesController < ApplicationController
 
   before_action :authenticate_user!, except: [:index, :show, :feed, :search, :members]
   before_action :member_check, only: [:edit, :update, :destroy, :resign, :favorited]
+  before_action :correct_admin, only: [:edit, :update]
 
   def index
     @circles = Circle.all.order("created_at DESC")
@@ -156,6 +157,18 @@ class CirclesController < ApplicationController
       unless circle.members.include?(current_user)
         flash[:failure] = "メンバーのみの機能です"
         redirect_to :top
+      end
+    end
+
+    def correct_admin
+      circle = Circle.find(params[:id])
+      ms = current_user.memberships.find_by(circle_id: circle.id)
+      if ms.blank?
+        flash[:failure] = "サークルメンバーのみの機能です"
+        redirect_to :top
+      elsif ms[:status] > 1
+        flash[:failure] = "管理者のみの機能です"
+        redirect_to circle
       end
     end
 

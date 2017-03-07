@@ -3,6 +3,7 @@ class BlogsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :indexes]
   before_action :member_check, only: [:new, :edit, :create, :update, :destroy]
   before_action :correct_author, only: [:edit, :update, :destroy]
+  before_action :correct_editor, only: [:new, :create, :edit, :update, :destroy]
 
   def indexes
     @blogs = Blog.all.order("created_at DESC")
@@ -89,6 +90,17 @@ class BlogsController < ApplicationController
       unless blog.author == current_user
         flash[:failure] = "ブログを投稿したユーザーのみが編集できます"
         redirect_to :top
+      end
+    end
+    def correct_editor
+      circle = Circle.find(params[:circle_id])
+      ms = current_user.memberships.find_by(circle_id: circle.id)
+      if ms.blank?
+        flash[:failure] = "サークルメンバーのみの機能です"
+        redirect_to :top
+      elsif ms[:status] > 2
+        flash[:failure] = "編集者のみの機能です"
+        redirect_to circle
       end
     end
 end
