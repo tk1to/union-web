@@ -1,10 +1,10 @@
 <header>
-	<h1 class="formHeading ta_center">気になるをくれたユーザー</h1>
+  <h1 class="formHeading ta_center">気になるをくれたユーザー</h1>
 </header>
 
 <div class="list__wrap">
 <% if @circle.favorites.any? %>
-	<%= render "shared/thin_cards", objects: @circle.favorited_users %>
+  <%= render "shared/thin_cards", objects: @circle.favorited_users %>
 <% end %>
-	<%= link_to "サークルへ戻る", @circle ,class: "button button_size_medium button_color_gray"%>
+<%= link_to "サークルへ戻る", @circle ,class: "button button_size_medium button_color_gray"%>
 </div>

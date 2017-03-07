@@ -9,18 +9,18 @@
 <div class="menbarCard">
   <div class="menbarCard__image"></div>
   <div class="menbarCard__heading"><%= ms.member.name %></div>
-  <div class="menbarCard__subhead">学年とか</div>
+  <div class="menbarCard__subhead"><%= ms.member.basic_info %></div>
 </div>
 <% end %>
 
 <h2 class="frame__heading frame__heading_underline">権限を削除</h2>
-  <% @removed_admins.each do |ms| %>
-    <div class="menbarCard">
-      <div class="menbarCard__image"></div>
-      <div class="menbarCard__heading"><%= ms.member.name %></div>
-      <div class="menbarCard__subhead">学年とか</div>
-    </div>
-  <% end %>
+<% @removed_admins.each do |ms| %>
+  <div class="menbarCard">
+    <div class="menbarCard__image"></div>
+    <div class="menbarCard__heading"><%= ms.member.name %></div>
+    <div class="menbarCard__subhead"><%= ms.member.basic_info %></div>
+  </div>
+<% end %>
 
 </div>
 

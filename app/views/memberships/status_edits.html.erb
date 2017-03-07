@@ -3,8 +3,12 @@
 </header>
 
 <div class="ta_center">
-  <%= link_to "代表者", nil , class: "button button_size_large button_color_blue"%>
-  <%= link_to "管理者", [:admin, @circle] , class: "button button_size_large button_color_blue"%>
+  <% if @circle.memberships.find_by(member_id: current_user).chief? %>
+    <%= link_to "代表者", [:chief, @circle] , class: "button button_size_large button_color_blue"%>
+    <%= link_to "管理者", [:admin, @circle] , class: "button button_size_large button_color_blue"%>
+  <% end %>
   <%= link_to "編集者", [:editor, @circle] , class: "button button_size_large button_color_blue"%>
   <%= link_to "権限確認", [:status, @circle] , class: "button button_size_large button_color_gray"%>
 </div>
+
+<%= link_to "サークルへ戻る", @circle, class: "button button_size_medium button_color_gray"%>

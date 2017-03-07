@@ -17,8 +17,26 @@ class MembershipsController < ApplicationController
   end
 
   def chief_edit
+    @circle  = Circle.find(params[:id])
+    @members = @circle.members
+    @memberships = @circle.memberships.select{|ms|ms.chief? || ms.admin?}
   end
   def chief_update
+    @circle = Circle.find(params[:id])
+    if params[:chief_update_confirmed]
+      @circle.memberships.find_by(status: 0).admin!
+      @circle.memberships.find(params[:elected_chief]).chief!
+      flash[:success] = "変更しました。"
+      redirect_to [:status, @circle]
+    else
+      @elected_chief = Membership.find(params[:chief_edit]).first
+      if @elected_chief.chief?
+        flash[:notice] = "すでに代表です。"
+        redirect_to [:chief, @circle]
+        return
+      end
+      render "chief_edit_confirm"
+    end
   end
 
   def admin_edit
@@ -37,6 +55,7 @@ class MembershipsController < ApplicationController
         removed_admin_ids = params[:removed_admin].keys.map{|n|n.to_i}
         removed_admin_ids.each{|id|Membership.find(id).ordinary!}
       end
+      flash[:success] = "変更しました。"
       redirect_to [:status, @circle]
     else
       submitted_membership_ids = params[:admin_edit] ? params[:admin_edit].keys.map{|n|n.to_i} : []
@@ -67,6 +86,7 @@ class MembershipsController < ApplicationController
         removed_editor_ids = params[:removed_editor].keys.map{|n|n.to_i}
         removed_editor_ids.each{|id|Membership.find(id).ordinary!}
       end
+      flash[:success] = "変更しました。"
       redirect_to [:status, @circle]
     else
       submitted_membership_ids = params[:editor_edit] ? params[:editor_edit].keys.map{|n|n.to_i} : []
