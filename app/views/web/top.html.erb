@@ -1,9 +1,15 @@
 <header class="header">
-  <%= link_to :root, class: "header__background" do %>
-    <div class="header__image_top" style="background-image: url(<%= asset_path('union_lp_trim.png') %>);"></div>
-    <% if !user_signed_in? %>
-      <p class="header__paragraph">新規登録・ログインはこちら</p>
+  <% if !user_signed_in? %>
+    <%= link_to :root, class: "header__background" do %>
+      <div class="header__image_top" style="background-image: url(<%= asset_path('union_lp_trim.png') %>);"></div>
+      <% if !user_signed_in? %>
+        <p class="header__paragraph">新規登録・ログインはこちら</p>
+      <% end %>
     <% end %>
+  <% else %>
+    <span class="header__background">
+      <div class="header__image_top" style="background-image: url(<%= asset_path('union_lp_trim.png') %>);"></div>
+    </span>
   <% end %>
 </header>
 
