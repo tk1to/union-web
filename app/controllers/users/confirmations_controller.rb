@@ -12,8 +12,9 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
   # GET /resource/confirmation?confirmation_token=abcdef
   def show
     super
-    if resource.joining_circle_id
-      resource.memberships.create(circle_id: resource.joining_circle_id)
+    if session[:joining_circle_id]
+      resource.memberships.create(circle_id: session[:joining_circle_id])
+      session.delete(:joining_circle_id)
     end
   end
 

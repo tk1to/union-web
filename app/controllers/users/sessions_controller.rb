@@ -7,9 +7,13 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    super
+    if session[:joining_circle_id]
+      resource.memberships.create(circle_id: session[:joining_circle_id])
+      session.delete(:joining_circle_id)
+    end
+  end
 
   # DELETE /resource/sign_out
   # def destroy
