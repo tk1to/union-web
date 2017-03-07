@@ -8,7 +8,7 @@ class Circle < ActiveRecord::Base
   has_many :memberships, dependent: :destroy
   has_many :blogs
   has_many :events
-  has_many :contacts, foreign_key: "receive_circle_id"
+  has_many :contacts, foreign_key: "receive_circle_id", dependent: :destroy
 
   # カテゴリー関連
   has_many :categories, through: :circle_categories
@@ -16,7 +16,7 @@ class Circle < ActiveRecord::Base
 
   # メンバー申請関連
   has_many :entrying_users, through: :entries, source: :user
-  has_many :entries
+  has_many :entries, dependent: :destroy
 
   # 気になる関連
   has_many :favorited_users, through: :favorites, source: :user
