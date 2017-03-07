@@ -5,7 +5,7 @@
 <p class="normal_text"><%= @circle.name %><br>のメンバーURLは</p>
 
 <div class="form">
-  <input id="fe_text" class="form form__text_field" type="text" value="<%= @published_url %>">
+  <input id="fe_text" class="form form__text_field" type="text" value="<%= "#{@host_url}/entry/#{@key}" %>">
 </div>
 <button id="d_clip_button" data-clipboard-target="fe_text" class="button button_size_large button_color_blue">URLをコピー</button>
 </div>

@@ -16,7 +16,7 @@ class WebController < ApplicationController
   def circle_key
     if params[:key].length == 9
       keys = params[:key].chars
-      circle_id_from_key = decipher(keys[6])*1000 + decipher(keys[7])*100 + decipher(keys[2])*10 + decipher(keys[4])
+      circle_id_from_key = deciph(keys)
       if circle = Circle.find_by(id: circle_id_from_key)
         if user_signed_in?
           if !circle.memberships.find_by(member_id: current_user)
