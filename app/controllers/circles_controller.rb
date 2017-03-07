@@ -8,14 +8,21 @@ class CirclesController < ApplicationController
   end
   def new
     @circle = Circle.new
+    @category_options = Category.all
   end
   def create
     @circle = Circle.new(circle_params)
-    if @circle.save
+
+    new_category_ids = params[:categories].values.reject(&:empty?).map{|str| str.to_i}
+    new_category_ids.uniq!
+    if !new_category_ids.blank? && @circle.save
       flash[:success] = "作成完了"
+      create_categories(new_category_ids)
       @membership = Membership.create(member_id: current_user.id, circle_id: @circle.id, status: 0)
       redirect_to @circle
     else
+      @category_options = Category.all
+      flash[:notice] = "全て必須項目です"
       render "new"
     end
   end
@@ -169,6 +176,11 @@ class CirclesController < ApplicationController
             @circle.circle_categories.create(category_id: new_category_ids[i], priority: i)
           end
         end
+      end
+    end
+    def create_categories(ids)
+      for i in 0..Category.max-1 do
+        @circle.circle_categories.create(category_id: ids[i], priority: i)
       end
     end
 end
