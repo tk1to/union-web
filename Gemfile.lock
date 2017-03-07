@@ -37,6 +37,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    acts-as-taggable-on (3.5.0)
+      activerecord (>= 3.2, < 5)
     ansi (1.5.0)
     arel (6.0.4)
     autoprefixer-rails (6.7.2)
@@ -356,11 +358,14 @@ GEM
       railties (~> 4.0)
       sprockets-rails (>= 2.0, < 4.0)
     xml-simple (1.1.5)
+    zeroclipboard-rails (0.1.2)
+      railties (>= 3.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on (~> 3.4)
   autoprefixer-rails (= 6.7.2)
   bcrypt (= 3.1.7)
   byebug (= 3.4.0)
@@ -389,6 +394,7 @@ DEPENDENCIES
   turbolinks (= 2.3.0)
   uglifier (= 2.5.3)
   web-console (= 2.0.0.beta3)
+  zeroclipboard-rails
 
 BUNDLED WITH
    1.14.3

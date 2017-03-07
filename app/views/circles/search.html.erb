@@ -18,6 +18,14 @@
 
 <% if @circles.any? %>
   <% @circles.each do |circle| %>
-    <%= render "circle_card", circle: circle %>
+    <div class="wrap_card">
+      <%= render "circle_card", circle: circle %>
+      <% if user_signed_in? %>
+        <div id="favorite_form_<%= circle.id %>" class="restricted">
+          <% @circle = circle %>
+          <%= render !current_user.favorites.find_by(circle_id: @circle.id) ? "favorite" : "unfavorite" , circle: @circle %>
+        </div>
+      <% end %>
+    </div>
   <% end %>
 <% end %>

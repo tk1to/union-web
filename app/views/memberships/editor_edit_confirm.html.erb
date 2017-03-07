@@ -2,25 +2,27 @@
   <h1 class="formHeading">編集者更新確認</h1>
 </header>
 
-<h2>権限を追加</h2>
-<ul>
-  <% @added_editors.each do |ms| %>
-    <li>
-      <div>画像はいるとこ</div>
-      <div><%= ms.member.name %></div>
-    </li>
-  <% end %>
-</ul>
+<div class="frame">
 
-<h2>権限を削除</h2>
-<ul>
-  <% @removed_editors.each do |ms| %>
-    <li>
-      <div>画像はいるとこ</div>
-      <div><%= ms.member.name %></div>
-    </li>
+  <h2 class="frame__heading frame__heading_underline">権限を追加</h2>
+  <% @added_editors.each do |ms| %>
+  <div class="menbarCard">
+    <div class="menbarCard__image"></div>
+    <div class="menbarCard__heading"><%= ms.member.name %></div>
+    <div class="menbarCard__subhead"><%= ms.member.basic_info %></div>
+  </div>
   <% end %>
-</ul>
+
+  <h2 class="frame__heading frame__heading_underline">権限を削除</h2>
+  <% @removed_editors.each do |ms| %>
+    <div class="menbarCard">
+      <div class="menbarCard__image"></div>
+      <div class="menbarCard__heading"><%= ms.member.name %></div>
+      <div class="menbarCard__subhead"><%= ms.member.basic_info %></div>
+    </div>
+  <% end %>
+
+</div>
 
 <%= form_tag [:editor, @circle], method: :patch do %>
   <% @added_editors.each do |ms| %>

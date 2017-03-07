@@ -7,7 +7,7 @@
       <div class="menbarCard">
         <div class="menbarCard__image"></div>
         <div class="menbarCard__heading"><%= member.name %></div>
-        <div class="menbarCard__subhead">学年とか</div>
+        <div class="menbarCard__subhead"><%= member.basic_info %></div>
       </div>
     <% end %>
   </div>
@@ -19,7 +19,7 @@
       <div class="menbarCard">
         <div class="menbarCard__image"></div>
         <div class="menbarCard__heading"><%= member.name %></div>
-        <div class="menbarCard__subhead">大学、学年大学、学年大学、学年大学、学年あああああ</div>
+        <div class="menbarCard__subhead"><%= member.basic_info %></div>
       </div>
     <% end %>
   </div>
@@ -31,8 +31,9 @@
       <div class="menbarCard">
         <div class="menbarCard__image"></div>
         <div class="menbarCard__heading"><%= member.name %></div>
-        <div class="menbarCard__subhead">大学、学年</div>
+        <div class="menbarCard__subhead"><%= member.basic_info %></div>
       </div>
     <% end %>
   </div>
 </div>
+<%= link_to "管理者設定へ戻る", [:status, :edit, @circle], class: "button button_size_medium button_color_gray"%>

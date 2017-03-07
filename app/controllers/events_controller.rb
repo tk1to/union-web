@@ -1,12 +1,15 @@
 class EventsController < ApplicationController
 
-  before_action :authenticate_user!, except: [:show, :indexes]
+  before_action :authenticate_user!, except: [:show, :indexes, :index]
   before_action :member_check, only: [:new, :edit, :create, :update, :destroy]
+  before_action :correct_editor, only: [:new, :create, :edit, :update, :destroy]
 
   def indexes
     @events = Event.all.order("created_at DESC")
   end
   def index
+    @circle = Circle.find(params[:circle_id])
+    @events = Event.where(circle_id: @circle.id).order("created_at DESC")
   end
 
   def new
@@ -65,6 +68,17 @@ class EventsController < ApplicationController
       unless circle.members.include?(current_user)
         flash[:failure] = "メンバーのみの機能です"
         redirect_to :top
+      end
+    end
+    def correct_editor
+      circle = Circle.find(params[:circle_id])
+      ms = current_user.memberships.find_by(circle_id: circle.id)
+      if ms.blank?
+        flash[:failure] = "サークルメンバーのみの機能です"
+        redirect_to :top
+      elsif ms[:status] > 2
+        flash[:failure] = "編集者のみの機能です"
+        redirect_to circle
       end
     end
 end

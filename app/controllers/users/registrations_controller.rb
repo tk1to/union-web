@@ -10,7 +10,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-    resource.update_attribute(:career, "facebookでログイン")
     # resource.update_attribute(:joining_circle_id, session[:joining_circle_id])
     # session.delete(:joining_circle_id)
   end

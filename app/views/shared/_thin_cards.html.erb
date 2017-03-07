@@ -55,13 +55,25 @@ heading_sym   = oc_eq_user ? :name : :title
     </li>
   <% end %>
 
-  <% if (oc_eq_blog || oc_eq_event) %>
-    <li class="thinCard thinCard__more"><%# link_to "#",  %></li>
+  <% if params[:action] != "indexes" && params[:action] != "index"%>
+    <%
+    circle = Circle.find(params[:id]) if params[:controller] == "circles"
+    more_url =
+    params[:controller] == "web" ?
+      oc_eq_blog ? :blogs : :events
+      :
+      oc_eq_blog ? [circle, :blogs] : [circle, :events]
+    %>
+    <% if (oc_eq_blog || oc_eq_event) %>
+      <li>
+        <%= link_to more_url do %>
+          <div class="thinCard thinCard__more">もっと見る</div>
+        <% end %>
+      </li>
+    <% end %>
   <% end %>
 
 </ul>
-
-
 
 
 

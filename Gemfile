@@ -19,6 +19,10 @@ gem 'jquery-rails', '4.0.3'
 gem 'turbolinks',   '2.3.0'
 gem 'jquery-turbolinks'
 gem 'jbuilder',     '2.2.3' #JSONのテンプレートエンジン
+gem 'zeroclipboard-rails'
+
+gem 'acts-as-taggable-on', '~> 3.4'
+
 gem 'sdoc',         '0.4.0', group: :doc
 
 gem 'rb-readline'

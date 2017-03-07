@@ -11,20 +11,39 @@
   <% if !(params[:controller] == "message_rooms" && params[:action] == "show") %>
     <div class="whole_wrap">
   <% end %>
-    <%= render 'layouts/nav' %>
-    <% flash.each do |message_type, message| %>
-      <div class="flash_message"><%= message %></div>
-    <% end %>
+  <%= render 'layouts/nav' %>
+  <% flash.each do |message_type, message| %>
+    <div class="flash_message"><%= message %></div>
+  <% end %>
 
-    <%= yield %>
+  <%= yield %>
 
-    <% if !(params[:controller] == "message_rooms" && params[:action] == "show") %>
-      <footer class="footer">
-        <p><%= link_to "プライバシーポリシー", :privacypolicy, style: "color: gray; text-decoration: none;" %></p>
-        <p class="footer__copyright">COPYRIGHT &#169; 2017 UNION ALL RIGHTS RESERVED. </p>
-      </footer>
+  <% if !(params[:controller] == "message_rooms" && params[:action] == "show") %>
+    <footer class="footer">
+      <p><%= link_to "プライバシーポリシー", :privacypolicy, style: "color: gray; text-decoration: none;" %></p>
+      <p class="footer__copyright">COPYRIGHT &#169; 2017 UNION ALL RIGHTS RESERVED. </p>
+    </footer>
+    </div>
+  <% end %>
+
+  <% if user_signed_in? %>
+    <% if current_user.free[0] %><span id="user_free"></span><% end %>
+    <div class="prompt">
+      <div class="prompt__box">
+        <p class="prompt__text">
+          この機能を利用するには、プロフィールの必須項目を入力してください。
+          <ul>
+            <% current_user.free[1].each do |label| %>
+              <li>・<%= label %></li>
+            <% end %>
+          </ul>
+        </p>
+        <%= link_to "設定", current_user, class: "prompt__button button button_size_medium button_color_blue" %>
+        <%= image_tag 'close.svg' , class: "prompt__close"%>
       </div>
-    <% end %>
+    </div>
+  <% end %>
+
   <%= debug(params) if Rails.env.development? %>
 </body>
 </html>

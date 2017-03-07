@@ -12,22 +12,11 @@
   <%= f.label :description ,"サークル概要", class: "form__item"%>
   <%= f.text_area :description , class: "form__text_area" %>
 
-  <%# f.label :activity ,"活動内容", class: "form__item"%>
-  <%# f.text_area :activity , class: "form__text_area" %>
-
   <div class="ta_center">
     <div class="form__item">カテゴリー選択</div>
     <% @category_ids.each_with_index do |id, i| %>
       <div class="wrap_select margin_0_auto">
         <%= select :categories, ("category_"+(i+1).to_s).to_sym, @category_options.map{|t| [t.name, t.id]}, {selected: id, include_blank: true}, {class: "selectbox"}%>
-        <!-- <div class="select__choice_top">タップして選択</div> -->
-        <script>
-          jQuery(function(){
-              jQuery("select#sentakushi_form").change(function(){
-                  jQuery("div#sentakushi_form2").text(jQuery("option:selected",this).text());
-              }).trigger("change");
-          });
-       </script>
       </div>
     <% end %>
   </div>
@@ -58,11 +47,13 @@
     </div>
   </div>
 
-  <!-- text_areaの高さ半分くらいの方がいいかも -->
   <% @informations.each do |key, value| %>
     <%= f.label key , value, class: "form__item"%>
     <%= f.text_area key , class: "form__text_area" %>
   <% end %>
+
+  <%# label :fussy_tags, "こだわり条件", class: "form__item"%>
+  <%# select :fussy_tags,  %>
 
   <div class="form__buttun ta_center">
     <%= f.submit "更新" , class: "button button_size_large button_color_blue"%>

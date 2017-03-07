@@ -1,0 +1,21 @@
+<header class="ta_center">
+  <h1 class="formHeading">代表変更確認</h1>
+</header>
+
+<div class="ta_center">
+  <div class="menbarCard">
+    <div class="menbarCard__image"></div>
+    <div class="menbarCard__heading"><%= @elected_chief.member.name %></div>
+    <div class="menbarCard__subhead"><%= @elected_chief.member.basic_info %></div>
+  </div>
+</div>
+
+
+<%= form_tag [:chief, @circle], method: :patch do %>
+  <%= hidden_field_tag "elected_chief", @elected_chief.id %>
+
+  <%= hidden_field_tag "chief_update_confirmed", true %>
+  <div class="ta_center">
+    <%= submit_tag "更新" , class: "button button_size_medium button_color_blue"%>
+  </div>
+<% end %>

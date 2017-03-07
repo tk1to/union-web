@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          :confirmable,
          :omniauthable, omniauth_providers: [:facebook]
 
-  before_save   :downcase_email
+  before_save :downcase_email
 
   validates :name, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
@@ -24,21 +24,20 @@ class User < ActiveRecord::Base
   mount_uploader :header_picture, PictureUploader
   validate  :header_picture_size
 
-
   has_many :circles, through: :memberships
-  has_many :memberships, foreign_key: "member_id"
+  has_many :memberships, foreign_key: "member_id", dependent: :destroy
 
   has_many :blogs
   has_many :contacts, foreign_key: "send_user_id"
 
   has_many :entrying_circles, through: :entries, source: :circle
-  has_many :entries
+  has_many :entries, dependent: :destroy
 
   has_many :favoriting_circles, through: :favorites, source: :circle
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
 
   # 通知
-  has_many :notifications, foreign_key: "hold_user_id"
+  has_many :notifications, foreign_key: "hold_user_id", dependent: :destroy
 
   #フォロー関連
   has_many :active_relationships,  class_name:  "Relationship",
@@ -58,13 +57,15 @@ class User < ActiveRecord::Base
 
   #メッセージ関連
   has_many :creater_message_rooms, class_name: "MessageRoom",
-                                  foreign_key: "creater_id"
+                                  foreign_key: "creater_id",
+                                  dependent: :destroy
   has_many :created_message_rooms, class_name: "MessageRoom",
-                                  foreign_key: "created_id"
+                                  foreign_key: "created_id",
+                                  dependent: :destroy
 
   #カテゴリー関連
   has_many :categories, through: :user_categories
-  has_many :user_categories
+  has_many :user_categories, dependent: :destroy
 
   # ユーザーをフォローする
   def follow(other_user)
@@ -108,16 +109,17 @@ class User < ActiveRecord::Base
     user
   end
 
-  # def free
-  #   return false if !self.name
-  #   return false if !self.college
-  #   return false if !self.department
-  #   return false if !self.sex
-  #   return false if !self.birth_place
-  #   return false if !self.home_place
-  #   return false if !self.categories.any?
-  #   true
-  # end
+  def free
+    properties = []
+    properties << "名前"                if self.name.blank?
+    properties << "大学"                if self.college.blank?
+    properties << "学部"                if self.department.blank?
+    properties << "性別"                if self.sex.blank?
+    properties << "住んでるところ"       if self.birth_place.blank?
+    properties << "出身地"              if self.home_place.blank?
+    properties << "興味のあるカテゴリー"  if !self.categories.any?
+    [properties.blank?, properties]
+  end
 
   def basic_info
     info = ""

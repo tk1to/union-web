@@ -1,9 +1,10 @@
 .follow{
-  width: 90%;
-  border-radius: 5px;
+  width: 95%;
+  border-radius: 3px;
   border: 1px solid #00ACC1;
   margin: 1rem auto 0;
   box-sizing: border-box;
+  padding: 0.5rem 0 ;
   &__wrap{
     width:100%;
     display:flex;
@@ -13,16 +14,25 @@
   }
   &__list{
     padding: 0.6rem 1.5% 0.4rem;
-    width: 6.5rem;
+    width: 5.5rem;
     height: 2rem;
     text-align: center;
+    position:relative;
     &_border_right{
-      border-right: 1px solid gray;
+      border-right: 1px solid $l-gray;
+    }
+    &_icon{
+      width: 3rem;
+      height: 3rem;
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      right: 0.8rem;
     }
   }
   &__link{
     text-decoration: none;
-    font-size: $small;
+    font-size: 0.7rem;
     color: gray;
     text-align: center;
   }

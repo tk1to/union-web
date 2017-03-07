@@ -1,11 +1,14 @@
 class Circle < ActiveRecord::Base
   validates :name, presence: true
+  validates :description, presence: true
+  validates :picture, presence: true
+  validates :header_picture, presence: true
 
   has_many :members, through: :memberships, class_name: "User"
   has_many :memberships, dependent: :destroy
   has_many :blogs
   has_many :events
-  has_many :contacts, foreign_key: "receive_circle_id"
+  has_many :contacts, foreign_key: "receive_circle_id", dependent: :destroy
 
   # カテゴリー関連
   has_many :categories, through: :circle_categories
@@ -13,16 +16,11 @@ class Circle < ActiveRecord::Base
 
   # メンバー申請関連
   has_many :entrying_users, through: :entries, source: :user
-  has_many :entries
+  has_many :entries, dependent: :destroy
 
   # 気になる関連
   has_many :favorited_users, through: :favorites, source: :user
   has_many :favorites, dependent: :destroy
-
-  # 足跡関連
-  # has_many :footed_prints, class_name:  "CircleFootPrint",
-  #                          dependent: :destroy
-  # has_many :footed_users, through: :footed_prints, source: :footed_user
 
   # 画像関連
   mount_uploader :picture, PictureUploader
@@ -31,7 +29,8 @@ class Circle < ActiveRecord::Base
   validate  :header_picture_size
 
   scope :ascend, -> { order(:id) }
-  # default_scope { order(:id) }
+
+  # acts_as_taggable_on :fussy_tags
 
   private
     def picture_size

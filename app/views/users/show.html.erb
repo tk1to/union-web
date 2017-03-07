@@ -1,30 +1,35 @@
-
+<% if user_signed_in? %>
+  <% if !current_user.mutual_follow?(@user) %><span id="mutual_follow"></span><% end %>
+  <% if current_user?(@user) %><span id="current_user"></span><% end %>
+<% end %>
 <script type="text/javascript">
   $(function(){
 
+    var mutual_follow = $("span#mutual_follow")[0];
+    var current_user  = $("span#current_user")[0];
+
     // 相互フォローでない人にメッセージを送ろうとした場合のポップアップ
     $(".alert").hide();
-    <% if !current_user.mutual_follow?(@user) %>
+    if (mutual_follow) {
       $(".header__message").click(function(){
         $(".alert").fadeIn(300);
         return false;
       });
-      $(".alert__button").click(function(){
+      $(".alert").click(function(){
         $(".alert").fadeOut(300);
       });
-    <% end %>
+    }
 
     // 個人ページ、プロフィール画像からの編集
     $(".user__image_zoom").hide();
-    <% if current_user?(@user) %>
-      // $(".header__photo_user").click(function(){
-      //   $(".user__image_zoom").fadeIn(100);
-      // });
-      // $(".user__image_zoom").click(function(){
-      //   $(".user__image_zoom").fadeOut(100);
-      // });
-    <% end %>
-
+    if (current_user) {
+      $(".header__photo_user").click(function(){
+        $(".user__image_zoom").fadeIn(100);
+      });
+      $(".user__image_zoom").click(function(){
+        $(".user__image_zoom").fadeOut(100);
+      });
+    }
   });
 </script>
 
@@ -59,7 +64,7 @@
   <% end %>
   <div class="message_follow">
     <% if user_signed_in? && !current_user?(@user) %>
-      <div id="follow_form">
+      <div id="follow_form" class="restricted">
         <%= render !current_user.following?(@user) ? "follow" : "unfollow" %>
       </div>
       <% if current_user.mutual_follow?(@user) %>
@@ -73,6 +78,13 @@
 
 <div class="follow">
   <ul class="follow__wrap">
+    <% if user_signed_in? && current_user?(@user) %>
+      <li class="follow__list follow__list_border_right">
+        <%= link_to [:edit, @user] , class: "follow__link" do %>
+          <%= image_tag 'setting_prof.svg' , class: "follow__list_icon"%>
+        <% end %>
+      </li>
+    <% end %>
     <li class="follow__list follow__list_border_right">
       <%= link_to [:following, @user] , class: "follow__link" do %>
         <div id="following_count" class="follow__number" ><%= @user.following.count %></div>フォロー
@@ -133,6 +145,7 @@
   <div class="alert__box">
     <p class="alert__text">メッセージを送るには、相互にフォローしている必要があります。</p>
     <button class="alert__button button button_size_medium button_color_blue">OK</button>
+    <%= image_tag 'close.svg' , class: "prompt__close"%>
   </div>
 </div>
 

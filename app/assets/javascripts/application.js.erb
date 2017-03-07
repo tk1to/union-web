@@ -14,9 +14,12 @@
 //= require jquery_ujs
 //= require jquery.turbolinks
 //= require turbolinks
+//= require zeroclipboard
 //= require_tree .
 
 $(function(){
+
+  var clip = new ZeroClipboard($("#d_clip_button"));
 
   filereader();
   // $('.input_file').bind('change', function() {
@@ -40,6 +43,19 @@ $(function(){
   $('.checkbox_cover').click(function(){
     $('.checkbox_style').toggleClass('checkbox_select');
   });
+
+  // ユーザー必須項目不足時
+  $(".prompt").hide();
+  if(!$("span#user_free")[0]) {
+    $(".restricted").click(function(){
+      $(".prompt").fadeIn(300);
+      return false;
+    });
+    $(".prompt").click(function(){
+      $(".prompt").fadeOut(300);
+    });
+  }
+
 });
 
 function filereader(){
