@@ -127,7 +127,7 @@ class User < ActiveRecord::Base
     info += self.department + "/" if !self.department.blank?
     info += self.grade      + "/" if !self.grade.blank?
     info += self.sex_label  + "/" if !self.sex.blank?
-    info[0..-2]
+    info[0..-2] 
   end
 
   def sex_label
