@@ -1,7 +1,7 @@
-
-<% if !current_user.mutual_follow?(@user) %><span id="mutual_follow"></span><% end %>
-<% if current_user?(@user) %><span id="current_user"></span><% end %>
-
+<% if user_signed_in? %>
+  <% if !current_user.mutual_follow?(@user) %><span id="mutual_follow"></span><% end %>
+  <% if current_user?(@user) %><span id="current_user"></span><% end %>
+<% end %>
 <script type="text/javascript">
   $(function(){
 
@@ -78,11 +78,13 @@
 
 <div class="follow">
   <ul class="follow__wrap">
-    <li class="follow__list follow__list_border_right">
-      <%= link_to [:edit, @user] , class: "follow__link" do %>
-        <%= image_tag 'setting_prof.svg' , class: "follow__list_icon"%>
-      <% end %>
-    </li>
+    <% if user_signed_in? && current_user?(@user) %>
+      <li class="follow__list follow__list_border_right">
+        <%= link_to [:edit, @user] , class: "follow__link" do %>
+          <%= image_tag 'setting_prof.svg' , class: "follow__list_icon"%>
+        <% end %>
+      </li>
+    <% end %>
     <li class="follow__list follow__list_border_right">
       <%= link_to [:following, @user] , class: "follow__link" do %>
         <div id="following_count" class="follow__number" ><%= @user.following.count %></div>フォロー

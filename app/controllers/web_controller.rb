@@ -1,7 +1,5 @@
 class WebController < ApplicationController
 
-  include MemberKeyHelper
-
   def top
     @circles = Circle.all.order("created_at DESC").limit(5)
     @blogs   = Blog.all.order("created_at DESC").limit(5)
@@ -13,6 +11,7 @@ class WebController < ApplicationController
   def privacypolicy
   end
 
+  include MemberKeyHelper
   def circle_key
     if params[:key].length == 9
       keys = params[:key].chars

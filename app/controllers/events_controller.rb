@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
 
-  before_action :authenticate_user!, except: [:show, :indexes]
+  before_action :authenticate_user!, except: [:show, :indexes, :index]
   before_action :member_check, only: [:new, :edit, :create, :update, :destroy]
   before_action :correct_editor, only: [:new, :create, :edit, :update, :destroy]
 

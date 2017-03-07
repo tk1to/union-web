@@ -42,11 +42,7 @@
     <ul class="members__list">
       <% @members.each do |member| %>
         <li class="members__list_item">
-          <% if user_signed_in? %>
-            <%= link_to member, class: "members__image" do %>
-              <div class="members__image" style="background-image: url(<%= member.picture %>)"></div>
-            <% end %>
-          <% else %>
+          <%= link_to member, class: "members__image" do %>
             <div class="members__image" style="background-image: url(<%= member.picture %>)"></div>
           <% end %>
         </li>
