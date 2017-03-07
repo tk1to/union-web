@@ -81,6 +81,11 @@ class CirclesController < ApplicationController
       activity_frequency: "活動頻度",
       party_frequency: "飲み会頻度",
     }
+    @fussy_options = ["1年生のみ募集！","2年生以上大歓迎！","掛け持ちOK！",
+      "掛け持ちNG","１年生のみのサークル","1年生以外も在籍","大学公認サークル",
+      "大学非公認サークル","設立1年未満","設立1年以上5年未満","設立5年以上",
+      "メンバー30人以上","メンバー30人未満","会費あり","会費なし","土日に活動",
+      "平日夜に活動","活動頻度週1日もしくは未満","活動頻度週2~3日","活動頻度週4日以上"]
   end
   def update
     @circle = Circle.find(params[:id])
@@ -147,9 +152,10 @@ class CirclesController < ApplicationController
       params.require(:circle).permit(
           :name, :description,
           :picture, :header_picture,
-          :activity, :join_colleges, :people_scale,
+          :join_colleges, :people_scale,
           :activity_place, :activity_frequency,
           :annual_fee, :party_frequency,
+          :fussy_tags_list,
         )
     end
     def member_check
