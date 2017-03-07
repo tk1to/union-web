@@ -19,8 +19,12 @@ class WebController < ApplicationController
       circle_id_from_key = decipher(keys[6])*1000 + decipher(keys[7])*100 + decipher(keys[2])*10 + decipher(keys[4])
       if circle = Circle.find_by(id: circle_id_from_key)
         if user_signed_in?
-          circle.memberships.create(member_id: current_user.id, status: 3)
-          flash[:success] = "#{circle.name}に加入しました"
+          if !circle.memberships.find_by(member_id: current_user)
+            circle.memberships.create(member_id: current_user.id, status: 3)
+            flash[:success] = "#{circle.name}に加入しました"
+          else
+            flash[:success] = "既に#{circle.name}のメンバーです"
+          end
           redirect_to :top
         else
           flash[:notice] = "登録後に#{circle.name}に加入されます"
