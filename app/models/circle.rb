@@ -30,6 +30,8 @@ class Circle < ActiveRecord::Base
 
   scope :ascend, -> { order(:id) }
 
+  acts_as_taggable_on :fussy_tags
+
   private
     def picture_size
       if picture.size > 5.megabytes
