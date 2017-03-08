@@ -8,7 +8,7 @@
       <% @members.each do |member| %>
         <li class="thinCard">
           <%= link_to member.name, member, class: "thinCard__heading" %>
-          <div class="thinCard__image" style="background-image: url(<%= member.picture %>)"></div>
+          <div class="thinCard__image c_picture" style="background-image: url(<%= member.picture %>)"></div>
           <div class="thinCard__subhead"><%= member.college %></div>
         </li>
       <% end %>

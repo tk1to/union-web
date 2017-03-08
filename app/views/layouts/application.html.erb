@@ -12,9 +12,11 @@
     <div class="whole_wrap">
   <% end %>
   <%= render 'layouts/nav' %>
-  <% flash.each do |message_type, message| %>
-    <div class="flash_message"><%= message %></div>
-  <% end %>
+  <div class="flash_message">
+    <% flash.each do |message_type, message| %>
+      <%= message %>
+    <% end %>
+  </div>
 
   <%= yield %>
 

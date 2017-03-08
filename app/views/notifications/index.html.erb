@@ -16,9 +16,7 @@
           <div class="notice__content noticeFollow">
             <div class="noticeFollow__image c_pict" style="background-image: url(<%= user.picture %>)"></div>
             <div class="noticeFollow__heading"><%= user.name %></div>
-            <div class="noticeFollow__subhead">
-              <%= user.college %>/<%= user.department %>/<%= user.grade %>年
-            </div>
+            <div class="noticeFollow__subhead"><%= user.basic_info %></div>
           </div>
         <% end %>
       <% elsif notification.new_user_blog? %>
@@ -32,15 +30,5 @@
         <% end %>
       <% end %>
     </li>
-
-    <!-- <li class="notice">
-      <div class="notice__description">さーくるさんが新しいブログを作成しました。</div>
-      <div class="notice__content noticeBlog">
-        <div class="noticeBlog__image" ></div>
-        <div class="noticeBlog__heading">ブログタイトル</div>
-        <div class="noticeBlog__subhead">初めまして、ブログの中身が入ります。初めまして、ブログの中身が入ります。初めまして、ブログの中身が入ります。初めまして、ブログの中身が入ります。初めまして、ブログの中身が入ります。初めまして、ブログの中身が入ります。初めまして、ブログの中身が入ります。初めまして、ブログの中身が入ります。初めまして、ブログの中身が入ります。初めまして、ブログの中身が入ります。初めまして、ブログの中身が入ります。
-        </div>
-      </div>
-    </li> -->
   <% end %>
 </ul>

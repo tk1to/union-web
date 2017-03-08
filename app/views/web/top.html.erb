@@ -1,14 +1,14 @@
 <header class="header">
   <% if !user_signed_in? %>
     <%= link_to :root, class: "header__background" do %>
-      <div class="header__image_top" style="background-image: url(<%= asset_path('union_lp_trim.png') %>);"></div>
+      <div class="header__image_top c_picture" style="background-image: url(<%= asset_path('union_lp_trim.png') %>);"></div>
       <% if !user_signed_in? %>
         <p class="header__paragraph">新規登録・ログインはこちら</p>
       <% end %>
     <% end %>
   <% else %>
     <span class="header__background">
-      <div class="header__image_top" style="background-image: url(<%= asset_path('union_lp_trim.png') %>);"></div>
+      <div class="header__image_top c_picture" style="background-image: url(<%= asset_path('union_lp_trim.png') %>);"></div>
     </span>
   <% end %>
 </header>
@@ -33,8 +33,8 @@
       <% @circles.each do |circle| %>
         <li class="miniCard">
           <%= link_to circle, class: "wrap__link" do %>
-            <div class="miniCard__background" style="background-image: url(<%= circle.header_picture %>)"></div>
-            <div class="miniCard__image" style="background-image: url(<%= circle.picture %>)"></div>
+            <div class="miniCard__background c_picture" style="background-image: url(<%= circle.header_picture %>)"></div>
+            <div class="miniCard__image c_picture" style="background-image: url(<%= circle.picture %>)"></div>
             <p class="miniCard__name"><%= circle.name %></p>
             <p class="miniCard__genre">
               <% if circle.categories.first.present? %>
@@ -63,8 +63,8 @@
       <% @circles.each do |circle| %>
         <li class="miniCard">
           <%= link_to circle, class: "wrap__link" do %>
-            <div class="miniCard__background" style="background-image: url(<%= circle.header_picture %>)"></div>
-            <div class="miniCard__image" style="background-image: url(<%= circle.picture %>)"></div>
+            <div class="miniCard__background c_picture" style="background-image: url(<%= circle.header_picture %>)"></div>
+            <div class="miniCard__image c_picture" style="background-image: url(<%= circle.picture %>)"></div>
             <p class="miniCard__name"><%= circle.name %></p>
             <p class="miniCard__genre">
               <% if circle.categories.first.present? %>

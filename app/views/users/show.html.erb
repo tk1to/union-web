@@ -49,8 +49,8 @@
 <% end %>
 
 <header class="header">
-  <div class="header__background" style="background-image: url(<%= @user.header_picture %>)"></div>
-  <div class="header__photo_user" style="background-image: url(<%= @user.picture %>);"></div>
+  <div class="header__background c_picture" style="background-image: url(<%= @user.header_picture %>)"></div>
+  <div class="header__photo_user c_picture" style="background-image: url(<%= @user.picture %>);"></div>
   <h1 class="header__name_user"><%= @user.name %></h1>
   <p class="header__subhead_user"><%= @user.basic_info %></p>
   <% if current_user?(@user) %>
@@ -111,7 +111,7 @@
   <% @user.circles.each do |circle| %>
     <div class="belong">
       <%= link_to circle do %>
-        <div class="belong__image c_pict" style="background-image: url(<%= circle.picture %>)"></div>
+        <div class="belong__image c_picture" style="background-image: url(<%= circle.picture %>)"></div>
         <div class="belong__heading"><%= circle.name %></div>
         <div class="belong__description"><%= circle.description %></div>
       <% end %>
@@ -153,7 +153,7 @@
 
 <div class="user__image_zoom">
   <!-- <div>プロフィール画像</div> -->
-  <div class="user__image" style="background-image: url(<%= @user.picture %>);"></div>
+  <div class="user__image c_picture" style="background-image: url(<%= @user.picture %>);"></div>
   <%= link_to "プロフィール編集", [:edit, @user] , class: "button button_border"%>
   <p class="button button_border">閉じる</p>
 </div>
