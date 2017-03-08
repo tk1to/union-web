@@ -1,11 +1,11 @@
 <%= link_to circle do %>
   <div class="card">
-    <div class="card__background" style="background-image: url(<%= circle.header_picture %>)"></div>
+    <div class="card__background c_picture" style="background-image: url(<%= circle.header_picture %>)"></div>
 
     <h1 class="card__heading"><%= circle.description %></h1>
     <p class="card__subhead"></p>
 
-    <div class="card__image" style="background-image: url(<%= circle.picture %>)"></div>
+    <div class="card__image c_picture" style="background-image: url(<%= circle.picture %>)"></div>
     <h1 class="card__name"><%= circle.name %></h1>
     <p class="card__category">
       <% if circle.categories.first.present? %>

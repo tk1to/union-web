@@ -13,21 +13,12 @@ heading_sym   = oc_eq_user ? :name : :title
       <%
       link_url = oc_eq_user    ? object :
                  oc_eq_contact ? [object.receive_circle, object] : [object.circle, object]
-      accept_class = @accept_btn ? "wrap__link_accept" : nil
       %>
-      <%= link_to link_url, class: "wrap__link #{accept_class}" do %>
-
-      <% if params[:controller] == "entries" && params[:action] == "index" %>
-        <%
-        circle = Circle.find(params[:circle_id])
-        entry  = object.entries.find_by(circle_id: params[:circle_id])
-        %>
-        <%= link_to "承認", [:accept, circle, entry], method: :post , class: "thinCard__permit button button_size_small button_color_blue "%>
-      <% end %>
+      <%= link_to link_url, class: "wrap__link" do %>
 
       <% if !oc_eq_contact %>
         <% picture = oc_eq_blog ? object.picture_1 : object.picture %>
-        <div class="thinCard__image" style="background-image: url(<%= picture %>)"></div>
+        <div class="thinCard__image c_picture" style="background-image: url(<%= picture %>)"></div>
       <% end %>
 
       <%
@@ -40,13 +31,21 @@ heading_sym   = oc_eq_user ? :name : :title
 
       <p class="thinCard__subhead"><%=
         if oc_eq_user
-          "#{object.college}/#{object.department}/#{object.grade}"
+          "#{object.basic_info}"
         elsif oc_eq_blog
           object.content_1
         else
           object.content
         end
       %></p>
+
+      <% if params[:controller] == "entries" && params[:action] == "index" %>
+        <%
+        circle = Circle.find(params[:circle_id])
+        entry  = object.entries.find_by(circle_id: params[:circle_id])
+        %>
+        <%= link_to "承認", [:accept, circle, entry], method: :post , class: "thinCard__permit button button_size_small button_color_blue "%>
+      <% end %>
 
       <% if oc_eq_blog %>
         <span class="thinCard__time"><%= object.created_at.in_time_zone('Tokyo').strftime("%y/%m/%d  %k:%M") %></span>
