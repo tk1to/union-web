@@ -62,7 +62,7 @@
     <ul class="sride-miniCard">
       <% @circles.each do |circle| %>
         <li class="miniCard">
-          <%= link_to circle, class: "wrap__link" do %>
+          <%= link_to circle, class: "link_fill" do %>
             <div class="miniCard__background c_picture" style="background-image: url(<%= circle.header_picture %>)"></div>
             <div class="miniCard__image c_picture" style="background-image: url(<%= circle.picture %>)"></div>
             <p class="miniCard__name"><%= circle.name %></p>
