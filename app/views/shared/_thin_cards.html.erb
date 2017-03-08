@@ -14,7 +14,7 @@ heading_sym   = oc_eq_user ? :name : :title
       link_url = oc_eq_user    ? object :
                  oc_eq_contact ? [object.receive_circle, object] : [object.circle, object]
       %>
-      <%= link_to link_url, class: "wrap__link" do %>
+      <%= link_to link_url, class: "link_fill" do %>
 
       <% if !oc_eq_contact %>
         <% picture = oc_eq_blog ? object.picture_1 : object.picture %>
