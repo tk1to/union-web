@@ -1,5 +1,11 @@
 class WebController < ApplicationController
 
+  def letsencrypt
+    if params[:id] == ENV["LETSENCRYPT_REQUEST"]
+    render text: ENV["LETSENCRYPT_RESPONSE"]
+    end
+  end
+
   def top
     @circles = Circle.all.order("created_at DESC").limit(5)
     @blogs   = Blog.all.order("created_at DESC").limit(5)

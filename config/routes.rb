@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get ".well-known/acme-challenge/:id" => "web#letsencrypt"
+
   root 'web#landing'
   get  'top' => 'web#top'
   get  "privacypolicy" => "web#privacypolicy"
