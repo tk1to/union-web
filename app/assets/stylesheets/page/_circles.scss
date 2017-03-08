@@ -49,14 +49,14 @@
   position: relative;
   &__heading{
     font-weight: normal;
-    color: $gray;
+    color: gray;
     margin: 0.5rem auto;
     font-size: $large;
     padding-left: 0.5rem;
     text-align: left;
     &_underline{
-      border-bottom: 1.5px solid $d-blue;
-      border-left: 5px solid $d-blue;
+      border-bottom: 1.5px solid $l-gray;
+      border-left: 5px solid $l-gray;
       padding-bottom: 0.3rem;
     }
   }

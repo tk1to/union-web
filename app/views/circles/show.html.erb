@@ -71,7 +71,7 @@
         <%= link_to "お問い合わせ", [@circle, :contacts] , class: "button button_square button_color_gray" %>
       <% end %>
     <% else %>
-      <%= link_to "お問い合わせ", [:new, @circle, :contact] , class: "button button_size_large button_color_gray restricted" %>
+      <!-- <%= link_to "お問い合わせ", [:new, @circle, :contact] , class: "button button_size_large button_color_gray restricted" %> -->
     <% end %>
 
     <% if @be_member %>
@@ -79,13 +79,13 @@
         <%= link_to "メンバー申請", [@circle, :entries] , class: "button button_square button_color_gray"%>
       <% end %>
     <% else %>
-      <% if !@entrying %>
+      <!--<% if !@entrying %>
       <div class="ta_center">
         <%= link_to "メンバー申請", [@circle, :entries], method: :post , class: "button button_size_large button_color_blue restricted"%>
       </div>
       <% else %>
         <%= link_to "メンバー申請キャンセル", [@circle, @entry], method: :delete , class: "button button_size_large button_color_blue"%>
-      <% end %>
+      <% end %>-->
     <% end %>
   </div>
   <% if @be_member %>
@@ -132,5 +132,68 @@
     <p class="thinCard thinCard_no">イベントがありません。</p>
   <% end %>
 </div>
+
+<% if @members.any? %>
+  <div class="members">
+    <h2 class="members__heading">メンバー(<%= @circle.members.count %>)</h2>
+    <ul class="members__list">
+      <% @members.each do |member| %>
+        <li class="members__list_item">
+          <%= link_to member, class: "members__image" do %>
+            <div class="members__image" style="background-image: url(<%= member.picture %>)"></div>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+    <p style="text-align: right; padding-right: 0.2rem;"><%= link_to "もっと見る", [:members, @circle], style: "color: gray; text-decoration: none;" %></p>
+  </div>
+<% end %>
+
+<div class="separate"></div>
+
+<% if user_signed_in? %>
+  <div class="ta_center">
+    <% if @be_member %>
+        <% if @status_num <= 1 %>
+          <%= link_to "気になる一覧", [:favorited, @circle] , class: "button button_square button_color_gray"%>
+        <% end %>
+    <% else %>
+      <div id="favorite_form_<%= @circle.id %>" class="restricted">
+        <%= render !current_user.favorites.find_by(circle_id: @circle.id) ? "favorite" : "unfavorite" , circle: @circle %>
+      </div>
+    <% end %>
+
+    <% if @be_member %>
+      <% if @status_num <= 1 %>
+        <%= link_to "お問い合わせ", [@circle, :contacts] , class: "button button_square button_color_gray" %>
+      <% end %>
+    <% else %>
+      <%= link_to "お問い合わせ", [:new, @circle, :contact] , class: "button button_size_large button_color_gray restricted" %>
+    <% end %>
+
+    <% if @be_member %>
+      <% if @status_num <= 1 %>
+        <%= link_to "メンバー申請", [@circle, :entries] , class: "button button_square button_color_gray"%>
+      <% end %>
+    <% else %>
+      <% if !@entrying %>
+      <div class="ta_center">
+        <%= link_to "メンバー申請", [@circle, :entries], method: :post , class: "button button_size_large button_color_blue restricted"%>
+      </div>
+      <% else %>
+        <%= link_to "メンバー申請キャンセル", [@circle, @entry], method: :delete , class: "button button_size_large button_color_blue"%>
+      <% end %>
+    <% end %>
+  </div>
+  <% if @be_member %>
+    <% if @status_num <= 2 %>
+      <div class="ta_center">
+        <%= link_to "ブログを作成", [:new, @circle, :blog] , class: "button button_square button_color_blue"%>
+        <%= link_to "イベントを作成", [:new, @circle, :event] , class: "button button_square button_color_blue"%>
+        <!-- <a href="" class="button button_square button_color_blue"></a> -->
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
 
 <div class="white_back"></div>
