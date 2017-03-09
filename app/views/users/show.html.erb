@@ -108,15 +108,17 @@
   <% if @user.circles.any? %>
     <div class="frame__heading">所属サークル</div>
   <% end %>
-  <% @user.circles.each do |circle| %>
-    <div class="belong">
-      <%= link_to circle do %>
-        <div class="belong__image c_picture" style="background-image: url(<%= circle.picture %>)"></div>
-        <div class="belong__heading"><%= circle.name %></div>
-        <div class="belong__description"><%= circle.description %></div>
-      <% end %>
-    </div>
-  <% end %>
+  <ul class="wrap_belong">
+    <% @user.circles.each do |circle| %>
+      <li class="belong">
+        <%= link_to circle do %>
+          <div class="belong__image c_picture" style="background-image: url(<%= circle.picture %>)"></div>
+          <div class="belong__heading"><%= circle.name %></div>
+          <div class="belong__description"><%= circle.description %></div>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
 </section>
 
 <section class="user__body">
