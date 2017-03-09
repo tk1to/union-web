@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails',        '4.2.2'
 gem 'bcrypt',       '3.1.7'    #暗号系
 gem 'pg',             '0.18.4' #PostgreSQL
+gem 'google-analytics-rails'
 
 # 画像投稿用
 gem 'carrierwave',             '0.10.0'
