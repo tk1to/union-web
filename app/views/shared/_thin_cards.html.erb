@@ -48,6 +48,8 @@ heading_sym   = oc_eq_user ? :name : :title
       <% end %>
 
       <% if oc_eq_blog %>
+        <span class="thinCard__date"><%# object.created_at.in_time_zone('Tokyo').strftime("%y/%m/%d") %></span>
+        <span class="thinCard__time"><%# object.created_at.in_time_zone('Tokyo').strftime("%k:%M") %></span>
         <span class="thinCard__time"><%= object.created_at.in_time_zone('Tokyo').strftime("%y/%m/%d  %k:%M") %></span>
       <% end %>
       <% end %>

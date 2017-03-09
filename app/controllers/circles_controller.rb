@@ -95,7 +95,8 @@ class CirclesController < ApplicationController
       flash[:success] = "編集完了"
       redirect_to @circle
     else
-      render 'edit'
+      flash[:notice] = "必須項目が未入力です"
+      redirect_to [:edit, @circle]
     end
   end
 
