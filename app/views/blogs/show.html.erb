@@ -1,11 +1,11 @@
 <div class="whole_wrap">
 
   <header class="header">
-    <div class="header__background" style="overflow: hidden;">
-      <%= image_tag @blog.picture_1 ? @blog.picture_1 : nil %>
+    <div class="header__background c_picture" style="background-image: url(<%= @circle.header_picture %>);">
+      <%# image_tag @blog.picture_1 ? @blog.picture_1 : nil %>
     </div>
     <div class="author">
-      <div class="author__image"></div>
+      <div class="author__image c_picture" style="background-image: url(<%= @author.picture %>);"></div>
       <div class="author__name"><span class="author__autor">投稿者:</span><%= link_to @author.name, @author , class: "text_decoration_none color_black"%></div>
       <p class="author__subhead"><%= link_to @circle.name, @circle , class: "text_decoration_none color_gray"%></p>
     </div>

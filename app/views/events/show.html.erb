@@ -1,7 +1,5 @@
 <header class="header">
-	<div class="header__background c_picture" style="overflow: hidden; background-image: url(<%= @event.picture %>);">
-		<%# image_tag @event.picture.url %>
-	</div>
+	<div class="header__background c_picture" style="background-image: url(<%= @event.picture %>);"></div>
 	<div class="author">
 		<div class="author__image c_picture" style="background-image: url(<%= @circle.picture %>);"></div>
 		<div class="author__circle"><span class="author__autor">主催者:</span><%= link_to @circle.name, @circle , class: "text_decoration_none color_black"%></div>
