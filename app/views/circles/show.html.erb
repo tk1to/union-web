@@ -20,8 +20,8 @@
 
 <header class="header">
   <h1 class="header__name_circle"><%= @circle.name %></h1>
-  <div class="header__background" style="background-image: url(<%= @circle.header_picture %>)"></div>
-  <div class="header__photo_circle" style="background-image: url(<%= @circle.picture %>)"></div>
+  <div class="header__background c_picture" style="background-image: url(<%= @circle.header_picture %>)"></div>
+  <div class="header__photo_circle c_picture" style="background-image: url(<%= @circle.picture %>)"></div>
   <div class="header__change"></div>
   <% if @be_member %>
     <%= image_tag "menu.svg" , class: "header__menu_humberger" %>
@@ -43,7 +43,7 @@
       <% @members.each do |member| %>
         <li class="members__list_item">
           <%= link_to member, class: "members__image" do %>
-            <div class="members__image" style="background-image: url(<%= member.picture %>)"></div>
+            <div class="members__image c_picture" style="background-image: url(<%= member.picture %>)"></div>
           <% end %>
         </li>
       <% end %>
@@ -71,7 +71,7 @@
         <%= link_to "お問い合わせ", [@circle, :contacts] , class: "button button_square button_color_gray" %>
       <% end %>
     <% else %>
-      <!-- <%= link_to "お問い合わせ", [:new, @circle, :contact] , class: "button button_size_large button_color_gray restricted" %> -->
+      <!-- <%# link_to "お問い合わせ", [:new, @circle, :contact] , class: "button button_size_large button_color_gray restricted" %> -->
     <% end %>
 
     <% if @be_member %>
@@ -140,7 +140,7 @@
       <% @members.each do |member| %>
         <li class="members__list_item">
           <%= link_to member, class: "members__image" do %>
-            <div class="members__image" style="background-image: url(<%= member.picture %>)"></div>
+            <div class="members__image c_picture" style="background-image: url(<%= member.picture %>)"></div>
           <% end %>
         </li>
       <% end %>
