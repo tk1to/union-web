@@ -10,7 +10,7 @@
     <% blog = notification.blog %>
     <li class="notice">
       <!-- フォローされました通知 -->
-      <% if notification.followed? %>
+      <% if notification.followed? && user %>
         <%= link_to user do %>
           <div class="notice__description"><%= user.name %>さんがあなたをフォローしました。</div>
           <div class="notice__content noticeFollow">
@@ -19,7 +19,7 @@
             <div class="noticeFollow__subhead"><%= user.basic_info %></div>
           </div>
         <% end %>
-      <% elsif notification.new_user_blog? %>
+      <% elsif notification.new_user_blog? && blog %>
         <%= link_to [blog.circle, blog] do %>
           <div class="notice__description"><%= user.name %>さんが新しいブログを投稿しました。</div>
           <div class="notice__content noticeBlog">
