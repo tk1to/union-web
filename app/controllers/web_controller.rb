@@ -12,8 +12,10 @@ class WebController < ApplicationController
     @events  = Event.all.order("created_at DESC").limit(5)
   end
 
-  # def signups
-  # end
+  def landing
+    redirect_to :top if user_signed_in?
+  end
+
   def privacypolicy
   end
 
