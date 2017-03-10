@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       get :following, :followers
       get :favorites
       get :foots
+      get :rest
     end
   end
   resources :relationships, only: [:create, :destroy]
