@@ -1,9 +1,12 @@
 <div class="message_rooms">
   <div class="wrap-message">
     <% @messages.each do |message| %>
+      <% be_opp = message.sender_id != current_user.id %>
       <div class="wrap-message__text clearfix">
         <!-- <div class="sender__image"></div> -->
-        <p class="<%= message.sender_id == current_user.id ? "sender" : "receiver" %> message__text">
+        <!-- このspanタグは適当 -->
+        <span><%= message.created_at.in_time_zone('Tokyo').strftime("%k:%M") %></span>
+        <p class="<%= be_opp ? "receiver" : "sender" %> message__text">
           <%= message.content %>
         </p>
       </div>
