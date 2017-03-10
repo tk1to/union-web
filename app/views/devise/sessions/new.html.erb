@@ -12,14 +12,14 @@
     <%= f.password_field :password, autocomplete: "off" , class: "form__text_field" %>
 
   <% if devise_mapping.rememberable? -%>
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <%= f.check_box :remember_me, {checked: true} %>
+      <%= f.label :remember_me, "パスワードを保存", {class: "normal_text"} %>
   <% end -%>
 
   <div class="form__button">
     <%= f.submit "ログイン" , class: "button button_size_large button_color_blue" %>
   </div>
-  
+
   <div class="ta_center">
   <%= link_to "パスワードを忘れた方はこちら", new_password_path(resource_name) , class: "links__text"%>
   </div>
