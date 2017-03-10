@@ -14,6 +14,8 @@ gem 'fog',                     '1.36.0'
 gem 'sass-rails',         '5.0.6' #
 gem 'autoprefixer-rails', '6.7.2' #ベンダープレフィクス自動化
 
+gem 'kaminari'
+
 gem 'uglifier',     '2.5.3' #Asset Pipelineを圧縮
 gem 'coffee-rails', '4.1.0'
 gem 'jquery-rails', '4.0.3'
