@@ -72,9 +72,9 @@
   }
   &__heading{
     position: absolute;
-    top:14%;
-    left: 32.5%;
-    // left: 35%;
+    top:15%;
+    left: 7rem;
+    width: 63%;
     text-decoration: none;
     color: $gray;
     overflow: hidden;
@@ -85,7 +85,7 @@
   &__description{
     position: absolute;
     top: 32%;
-    left: 32.5%;
+    left: 7rem;
     width: 63%;
     height: 4rem;
     text-decoration: none;

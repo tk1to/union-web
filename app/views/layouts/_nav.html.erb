@@ -1,17 +1,17 @@
 <nav class="nav">
   <ul class="nav__list">
-    <li class="nav__item"><%= link_to image_tag('home.svg'), :top %></li>
-    <li class="nav__item"><%= link_to image_tag('search.svg'), [:feed, :circles] %></li>
-    <li class="nav__item nav_prompt"><%= link_to_if(user_signed_in?, image_tag('message.svg'), :message_rooms) %>
+    <li class="nav__item"><%= link_to image_tag('普通の家.svg'), :top %></li>
+    <li class="nav__item"><%= link_to image_tag('検索用の虫眼鏡.svg'), [:feed, :circles] %></li>
+    <li class="nav__item nav_prompt"><%= link_to_if(user_signed_in?, image_tag('コメント.svg'), :message_rooms) %>
       <% if user_signed_in? && current_user.new_messages_count && 0 < current_user.new_messages_count %>
         <div class="nav__notice"><%= current_user.new_messages_count %></div>
       <% end %>
     </li>
-    <li class="nav__item"><%= link_to_if(user_signed_in?, image_tag('notice.svg'), :notifications) %>
+    <li class="nav__item"><%= link_to_if(user_signed_in?, image_tag('ベル.svg'), :notifications) %>
       <% if user_signed_in? && current_user.new_notifications_count && 0 < current_user.new_notifications_count %>
         <div class="nav__notice"><%= current_user.new_notifications_count %></div>
       <% end %>
     </li>
-    <li class="nav__item"><%= link_to_if(user_signed_in?, image_tag('mypage.svg'), current_user) %></li>
+    <li class="nav__item"><%= link_to_if(user_signed_in?, image_tag('人物.svg'), current_user) %></li>
   </ul>
 </nav>
