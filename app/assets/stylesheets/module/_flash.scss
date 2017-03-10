@@ -2,9 +2,21 @@
 	width:100%;
 	// height: 3rem;
 	padding:0 1rem;
-	background: $l-blue;
+	// background: $l-blue;
 	color: #fff;
 	line-height:3rem;
 	// text-align:center;
 	box-sizing:border-box;
+  &-failure {
+    background-color: red;
+  }
+  &-alert {
+    background-color: red;
+  }
+  &-notice {
+    background-color: blue;
+  }
+  &-success {
+    background-color: green;
+  }
 }
