@@ -30,9 +30,9 @@
 
 <% if @categories.any? %>
     <div class="ta_center">
-    <% @categories.each do |category| %>
-        <div class="header__subhead_circle"><%= category.name %> | </div>
-    <% end %>
+      <% @categories.each_with_index do |category, i| %>
+          <div class="header__subhead_circle"><%= category.name %><%= " |" if i < @categories.count-1  %> </div>
+      <% end %>
     </div>
 <% end %>
 
