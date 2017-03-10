@@ -4,11 +4,11 @@
       <% be_opp = message.sender_id != current_user.id %>
       <div class="wrap-message__text clearfix">
         <!-- <div class="sender__image"></div> -->
-        <!-- このspanタグは適当 -->
-        <span><%= message.created_at.in_time_zone('Tokyo').strftime("%k:%M") %></span>
-        <p class="<%= be_opp ? "receiver" : "sender" %> message__text">
+        <div class="<%= be_opp ? "receiver" : "sender" %> message__text" >
           <%= message.content %>
-        </p>
+          <span class="message__time"><%= message.created_at.in_time_zone('Tokyo').strftime("%k:%M") %></span>
+          <div class="sender__image"></div>
+        </div>
       </div>
     <% end %>
   </div>

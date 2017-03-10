@@ -28,27 +28,50 @@
 }
 .message__text{
   background: $d-blue;
-  padding: 0.5rem 1rem;
+  padding: 0.8rem 1rem;
   max-width: 60%;
   min-width: 0%;
   border-radius: 3px;
   box-sizing: border-box;
+  position:relative;
 }
 .sender{
   background: $d-blue;
   color: #fff;
   float: right;
 }
-.sender__image{
-  width: 2rem;
-  height: 2rem;
-  background: gray;
-  border-radius:50%;
-}
 .receiver{
   background: #ECEFF1;
   color: $gray;
   float: left;
+  left: 3rem;
+  position: relative;
+}
+.sender__image{
+  width: 2.5rem;
+  height: 2.5rem;
+  background: gray;
+  border-radius:50%;
+  position: absolute;
+  top: 0;
+  left: -3rem;
+}
+.sender .sender__image{
+  display: none;
+}
+.message__time{
+  position:absolute;
+  bottom:0rem;
+  right: -2rem;
+  color: gray;
+  font-size: 0.6rem;
+}
+.sender .message__time{
+  position:absolute;
+  bottom:0rem;
+  left: -2rem;
+  color: gray;
+  font-size: 0.6rem;
 }
 
 .clearfix:after {
