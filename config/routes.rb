@@ -2,9 +2,11 @@ Rails.application.routes.draw do
 
   get ".well-known/acme-challenge/:id" => "web#letsencrypt"
 
-  root 'web#landing'
-  get  'top' => 'web#top'
+  root "web#landing"
+  get  "top" => "web#top"
   get  "privacypolicy" => "web#privacypolicy"
+
+  post "switch" => "debug#switch"
 
   devise_for :users, controllers: {
     sessions:           'users/sessions',

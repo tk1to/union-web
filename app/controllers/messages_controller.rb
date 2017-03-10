@@ -4,11 +4,11 @@ class MessagesController < ApplicationController
 
   def create
     message = Message.new(message_params)
-    message.save
     @message_room = MessageRoom.find(message.message_room_id)
-
-    message.receiver.update_attribute(:new_messages_exist, true)
-    @message_room.update_attributes(new_messages_exist: true, last_sender_id: current_user.id)
+    if message.save
+      message.receiver.update_attribute(:new_messages_exist, true)
+      @message_room.update_attributes(new_messages_exist: true, last_sender_id: current_user.id)
+    end
 
     redirect_to @message_room
   end

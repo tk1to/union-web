@@ -6,8 +6,8 @@ class MessageRoom < ActiveRecord::Base
   validates :creater_id, presence: true
   validates :created_id, presence: true
 
-  def opponent(id)
-    id == self.creater_id ? self.created : self.creater
+  def opp_user(my_id)
+    my_id == self.creater_id ? self.created : self.creater
   end
 
   def newest_message

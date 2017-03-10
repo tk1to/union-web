@@ -30,24 +30,15 @@
     </div>
   <% end %>
 
-  <% if user_signed_in? %>
-    <% if current_user.free[0] %><span id="user_free"></span><% end %>
-    <div class="prompt">
-      <div class="prompt__box">
-        <p class="prompt__text">
-          この機能を利用するには、プロフィールの必須項目を入力してください。
-          <ul>
-            <% current_user.free[1].each do |label| %>
-              <li>・<%= label %></li>
-            <% end %>
-          </ul>
-        </p>
-        <%= link_to "設定", [:edit, current_user], class: "prompt__button button button_size_medium button_color_blue" %>
-        <%= image_tag 'close.svg' , class: "prompt__close"%>
-      </div>
-    </div>
-  <% end %>
+  <!-- 必須項目未入力のポップアップ -->
+  <%= render "layouts/restriction" %>
 
-  <%= debug(params) if Rails.env.development? %>
+  <% if Rails.env.development? %>
+    <%= debug(params) %>
+    <%= form_tag :switch do %>
+      <%= text_field_tag :id %>
+      <%= submit_tag "変更" %>
+    <% end %>
+  <% end %>
 </body>
 </html>
