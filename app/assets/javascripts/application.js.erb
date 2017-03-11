@@ -61,10 +61,10 @@ $(function(){
   // トップページの水平スクロール
   <% ["ranking", "news"].each do |id| %>
     $("#<%= id %> .arrows").on("click", function(){
-      var width = $("#<%= id %> .sride-miniCard").width() * 1.1;
+      var width = $("#<%= id %> .sride-miniCard").width() * 5;
       $("#<%= id %> .sride-miniCard").animate({
         "scrollLeft": width,
-      }, 500);
+      }, 1000);
     });
   <% end %>
 
