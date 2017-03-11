@@ -220,11 +220,18 @@
   &__heading{
     position: absolute;
     top: 16%;
-    left: 17%;
+    left: 3.2rem;
     text-decoration: none;
     font-size: 0.8rem;
     color: $gray;
     margin:0 0.5rem;
+    width: 60%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    // display: -webkit-box;
+    // -webkit-box-orient: vertical;
+    // -webkit-line-clamp: 1;
   }
   &__image{
     position: absolute;
@@ -240,7 +247,7 @@
   &__subhead{
     position: absolute;
     top: 55%;
-    left: 17%;
+    left: 3.2rem;
     font-size: 0.6rem;
     color: gray;
     margin:0 0 0 0.5rem;
@@ -324,7 +331,7 @@
 .frame_blog .thinCard__subhead{
     position: absolute;
     top: 55%;
-    left: 17%;
+    left: 3.2rem;
     font-size: 0.6rem;
     color: gray;
     margin:0 0 0 0.5rem;
