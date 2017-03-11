@@ -6,12 +6,12 @@ class BlogsController < ApplicationController
   before_action :correct_editor, only: [:new, :create, :edit, :update, :destroy]
 
   def indexes
-    @blogs = Blog.all.order("created_at DESC").page(params[:page])
+    @blogs = Blog.order("created_at DESC").page(params[:page]).per(25)
     render "index"
   end
   def index
     @circle = Circle.find(params[:circle_id])
-    @blogs  = Blog.where(circle_id: @circle.id).order("created_at DESC")
+    @blogs  = Blog.where(circle_id: @circle.id).order("created_at DESC").page(params[:page]).per(25)
   end
 
   def new

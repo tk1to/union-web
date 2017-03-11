@@ -5,9 +5,23 @@
 <div class="list__wrap">
   <% if @events.any? %>
     <ul class="wrap-thinCard">
-      <% @events.each do |event| %>
-        <%= render "shared/event_card", event: event %>
-      <% end %>
+      <%= render "shared/event_cards" %>
     </ul>
   <% end %>
 </div>
+
+<%= paginate @events %>
+
+<script>
+$(function(){
+  $(".wrap-thinCard .page").infinitescroll({
+    loading: {
+      img:     "http://www.mytreedb.com/uploads/mytreedb/loader/ajax_loader_blue_48.gif",
+      msgText: "loading..."
+    },
+    navSelector: "nav.pagination",
+    nextSelector: "nav.pagination a[rel=next]",
+    itemSelector: ".wrap-thinCard .page"
+  });
+});
+</script>

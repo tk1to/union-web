@@ -7,16 +7,6 @@
 
     <div class="card__image c_picture" style="background-image: url(<%= circle.picture %>)"></div>
     <h1 class="card__name"><%= circle.name %></h1>
-    <p class="card__category">
-      <% if circle.categories.first.present? %>
-        <%= circle.categories.first.name %>
-      <% end %>
-      <% if circle.categories.second.present? %>
-        /<%= circle.categories.second.name %>
-      <% end %>
-      <% if circle.categories.third.present? %>
-        /<%= circle.categories.third.name %>
-      <% end %>
-    </p>
+    <p class="card__category"><%= circle.display_categories %></p>
   </div>
 <% end %>

@@ -32,8 +32,8 @@ class CirclesController < ApplicationController
     @circle = Circle.find(params[:id])
 
     @members    = @circle.members.limit(5)
-    @blogs      = @circle.blogs.limit(5)
-    @events     = @circle.events.limit(5)
+    @blogs      = Blog.where(circle_id: @circle.id).order("created_at DESC").limit(5)
+    @events     = Event.where(circle_id: @circle.id).order("created_at DESC").limit(5)
     @categories = @circle.categories
 
     if @be_member = @members.include?(current_user)

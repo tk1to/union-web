@@ -32,6 +32,15 @@ class Circle < ActiveRecord::Base
 
   # acts_as_taggable_on :fussy_tags
 
+  def display_categories
+    response = ""
+    self.categories.each do |c|
+      response += "/" if !response.blank?
+      response += c.name
+    end
+    response
+  end
+
   private
     def picture_size
       if picture.size > 5.megabytes

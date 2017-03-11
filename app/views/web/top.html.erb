@@ -84,9 +84,7 @@
   <h1 class="frame__heading frame__heading_underline">新着ブログ</h1>
   <% if @blogs.any? %>
     <ul class="wrap-thinCard">
-      <% @blogs.each do |blog| %>
-        <%= render "shared/blog_card", blog: blog %>
-      <% end %>
+      <%= render "shared/blog_cards" %>
       <li><%= link_to "もっと見る", :blogs, class: "thinCard thinCard__more" %></li>
     </ul>
   <% end %>
@@ -96,9 +94,7 @@
   <h1 class="frame__heading frame__heading_underline">新着イベント</h1>
   <% if @events.any? %>
     <ul class="wrap-thinCard">
-      <% @events.each do |event| %>
-        <%= render "shared/event_card", event: event %>
-      <% end %>
+      <%= render "shared/event_cards" %>
       <li><%= link_to "もっと見る", :events, class: "thinCard thinCard__more" %></li>
     </ul>
   <% end %>
