@@ -22,7 +22,8 @@ end
 
 Circle.create(name: "ボランティアサークル", description: "定期的にボランティアをするサークルです。興味がある方は是非！")
 50.times do |i|
-  Circle.create(name: "#{i}サークル")
+  # Circle.create(name: "#{i}サークル")
+  # User.create(name: "#{i}太郎",email: "#{i}aaa@aa.aa", password: "union188")
 end
 Membership.create(circle_id: 1, member_id: 1, status: 0)
 Membership.create(circle_id: 1, member_id: 2, status: 3)

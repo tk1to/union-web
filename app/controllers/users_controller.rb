@@ -65,26 +65,30 @@ class UsersController < ApplicationController
   def following
     @title = "フォロー"
     @user  = User.find(params[:id])
-    @users = @user.following
-    render 'follow'
+    @users = @user.following.page(params[:page]).per(25)
+    render "index"
   end
   def followers
     @title = "フォロワー"
     @user  = User.find(params[:id])
-    @users = @user.followers
-    render 'follow'
+    @users = @user.followers.page(params[:page]).per(25)
+    render "index"
   end
   def favorites
     @user = User.find(params[:id])
   end
   def foots
+    @title = "足跡"
     @user = current_user
+    @users = @user.footed_users.order("updated_at DESC").page(params[:page]).per(25)
     @foots = @user.footed_prints
 
     @user.update_attributes(new_foots_exist: false, new_foots_count: 0)
     @foots.where(checked: false).each do |foot|
       foot.update_attribute(:checked, true)
     end
+
+    render "index"
   end
 
   def rest

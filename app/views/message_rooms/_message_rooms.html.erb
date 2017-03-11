@@ -1,0 +1,18 @@
+<div class="page">
+  <% @message_rooms.each do |message_room| %>
+    <% opp_user = message_room.opp_user(current_user.id) %>
+    <li class="thinCard message_list">
+      <%= link_to message_room,class: "link_fill" do %>
+        <div class="thinCard__heading"><%= opp_user.name %></div>
+        <div class="thinCard__image c_picture" style="background-image: url(<%= opp_user.picture %>)"></div>
+        <div class="thinCard__subhead"><%= message_room.newest_message.content if message_room.messages.any? %></div>
+        <div class="thinCard__time">
+          <%= message_room.newest_message.created_at.in_time_zone('Tokyo').strftime("%m/%d  %k:%M") if message_room.messages.any? %>
+        </div>
+        <% if message_room.last_sender_id == message_room.opp_user(current_user.id).id && 0 < message_room.new_messages_count.to_i %>
+          <div class="thinCard__notice"><%= message_room.new_messages_count %></div>
+        <% end %>
+      <% end %>
+    </li>
+  <% end %>
+</div>

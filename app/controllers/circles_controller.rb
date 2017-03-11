@@ -123,7 +123,10 @@ class CirclesController < ApplicationController
   end
 
   def favorited
+    @title = "気になるをくれたユーザー"
     @circle = Circle.find(params[:id])
+    @users = @circle.favorited_users.page(params[:page]).per(25)
+    render template: "users/index"
   end
 
   def search
@@ -146,8 +149,10 @@ class CirclesController < ApplicationController
   end
 
   def members
-    @circle = Circle.find(params[:id])
-    @members = @circle.members
+    @title = "メンバー一覧"
+    circle = Circle.find(params[:id])
+    @users = circle.members.page(params[:page]).per(25)
+    render template: "users/index"
   end
 
   private
