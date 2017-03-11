@@ -14,7 +14,7 @@
     <% else %>
       <% @category_ids.each_with_index do |id, i| %>
         <div class="wrap_select">
-          <%= select :categories, ("category_"+(i+1).to_s).to_sym, @category_options.map{|t| [t.name, t.id]}, {selected: id, include_blank: true} , {class: "selectbox"}%>
+          <%= select :categories, ("category_"+(i+1).to_s).to_sym, @category_options.map{|t| [t.name, t.id]}, {selected: id, prompt: "☆"*(3-i)} , {class: "selectbox"}%>
         </div>
       <% end %>
     <% end %>
