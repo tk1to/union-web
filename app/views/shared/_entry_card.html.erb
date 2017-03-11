@@ -1,0 +1,7 @@
+<li class="thinCard">
+  <%= link_to entry.user, class: "link_fill" do %>
+    <p class="thinCard__heading"><%= entry.user.name %></p>
+    <p class="thinCard__subhead"><%= entry.user.basic_info %></p>
+  <% end %>
+  <%= link_to "承認", [:accept, @circle, entry], method: :post , class: "thinCard__permit button button_size_small button_color_blue" %>
+</li>

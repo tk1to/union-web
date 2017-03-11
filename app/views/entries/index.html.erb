@@ -4,8 +4,11 @@
 
 <div class="list__wrap">
   <% if @entries.any? %>
-    <%= render "shared/thin_cards", objects: @circle.entrying_users %>
-    <%# link_to "承認", [:accept, @circle, entry], method: :post , class: "thinCard__permit button button_size_small button_color_blue "%>
+    <ul class="wrap-thinCard">
+      <% @entries.each do |entry| %>
+        <%= render "shared/entry_card", entry: entry %>
+      <% end %>
+    </ul>
   <% end %>
   <%= link_to "サークルへ戻る", @circle ,class: "button button_size_medium button_color_gray"%>
 </div>

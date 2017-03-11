@@ -15,7 +15,7 @@
   <% end %>
   <%= render 'layouts/nav' %>
   <% flash.each do |message_type, message| %>
-    <div class="flash_message flash_message-#{message_type}">
+    <div class="flash_message flash_message-<%= message_type %>">
       <%= message %>
     </div>
   <% end %>

@@ -1,0 +1,7 @@
+<li class="thinCard">
+  <%= link_to [event.circle, event], class: "link_fill" do %>
+    <div class="thinCard__image c_picture" style="background-image: url(<%= event.picture %>)"></div>
+    <p class="thinCard__heading"><%= event.title %></p>
+    <p class="thinCard__subhead"><%= event.content %></p>
+  <% end %>
+</li>

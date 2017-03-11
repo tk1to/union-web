@@ -4,6 +4,10 @@
 
 <div class="list__wrap">
   <% if @events.any? %>
-    <%= render "shared/thin_cards", objects: @events %>
+    <ul class="wrap-thinCard">
+      <% @events.each do |event| %>
+        <%= render "shared/event_card", event: event %>
+      <% end %>
+    </ul>
   <% end %>
 </div>

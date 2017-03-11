@@ -3,8 +3,12 @@
 </header>
 
 <div class="list__wrap">
-<% if @circle.favorites.any? %>
-  <%= render "shared/thin_cards", objects: @circle.favorited_users %>
-<% end %>
-<%= link_to "サークルへ戻る", @circle ,class: "button button_size_medium button_color_gray"%>
+  <% if @circle.favorited_users.any? %>
+    <ul class="wrap-thinCard">
+      <% @circle.favorited_users.each do |user| %>
+        <%= render "shared/user_card", user: user %>
+      <% end %>
+    </ul>
+  <% end %>
+  <%= link_to "サークルへ戻る", @circle ,class: "button button_size_medium button_color_gray"%>
 </div>

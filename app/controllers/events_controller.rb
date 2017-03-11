@@ -6,6 +6,7 @@ class EventsController < ApplicationController
 
   def indexes
     @events = Event.all.order("created_at DESC")
+    render "index"
   end
   def index
     @circle = Circle.find(params[:circle_id])

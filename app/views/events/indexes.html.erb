@@ -1,9 +1,0 @@
-<header>
-  <h1 class="formHeading ta_center">イベント一覧</h1>
-</header>
-
-<div class="list__wrap">
-  <% if @events.any? %>
-    <%= render "shared/thin_cards", objects: @events %>
-  <% end %>
-</div>

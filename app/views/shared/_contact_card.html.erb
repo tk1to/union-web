@@ -1,0 +1,6 @@
+<li class="thinCard">
+  <%= link_to [contact.receive_circle, contact], class: "link_fill" do %>
+    <p class="thinCard__heading"><%= contact.send_user.name %></p>
+    <p class="thinCard__subhead"><%= contact.content %></p>
+  <% end %>
+</li>

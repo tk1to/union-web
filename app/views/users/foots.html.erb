@@ -4,6 +4,10 @@
 
 <div class="list__wrap">
   <% if @foots.any? %>
-    <%= render "shared/thin_cards", objects: @user.footed_users %>
+    <ul class="wrap-thinCard">
+      <% @foots.each do |foot| %>
+        <%= render "shared/user_card", user: foot.footer_user %>
+      <% end %>
+    </ul>
   <% end %>
 </div>

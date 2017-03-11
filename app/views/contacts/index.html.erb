@@ -3,8 +3,12 @@
 </header>
 
 <div class="list__wrap">
-	<div class="contacts_list">
-  	<%= render "shared/thin_cards", objects: @contacts %>
+  <div class="contacts_list">
+    <ul class="wrap-thinCard">
+      <% @contacts.each do |contact| %>
+        <%= render "shared/contact_card", contact: contact %>
+      <% end %>
+    </ul>
   </div>
 </div>
   <%= link_to "サークルへ戻る", @circle ,class: "button button_size_medium button_color_gray"%>

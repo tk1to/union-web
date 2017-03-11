@@ -7,6 +7,7 @@ class BlogsController < ApplicationController
 
   def indexes
     @blogs = Blog.all.order("created_at DESC").page(params[:page])
+    render "index"
   end
   def index
     @circle = Circle.find(params[:circle_id])

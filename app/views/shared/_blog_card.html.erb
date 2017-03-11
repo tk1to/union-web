@@ -3,6 +3,6 @@
     <div class="thinCard__image c_picture" style="background-image: url(<%= blog.picture_1 %>)"></div>
     <p class="thinCard__heading"><%= blog.title %></p>
     <p class="thinCard__subhead"><%= blog.content_1 %></p>
-    <span class="thinCard__time"><%= blog.created_at.strftime("%y/%m/%d  %k:%M") %></span>
+    <span class="thinCard__time"><%= blog.created_at.in_time_zone('Tokyo').strftime("%y/%m/%d  %k:%M") %></span>
   <% end %>
 </li>
