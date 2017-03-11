@@ -34,7 +34,7 @@ class MessageRoomsController < ApplicationController
       end
     end
 
-    @messages = @message_room.messages.order(created_at: :desc).page(params[:page]).per(2)
+    @messages = @message_room.messages.order(created_at: :asc)
   end
 
   private

@@ -1,0 +1,11 @@
+
+<% @messages.each do |message| %>
+  <% be_opp = message.sender_id != current_user.id %>
+  <div class="wrap-message__text clearfix">
+    <div class="<%= be_opp ? "receiver" : "sender" %> message__text" >
+      <%= message.content %>
+      <span class="message__time"><%= message.created_at.in_time_zone('Tokyo').strftime("%k:%M") %></span>
+      <div class="sender__image"></div>
+    </div>
+  </div>
+<% end %>
