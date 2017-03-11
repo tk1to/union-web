@@ -50,8 +50,8 @@
 
 <header class="header">
   <div class="header__background c_picture" style="background-image: url(<%= @user.header_picture %>)"></div>
-  <div class="header__photo_user c_picture" style="background-image: url(<%= @user.picture %>);"></div>
-  <h1 class="header__name_user"><%= @user.name %></h1>
+  <div class="header__photo_circle c_picture" style="background-image: url(<%= @user.picture %>);"></div>
+  <h1 class="header__name_circle"><%= @user.name %></h1>
   <p class="header__subhead_user"><%= @user.basic_info %></p>
   <% if current_user?(@user) %>
     <%= image_tag "menu.svg" , class: "header__menu_humberger" %>
@@ -75,6 +75,16 @@
     <% end %>
   </div>
 </header>
+
+<!-- <header class="header">
+  <h1 class="header__name_circle"><%= @user.name %></h1>
+  <div class="header__background c_picture" style="background-image: url(<%= @user.header_picture %>)"></div>
+  <div class="header__photo_circle c_picture" style="background-image: url(<%= @user.picture %>)"></div>
+  <div class="header__change"></div>
+  <% if @be_member %>
+    <%= image_tag "menu.svg" , class: "header__menu_humberger" %>
+  <% end %>
+</header> -->
 
 <div class="follow">
   <ul class="follow__wrap">
