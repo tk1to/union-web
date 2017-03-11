@@ -1,5 +1,5 @@
 <li class="thinCard">
-  <%= link_to blog, class: "link_fill" do %>
+  <%= link_to [blog.circle, blog], class: "link_fill" do %>
     <div class="thinCard__image c_picture" style="background-image: url(<%= blog.picture_1 %>)"></div>
     <p class="thinCard__heading"><%= blog.title %></p>
     <p class="thinCard__subhead"><%= blog.content_1 %></p>
