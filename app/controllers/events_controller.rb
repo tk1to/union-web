@@ -67,7 +67,7 @@ class EventsController < ApplicationController
     def member_check
       circle = Circle.find(params[:circle_id])
       unless circle.members.include?(current_user)
-        flash[:failure] = "メンバーのみの機能です"
+        flash[:alert] = "メンバーのみの機能です"
         redirect_to :top
       end
     end
@@ -75,10 +75,10 @@ class EventsController < ApplicationController
       circle = Circle.find(params[:circle_id])
       ms = current_user.memberships.find_by(circle_id: circle.id)
       if ms.blank?
-        flash[:failure] = "サークルメンバーのみの機能です"
+        flash[:alert] = "サークルメンバーのみの機能です"
         redirect_to :top
       elsif ms[:status] > 2
-        flash[:failure] = "編集者のみの機能です"
+        flash[:alert] = "編集者のみの機能です"
         redirect_to circle
       end
     end

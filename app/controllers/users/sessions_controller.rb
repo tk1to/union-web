@@ -19,7 +19,7 @@ class Users::SessionsController < Devise::SessionsController
           resource.memberships.create(circle_id: session[:joining_circle_id])
         end
       else
-        flash[:failure] = "無効なURLです"
+        flash[:alert] = "無効なURLです"
       end
       session.delete(:joining_circle_id)
     end

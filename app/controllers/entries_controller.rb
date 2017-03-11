@@ -19,7 +19,7 @@ class EntriesController < ApplicationController
 
   def destroy
     Entry.find(params[:id]).destroy
-    flash[:success] = "キャンセルしました"
+    flash[:notice] = "キャンセルしました"
     redirect_to controller: :circles, action: :show, id: params[:circle_id]
   end
 
@@ -37,14 +37,14 @@ class EntriesController < ApplicationController
     def member_check
       circle = Circle.find(params[:circle_id])
       unless circle.members.include?(current_user)
-        flash[:failure] = "メンバーのみの機能です"
+        flash[:alert] = "メンバーのみの機能です"
         redirect_to :top
       end
     end
     def external_check
       circle = Circle.find(params[:circle_id])
       if circle.members.include?(current_user)
-        flash[:failure] = "メンバーではないユーザーのみの機能です"
+        flash[:alert] = "メンバーではないユーザーのみの機能です"
         redirect_to :top
       end
     end

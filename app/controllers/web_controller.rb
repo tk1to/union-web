@@ -40,12 +40,12 @@ class WebController < ApplicationController
             return
           end
         else
-          flash[:failure] = "有効なURLではありませんでした"
+          flash[:alert] = "有効なURLではありませんでした"
           redirect_to :top
           return
         end
       else
-        flash[:failure] = "有効なURLではありませんでした"
+        flash[:alert] = "有効なURLではありませんでした"
         redirect_to :top
         return
       end

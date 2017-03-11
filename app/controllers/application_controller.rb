@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
 
-  before_action :news_check
+  before_action :news_check, :only_sp
 
   # ログイン後のリダイレクト
   def after_sign_in_path_for(resource)
@@ -15,6 +15,15 @@ class ApplicationController < ActionController::Base
     :root
   end
 
+  def only_sp
+    if !session[:only_sp]
+      ua = request.env["HTTP_USER_AGENT"]
+      unless (ua.include?('Mobile') || ua.include?('Android'))
+        session[:only_sp] = true
+        @only_sp = true
+      end
+    end
+  end
   def news_check
     if user_signed_in?
       user = current_user

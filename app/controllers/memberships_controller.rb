@@ -26,7 +26,7 @@ class MembershipsController < ApplicationController
     if params[:chief_update_confirmed]
       @circle.memberships.find_by(status: 0).admin!
       @circle.memberships.find(params[:elected_chief]).chief!
-      flash[:success] = "変更しました。"
+      flash[:success] = "変更しました"
       redirect_to [:status, @circle]
     else
       @elected_chief = Membership.find(params[:chief_edit]).first
@@ -55,7 +55,7 @@ class MembershipsController < ApplicationController
         removed_admin_ids = params[:removed_admin].keys.map{|n|n.to_i}
         removed_admin_ids.each{|id|Membership.find(id).ordinary!}
       end
-      flash[:success] = "変更しました。"
+      flash[:success] = "変更しました"
       redirect_to [:status, @circle]
     else
       submitted_membership_ids = params[:admin_edit] ? params[:admin_edit].keys.map{|n|n.to_i} : []
@@ -86,7 +86,7 @@ class MembershipsController < ApplicationController
         removed_editor_ids = params[:removed_editor].keys.map{|n|n.to_i}
         removed_editor_ids.each{|id|Membership.find(id).ordinary!}
       end
-      flash[:success] = "変更しました。"
+      flash[:success] = "変更しました"
       redirect_to [:status, @circle]
     else
       submitted_membership_ids = params[:editor_edit] ? params[:editor_edit].keys.map{|n|n.to_i} : []
@@ -110,7 +110,7 @@ class MembershipsController < ApplicationController
       @host_url = request.host
       render "publish_url"
     else
-      flash[:failuer] = "失敗"
+      flash[:alert] = "失敗"
       redirect_to circle
     end
   end
@@ -120,10 +120,10 @@ class MembershipsController < ApplicationController
       circle = Circle.find(params[:id])
       ms = current_user.memberships.find_by(circle_id: circle.id)
       if ms.blank?
-        flash[:failure] = "サークルメンバーのみの機能です"
+        flash[:alert] = "サークルメンバーのみの機能です"
         redirect_to :top
       elsif ms[:status] != 0
-        flash[:failure] = "代表のみの機能です"
+        flash[:alert] = "代表のみの機能です"
         redirect_to circle
       end
     end
@@ -131,10 +131,10 @@ class MembershipsController < ApplicationController
       circle = Circle.find(params[:id])
       ms = current_user.memberships.find_by(circle_id: circle.id)
       if ms.blank?
-        flash[:failure] = "サークルメンバーのみの機能です"
+        flash[:alert] = "サークルメンバーのみの機能です"
         redirect_to :top
       elsif ms[:status] > 1
-        flash[:failure] = "管理者のみの機能です"
+        flash[:alert] = "管理者のみの機能です"
         redirect_to circle
       end
     end

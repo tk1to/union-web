@@ -104,7 +104,7 @@ class CirclesController < ApplicationController
     @circle = Circle.find(params[:id])
     if params[:delete_confirmed]
       @circle.destroy
-      flash[:notice] = "削除完了"
+      flash[:success] = "削除完了"
       redirect_to :top
     else
       render "delete_confirm"
@@ -115,7 +115,7 @@ class CirclesController < ApplicationController
     @circle = Circle.find(params[:id])
     if params[:resign_confirmed]
       current_user.memberships.find_by(circle_id: params[:id]).destroy
-      flash[:notice] = "退団完了"
+      flash[:success] = "退団完了"
       redirect_to :top
     else
       render "resign_confirm"
@@ -169,7 +169,7 @@ class CirclesController < ApplicationController
     def member_check
       circle = Circle.find(params[:id])
       unless circle.members.include?(current_user)
-        flash[:failure] = "メンバーのみの機能です"
+        flash[:alert] = "メンバーのみの機能です"
         redirect_to :top
       end
     end
@@ -178,10 +178,10 @@ class CirclesController < ApplicationController
       circle = Circle.find(params[:id])
       ms = current_user.memberships.find_by(circle_id: circle.id)
       if ms.blank?
-        flash[:failure] = "サークルメンバーのみの機能です"
+        flash[:alert] = "サークルメンバーのみの機能です"
         redirect_to :top
       elsif ms[:status] > 1
-        flash[:failure] = "管理者のみの機能です"
+        flash[:alert] = "管理者のみの機能です"
         redirect_to circle
       end
     end

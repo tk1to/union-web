@@ -16,7 +16,7 @@
     <% for i in 1..3 do %>
       <h2 class="article__subhead"><%= @blog["header_#{i}"] %></h2>
       <%= image_tag @blog["picture_#{i}"] ? @blog.picture(i).url : nil , class: "article__image"%>
-      <p class="article__text"><%= simple_format(h(@blog["content_#{i}"])) %></p>
+      <p class="article__text"><%= simple_format(h(@blog["content_#{i}"]), class: "") %></p>
     <% end %>
 
   </div>
