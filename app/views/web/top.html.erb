@@ -27,7 +27,7 @@
 <div class="frame">
   <h1 class="frame__heading frame__heading_underline">サークルランキング</h1>
 </div>
-<div class="wrap_miniCard">
+<div id="ranking" class="wrap_miniCard">
   <% if @circles.any? %>
     <ul class="sride-miniCard">
       <% @circles.each do |circle| %>
@@ -36,11 +36,7 @@
             <div class="miniCard__background c_picture" style="background-image: url(<%= circle.header_picture %>)"></div>
             <div class="miniCard__image c_picture" style="background-image: url(<%= circle.picture %>)"></div>
             <p class="miniCard__name"><%= circle.name %></p>
-            <p class="miniCard__genre">
-              <% if circle.categories.first.present? %>
-                <%= circle.categories.first.name %>
-              <% end %>
-            </p>
+            <p class="miniCard__genre"><%= circle.categories.first.name if circle.categories.first.present? %></p>
           <% end %>
         </li>
       <% end %>
@@ -55,7 +51,7 @@
 <div class="frame">
   <h1 class="frame__heading frame__heading_underline">新着サークル一覧</h1>
 </div>
-<div class="wrap_miniCard">
+<div id="news" class="wrap_miniCard">
   <% if @circles.any? %>
     <ul class="sride-miniCard">
       <% @circles.each do |circle| %>
