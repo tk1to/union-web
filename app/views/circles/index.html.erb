@@ -1,13 +1,43 @@
-<% if @circles.any? %>
-  <% @circles.each do |circle| %>
-    <div class="wrap_card">
-      <%= render "circle_card", circle: circle %>
-      <% if user_signed_in? %>
-        <div id="favorite_form_<%= circle.id %>" class="restricted">
-          <% @circle = circle %>
-          <%= render !current_user.favorites.find_by(circle_id: @circle.id) ? "favorite" : "unfavorite" , circle: @circle %>
-        </div>
-      <% end %>
+<% if params[:action] == "feed" || params[:action] == "search" %>
+  <div class="wrap-search ta_center">
+    <%= link_to "フィード", [:feed, :circles] , class: "button button_feed button_feed_current"%>
+    <%= link_to "検索", [:search, :circles] , class: "button button_search"%>
+  </div>
+<% end %>
+
+<% if params[:action] == "search" %>
+  <%= form_for @search_params, url: [:search, :circles], html: {method: :get} do |f| %>
+
+    <!--<%= f.label :name, "名前" %>-->
+    <div class="form__search ta_center">
+    <%= f.text_field :name ,:placeholder => "キーワードを入力" , class: "form__text_area_search ta_center "%>
+    <%= f.submit "検索" , class: "button button_size_small button_color_blue "%>
     </div>
+    <!--
+    <%= f.label :categoies, "カテゴリー" %>
+    <%= f.select :categories, @category_options.map{|t| [t.name, t.id]}, include_blank: true %>
+    -->
   <% end %>
 <% end %>
+
+<% if @circles.any? %>
+  <div class="wrap_card">
+    <%= render "circle_cards" %>
+  </div>
+<% end %>
+
+<%= paginate @circles %>
+
+<script>
+$(function(){
+  $(".wrap_card .page").infinitescroll({
+    loading: {
+      img:     "http://www.mytreedb.com/uploads/mytreedb/loader/ajax_loader_blue_48.gif",
+      msgText: "loading..."
+    },
+    navSelector: "nav.pagination",
+    nextSelector: "nav.pagination a[rel=next]",
+    itemSelector: ".wrap_card .page"
+  });
+});
+</script>

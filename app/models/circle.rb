@@ -1,8 +1,8 @@
 class Circle < ActiveRecord::Base
-  validates :name, presence: true
-  validates :description, presence: true
-  validates :picture, presence: true
-  validates :header_picture, presence: true
+  # validates :name, presence: true
+  # validates :description, presence: true
+  # validates :picture, presence: true
+  # validates :header_picture, presence: true
 
   has_many :members, through: :memberships, class_name: "User"
   has_many :memberships, dependent: :destroy

@@ -5,7 +5,7 @@ class CirclesController < ApplicationController
   before_action :correct_admin, only: [:edit, :update]
 
   def index
-    @circles = Circle.all.order("created_at DESC")
+    @circles = Circle.order("created_at DESC").page(params[:page]).per(15)
   end
   def new
     @circle = Circle.new
@@ -134,13 +134,15 @@ class CirclesController < ApplicationController
       @circles = @circles.joins(:categories).where(categories: {id: params[:circle][:categories]}) if params[:circle][:categories].present?
       @circles = @circles.where(Circle.arel_table[:name].matches("%#{ params[:circle][:name] }%"))
     end
+    @circles = @circles.page(params[:page]).per(15)
+    render "index"
   end
   def feed
-    circles = Circle.all
-    @circles = circles.shuffle
+    @circles = Circle.order("created_at DESC").page(params[:page]).per(15)
     # if user_signed_in? && (fed_category = current_user.categories.first).present?
     #   @circles = @circles.joins(:categories).where(categories: {id: fed_category.id})
     # end
+    render "index"
   end
 
   def members

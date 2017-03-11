@@ -21,6 +21,9 @@ mails = ["taro", "jiro", "saburo", "shiro", "goro"]
 end
 
 Circle.create(name: "ボランティアサークル", description: "定期的にボランティアをするサークルです。興味がある方は是非！")
+50.times do |i|
+  Circle.create(name: "#{i}サークル")
+end
 Membership.create(circle_id: 1, member_id: 1, status: 0)
 Membership.create(circle_id: 1, member_id: 2, status: 3)
 Membership.create(circle_id: 1, member_id: 3, status: 3)
@@ -31,10 +34,10 @@ Blog.create(title: "太郎のサークル設立",circle_id: 1, author_id: 1,
             content_1: "サークルを設立しました！ボランティアに興味がある方は是非入ってください！")
 Event.create(title: "〇〇町ゴミ拾い！１", circle_id: 1,
   content: "ゴミ拾いを〇〇町で行います！少しでも興味がある方は是非参加してください！誰でも歓迎です！")
-300.times do |i|
-  Blog.create(title: "#{i}番目", circle_id: 1, author_id: 1, content_1: "#{i}番目")
-  Event.create(title: "#{i}番目", circle_id: 1, content: "a")
-end
+# 300.times do |i|
+#   Blog.create(title: "#{i}番目", circle_id: 1, author_id: 1, content_1: "#{i}番目")
+#   Event.create(title: "#{i}番目", circle_id: 1, content: "a")
+# end
 
 
 Contact.create(content: "テスト用お問い合わせ、内容が入る場所", send_user_id: 2, receive_circle_id: 1)

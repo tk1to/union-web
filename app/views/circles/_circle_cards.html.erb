@@ -1,0 +1,22 @@
+<div class="page">
+  <% @circles.each do |circle| %>
+    <div class="card">
+      <%= link_to circle, class: "link_fill" do %>
+        <div class="card__background c_picture" style="background-image: url(<%= circle.header_picture %>)"></div>
+
+        <h1 class="card__heading"><%= circle.description %></h1>
+        <p class="card__subhead"></p>
+
+        <div class="card__image c_picture" style="background-image: url(<%= circle.picture %>)"></div>
+        <h1 class="card__name"><%= circle.name %></h1>
+        <p class="card__category"><%= circle.display_categories %></p>
+      <% end %>
+      <% if user_signed_in? %>
+        <div id="favorite_form_<%= circle.id %>" class="restricted">
+          <% @circle = circle %>
+          <%= render !current_user.favorites.find_by(circle_id: @circle.id) ? "favorite" : "unfavorite" , circle: @circle %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
