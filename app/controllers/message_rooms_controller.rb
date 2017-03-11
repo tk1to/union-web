@@ -5,24 +5,22 @@ class MessageRoomsController < ApplicationController
   before_action :correct_user, only: [:show]
 
   def index
-    @message_rooms = current_user.message_rooms.sort_by{|mr|mr.last_updated_time}.reverse
+    @message_rooms = current_user.message_rooms.page(params[:page]).per(25)
   end
   def new
-    mid = current_user.id
     yid = params[:user_id].to_i
-    rooms = current_user.message_rooms
-    if rooms.select{|r|r.creater_id==yid||r.created_id==yid}.blank?
-      @message_room = MessageRoom.new(creater_id: current_user.id, created_id: yid)
-      @message_room.save
+    creater = MessageRoom.arel_table[:creater_id]
+    created = MessageRoom.arel_table[:created_id]
+    if (room = current_user.message_rooms.where(creater.eq(yid).or(created.eq(yid)))).blank?
+      @message_room = MessageRoom.create(creater_id: current_user.id, created_id: yid, last_updated_time: DateTime.now)
     else
-      @message_room = rooms.select{|r|r.creater_id==yid||r.created_id==yid}[0]
+      @message_room = room
     end
     redirect_to @message_room
   end
 
   def show
     @message_room = MessageRoom.find(params[:id])
-    @messages     = @message_room.messages
 
     opp_user = @message_room.opp_user(current_user.id)
     @new_message  = Message.new(sender_id: current_user.id, receiver_id: opp_user.id, message_room_id: @message_room.id)
@@ -35,6 +33,8 @@ class MessageRoomsController < ApplicationController
         message.update_attributes(checked: true)
       end
     end
+
+    @messages = @message_room.messages.order(created_at: :desc).page(params[:page]).per(2)
   end
 
   private

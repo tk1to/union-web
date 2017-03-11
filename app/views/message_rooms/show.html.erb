@@ -1,9 +1,10 @@
+<%= paginate @messages %>
+
 <div class="message_rooms">
   <div class="wrap-message">
     <% @messages.each do |message| %>
       <% be_opp = message.sender_id != current_user.id %>
       <div class="wrap-message__text clearfix">
-        <!-- <div class="sender__image"></div> -->
         <div class="<%= be_opp ? "receiver" : "sender" %> message__text" >
           <%= message.content %>
           <span class="message__time"><%= message.created_at.in_time_zone('Tokyo').strftime("%k:%M") %></span>
@@ -29,5 +30,14 @@
     $('.wrap-message').animate({
       scrollTop: $(document).height()
     },0);
+    $(".wrap-thinCard .page").infinitescroll({
+      loading: {
+        img:     "http://www.mytreedb.com/uploads/mytreedb/loader/ajax_loader_blue_48.gif",
+        msgText: "loading..."
+      },
+      navSelector: "nav.pagination",
+      nextSelector: "nav.pagination a[rel=next]",
+      itemSelector: ".wrap-thinCard .page"
+    });
   });
 </script>

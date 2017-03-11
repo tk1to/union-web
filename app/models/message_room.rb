@@ -13,11 +13,4 @@ class MessageRoom < ActiveRecord::Base
   def newest_message
     self.messages.order("created_at DESC").first
   end
-  def last_updated_time
-    if self.messages.blank?
-      self.created_at
-    else
-      self.newest_message.created_at
-    end
-  end
 end

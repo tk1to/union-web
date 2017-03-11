@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170307063841) do
+ActiveRecord::Schema.define(version: 20170311174321) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -136,6 +136,7 @@ ActiveRecord::Schema.define(version: 20170307063841) do
     t.boolean  "new_messages_exist"
     t.integer  "new_messages_count"
     t.integer  "last_sender_id"
+    t.datetime "last_updated_time"
   end
 
   create_table "messages", force: :cascade do |t|

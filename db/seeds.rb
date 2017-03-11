@@ -11,7 +11,7 @@
 names = ["太郎", "次郎", "三郎", "四郎", "五朗"]
 mails = ["taro", "jiro", "saburo", "shiro", "goro"]
 5.times do |i|
-  user = User.create(
+  user = User.new(
     name: "てすと#{names[i]}",
     email: "#{mails[i]}@test.com",
     password: "union188"

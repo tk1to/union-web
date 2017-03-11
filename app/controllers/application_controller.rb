@@ -19,10 +19,7 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       user = current_user
       if user.new_messages_exist
-        rooms = []
-        user.message_rooms.each do |room|
-          rooms << room if room.new_messages_exist && room.last_sender_id != user.id
-        end
+        rooms = user.message_rooms.where(new_messages_exist: true).where.not(last_sender_id: user.id)
         user.new_messages_count = 0
         rooms.each do |room|
           room.new_messages_count = room.messages.where(checked: false).count

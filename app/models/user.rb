@@ -127,7 +127,7 @@ class User < ActiveRecord::Base
     info += self.department + "/" if !self.department.blank?
     info += self.grade      + "/" if !self.grade.blank?
     info += self.sex_label  + "/" if !self.sex.blank?
-    info[0..-2] 
+    info[0..-2]
   end
 
   def sex_label
@@ -140,17 +140,9 @@ class User < ActiveRecord::Base
   end
 
   def message_rooms
-    cr_rooms = self.creater_message_rooms
-    cd_rooms = self.created_message_rooms
-
-    rooms = []
-    cr_rooms.each do |room|
-      rooms << room
-    end
-    cd_rooms.each do |room|
-      rooms << room
-    end
-    rooms
+    creater = MessageRoom.arel_table[:creater_id]
+    created = MessageRoom.arel_table[:created_id]
+    MessageRoom.where(creater.eq(self.id).or(created.eq(self.id))).order(last_updated_time: :DESC)
   end
 
   private
