@@ -2,8 +2,7 @@
   <h1 class="formHeading ta_center">その他</h1>
 </header>
 
-<ul class="frame ta_center">
-  <li>
+<div class="frame ta_center">
   <div class="normal_text"><%= link_to "アカウントを削除", @user, method: :delete %></div>
-  </li>
-</ul>
+  <div class="normal_text"><%= link_to "ログアウト", [:destroy, :user, :session], method: :delete, data: { confirm: "ログアウトしますか？" } %></div>
+</div>

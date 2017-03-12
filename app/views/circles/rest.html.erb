@@ -1,0 +1,10 @@
+<header>
+  <h1 class="formHeading ta_center">その他</h1>
+</header>
+
+<div class="frame ta_center">
+  <div class="normal_text"><%= link_to "サークル退団", [:resign, @circle], method: :delete %></div>
+  <% if @status == "chief" %>
+    <div class="normal_text"><%= link_to "サークル削除", @circle, method: :delete %></div>
+  <% end %>
+</div>

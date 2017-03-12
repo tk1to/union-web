@@ -1,7 +1,7 @@
 class CirclesController < ApplicationController
 
   before_action :authenticate_user!, except: [:index, :show, :feed, :search, :members]
-  before_action :member_check, only: [:edit, :update, :destroy, :resign, :favorited]
+  before_action :member_check, only: [:edit, :update, :destroy, :resign, :favorited, :rest]
   before_action :correct_admin, only: [:edit, :update]
 
   def index
@@ -153,6 +153,12 @@ class CirclesController < ApplicationController
     circle = Circle.find(params[:id])
     @users = circle.members.page(params[:page]).per(25)
     render template: "users/index"
+  end
+
+  def rest
+    @circle = Circle.find(params[:id])
+    membership  = @circle.memberships.find_by(member_id: current_user.id)
+    @status     = membership.status
   end
 
   private

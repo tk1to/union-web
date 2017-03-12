@@ -8,10 +8,7 @@
           <li class="sideMenu__item"><%= link_to "サークル情報編集", [:edit, @circle] %></li>
           <li class="sideMenu__item"><%= link_to "管理者設定", [:status, :edit, @circle] %></li>
           <li class="sideMenu__item"><%= link_to "メンバー追加", [:key, @circle] %></li>
-        <% end %>
-        <li class="sideMenu__item"><%= link_to "サークル退団", [:resign, @circle], method: :delete %></li>
-        <% if @status == "chief" %>
-          <li class="sideMenu__item"><%= link_to "サークル削除", @circle, method: :delete %></li>
+          <li class="sideMenu__item"><%= link_to "その他", [:rest, @circle] %></li>
         <% end %>
       </ul>
     </div>

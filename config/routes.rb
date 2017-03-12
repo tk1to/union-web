@@ -48,6 +48,7 @@ Rails.application.routes.draw do
       get    :favorited
       get    :members
       delete :resign
+      get    :rest
 
       get   :status,       to: "memberships#status"
       get   "status/edit", to: "memberships#status_edits"
