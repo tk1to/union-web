@@ -13,17 +13,20 @@ class DebugController < ApplicationController
     redirect_to :top
   end
 
-  require 'net/http'
-  require 'uri'
-  require 'json'
+  # require 'net/http'
+  # require 'uri'
+  # require 'json'
+  include EncodingHelper
   def rec_api
     key = "4b0ca9238f706863"
     form = "json"
-    code = "SC000268"
-    uri = URI.parse("http://webservice.recruit.co.jp/shingaku/school/v1/?key=#{key}&code=#{code}&format=#{form}")
+    kana = utf8_code("ダ") + utf8_code("イ") + utf8_code("が") + utf8_code("く")
+    count = 100
+    uri = URI.parse("http://webservice.recruit.co.jp/shingaku/school/v1/?key=#{key}&count=#{count}&format=#{form}&order=3&kana=#{kana}")
     json = Net::HTTP.get(uri)
-    @result = JSON.parse(json)
+    result = JSON.parse(json)["results"]["school"]
 
+    @kanas = result.map{|r|r["kana"]}
     render "debug"
   end
   private
