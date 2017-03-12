@@ -12,6 +12,20 @@ class DebugController < ApplicationController
     end
     redirect_to :top
   end
+
+  require 'net/http'
+  require 'uri'
+  require 'json'
+  def rec_api
+    key = "4b0ca9238f706863"
+    form = "json"
+    code = "SC000268"
+    uri = URI.parse("http://webservice.recruit.co.jp/shingaku/school/v1/?key=#{key}&code=#{code}&format=#{form}")
+    json = Net::HTTP.get(uri)
+    @result = JSON.parse(json)
+
+    render "debug"
+  end
   private
     def env_develop
       redirect_to :top if !Rails.env.development?
