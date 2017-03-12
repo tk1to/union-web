@@ -16,7 +16,7 @@
       <% end %>
     <% elsif @edit_item == "birth_place" || @edit_item ==  "home_place" %>
       <div class="wrap_select">
-        <%= f.select @edit_item, @prefectures.map{|t|[t,t]}, { prompt: "都道府県を選択"} , {class: "selectbox"} %>
+        <%= f.select @edit_item, @prefectures.map{|t|[t,t]}, { include_blank: true } , {class: "selectbox"} %>
       </div>
     <% else %>
       <%= f.label @edit_item , class: "form__item"%>
@@ -46,12 +46,12 @@
 
     <%= f.label :birth_place, class: "form__item" %>
     <div class="wrap_select">
-      <%= f.select :birth_place, @prefectures.map{|t|[t,t]}, { prompt: "都道府県を選択"} , {class: "selectbox"} %>
+      <%= f.select :birth_place, @prefectures.map{|t|[t,t]}, { include_blank: true } , {class: "selectbox"} %>
     </div>
 
     <%= f.label :home_place, class: "form__item" %>
     <div class="wrap_select">
-      <%= f.select :home_place, @prefectures.map{|t|[t,t]}, { prompt: "都道府県を選択"} , {class: "selectbox"} %>
+      <%= f.select :home_place, @prefectures.map{|t|[t,t]}, { include_blank: true } , {class: "selectbox"} %>
     </div>
 
     <div class="form__images ta_center">
