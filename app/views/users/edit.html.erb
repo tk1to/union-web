@@ -7,16 +7,21 @@
   <%= render 'shared/error_messages', object: f.object %>
 
   <% if @edit_item %>
-    <% if @edit_item != "categories" %>
-      <%= f.label @edit_item , class: "form__item"%>
-      <%= f.text_area @edit_item , class: "form__text_area"%>
-      <%= f.hidden_field :edit_item, :value => @edit_item %>
-    <% else %>
+    <% if @edit_item == "categories" %>
+      <label class="form__item">興味のあるカテゴリー</label>
       <% @category_ids.each_with_index do |id, i| %>
         <div class="wrap_select">
           <%= select :categories, ("category_"+(i+1).to_s).to_sym, @category_options.map{|t| [t.name, t.id]}, {selected: id, prompt: "☆"*(3-i)} , {class: "selectbox"}%>
         </div>
       <% end %>
+    <% elsif @edit_item == "birth_place" || @edit_item ==  "home_place" %>
+      <div class="wrap_select">
+        <%= f.select @edit_item, @prefectures.map{|t|[t,t]}, { prompt: "都道府県を選択"} , {class: "selectbox"} %>
+      </div>
+    <% else %>
+      <%= f.label @edit_item , class: "form__item"%>
+      <%= f.text_area @edit_item , class: "form__text_area"%>
+      <%= f.hidden_field :edit_item, :value => @edit_item %>
     <% end %>
 
   <% else %>
@@ -39,11 +44,15 @@
       <%= f.select :grade, ["1", "2", "3", "4", "修士1", "修士2", "その他"], {include_blank: true}, {class: "selectbox"} %>
     </div>
 
-    <%= f.label :birth_place, class: "form__item"%>
-    <%= f.text_field :birth_place, class: "form__text_field" %>
+    <%= f.label :birth_place, class: "form__item" %>
+    <div class="wrap_select">
+      <%= f.select :birth_place, @prefectures.map{|t|[t,t]}, { prompt: "都道府県を選択"} , {class: "selectbox"} %>
+    </div>
 
-    <%= f.label :home_place, class: "form__item"%>
-    <%= f.text_field :home_place, class: "form__text_field" %>
+    <%= f.label :home_place, class: "form__item" %>
+    <div class="wrap_select">
+      <%= f.select :home_place, @prefectures.map{|t|[t,t]}, { prompt: "都道府県を選択"} , {class: "selectbox"} %>
+    </div>
 
     <div class="form__images ta_center">
       <div>

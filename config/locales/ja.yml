@@ -33,3 +33,7 @@ ja:
       user:
         birth_place: "出身地"
         home_place: "住んでるとこと"
+        introduce: "自己紹介"
+        oppotunity: "サークルに入ったきっかけ"
+        career: "これまでやってきたこと"
+        my_circle_atom: "サークルの雰囲気"
