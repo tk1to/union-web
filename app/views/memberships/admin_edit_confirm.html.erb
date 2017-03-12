@@ -3,24 +3,24 @@
 </header>
 
 <div class="frame">
-<h2 class="frame__heading frame__heading_underline">権限を追加</h2>
 
-<% @added_admins.each do |ms| %>
-<div class="menbarCard">
-  <div class="menbarCard__image"></div>
-  <div class="menbarCard__heading"><%= ms.member.name %></div>
-  <div class="menbarCard__subhead"><%= ms.member.basic_info %></div>
-</div>
-<% end %>
-
-<h2 class="frame__heading frame__heading_underline">権限を削除</h2>
-<% @removed_admins.each do |ms| %>
+  <h2 class="frame__heading frame__heading_underline">権限を追加</h2>
+  <% @added_admins.each do |ms| %>
   <div class="menbarCard">
-    <div class="menbarCard__image"></div>
+    <div class="menbarCard__image c_picture" style="background-image: url(<%= ms.member.picture %>)"></div>
     <div class="menbarCard__heading"><%= ms.member.name %></div>
     <div class="menbarCard__subhead"><%= ms.member.basic_info %></div>
   </div>
-<% end %>
+  <% end %>
+
+  <h2 class="frame__heading frame__heading_underline">権限を削除</h2>
+  <% @removed_admins.each do |ms| %>
+    <div class="menbarCard">
+      <div class="menbarCard__image c_picture" style="background-image: url(<%= ms.member.picture %>)"></div>
+      <div class="menbarCard__heading"><%= ms.member.name %></div>
+      <div class="menbarCard__subhead"><%= ms.member.basic_info %></div>
+    </div>
+  <% end %>
 
 </div>
 

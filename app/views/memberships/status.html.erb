@@ -5,7 +5,7 @@
     <% @chiefs.each do |ms| %>
       <% member = ms.member %>
       <div class="menbarCard">
-        <div class="menbarCard__image" style="background-image: url(<%= member.picture %>)"></div>
+        <div class="menbarCard__image c_picture" style="background-image: url(<%= member.picture %>)"></div>
         <div class="menbarCard__heading"><%= member.name %></div>
         <div class="menbarCard__subhead"><%= member.basic_info %></div>
       </div>

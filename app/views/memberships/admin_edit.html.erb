@@ -11,7 +11,7 @@
         <li class="thinCard">
           <%= label_tag "member#{member.id}", {class: "wrap_checkbox"} do %>
             <%= check_box "admin_edit", membership.id, {id: "member#{member.id}", class: "thinCard__checkbox", checked: checked}, true, false %>
-            <div class="thinCard__image"></div>
+            <div class="thinCard__image c_picutre" style="background-image: url(<%= member.picture %>)"></div>
             <div class="thinCard__heading"><%= member.name %></div>
             <div class="thinCard__subhead"><%= member.basic_info %></div>
             <div class="checkbox_style"></div>

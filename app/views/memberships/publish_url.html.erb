@@ -1,13 +1,11 @@
 <div class="ta_center">
   <h1 class="formHeading">メンバー追加用URL発行</h1>
+  <p class="normal_text"><%= @circle.name %>のメンバーURLは</p>
 
-
-<p class="normal_text"><%= @circle.name %>のメンバーURLは</p>
-
-<div class="form">
-  <input id="fe_text" class="form form__text_field" type="text" value="<%= "#{@host_url}/entry/#{@key}" %>">
-</div>
-<!-- <button id="d_clip_button" data-clipboard-target="fe_text" class="button button_size_large button_color_blue">URLをコピー</button> -->
+  <div class="form">
+    <input id="fe_text" class="form form__text_field" type="text" value="<%= "#{@host_url}/entry/#{@key}" %>">
+  </div>
+  <!-- <button id="d_clip_button" data-clipboard-target="fe_text" class="button button_size_large button_color_blue">URLをコピー</button> -->
 </div>
 <p class="normal_text ta_center">このURLから登録、またはログインすると<br>自動でメンバーに追加されます。</p>
 
