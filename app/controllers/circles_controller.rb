@@ -53,15 +53,6 @@ class CirclesController < ApplicationController
       end
     end
 
-    @informations = {
-      join_colleges: "参加大学",
-      people_scale:  "人数",
-      activity_place: "活動場所",
-      annual_fee: "年会費",
-      activity_frequency: "活動頻度",
-      party_frequency: "飲み会頻度",
-    }
-
   end
 
   def edit
