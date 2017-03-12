@@ -96,17 +96,17 @@
       </li>
     <% end %>
     <li class="follow__list follow__list_border_right">
-      <%= link_to [:following, @user] , class: "follow__link" do %>
+      <%= link_to [:following, @user] , class: "follow__link link_fill" do %>
         <div id="following_count" class="follow__number" ><%= @user.following.count %></div>フォロー
       <% end %>
     </li>
     <li class="follow__list follow__list_border_right">
-      <%= link_to [:followers, @user] , class: "follow__link" do %>
+      <%= link_to [:followers, @user] , class: "follow__link link_fill" do %>
         <div id="followers_count" class="follow__number" ><%= @user.followers.count %></div>フォロワー
       <% end %>
     </li>
     <li class="follow__list">
-      <%= link_to [:favorites, @user] , class: "follow__link" do %>
+      <%= link_to [:favorites, @user] , class: "follow__link link_fill" do %>
         <div id="favorites_count" class="follow__number" ><%= @user.favorites.count %></div>気になる
       <% end %>
     </li>
