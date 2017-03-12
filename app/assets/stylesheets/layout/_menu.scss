@@ -9,9 +9,6 @@
   margin-right: -60%;
   transition-property:all;
   transition-duration:0.4s;
-  &__lists{
-    
-  }
   &__item{
     width: 100%;
     height: 50px;
@@ -20,7 +17,7 @@
     color: #fff;
     border-bottom: 1px solid $l-gray;
     box-sizing: border-box;
-    padding-left: 30px;
+    // padding-left: 30px;
     font-size: 0.8rem;
     a {
       color: #fff;
@@ -28,10 +25,14 @@
       display: block;
       width: 100%;
       height: 100%;
+      padding-left: 30px;
     }
   }
   &_show{
     margin-right: 0%;
+  }
+  &_close{
+    padding-left: 30px;
   }
 }
 .white_back{

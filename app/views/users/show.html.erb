@@ -40,9 +40,9 @@
   <div class="sideMenu">
     <ul class="sideMenu__lists">
       <li class="sideMenu__item sideMenu_close">閉じる</li>
-      <li class="sideMenu__item"><%= link_to "プロフィール編集", [:edit, @user], class: "link_fill" %></li>
-      <li class="sideMenu__item restricted"><%= link_to "新規団体登録", [:new, :circle], class: "create_circle_btn link_fill"%></li>
-      <li class="sideMenu__item"><%= link_to "その他", [:rest, @user], class: "link_fill" %></li>
+      <li class="sideMenu__item"><%= link_to "プロフィール編集", [:edit, @user] %></li>
+      <li class="sideMenu__item restricted"><%= link_to "新規団体登録", [:new, :circle] %></li>
+      <li class="sideMenu__item"><%= link_to "その他", [:rest, @user] %></li>
     </ul>
   </div>
 <% end %>
@@ -76,13 +76,13 @@
 </header>
 
 <!-- <header class="header">
-  <h1 class="header__name_circle"><%= @user.name %></h1>
-  <div class="header__background c_picture" style="background-image: url(<%= @user.header_picture %>)"></div>
-  <div class="header__photo_circle c_picture" style="background-image: url(<%= @user.picture %>)"></div>
+  <h1 class="header__name_circle"><%# @user.name %></h1>
+  <div class="header__background c_picture" style="background-image: url(<%# @user.header_picture %>)"></div>
+  <div class="header__photo_circle c_picture" style="background-image: url(<%# @user.picture %>)"></div>
   <div class="header__change"></div>
-  <% if @be_member %>
-    <%= image_tag "menu.svg" , class: "header__menu_humberger" %>
-  <% end %>
+  <%# if @be_member %>
+    <%# image_tag "menu.svg" , class: "header__menu_humberger" %>
+  <%# end %>
 </header> -->
 
 <div class="follow">
@@ -119,7 +119,7 @@
   <ul class="wrap_belong">
     <% @user.circles.each do |circle| %>
       <li class="belong">
-        <%= link_to circle,class: "" do %>
+        <%= link_to circle,class: "link_fill" do %>
           <div class="belong__image c_picture" style="background-image: url(<%= circle.picture %>)"></div>
           <div class="belong__heading"><%= circle.name %></div>
           <div class="belong__description"><%= circle.description %></div>

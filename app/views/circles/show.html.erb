@@ -5,10 +5,10 @@
       <ul class="sideMenu__lists">
         <li class="sideMenu__item sideMenu_close">閉じる</li>
         <% if @status_num <= 1 %>
-          <li class="sideMenu__item"><%= link_to "サークル情報編集", [:edit, @circle], class: "link_fill" %></li>
-          <li class="sideMenu__item"><%= link_to "管理者設定", [:status, :edit, @circle], class: "link_fill" %></li>
-          <li class="sideMenu__item"><%= link_to "メンバー追加", [:key, @circle], class: "link_fill" %></li>
-          <li class="sideMenu__item"><%= link_to "その他", [:rest, @circle], class: "link_fill"  %></li>
+          <li class="sideMenu__item"><%= link_to "サークル情報編集", [:edit, @circle] %></li>
+          <li class="sideMenu__item"><%= link_to "管理者設定", [:status, :edit, @circle] %></li>
+          <li class="sideMenu__item"><%= link_to "メンバー追加", [:key, @circle] %></li>
+          <li class="sideMenu__item"><%= link_to "その他", [:rest, @circle] %></li>
         <% end %>
       </ul>
     </div>
