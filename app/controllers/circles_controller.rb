@@ -52,7 +52,14 @@ class CirclesController < ApplicationController
         @favorite = current_user.favorites.find_by(circle_id: @circle.id)
       end
     end
-
+    @informations = {
+      join_colleges: "参加大学",
+      people_scale:  "人数",
+      activity_place: "活動場所",
+      annual_fee: "年会費",
+      activity_frequency: "活動頻度",
+      party_frequency: "飲み会頻度",
+    }
   end
 
   def edit
@@ -151,6 +158,33 @@ class CirclesController < ApplicationController
     membership  = @circle.memberships.find_by(member_id: current_user.id)
     @status     = membership.status
   end
+
+  # require "json"
+  # require 'open-uri'
+  # require "net/http"
+
+  # class HTTPRequest
+  #   self.class_eval{
+  #     attr_reader :postdata
+  #     def initialize(path, initheader = nil)
+  #       klass = initheader["postdata"] ? HTTP::Post : HTTP::Get if initheader
+  #       @postdata = initheader.delete("postdata")
+  #       super klass::METHOD,
+  #         klass::REQUEST_HAS_BODY,
+  #         klass::RESPONSE_HAS_BODY,
+  #         path, initheader
+  #     end
+  #   }
+  # end
+  # class HTTP
+  #   self.class_eval{
+  #     alias :_request :request
+  #     def request(req, body = nil, &block)
+  #       body = req.postdata if req.respond_to?(:postdata)
+  #       _request(req, body, &block)
+  #     end
+  #   }
+  # end
 
   private
     def circle_params

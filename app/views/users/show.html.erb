@@ -40,9 +40,9 @@
   <div class="sideMenu">
     <ul class="sideMenu__lists">
       <li class="sideMenu__item sideMenu_close">閉じる</li>
-      <li class="sideMenu__item"><%= link_to "プロフィール編集", [:edit, @user] %></li>
-      <li class="sideMenu__item restricted"><%= link_to "新規団体登録", [:new, :circle], class: "create_circle_btn"%></li>
-      <li class="sideMenu__item"><%= link_to "その他", [:rest, @user] %></li>
+      <li class="sideMenu__item"><%= link_to "プロフィール編集", [:edit, @user], class: "link_fill" %></li>
+      <li class="sideMenu__item restricted"><%= link_to "新規団体登録", [:new, :circle], class: "create_circle_btn link_fill"%></li>
+      <li class="sideMenu__item"><%= link_to "その他", [:rest, @user], class: "link_fill" %></li>
     </ul>
   </div>
 <% end %>
@@ -112,7 +112,6 @@
   </ul>
 </div>
 
-<!-- 入ってるサークルの情報 -->
 <section class="frame">
   <% if @user.circles.any? %>
     <div class="frame__heading">所属サークル</div>
@@ -120,7 +119,7 @@
   <ul class="wrap_belong">
     <% @user.circles.each do |circle| %>
       <li class="belong">
-        <%= link_to circle do %>
+        <%= link_to circle,class: "" do %>
           <div class="belong__image c_picture" style="background-image: url(<%= circle.picture %>)"></div>
           <div class="belong__heading"><%= circle.name %></div>
           <div class="belong__description"><%= circle.description %></div>
