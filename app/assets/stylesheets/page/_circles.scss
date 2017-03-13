@@ -59,6 +59,10 @@
       border-left: 5px solid $l-gray;
       padding-bottom: 0.3rem;
     }
+    &_side{
+      border-left: 5px solid $d-blue;
+      margin-left: 0.5rem;
+    }
   }
   &__more{
     float: right;
