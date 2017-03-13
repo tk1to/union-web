@@ -40,6 +40,15 @@
 		line-height: 6rem;
 		margin-bottom: 0.5rem;
 	}
+	&_round{
+		width: 80%;
+		height: 2.5rem;
+		border-radius: 2.5rem;
+		line-height: 2.5rem;
+		padding:0;
+		font-size: 1rem;
+		margin-top: 0.5rem;
+	}
 	&_border{
 		border:1.5px solid #fff;
 		border-radius: 3px;
