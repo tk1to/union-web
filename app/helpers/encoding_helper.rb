@@ -85,5 +85,6 @@ module EncodingHelper
      "を"=>"%E3%82%92",
      "ん"=>"%E3%82%93",
     }[char]
+    resp.nil? ? "" : resp
   end
 end

@@ -20,13 +20,17 @@ class DebugController < ApplicationController
   def rec_api
     key = "4b0ca9238f706863"
     form = "json"
-    kana = utf8_code("ダ") + utf8_code("イ") + utf8_code("が") + utf8_code("く")
+    kana = utf8_code("だ") + utf8_code("い") + utf8_code("が") + utf8_code("く")
+    if !params[:keyword].blank?
+      keyword =  params[:keyword].chars
+      kana = keyword.map{|k|utf8_code(k)}.join
+    end
     count = 100
     uri = URI.parse("http://webservice.recruit.co.jp/shingaku/school/v1/?key=#{key}&count=#{count}&format=#{form}&order=3&kana=#{kana}")
     json = Net::HTTP.get(uri)
     result = JSON.parse(json)["results"]["school"]
 
-    @kanas = result.map{|r|r["kana"]}
+    @kanas = result.map{|r|r["kana"]} if result && 0 < result.count
     render "debug"
   end
   private

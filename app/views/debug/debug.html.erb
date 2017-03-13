@@ -1,3 +1,11 @@
-<% @kanas.each do |kana| %>
-  <p><%= kana %></p>
+
+<%= form_tag :rec_api, method: :get do %>
+  <%= text_field_tag :keyword %>
+  <%= submit_tag "検索" %>
+<% end %>
+
+<% if @kanas.present? %>
+  <% @kanas.each do |kana| %>
+    <p><%= kana %></p>
+  <% end %>
 <% end %>
