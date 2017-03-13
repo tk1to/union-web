@@ -20,7 +20,7 @@ class DebugController < ApplicationController
   def rec_api
     key = "4b0ca9238f706863"
     form = "json"
-    kana = utf8_code("だ") + utf8_code("い") + utf8_code("が") + utf8_code("く")
+    kana = ""
     if !params[:keyword].blank?
       keyword =  params[:keyword].chars
       kana = keyword.map{|k|utf8_code(k)}.join
@@ -30,10 +30,15 @@ class DebugController < ApplicationController
     json = Net::HTTP.get(uri)
     result = JSON.parse(json)["results"]["school"]
 
-    @kanas = result.map{|r|r["kana"]} if result && 0 < result.count
-    render "debug"
+    if result && 0 < result.count
+      @colleges = result
+    else
+      @colleges = []
+    end
+    render partial: "debug/college_select", locals: {colleges: @colleges}
   end
   def aaa
+    @colleges = []
     render "debug"
   end
 

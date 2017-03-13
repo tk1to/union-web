@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   get  "top" => "web#top"
   get  "privacypolicy" => "web#privacypolicy"
 
-  post "switch" => "debug#switch"
-  get "rec_api" => "debug#rec_api"
-  get "aaa"     => "debug#aaa"
+  post "switch"  => "debug#switch"
+  get  "rec_api" => "debug#rec_api"
+  get  "aaa"     => "debug#aaa"
 
   devise_for :users, controllers: {
     sessions:           'users/sessions',

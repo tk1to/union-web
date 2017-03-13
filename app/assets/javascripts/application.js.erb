@@ -15,20 +15,23 @@
 //= require jquery.turbolinks
 //= require jquery.infinitescroll.min
 //= require turbolinks
-//= require zeroclipboard
 //= require_tree .
 
 $(function(){
 
-  var clip = new ZeroClipboard($("#d_clip_button"));
-
-  filereader();
-  // $('.input_file').bind('change', function() {
-  //   var size_in_megabytes = this.files[0].size/1024/1024;
-  //   if (size_in_megabytes > 5) {
-  //     alert("ファイルの最大サイズは5MBです。");
-  //   }
-  // });
+  $('.temp_button').on("click", function(){
+    var keyword = $("#college_keyword").val();
+    $.ajax({
+        url: "/rec_api",
+        type: "GET",
+        data: {
+          keyword: keyword,
+        },
+    }).done(function(data){
+      alert("取得完了");
+      $("#college_select").html(data);
+    });
+  });
 
   // ハンバーガーメニューの開閉
   $('.white_back').hide();
@@ -40,11 +43,6 @@ $(function(){
     $('.sideMenu').toggleClass('sideMenu_show');
     $('.white_back').fadeOut(300);
   });
-
-  // 管理権限編集画面
-  // $('.checkbox_cover').click(function(){
-  //   $('.checkbox_style').toggleClass('checkbox_select');
-  // });
 
   // ユーザー必須項目不足時
   $(".prompt").hide();
@@ -67,6 +65,14 @@ $(function(){
       }, 1000);
     });
   <% end %>
+
+  filereader();
+  // $('.input_file').bind('change', function() {
+  //   var size_in_megabytes = this.files[0].size/1024/1024;
+  //   if (size_in_megabytes > 5) {
+  //     alert("ファイルの最大サイズは5MBです。");
+  //   }
+  // });
 
 });
 
