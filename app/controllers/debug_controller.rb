@@ -33,6 +33,11 @@ class DebugController < ApplicationController
     @kanas = result.map{|r|r["kana"]} if result && 0 < result.count
     render "debug"
   end
+  def aaa
+    render "debug"
+  end
+
+
   private
     def env_develop
       redirect_to :top if !Rails.env.development?

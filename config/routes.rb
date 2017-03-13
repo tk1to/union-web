@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   post "switch" => "debug#switch"
   get "rec_api" => "debug#rec_api"
+  get "aaa"     => "debug#aaa"
 
   devise_for :users, controllers: {
     sessions:           'users/sessions',

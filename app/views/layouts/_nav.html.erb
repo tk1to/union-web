@@ -2,7 +2,7 @@
   <ul class="nav__list">
     <li class="nav__item"><%= link_to image_tag('普通の家.svg'), :top %></li>
     <li class="nav__item"><%= link_to image_tag('検索用の虫眼鏡.svg'), [:feed, :circles] %></li>
-    <li class="nav__item nav_prompt"><%= link_to_if(user_signed_in?, image_tag('コメント.svg'), :message_rooms) %>
+    <li class="nav__item"><%= link_to_if(user_signed_in?, image_tag('コメント.svg'), :message_rooms) %>
       <% if user_signed_in? && current_user.new_messages_count && 0 < current_user.new_messages_count %>
         <div class="nav__notice"><%= current_user.new_messages_count %></div>
       <% end %>

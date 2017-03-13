@@ -1,11 +1,15 @@
 
-<%= form_tag :rec_api, method: :get do %>
-  <%= text_field_tag :keyword %>
-  <%= submit_tag "検索" %>
+<%= form_tag :aaa, method: :get do %>
+  <%= form_tag :rec_api, method: :get do %>
+    <%= text_field_tag :keyword %>
+    <%= submit_tag "検索" %>
+  <% end %>
 <% end %>
 
+<%= select_tag :collegs, options_for_select(@kanas.map{|kana|[kana, kana]}), {prompt: "大学名"} %>
+
 <% if @kanas.present? %>
-  <% @kanas.each do |kana| %>
-    <p><%= kana %></p>
-  <% end %>
+  <%# @kanas.each do |kana| %>
+    <p><%# kana %></p>
+  <%# end %>
 <% end %>
