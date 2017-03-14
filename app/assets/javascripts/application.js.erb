@@ -19,18 +19,43 @@
 
 $(function(){
 
-  $('.temp_button').on("click", function(){
+  // 大学名検索
+  $('#search_button').on("click", function(){
     var keyword = $("#college_keyword").val();
     $.ajax({
-        url: "/rec_api",
+        url: "/recruit",
         type: "GET",
         data: {
           keyword: keyword,
+          request_type: "colleges",
         },
     }).done(function(data){
-      alert("検索完了");
-      $("#college_select").html(data);
+      alert("取得完了");
+      $("#college_select_wrap").html(data);
+      $("#college_select").on("change", function(){
+        var code = $("#college_select option:selected").attr("id");
+        $.ajax({
+            url: "/recruit",
+            type: "GET",
+            data: {
+              code: code,
+              request_type: "departments",
+            },
+        }).done(function(data){
+        }).fail(function(){
+          alert("取得失敗");
+        });
+      });
+    }).fail(function(){
+      alert("取得失敗");
     });
+  });
+  // 大学名検索欄のクリックの対象をサブミットではなく検索に変更
+  $("#college_keyword").keydown(function(e) {
+    if ((e.which && e.which === 13) || (e.keyCode && e.keyCode === 13)) {
+      $("#search_button").click();
+      return false;
+    }
   });
 
   // ハンバーガーメニューの開閉
