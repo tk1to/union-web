@@ -23,18 +23,18 @@ class UsersController < ApplicationController
   end
   def update
     @user = User.find(params[:id])
-    if params[:categories].present?
-      update_categories
+    update_categories if params[:categories].present?
+    if params[:user][:college].blank?
+      params[:user][:college] = @user.college
+      params[:user][:faculty] = @user.faculty
+    end
+    debugger
+    if @user.update_attributes(user_params)
       flash[:success] = "編集完了"
       redirect_to @user
     else
-      if @user.update_attributes(user_params)
-        flash[:success] = "編集完了"
-        redirect_to @user
-      else
-        @edit_item = params[:user][:edit_item]
-        render 'edit'
-      end
+      @edit_item = params[:user][:edit_item]
+      render 'edit'
     end
   end
 
@@ -103,7 +103,7 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(
           :name, :email, :password, :password_confirmation,
-          :sex, :college, :department, :grade,
+          :sex, :college, :faculty, :grade,
           :picture, :header_picture,
           :birth_place, :home_place,
           :introduce,

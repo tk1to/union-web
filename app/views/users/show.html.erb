@@ -49,7 +49,6 @@
   <div class="header__background c_picture" style="background-image: url(<%= @user.header_picture %>)"></div>
   <div class="header__photo_circle c_picture" style="background-image: url(<%= @user.picture %>);"></div>
   <h1 class="header__name_circle"><%= @user.name %></h1>
-  <!-- <p class="header__subhead_user"><%= @user.basic_info %></p> -->
   <% if current_user?(@user) %>
     <%= image_tag "menu.svg" , class: "header__menu_humberger" %>
     <div class="header__foot">
@@ -89,42 +88,15 @@
   </ul>
 </div>
 
-<!-- <div class="ta_center">
-  <% if user_signed_in? && current_user?(@user) %>
-    <div class="follow_round">
-      <%= link_to [:edit, @user] , class: "follow__link" do %>setting
-        <%= image_tag 'setting_prof.svg' , class: "follow__list_icon"%>
-      <% end %>
-    </div>
-  <% end %>
-  <div class="follow_round">
-    <%= link_to [:following, @user] , class: "follow__link link_fill" do %>
-      <div id="following_count" class="follow__number" ><%= @user.following.count %>フォロー</div>
-    <% end %>
-  </div>
-  <div class="follow_round">
-    <%= link_to [:followers, @user] , class: "follow__link link_fill" do %>
-      <div id="followers_count" class="follow__number" ><%= @user.followers.count %></div>
-    <% end %>
-  </div>
-  <div class="follow_round">
-    <%= link_to [:following, @user] , class: "follow__link link_fill" do %>
-      <div id="following_count" class="follow__number" ><%= @user.following.count %>きになる</div>
-    <% end %>
-  </div>
-</div> -->
-
 <div class="ta_center">
   <% if user_signed_in? && !current_user?(@user) %>
     <div id="follow_form" class="restricted">
       <%= render !current_user.following?(@user) ? "follow" : "unfollow" %>
     </div>
     <% if current_user.mutual_follow?(@user) %>
-    <div class="button button_round button_color_blue">
-      <%= link_to [:new, :message_room, user_id: @user.id]%>
-    </div>
-    <% else %>
-      <!-- <div class="button button_round button_color_blue">メッセージを送る</div> -->
+      <div class="button button_round button_color_blue">
+        <%= link_to [:new, :message_room, user_id: @user.id]%>
+      </div>
     <% end %>
   <% end %>
 </div>
@@ -148,21 +120,12 @@
 
 <section class="frame">
   <h2 class="frame__heading frame__heading_side">基本プロフィール１</h2>
-  <div class="prof_item prof_item_sex">性別</div>
-  <div class="prof_item prof_item_school">明治大学</div>
-  <div class="prof_item prof_item_school">文学部</div>
-  <div class="prof_item prof_item_school">史学地理学科</div>
-  <div class="prof_item prof_item_location">出身地</div>
-  <div class="prof_item prof_item_home">住んでる場所</div>
-  <div class="prof_item prof_item_star">興味のある分野</div>
+  <div class="prof_item prof_item_sex"><%= @user.sex_label %></div>
+  <div class="prof_item prof_item_school"><%= @user.college %></div>
+  <div class="prof_item prof_item_school"><%= @user.faculty %></div>
+  <div class="prof_item prof_item_location"><%= @user.birth_place %></div>
+  <div class="prof_item prof_item_home"><%= @user.home_place %></div>
 </section>
-
-<!-- <section class="frame">
-  <h2 class="frame__heading frame__heading_side">基本プロフィール２</h2>
-  <div class="prof_item prof_item_location">出身地</div>
-  <div class="prof_item prof_item_home">住んでる場所</div>
-  <div class="prof_item prof_item_star">興味のある分野</div>
-</section> -->
 
 <section class="frame">
   <h2 class="frame__heading frame__heading_side">基本プロフィール２</h2>

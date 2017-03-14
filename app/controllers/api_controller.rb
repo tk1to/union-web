@@ -20,9 +20,20 @@ class ApiController < ApplicationController
         @colleges = []
       end
       name = "user[college]"
-      render partial: "shared/college_select", locals: {colleges: @colleges, name: name}
-    elsif params[:request_type] == "departments"
-      debugger
+      render partial: "shared/ajax_select", locals: {elements: @colleges, name: name}
+    elsif params[:request_type] == "faculties"
+      code = params[:code]
+      uri = URI.parse("http://webservice.recruit.co.jp/shingaku/school/v1/?key=#{key}&format=#{form}&code=#{code}")
+      json = Net::HTTP.get(uri)
+      result = JSON.parse(json)["results"]["school"][0]["faculty"]
+
+      if result && 0 < result.count
+        @faculties = result
+      else
+        @faculties = []
+      end
+      name = "user[faculty]"
+      render partial: "shared/ajax_select", locals: {elements: @faculties, name: name}
     end
   end
 end

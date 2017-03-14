@@ -1,3 +1,0 @@
-<% colleges = [] if colleges.nil? %>
-<%= select_tag name.to_sym, options_for_select(colleges.map{|college|[college["name"], college["name"], {id: college["code"]} ]}),
-{prompt: "大学名", class: "selectbox", id:"college_select"} %>

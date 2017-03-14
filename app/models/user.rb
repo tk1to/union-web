@@ -113,7 +113,7 @@ class User < ActiveRecord::Base
     properties = []
     properties << "名前"                if self.name.blank?
     properties << "大学"                if self.college.blank?
-    properties << "学部"                if self.department.blank?
+    properties << "学部"                if self.faculty.blank?
     properties << "性別"                if self.sex.blank?
     properties << "住んでるところ"       if self.birth_place.blank?
     properties << "出身地"              if self.home_place.blank?
@@ -124,7 +124,7 @@ class User < ActiveRecord::Base
   def basic_info
     info = ""
     info += self.college    + "/" if !self.college.blank?
-    info += self.department + "/" if !self.department.blank?
+    info += self.faculty + "/" if !self.faculty.blank?
     info += self.grade      + "/" if !self.grade.blank?
     info += self.sex_label  + "/" if !self.sex.blank?
     info[0..-2]

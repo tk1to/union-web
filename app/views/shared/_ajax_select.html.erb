@@ -1,0 +1,12 @@
+<% elements = [] if elements.nil? %>
+
+<% if name.include?("college") %>
+  <% prompt = elements.any? ? "大学を選択" : "大学名を検索してください" %>
+  <%= select_tag name.to_sym, options_for_select(elements.map{|college|[college["name"], college["name"], {id: college["code"]} ]}),
+      {prompt: prompt, class: "selectbox", id:"college_select"} %>
+
+<% elsif name.include?("faculty") %>
+  <% prompt = elements.any? ? "学部を選択" : "大学を選択してください" %>
+  <%= select_tag name.to_sym, options_for_select(elements.map{|faculty|[faculty["name"], faculty["name"]]}),
+      {prompt: prompt, class: "selectbox"} %>
+<% end %>
