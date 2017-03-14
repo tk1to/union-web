@@ -1,7 +1,12 @@
 <% if params[:action] == "feed" || params[:action] == "search" %>
+  <% if params[:action] == "feed"
+      feed_class   = "button_feed_current"
+    else
+      search_class = "button_search_current"
+    end %>
   <div class="wrap-search ta_center">
-    <%= link_to "フィード", [:feed, :circles] , class: "button button_feed button_feed_current"%>
-    <%= link_to "検索", [:search, :circles] , class: "button button_search"%>
+    <%= link_to "フィード", [:feed, :circles] , class: "button button_feed #{feed_class}"%>
+    <%= link_to "検索", [:search, :circles] , class: "button button_search #{search_class}"%>
   </div>
 <% end %>
 
