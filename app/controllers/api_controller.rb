@@ -4,13 +4,9 @@ class ApiController < ApplicationController
     key = "4b0ca9238f706863"
     form = "json"
     if params[:request_type] == "colleges"
-      kana = ""
-      if !params[:keyword].blank?
-        keyword =  params[:keyword].chars
-        kana = keyword.map{|k|utf8_code(k)}.join
-      end
+      college_name = params[:keyword].bytes.map{|v|"%"+v.to_s(16)}.join
       count = 100
-      uri = URI.parse("http://webservice.recruit.co.jp/shingaku/school/v1/?key=#{key}&count=#{count}&format=#{form}&order=3&kana=#{kana}")
+      uri = URI.parse("http://webservice.recruit.co.jp/shingaku/school/v1/?key=#{key}&count=#{count}&format=#{form}&order=3&name=#{college_name}")
       json = Net::HTTP.get(uri)
       result = JSON.parse(json)["results"]["school"]
 
