@@ -1,4 +1,4 @@
-<!-- <header class="header">
+<header class="header">
   <% if !user_signed_in? %>
     <%= link_to :root, class: "header__background" do %>
       <div class="header__image_top c_picture" style="background-image: url(<%= asset_path('union_lp_trim.png') %>);"></div>
@@ -9,19 +9,17 @@
   <% else %>
     <div class="header__background slick-initialized slick-slider">
       <div class="header__image_top c_picture" style="background-image: url(<%= asset_path('union_lp_trim.png') %>);"></div>
-      <div class="header__image_top c_picture" style="background-image: url(<%= asset_path('union_lp_trim.png') %>);"></div>
-      <div class="header__image_top c_picture" style="background-image: url(<%= asset_path('union_lp_trim.png') %>);"></div>
     </div>
   <% end %>
-</header> -->
+</header>
 
-<header>
+<!-- <header>
   <h1 class="topHeader slider center-item slick-initialized slick-slider">
     <ul>
       <li class="topHeader_image"></li>
     </ul>
   </h1>
-</header>
+</header> -->
 
 
 
@@ -108,7 +106,128 @@
   <% end %>
 </div>
 
+<!-- 初回アクセスで、利用方法を選択 -->
+<div class="tutorial_first_select">
+  <div class="alert">
+    <div class="tutorial">
+      <div class="tutorial__inner">
+        <div class="ta_center">
+          <div class="tutorial__heading">Thanks!</div>
+        </div>
+        <div class="tutorial__text margin_top_2rem">unionにご登録いただき、ありがとうございます！簡単なサービスの説明をさせていただきたいので、現時点でのご利用方法を以下から選択してください。</div>
+        <div class="ta_center margin_top_2rem">
+          <div class="button button_lp button_color_blue no_belonge">サークルを探している</div>
+          <div class="button button_lp button_color_blue already_belonge">団体メンバー</div>
+          <div class="button button_lp button_color_blue representative">団体の代表をしている</div>
+          <div class="button button_lp button_color_white">説明はいりません</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 新入生用チュートリアル -->
+<div id="no_belonge">
+  <div class="alert">
+    <div class="tutorial">
+      <div class="tutorial__inner">
+        <div class="tutorial__heading">チュートリアル</div>
+        <div class="tutorial__text">まずは、あなたのプロフィールを作成しましょう。</div>
+        <div class="tutorial__image"></div>
+        <div class="tutorial__text">プロフィールが完成したら、メニュバーのホームや検索ページで、色々なサークル・学生団体・部活を覗いてみましょう</div>
+        <div class="tutorial__image"></div>
+        <div class="tutorial__text">気になる団体があったら、「気になる」ボタンを押してみましょう。気になる団体からメッセージが届くかもしれません。</div>
+        <div class="tutorial__image"></div>
+        <div class="tutorial__text">団体から気になるが来たり、サークルメンバーからスカウトが来たら、メッセージをしてみましょう!!!</div>
+        <div class="tutorial__image"></div>
+        <div class="tutorial__text">メッセージをして団体のメンバーと仲良くなったら、新歓イベントに行ったりサークル活動に行ってみましょう!!</div>
+        <div class="tutorial__image"></div>
+        <div class="ta_center">
+          <div class="button button_round button_color_blue tutorial_close">さあ、unionを始めよう！</div>
+        </div>
+        <div class="tutorial__text"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 団体所属ユーザー -->
+<div id="already_belonge">
+  <div class="alert">
+    <div class="tutorial">
+      <div class="tutorial__inner">
+        <div class="tutorial__heading">チュートリアル</div>
+        <div class="tutorial__text">まずは、あなたのプロフィールを作成しましょう。</div>
+        <div class="tutorial__image"></div>
+        <div class="tutorial__text">団体自分の団体に参加しましょう。団体の代表さんに追加してもらえます。</div>
+        <div class="tutorial__image"></div>
+        <div class="tutorial__text">新入生をスカウトしてみよう。ログインポーナスやブログへのいいねが増えていくと、ポイントが溜まって、お気に入りの新入生をスカウトすることができます。</div>
+        <div class="tutorial__image"></div>
+        <div class="tutorial__text">新入生をスカウトして、メッセージのやり取りを終えたら、新入生を自分の団体の新歓やイベントに誘って、最高の仲間を迎え入れましょう!!!</div>
+        <div class="tutorial__image"></div>
+        <div class="tutorial__text">メッセージをして団体のメンバーと仲良くなったら、新歓イベントに行ったりサークル活動に行ってみましょう!!</div>
+        <div class="tutorial__image"></div>
+        <div class="ta_center">
+          <div class="button button_round button_color_blue tutorial_close">さあ、unionを始めよう！</div>
+        </div>
+        <div class="tutorial__text"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 団体管理者 -->
+<div id="representative">
+  <div class="alert">
+    <div class="tutorial">
+      <div class="tutorial__inner">
+        <div class="tutorial__heading">チュートリアル</div>
+        <div class="tutorial__text">まずは、あなたのプロフィールを作成しましょう。</div>
+        <div class="tutorial__image"></div>
+        <div class="tutorial__text">プロフィール作成が終わったら、マイページ右上のメニューを開いて、新規団体登録をしましょう</div>
+        <div class="tutorial__image"></div>
+        <div class="tutorial__text">団体概要を入力し画像を挿入しましょう。また、LINE＠に登録しましょう!!!団体の代表、管理者だけにUnionから特別な情報をご提供致します。（代表者交流会や協賛企業情報など）</div>
+        <div class="tutorial__image"></div>
+        <div class="tutorial__text">これで団体が作成完了します。</div>
+        <div class="tutorial__image"></div>
+        <div class="tutorial__text">すでにあなたの団体に所属しているメンバーを、団体ページの右上のメニューから追加しましょう。</div>
+        <div class="tutorial__image"></div>
+        <div class="tutorial__text">あとは新入生からの「気になる」を待つか、団体に合いそうな新入生をスカウトして、最高の仲間を迎え入れましょう！</div>
+        <div class="ta_center">
+          <div class="button button_round button_color_blue tutorial_close">さあ、unionを始めよう！</div>
+        </div>
+        <div class="tutorial__text"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
+  $(document).ready(function() {
+  $('.tutorial_first_select').fadeIn(500);
+  $(".button_color_white").click(function(){
+        $(".alert").fadeOut(300);
+      });
+  });
+  $('.no_belonge').click(function(){
+    $("#no_belonge").fadeIn();
+    $(".tutorial_close").click(function(){
+        $(".alert").fadeOut(300);
+      });
+  });
+  $('.already_belonge').click(function(){
+    $("#no_belonge").fadeIn();
+    $(".tutorial_close").click(function(){
+        $(".alert").fadeOut(300);
+      });
+  });
+  $('.representative').click(function(){
+    $("#representative").fadeIn();
+    $(".tutorial_close").click(function(){
+        $(".alert").fadeOut(300);
+      });
+  });
+</script>
+<!-- スライドショー -->
+<!-- <script>
   $(function() {
       $('.center-item').slick({
             infinite: true,
