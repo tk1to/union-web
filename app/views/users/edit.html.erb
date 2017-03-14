@@ -68,6 +68,13 @@
       <%= f.select :home_place, @prefectures.map{|t|[t,t]}, { include_blank: true } , {class: "selectbox"} %>
     </div>
 
+    <%= label_tag nil, "興味のあるカテゴリー", class: "form__item" %>
+    <% @category_ids.each_with_index do |id, i| %>
+      <div class="wrap_select">
+        <%= select :categories, ("category_"+(i+1).to_s).to_sym, @category_options.map{|t| [t.name, t.id]}, {selected: id, prompt: "☆"*(3-i)} , {class: "selectbox"}%>
+      </div>
+    <% end %>
+
     <div class="form__images ta_center">
       <div>
         <%= image_tag @user.picture ? @user.picture.url : nil, class: "user_picture"%>

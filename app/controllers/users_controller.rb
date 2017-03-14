@@ -5,21 +5,14 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    if params[:edit_item]
-      @edit_item = params[:edit_item]
-      if @edit_item == "categories"
-        @categories = @user.categories
-        @category_options = Category.all
-        @category_ids = Array.new
-        for i in 0..Category.max-1 do
-          @category_ids[i] = @categories[i].nil? ? nil : @categories[i].id
-        end
-      elsif @edit_item == "birth_place" || @edit_item == "home_place"
-        @prefectures = prefectures
-      end
-    else
-      @prefectures = prefectures
+    @edit_item = params[:edit_item] if params[:edit_item]
+    @categories = @user.categories
+    @category_options = Category.all
+    @category_ids = []
+    for i in 0..Category.max-1 do
+      @category_ids[i] = @categories[i].nil? ? nil : @categories[i].id
     end
+    @prefectures = prefectures
   end
   def update
     @user = User.find(params[:id])

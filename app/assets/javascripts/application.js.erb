@@ -31,21 +31,24 @@ $(function(){
         },
     }).done(function(data){
       $("#college_select_wrap").html(data);
-      $("#college_select").on("change", function(){
-        var code = $("#college_select option:selected").attr("id");
-        $.ajax({
-            url: "/recruit",
-            type: "GET",
-            data: {
-              code: code,
-              request_type: "faculties",
-            },
-        }).done(function(data){
-          $("#faculty_select_wrap").html(data);
-        }).fail(function(){
-          alert("学部取得失敗");
+      if($("#faculty_select")[0]){
+        alert("test");
+        $("#college_select").on("change", function(){
+          var code = $("#college_select option:selected").attr("id");
+          $.ajax({
+              url: "/recruit",
+              type: "GET",
+              data: {
+                code: code,
+                request_type: "faculties",
+              },
+          }).done(function(data){
+            $("#faculty_select_wrap").html(data);
+          }).fail(function(){
+            alert("学部取得失敗");
+          });
         });
-      });
+      }
     }).fail(function(){
       alert("大学取得失敗");
     });
