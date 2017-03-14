@@ -3,9 +3,9 @@
 <svg version="1.1" id="レイヤー_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
 	 y="0px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:#90A4AE;}
-	.st1{fill:none;}
+	.st0{fill:none;}
+	.st1{fill:#90A4AE;}
 </style>
-<path class="st0" d="M10,20v-6h4v6h5v-8h3L12,3L2,12h3v8H10z"/>
-<path class="st1" d="M0,0h24v24H0V0z"/>
+<path class="st0" d="M0,0h24v24H0V0z"/>
+<path class="st1" d="M5,13.2v4l7,3.8l7-3.8v-4L12,17L5,13.2z M12,3L1,9l11,6l9-4.9V17h2V9L12,3z"/>
 </svg>

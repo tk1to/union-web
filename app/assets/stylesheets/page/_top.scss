@@ -1,0 +1,61 @@
+.topHeader{
+  width: 100%;
+  height: 13rem;
+  &_image{
+    width: 90%;
+    height: 13rem;
+    margin: 0 auto;
+    &1{
+      background: gray;
+    }
+    &2{
+      background:red;
+    }
+    &3{
+      background:blue;
+    }
+  }
+}
+// チュートリアル
+#no_belonge{
+  display: none;
+}
+#already_belonge{
+  display: none;
+}
+#representative{
+  display: none;
+}
+.tutorial_first_select{
+  display: none;
+}
+
+.slide{
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  &_list{
+    position: absolute;
+    width: 300%;
+  }
+  &_item{
+    float: left;
+    width: 100%;
+  }
+  .prevBtn{
+    width: 2rem;
+    height: 2rem;
+    background:gray;
+    position:absolute;
+    top: 50%;
+    right: 10%;
+  }
+  .nextBtn{
+    width: 2rem;
+    height: 2rem;
+    background:gray;
+    position:absolute;
+    top: 50%;
+    left: 10%;
+  }
+}

@@ -6,12 +6,15 @@
 	line-height:3rem;
 	box-sizing:border-box;
   &-alert {
-    background-color: red;
+    background-color: #F2DEDE;
+    color: #A94442;
   }
   &-notice {
-    background-color: blue;
+    background-color: #D9EDF7;
+    color: #31708F;
   }
   &-success {
-    background-color: lightgreen;
+    background-color: #DFF0D8;
+    color: #3C763D;
   }
 }

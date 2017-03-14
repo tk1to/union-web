@@ -124,6 +124,61 @@
   }
 }
 
+@mixin prof_item{
+  content: "";
+  width:1.5rem;
+  height:1.5rem;
+  background-size: 1.5rem auto;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+  margin-top: 0;
+  margin-bottom: 0.3rem;
+}
+.prof_item{
+  display: block;
+  margin: 1rem 0 0.5rem 1rem;
+  color: $gray;
+  &_school{
+    &::before{
+      @include prof_item;
+      background-image: image-url("school.svg");
+    }
+  }
+  &_location{
+    &::before{
+      @include prof_item;
+      background-image: image-url("location.svg");
+    }
+  }
+  &_star{
+    &::before{
+      @include prof_item;
+      background-image: image-url("star.svg");
+    }
+  }
+  &_home{
+    &::before{
+      @include prof_item;
+      background-image: image-url("home.svg");
+    }
+  }
+  &_sex{
+    &::before{
+      @include prof_item;
+      background-image: image-url("sex.svg");
+    }
+  }
+}
+.follow_round{
+  width: 5rem;
+  height: 5rem;
+  background: $d-blue;
+  border-radius:50%;
+  line-height: 5rem;
+  display: inline-block;
+}
+
 // プロフィール画像の丸から画像を編集
 .user__image_zoom{
   position: fixed;
