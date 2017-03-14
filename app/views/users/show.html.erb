@@ -1,32 +1,28 @@
-<% if user_signed_in? %>
-  <% if !current_user.mutual_follow?(@user) %><span id="mutual_follow"></span><% end %>
-  <% if current_user?(@user) %><span id="current_user"></span><% end %>
-<% end %>
 <script type="text/javascript">
   $(function(){
 
-    var mutual_follow = $("span#mutual_follow")[0];
-    var current_user  = $("span#current_user")[0];
+    var mutual_follow = <%= user_signed_in? && current_user.mutual_follow?(@user) %>;
+    var current_user  = <%= user_signed_in? && current_user?(@user) %>;
 
     // 相互フォローでない人にメッセージを送ろうとした場合のポップアップ
     $(".alert").hide();
-    if (mutual_follow) {
-      $(".header__message").click(function(){
+    $(".alert").on("click", function(){
+      $(".alert").fadeOut(300);
+    });
+    if (!mutual_follow) {
+      $(".header__message").on("click",function(){
         $(".alert").fadeIn(300);
         return false;
-      });
-      $(".alert").click(function(){
-        $(".alert").fadeOut(300);
       });
     }
 
     // 個人ページ、プロフィール画像からの編集
     $(".user__image_zoom").hide();
     if (current_user) {
-      $(".header__photo_user").click(function(){
+      $(".header__photo_user").on("click",function(){
         $(".user__image_zoom").fadeIn(100);
       });
-      $(".user__image_zoom").click(function(){
+      $(".user__image_zoom").on("click",function(){
         $(".user__image_zoom").fadeOut(100);
       });
     }
@@ -47,7 +43,7 @@
 
 <header class="header">
   <div class="header__background c_picture" style="background-image: url(<%= @user.header_picture %>)"></div>
-  <div class="header__photo_circle c_picture" style="background-image: url(<%= @user.picture %>);"></div>
+  <div class="header__photo_user c_picture" style="background-image: url(<%= @user.picture %>);"></div>
   <h1 class="header__name_circle"><%= @user.name %></h1>
   <% if current_user?(@user) %>
     <%= image_tag "menu.svg" , class: "header__menu_humberger" %>
@@ -93,11 +89,9 @@
     <div id="follow_form" class="restricted">
       <%= render !current_user.following?(@user) ? "follow" : "unfollow" %>
     </div>
-    <% if current_user.mutual_follow?(@user) %>
-      <div class="button button_round button_color_blue">
-        <%= link_to "メッセージを送る", [:new, :message_room, user_id: @user.id], class: "link_fill" %>
-      </div>
-    <% end %>
+    <div class="button button_round button_color_blue">
+      <%= link_to "メッセージを送る", [:new, :message_room, user_id: @user.id], class: "header__message link_fill" %>
+    </div>
   <% end %>
 </div>
 
@@ -158,7 +152,6 @@
 </div>
 
 <div class="user__image_zoom">
-  <!-- <div>プロフィール画像</div> -->
   <div class="user__image c_picture" style="background-image: url(<%= @user.picture %>);"></div>
   <%= link_to "プロフィール編集", [:edit, @user] , class: "button button_border"%>
   <p class="button button_border">閉じる</p>

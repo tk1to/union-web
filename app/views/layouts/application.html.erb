@@ -30,9 +30,7 @@
     </div>
   <% end %>
 
-  <!-- 必須項目未入力のポップアップ -->
   <%= render "layouts/restriction" %>
-  <!-- PC未対応ポップアップ -->
   <%= render "layouts/only_sp" %>
 
   <% if Rails.env.development? %>

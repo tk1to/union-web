@@ -1,2 +1,6 @@
 $("#follow_form").html("<%= escape_javascript(render('users/unfollow')) %>");
 $("#followers_count").html('<%= @user.followers.count %>');
+
+if (<%= current_user.mutual_follow?(@user) %>) {
+  $(".header__message").off("click");
+}

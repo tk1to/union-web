@@ -11,10 +11,11 @@ class MessageRoomsController < ApplicationController
     yid = params[:user_id].to_i
     creater = MessageRoom.arel_table[:creater_id]
     created = MessageRoom.arel_table[:created_id]
-    if (room = current_user.message_rooms.where(creater.eq(yid).or(created.eq(yid)))).blank?
+    room = current_user.message_rooms.where(creater.eq(yid).or(created.eq(yid)))
+    if room.blank?
       @message_room = MessageRoom.create(creater_id: current_user.id, created_id: yid, last_updated_time: DateTime.now)
     else
-      @message_room = room
+      @message_room = room[0]
     end
     redirect_to @message_room
   end

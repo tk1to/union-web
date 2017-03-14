@@ -1,2 +1,7 @@
 $("#follow_form").html("<%= escape_javascript(render('users/follow')) %>");
 $("#followers_count").html('<%= @user.followers.count %>');
+
+$(".header__message").on("click",function(){
+  $(".alert").fadeIn(300);
+  return false;
+});
