@@ -24,18 +24,19 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     update_categories if params[:categories].present?
-    if params[:user][:college].blank?
-      params[:user][:college] = @user.college
-      params[:user][:faculty] = @user.faculty
+    if params[:user]
+      if params[:user][:college].blank?
+        params[:user][:college] = @user.college
+        params[:user][:faculty] = @user.faculty
+      end
+      if !@user.update_attributes(user_params)
+        @edit_item = params[:user][:edit_item]
+        render 'edit'
+        return
+      end
     end
-    debugger
-    if @user.update_attributes(user_params)
-      flash[:success] = "編集完了"
-      redirect_to @user
-    else
-      @edit_item = params[:user][:edit_item]
-      render 'edit'
-    end
+    flash[:success] = "編集完了"
+    redirect_to @user
   end
 
   def show
