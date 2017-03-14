@@ -1,8 +1,12 @@
+<% if user_signed_in? %>
+  <% if current_user.mutual_follow?(@user) %><span id="mutual_follow"></span><% end %>
+  <% if current_user?(@user) %><span id="current_user"></span><% end %>
+<% end %>
 <script type="text/javascript">
   $(function(){
 
-    var mutual_follow = <%= user_signed_in? && current_user.mutual_follow?(@user) %>;
-    var current_user  = <%= user_signed_in? && current_user?(@user) %>;
+    var mutual_follow = $("span#mutual_follow")[0];
+    var current_user  = $("span#current_user")[0];
 
     // 相互フォローでない人にメッセージを送ろうとした場合のポップアップ
     $(".alert").hide();
