@@ -95,7 +95,7 @@
     </div>
     <% if current_user.mutual_follow?(@user) %>
       <div class="button button_round button_color_blue">
-        <%= link_to [:new, :message_room, user_id: @user.id]%>
+        <%= link_to "メッセージを送る", [:new, :message_room, user_id: @user.id], class: "link_fill" %>
       </div>
     <% end %>
   <% end %>
