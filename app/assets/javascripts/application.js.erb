@@ -60,6 +60,10 @@ $(function(){
       return false;
     }
   });
+  $("#college_form").hide();
+  $("#change_college").on("change", function(){
+    $("#college_form").slideToggle();
+  });
 
   // ハンバーガーメニューの開閉
   $('.white_back').hide();

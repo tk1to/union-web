@@ -33,8 +33,13 @@
       <%= f.select :sex, {"男性" => 0, "女性" => 1}, {include_blank: true}, {class: "selectbox"} %>
     </div>
 
+
+    <p>
+      <label class="form__item">大学を変更</label>
+      <input type="checkbox" id="change_college">
+    </p>
     <!-- 一時的なもの -->
-    <div style="border: 1px solid #000">
+    <div style="border: 1px solid #000" id="college_form">
 
       <%= label_tag nil, "大学名検索", class: "form__item" %>
       <%= text_field_tag :keyword, nil, {id: "college_keyword"} %>
