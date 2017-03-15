@@ -221,7 +221,7 @@
   &__heading{
     position: absolute;
     top: 16%;
-    left: 3.2rem;
+    left: 3.4rem;
     text-decoration: none;
     font-size: 0.8rem;
     color: $gray;
@@ -240,15 +240,15 @@
     bottom: 0;
     left: 3%;
     margin: auto;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2.8rem;
+    height: 2.8rem;
     background: gray;
     border-radius:50%;
   }
   &__subhead{
     position: absolute;
     top: 55%;
-    left: 3.2rem;
+    left: 3.4rem;
     font-size: 0.6rem;
     color: gray;
     margin:0 0 0 0.5rem;
@@ -308,6 +308,29 @@
     text-align: center;
     box-sizing: border-box;
   }
+.listCard{
+  width: 95%;
+  height: 4rem;
+  border-top: 1px solid $l-gray;
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 0;
+  &:first-child{
+    border-top: none;
+  }
+  &__heading{
+
+  }
+  &__subhead{
+
+  }
+  &__image{
+
+  }
+  &__follow{
+
+  }
+}
   // チェックボックスのスタイル、js連携
   &__checkbox{
     // display: none;
@@ -340,7 +363,7 @@
 .frame_blog .thinCard__subhead{
     position: absolute;
     top: 55%;
-    left: 3.2rem;
+    left: 3.4rem;
     font-size: 0.6rem;
     color: gray;
     margin:0 0 0 0.5rem;
@@ -371,11 +394,25 @@
     white-space: nowrap;
 }
 // メッセージ一覧
+.message_list .thinCard__heading{
+  position: absolute;
+  top: 20%;
+  left: 3.5rem;
+  line-height: 1rem;
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: $gray;
+  margin:0 0.5rem;
+  width: 60%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 .message_list .thinCard__subhead{
   position: absolute;
-  top: 55%;
-  left: 17%;
-  font-size: 0.6rem;
+  top: 60%;
+  left: 3.5rem;
+  font-size: 0.8rem;
   color: gray;
   margin:0 0 0 0.5rem;
   width: 65%;
