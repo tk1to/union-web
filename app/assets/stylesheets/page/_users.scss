@@ -24,10 +24,10 @@
     &_icon{
       width: 3rem;
       height: 3rem;
-      display: inline-block;
-      position: absolute;
-      top: 0;
-      right: 0.8rem;
+      // display: inline-block;
+      position: relative;
+      top: -1.5rem;
+      right: 0;
     }
   }
   &__link{

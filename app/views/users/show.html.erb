@@ -67,7 +67,7 @@
     <% if user_signed_in? && current_user?(@user) %>
       <li class="follow__list follow__list_border_right">
         <%= link_to [:edit, @user] , class: "follow__link" do %>
-          <%= image_tag 'setting_prof.svg' , class: "follow__list_icon"%>編集
+          <%= image_tag 'setting_prof.svg' , class: "follow__list_icon"%>
         <% end %>
       </li>
     <% end %>
@@ -88,6 +88,7 @@
     </li>
   </ul>
 </div>
+
 <!-- 丸タイプのフォロー関連 -->
 <div class="wrap_follow_round ta_center margin_top_3rem">
   <% if user_signed_in? && current_user?(@user) %>
