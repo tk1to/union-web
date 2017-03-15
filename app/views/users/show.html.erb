@@ -60,34 +60,6 @@
   <% end %>
 </header>
 
-<!-- バータイプのフォロー関連 -->
-<div class="follow">
-  <ul class="follow__wrap">
-    <% if user_signed_in? && current_user?(@user) %>
-      <li class="follow__list follow__list_border_right">
-        <%= link_to [:edit, @user] , class: "follow__link" do %>
-          <%= image_tag 'setting_prof.svg' , class: "follow__list_icon"%>
-        <% end %>
-      </li>
-    <% end %>
-    <li class="follow__list follow__list_border_right">
-      <%= link_to [:following, @user] , class: "follow__link link_fill" do %>
-        <div id="following_count" class="follow__number" ><%= @user.following.count %></div>フォロー
-      <% end %>
-    </li>
-    <li class="follow__list follow__list_border_right">
-      <%= link_to [:followers, @user] , class: "follow__link link_fill" do %>
-        <div id="followers_count" class="follow__number" ><%= @user.followers.count %></div>フォロワー
-      <% end %>
-    </li>
-    <li class="follow__list">
-      <%= link_to [:favorites, @user] , class: "follow__link link_fill" do %>
-        <div id="favorites_count" class="follow__number" ><%= @user.favorites.count %></div>気になる
-      <% end %>
-    </li>
-  </ul>
-</div>
-
 <!-- 丸タイプのフォロー関連 -->
 <div class="wrap_follow_round ta_center margin_top_3rem">
   <% if user_signed_in? && current_user?(@user) %>
@@ -148,11 +120,11 @@
 
 <section class="frame">
   <h2 class="frame__heading frame__heading_side">基本プロフィール</h2>
-  <div class="prof_item prof_item_sex"><%= @user.sex_label %></div>
-  <div class="prof_item prof_item_school"><%= @user.college %></div>
-  <div class="prof_item prof_item_school"><%= @user.faculty %></div>
-  <div class="prof_item prof_item_location"><%= @user.birth_place %></div>
-  <div class="prof_item prof_item_home"><%= @user.home_place %></div>
+  <div class="prof_item prof_item_sex">性別：<%= @user.sex_label %></div>
+  <div class="prof_item prof_item_school">大学：<%= @user.college %></div>
+  <div class="prof_item prof_item_school">学部：<%= @user.faculty %></div>
+  <div class="prof_item prof_item_location">出身地：<%= @user.birth_place %></div>
+  <div class="prof_item prof_item_home">住まい：<%= @user.home_place %></div>
 </section>
 
 <section class="frame">
