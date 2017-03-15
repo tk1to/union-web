@@ -105,7 +105,11 @@
     <% @informations.each do |key, value| %>
       <tr>
         <th scope="row" class="table__head"><%= value %></th>
-        <td class="table__deta"><%= @circle[key] %></td>
+        <% if key == :joining_colleges %>
+          <td class="table__deta"><%= @circle.joining_college_list.each{|c|print c} %></td>
+        <% else %>
+          <td class="table__deta"><%= @circle[key] %></td>
+        <% end %>
       </tr>
     <% end %>
   </table>

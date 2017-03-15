@@ -1,0 +1,109 @@
+$(function(){
+  // 大学・学部検索
+  $('#college_search_button').on("click", function(){
+    var keyword = $("#college_keyword").val();
+    $.ajax({
+        url: "/recruit",
+        type: "GET",
+        data: {
+          keyword: keyword,
+          request_type: "colleges",
+        },
+    }).done(function(data){
+      $("#college_select_wrap").html(data);
+      if($("#faculty_select")[0]){
+        alert("test");
+        $("#college_select").on("change", function(){
+          var code = $("#college_select option:selected").attr("id");
+          $.ajax({
+              url: "/recruit",
+              type: "GET",
+              data: {
+                code: code,
+                request_type: "faculties",
+              },
+          }).done(function(data){
+            $("#faculty_select_wrap").html(data);
+          }).fail(function(){
+            alert("学部取得失敗");
+          });
+        });
+      }
+    }).fail(function(){
+      alert("大学取得失敗");
+    });
+  });
+  // 大学名検索欄のクリックの対象をサブミットではなく検索に変更
+  $("#college_keyword").keydown(function(e) {
+    if ((e.which && e.which === 13) || (e.keyCode && e.keyCode === 13)) {
+      $("#college_search_button").click();
+      return false;
+    }
+  });
+  // 大学が記入されてるかどうかで、大学記入フォームを隠すか表示するかを制御
+  if ($("#college_blank")[0]){
+    $("#change_college").hide();
+    $("label[for=change_college]").hide();
+  } else {
+    $("#college_form").hide();
+  }
+  $("#change_college").on("change", function(){
+    $("#college_form").slideToggle();
+  });
+  // サークル画面での大学フォーム関連
+  $(".remove_college_button").hide();
+  $("#edit_joining_colleges").on("click", function(){
+    $("#college_form").slideToggle();
+    if($(this).text() == "完了"){
+      $(this).text("追加・編集");
+      $(".remove_college_button").hide();
+    } else {
+      $(this).text("完了");
+      $(".remove_college_button").show();
+    }
+  });
+  $("#add_college_button").on("click", function(){
+    var college_name = $("#college_select_wrap option:selected").val();
+    if(college_name){
+      var circle_id = $(this).attr("value");
+      $.ajax({
+        url: "/circles/"+circle_id+"/add_college",
+        type: "post",
+        data: {
+          college_name: college_name,
+        },
+      }).done(function(data){
+        $("#joining_colleges").append(data);
+        $(".joining_college").off("click");
+        set_remove_college_event();
+      });
+    }
+  });
+  set_remove_college_event();
+
+});
+// 大学をタップして削除をするイベント
+function set_remove_college_event(){
+  $(".joining_college").on("click", function(){
+    if($(this).children(".remove_college_button").is(":visible")){
+      var college_name = $(this).children(".college_name").text();
+      if(!confirm(college_name + "を削除しますか？")){
+        return false;
+      }else{
+        $(this).addClass("deleting");
+        var circle_id = $("#add_college_button").attr("value");
+        $.ajax({
+          url: "/circles/"+circle_id+"/remove_college",
+          type: "delete",
+          data: {
+            college_name: college_name,
+          },
+        }).done(function(){
+          $(".deleting").remove();
+        });
+      }
+    }
+  });
+}
+
+

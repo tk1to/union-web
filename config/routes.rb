@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get  "top" => "web#top"
   get  "privacypolicy" => "web#privacypolicy"
 
-  get  "recruit" => "api#recruit"
+  get    "recruit"        => "api#recruit"
 
   post "switch"  => "debug#switch"
 
@@ -51,6 +51,8 @@ Rails.application.routes.draw do
       get    :members
       delete :resign
       get    :rest
+      post   :add_college
+      delete :remove_college
 
       get   :status,       to: "memberships#status"
       get   "status/edit", to: "memberships#status_edits"

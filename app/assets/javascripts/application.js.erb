@@ -19,57 +19,6 @@
 
 $(function(){
 
-  // 大学名検索
-  $('#college_search_button').on("click", function(){
-    var keyword = $("#college_keyword").val();
-    $.ajax({
-        url: "/recruit",
-        type: "GET",
-        data: {
-          keyword: keyword,
-          request_type: "colleges",
-        },
-    }).done(function(data){
-      $("#college_select_wrap").html(data);
-      if($("#faculty_select")[0]){
-        alert("test");
-        $("#college_select").on("change", function(){
-          var code = $("#college_select option:selected").attr("id");
-          $.ajax({
-              url: "/recruit",
-              type: "GET",
-              data: {
-                code: code,
-                request_type: "faculties",
-              },
-          }).done(function(data){
-            $("#faculty_select_wrap").html(data);
-          }).fail(function(){
-            alert("学部取得失敗");
-          });
-        });
-      }
-    }).fail(function(){
-      alert("大学取得失敗");
-    });
-  });
-  // 大学名検索欄のクリックの対象をサブミットではなく検索に変更
-  $("#college_keyword").keydown(function(e) {
-    if ((e.which && e.which === 13) || (e.keyCode && e.keyCode === 13)) {
-      $("#college_search_button").click();
-      return false;
-    }
-  });
-  if ($("#college_blank")[0]){
-    $("#change_college").hide();
-    $("label[for=change_college]").hide();
-  } else {
-    $("#college_form").hide();
-  }
-  $("#change_college").on("change", function(){
-    $("#college_form").slideToggle();
-  });
-
   // ハンバーガーメニューの開閉
   $('.white_back').hide();
   $('.header__menu_humberger').click(function(){

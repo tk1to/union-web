@@ -47,8 +47,15 @@
     </div>
   </div>
 
-  <div style="border: 1px solid #000;">
-    <%= f.label :join_colleges, class: "form__item" %>
+  <%= f.label :join_colleges, class: "form__item" %>
+  <div id="joining_colleges">
+    <% @circle.joining_college_list.each do |college| %>
+      <%= render "joining_college", college: college %>
+    <% end %>
+  </div>
+  <div id="edit_joining_colleges">追加・編集</div>
+
+  <div id="college_form" style="border: 1px solid #000;">
     <%= label_tag nil, "大学名検索", class: "form__item" %>
     <%= text_field_tag :keyword, nil, {id: "college_keyword"} %>
     <div id="college_search_button" style="border: 1px solid #000; padding: 3px; width: 100px;">検索</div>
@@ -56,6 +63,7 @@
     <div class="wrap_select" id="college_select_wrap">
       <%= render "shared/ajax_select", {elements: @colleges, name: "user[college]"} %>
     </div>
+    <div id="add_college_button" value="<%= @circle.id %>">追加</div>
   </div>
 
   <%= f.label :people_scale, class: "form__item" %>

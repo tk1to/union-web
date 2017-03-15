@@ -53,7 +53,7 @@ class CirclesController < ApplicationController
       end
     end
     @informations = {
-      join_colleges: "参加大学",
+      joining_colleges: "参加大学",
       people_scale:  "人数",
       activity_place: "活動場所",
       annual_fee: "年会費",
@@ -72,7 +72,7 @@ class CirclesController < ApplicationController
       @category_ids[i] = @categories[i].nil? ? nil : @categories[i].id
     end
     @informations = {
-      join_colleges: "参加大学",
+      joining_colleges: "参加大学",
       people_scale:  "人数",
       activity_place: "活動場所",
       annual_fee: "年会費",
@@ -159,12 +159,25 @@ class CirclesController < ApplicationController
     @status     = membership.status
   end
 
+  def add_college
+    @circle = Circle.find(params[:id])
+    @circle.joining_college_list.add(params[:college_name])
+    @circle.save
+    render partial: "circles/joining_college", locals: {college: params[:college_name]}
+  end
+  def remove_college
+    @circle = Circle.find(params[:id])
+    @circle.joining_college_list.remove(params[:college_name])
+    @circle.save
+    render partial: "shared/none"
+  end
+
   private
     def circle_params
       params.require(:circle).permit(
           :name, :description,
           :picture, :header_picture,
-          :join_colleges, :people_scale,
+          :joining_colleges, :people_scale,
           :activity_place, :activity_frequency,
           :annual_fee, :party_frequency,
           :fussy_tags_list,
