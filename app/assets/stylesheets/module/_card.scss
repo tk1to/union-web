@@ -214,6 +214,7 @@
   border-top: 1px solid $l-gray;
   box-sizing: border-box;
   display: inline-block;
+  padding: 0;
   &:first-child{
     border-top: none;
   }
@@ -257,12 +258,20 @@
     white-space: nowrap;
   }
   &__date{
-  }
-  &__time{
     display: block;
     position: absolute;
     top: 0;
     bottom: 0;
+    right: 3%;
+    padding: 1.2rem 0;
+    font-size: 0.6rem;
+    color: gray;
+  }
+  &__time{
+    display: block;
+    position: absolute;
+    top: 1rem;
+    // bottom: 0;
     right: 3%;
     padding: 1.2rem 0;
     font-size: 0.6rem;
@@ -287,7 +296,7 @@
     position: absolute;
     top: 1.2rem;
     right: 0.5rem;
-    min-width: 1rem;
+    width: 1.2rem;
     height: 1.2rem;
     background: $d-blue;
     border-radius:0.6rem;
@@ -335,7 +344,7 @@
     font-size: 0.6rem;
     color: gray;
     margin:0 0 0 0.5rem;
-    width: 55%;
+    width: 60%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
