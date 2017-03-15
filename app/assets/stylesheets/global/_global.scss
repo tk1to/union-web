@@ -34,8 +34,17 @@
 .margin_0_auto{
   margin: 0 auto;
 }
+.margin_top_1rem{
+  margin-top: 1rem;
+}
 .margin_top_2rem{
   margin-top: 2rem;
+}
+.margin_top_3rem{
+  margin-top: 3rem;
+}
+.margin_buttom_1rem{
+  margin-top: 1rem;
 }
 // プライバシーポリシーを一時的に
 .text_wrap{
@@ -55,4 +64,9 @@
 }
 .normal_text{
   color: $gray;
+}
+.small_text{
+  font-size:0.6rem;
+  color: gray;
+  font-weight: normal;
 }
