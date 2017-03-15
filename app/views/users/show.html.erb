@@ -61,13 +61,13 @@
   <% end %>
 </header>
 
-
+<!-- バータイプのフォロー関連 -->
 <div class="follow">
   <ul class="follow__wrap">
     <% if user_signed_in? && current_user?(@user) %>
       <li class="follow__list follow__list_border_right">
         <%= link_to [:edit, @user] , class: "follow__link" do %>
-          <%= image_tag 'setting_prof.svg' , class: "follow__list_icon"%>
+          <%= image_tag 'setting_prof.svg' , class: "follow__list_icon"%>編集
         <% end %>
       </li>
     <% end %>
@@ -88,33 +88,37 @@
     </li>
   </ul>
 </div>
-
-<!-- <div class="ta_center">
+<!-- 丸タイプのフォロー関連 -->
+<div class="wrap_follow_round ta_center margin_top_3rem">
   <% if user_signed_in? && current_user?(@user) %>
-    <div class="follow_round">
-      <%= link_to [:edit, @user] , class: "follow__link" do %>setting
-        <%= image_tag 'setting_prof.svg' , class: "follow__list_icon"%>
+    <div class="follow_round follow_round_setting">
+      <%= link_to [:edit, @user] , class: "follow__link" do %>
+      <span id="following_count" class="follow__number" ><br><span class="small_text">設定</span>
       <% end %>
     </div>
   <% end %>
   <div class="follow_round">
     <%= link_to [:following, @user] , class: "follow__link link_fill" do %>
-      <div id="following_count" class="follow__number" ><%= @user.following.count %>フォロー</div>
+      <span id="following_count" class="follow__number" ><%= @user.following.count %><br><span class="small_text">フォロー</span>
+      </span>
     <% end %>
   </div>
   <div class="follow_round">
     <%= link_to [:followers, @user] , class: "follow__link link_fill" do %>
-      <div id="followers_count" class="follow__number" ><%= @user.followers.count %></div>
+      <span id="followers_count" class="follow__number" ><%= @user.followers.count %><br><span class="small_text">フォロワー</span>
+      </span>
     <% end %>
   </div>
   <div class="follow_round">
     <%= link_to [:following, @user] , class: "follow__link link_fill" do %>
-      <div id="following_count" class="follow__number" ><%= @user.following.count %>きになる</div>
+      <span id="following_count" class="follow__number" ><%= @user.following.count %><br><span class="small_text">気になる</span>
+      </span>
     <% end %>
   </div>
-</div> -->
+</div>
 
-<div class="ta_center">
+
+<div class="ta_center margin_top_1rem">
   <% if user_signed_in? && !current_user?(@user) %>
     <div id="follow_form" class="restricted">
       <%= render !current_user.following?(@user) ? "follow" : "unfollow" %>
@@ -124,7 +128,7 @@
       <%= link_to [:new, :message_room, user_id: @user.id]%>
     </div>
     <% else %>
-      <!-- <div class="button button_round button_color_blue">メッセージを送る</div> -->
+      <div class="button button_round button_color_blue">メッセージを送る</div>
     <% end %>
   <% end %>
 </div>
