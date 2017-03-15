@@ -82,8 +82,8 @@
     <% end %>
   </div>
   <div class="follow_round">
-    <%= link_to [:following, @user] , class: "follow__link link_fill" do %>
-      <span id="following_count" class="follow__number" ><%= @user.following.count %><br><span class="small_text">気になる</span>
+    <%= link_to [:favorites, @user] , class: "follow__link link_fill" do %>
+      <span id="following_count" class="follow__number" ><%= @user.favorites.count %><br><span class="small_text">気になる</span>
       </span>
     <% end %>
   </div>

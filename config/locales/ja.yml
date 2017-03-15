@@ -32,7 +32,7 @@ ja:
     attributes:
       user:
         birth_place: "出身地"
-        home_place: "住んでるとこと"
+        home_place: "住まい"
         introduce: "自己紹介"
         oppotunity: "サークルに入ったきっかけ"
         career: "これまでやってきたこと"
