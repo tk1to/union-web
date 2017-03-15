@@ -7,16 +7,17 @@
 }
 
 .favorites{
-  width: 15rem;
+  width: 3rem;
   height: 3rem;
-  border-radius: 3px;
-  line-height: 3rem;
-  margin: 0.3rem;
-  font-size: 1rem;
-  box-shadow:0 1px 0 0 $gray;
-  background: $d-blue;
-  border: 1px solid $d-blue;
-  color: #fff;
+  // border-radius: 3px;
+  // line-height: 3rem;
+  // margin: 0.3rem;
+  // font-size: 1rem;
+  // box-shadow:0 1px 0 0 $gray;
+  // background: $d-blue;
+  // border: 1px solid $d-blue;
+  // color: #fff;
+  background-image: image-url("interest.svg");
 }
 .unfavorites{
   // width: 7rem;
