@@ -60,7 +60,12 @@ $(function(){
       return false;
     }
   });
-  $("#college_form").hide();
+  if ($("#college_blank")[0]){
+    $("#change_college").hide();
+    $("label[for=change_college]").hide();
+  } else {
+    $("#college_form").hide();
+  }
   $("#change_college").on("change", function(){
     $("#college_form").slideToggle();
   });

@@ -35,7 +35,7 @@
 
 
     <p>
-      <label class="form__item">大学を変更</label>
+      <label for="change_college" class="form__item">大学を変更</label>
       <input type="checkbox" id="change_college">
     </p>
     <!-- 一時的なもの -->
@@ -105,3 +105,6 @@
     </div>
   <% end %>
 </div>
+
+<% if @user.college.blank? %><span id="college_blank"></span><% end %>
+
