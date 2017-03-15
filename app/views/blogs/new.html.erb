@@ -16,7 +16,7 @@
       <% plab = "picture_#{i}" %>
       <div class="blog_picture_wrap">
         <%= f.label plab.to_sym, "画像#{i}" , class: "form__item"%>
-        <div style="width: 100px;">
+        <div>
           <%= image_tag @blog[plab] ? @blog[plab].url : nil , class: "blog_picture_#{i}"%>
         </div>
         <div class="form__upload ta_center">画像を選択

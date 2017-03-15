@@ -60,7 +60,7 @@
   <% end %>
 </header>
 
-
+<!-- バータイプのフォロー関連 -->
 <div class="follow">
   <ul class="follow__wrap">
     <% if user_signed_in? && current_user?(@user) %>
@@ -88,7 +88,37 @@
   </ul>
 </div>
 
-<div class="ta_center">
+<!-- 丸タイプのフォロー関連 -->
+<div class="wrap_follow_round ta_center margin_top_3rem">
+  <% if user_signed_in? && current_user?(@user) %>
+    <div class="follow_round follow_round_setting">
+      <%= link_to [:edit, @user] , class: "follow__link" do %>
+      <span id="following_count" class="follow__number" ><br><span class="small_text">編集</span>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="follow_round">
+    <%= link_to [:following, @user] , class: "follow__link link_fill" do %>
+      <span id="following_count" class="follow__number" ><%= @user.following.count %><br><span class="small_text">フォロー</span>
+      </span>
+    <% end %>
+  </div>
+  <div class="follow_round">
+    <%= link_to [:followers, @user] , class: "follow__link link_fill" do %>
+      <span id="followers_count" class="follow__number" ><%= @user.followers.count %><br><span class="small_text">フォロワー</span>
+      </span>
+    <% end %>
+  </div>
+  <div class="follow_round">
+    <%= link_to [:following, @user] , class: "follow__link link_fill" do %>
+      <span id="following_count" class="follow__number" ><%= @user.following.count %><br><span class="small_text">気になる</span>
+      </span>
+    <% end %>
+  </div>
+</div>
+
+
+<div class="ta_center margin_top_1rem">
   <% if user_signed_in? && !current_user?(@user) %>
     <div id="follow_form" class="restricted">
       <%= render !current_user.following?(@user) ? "follow" : "unfollow" %>
@@ -117,7 +147,7 @@
 </section>
 
 <section class="frame">
-  <h2 class="frame__heading frame__heading_side">基本プロフィール１</h2>
+  <h2 class="frame__heading frame__heading_side">基本プロフィール</h2>
   <div class="prof_item prof_item_sex"><%= @user.sex_label %></div>
   <div class="prof_item prof_item_school"><%= @user.college %></div>
   <div class="prof_item prof_item_school"><%= @user.faculty %></div>
@@ -126,7 +156,7 @@
 </section>
 
 <section class="frame">
-  <h2 class="frame__heading frame__heading_side">基本プロフィール２</h2>
+  <h2 class="frame__heading frame__heading_side">詳細プロフィール</h2>
   <% @profiles.each do |key, value| %>
     <div class="introduce">
       <h1 class="introduce__heading"><%= value %></h1>
