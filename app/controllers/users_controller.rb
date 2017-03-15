@@ -36,9 +36,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     print_foot if user_signed_in?
     @profiles = {
-      birth_place:    "出身地",
-      home_place:     "住んでるところ",
-      categories:     "興味のあるカテゴリー",
       introduce:      "自己紹介",
     }
     if @user.circles.any?
@@ -117,7 +114,10 @@ class UsersController < ApplicationController
           footed_print.save
         else
           @user.footed_prints.create(footer_user_id: current_user.id)
-          @user.update_attribute(:new_foots_exist, true)
+          @user.update_attribute(:new_foots_count, @user.footed_prints.where(checked: false).count)
+          if @user.new_foots_count % 3 == 0
+            UserMailer.notification_mail(@user, "foots", @user.new_foots_count).deliver
+          end
         end
       end
     end

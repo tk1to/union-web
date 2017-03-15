@@ -40,9 +40,9 @@ class ApplicationController < ActionController::Base
       if user.new_notifications_exist
         user.new_notifications_count = user.notifications.where(checked: false).count
       end
-      if user.new_foots_exist
-        user.new_foots_count = user.footed_prints.where(checked: false).count
-      end
+      # if user.new_foots_exist
+      #   user.new_foots_count = user.footed_prints.where(checked: false).count
+      # end
       user.save
     end
   end

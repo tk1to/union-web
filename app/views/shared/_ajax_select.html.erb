@@ -8,5 +8,5 @@
 <% elsif name.include?("faculty") %>
   <% prompt = elements.any? ? "学部を選択" : "大学を選択してください" %>
   <%= select_tag name.to_sym, options_for_select(elements.map{|faculty|[faculty["name"], faculty["name"]]}),
-      {prompt: prompt, class: "selectbox"} %>
+      {prompt: prompt, class: "selectbox", id:"faculty_select"} %>
 <% end %>

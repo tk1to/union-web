@@ -12,7 +12,6 @@ $(function(){
     }).done(function(data){
       $("#college_select_wrap").html(data);
       if($("#faculty_select")[0]){
-        alert("test");
         $("#college_select").on("change", function(){
           var code = $("#college_select option:selected").attr("id");
           $.ajax({

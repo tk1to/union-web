@@ -8,6 +8,7 @@ class MessagesController < ApplicationController
     if message.save
       message.receiver.update_attribute(:new_messages_exist, true)
       @message_room.update_attributes(new_messages_exist: true, last_sender_id: current_user.id, last_updated_time: DateTime.now)
+      UserMailer.notification_mail(message.receiver, "new_message", current_user).deliver
     end
 
     redirect_to @message_room

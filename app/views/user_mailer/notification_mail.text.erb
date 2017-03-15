@@ -1,0 +1,5 @@
+<% if @message_type == "foots" %>
+  <%= @user.name %>さんへの足跡が<%= @params %>件来ています。
+<% elsif @message_type == "new_message" %>
+  <%= @params.name %>さんから、メッセージが届いています。
+<% end %>
