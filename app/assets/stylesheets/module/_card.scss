@@ -309,6 +309,7 @@
     box-sizing: border-box;
   }
 .listCard{
+  position: relative;
   width: 95%;
   height: 4rem;
   border-top: 1px solid $l-gray;
@@ -319,10 +320,19 @@
     border-top: none;
   }
   &__heading{
-
+    position: absolute;
+    top: 1rem;
+    left: 4rem;
+    font-size: 0.8rem;
+    color: $gray;
+    margin:0 0.5rem;
+    width: 60%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   &__subhead{
-
+    position: absolute;
   }
   &__image{
 
