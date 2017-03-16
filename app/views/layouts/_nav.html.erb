@@ -1,6 +1,6 @@
 <nav class="nav">
   <ul class="nav__list">
-    <li class="nav__item nav__item_home"><%= link_to image_tag('普通の家.svg'), :top %></li>
+    <li class="nav__item nav__item_home current_location"><%= link_to image_tag('普通の家.svg'), :top %></li>
     <li class="nav__item nav__item_search"><%= link_to image_tag('検索用の虫眼鏡.svg'), [:feed, :circles] %></li>
     <li class="nav__item nav__item_message"><%= link_to_if(user_signed_in?, image_tag('コメント.svg'), :message_rooms) %>
       <% if user_signed_in? && current_user.new_messages_count && 0 < current_user.new_messages_count %>

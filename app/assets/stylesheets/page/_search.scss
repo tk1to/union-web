@@ -5,6 +5,25 @@
   font-size:0.8rem;
   letter-spacing:-0.4rem;
 }
+.form__search{
+  width: 95%;
+  margin: 0.5rem auto 0;
+  padding: 1rem;
+  border: 1px solid $l-gray;
+  box-sizing:border-box;
+  border-radius:5px;
+  box-shadow: 0 1px 3px gray;
+  .wrap_select{
+    width: 100%;
+    height: 2rem;
+    .selectbox{
+      width: 90%;
+    }
+  }
+  .form__text_field{
+    margin-bottom: 0.2rem;
+  }
+}
 
 .favorites{
   width: 15rem;
@@ -13,42 +32,44 @@
   line-height: 3rem;
   margin: 0.3rem;
   font-size: 1rem;
-  // box-shadow:0 1px 0 0 $gray;
+  box-shadow:0 1px 0 0 $d-blue;
   background: $d-blue;
   border: 1px solid $d-blue;
   color: #fff;
-  // background-image: image-url("favorite.svg");
-  // background-repeat:no-repeat;
+  padding: 0;
 }
 .unfavorites{
   width: 15rem;
   height: 3rem;
   line-height: 3rem;
   border-radius: 3px;
-  line-height: 2.5rem;
+  line-height: 3rem;
   margin: 0.3rem;
-  font-size: 0.8rem;
-  // box-shadow:0 1px 0 0 $gray;
-  // background-image: image-url("un_favorite.svg");
-  // background-repeat:no-repeat;
+  font-size: 1rem;
+  padding: 0;
+  color: $d-blue;
+  background:#fff;
+  border:1px solid $d-blue;
+  box-shadow:0 1px 0 0 $d-blue;
+}
+@mixin favo{
+  position: absolute;
+  top: 0rem;
+  right: -0.3rem;
+  width: 5rem;
+  height: 5rem;
+  background:none;
+  border:none;
+  overflow: hidden;
+  text-indent: 200%;
+  white-space: nowrap;
+  box-shadow:0 0 0 0 #fff;
 }
 .wrap_card .favorites{
-  position: absolute;
-  top: 0.5rem;
-  right: 0;
-  width: 3rem;
-  height: 3rem;
-  background:none;
-  border:none;
-  background-image: image-url("favorites.svg");
+  @include favo;
+  background-image: image-url("favorite.svg");
 }
 .wrap_card .unfavorites{
-  position: absolute;
-  top: 0.5rem;
-  right: 0;
-  width: 3rem;
-  height: 3rem;
-  background:none;
-  border:none;
-  background-image: image-url("un_favorites.svg");
+  @include favo;
+  background-image: image-url("un_favorite.svg");
 }

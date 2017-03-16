@@ -43,4 +43,9 @@
     text-align: center;
     box-sizing: border-box;
   }
+  .current_location{
+    border-bottom:5px solid $d-blue;
+    filter: drop-shadow(0 2px 2px $d-blue);
+  }
 }
+

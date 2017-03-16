@@ -29,7 +29,7 @@
 		width: 35%;
 		}
     &_70{
-      width: 80%;
+      width: 75%;
       margin: 0;
     }
 	}
@@ -98,10 +98,6 @@
 		background: gray;
 		border-radius: 3px;
 	}
-	&__search{
-		width: 95%;
-		margin: 0.5rem auto 0;
-	}
 }
 .whole_from{
   width: 100%;
@@ -119,6 +115,7 @@
   border-radius: 5px;
   background: #fff;
   margin: 0.5rem auto;
+  box-sizing: border-box;
   &:before{
   	content: "";
     position: absolute;

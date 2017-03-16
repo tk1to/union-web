@@ -1,5 +1,5 @@
 <%= form_for [@circle, current_user.favorites.find_by(circle_id: @circle.id)],
      html: { method: :delete }, remote: true do |f| %>
   <%= hidden_field_tag :circle_id, @circle.id %>
-  <%= f.submit "", class: "favorites unfavorites"%>
+  <%= f.submit "きになる解除", class: "favorites unfavorites"%>
 <% end %>
