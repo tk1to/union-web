@@ -24,7 +24,10 @@
     $(".user__image_zoom").hide();
     if (current_user) {
       $(".header__photo_user").on("click",function(){
-        $(".user__image_zoom").fadeIn(100);
+        $("#user__picture").fadeIn(100);
+      });
+      $(".header__background").on("click",function(){
+        $("#user__header_picture").fadeIn(100);
       });
       $(".user__image_zoom").on("click",function(){
         $(".user__image_zoom").fadeOut(100);
