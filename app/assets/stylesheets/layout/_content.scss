@@ -21,35 +21,6 @@
     color: $gray;
   }
 }
-
-.genre{
-  max-width: 45%;
-  min-width: 45%;
-  // width: 50%;
-  height: 4rem;
-  background: gray;
-  line-height: 4rem;
-  color: #fff;
-  text-align: center;
-  border-radius: 5px;
-  display: inline-block;
-  font-size: 0.8rem;
-  margin: 0 0.2rem;
-  box-sizing:border-box;
-  &:first-child{
-    margin-left: 0.5rem;
-  }
-}
-.sride_genre{
-  display: flex;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  white-space: nowrap;
-  z-index: 100;
-  // width: 100%;
-  box-sizing:border-box;
-  -webkit-overflow-scrolling: touch;
-}
 .arrows{
   position: absolute;
   top:0.5rem;
