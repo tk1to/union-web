@@ -19,7 +19,7 @@
 }
 .separate{
   width: 90%;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid $l-gray;
   margin:1rem auto;
 }
 .text_decoration_none{
@@ -34,6 +34,9 @@
 .margin_0_auto{
   margin: 0 auto;
 }
+.margin_top_05rem{
+  margin-top:0.5rem;
+}
 .margin_top_1rem{
   margin-top: 1rem;
 }
@@ -43,8 +46,8 @@
 .margin_top_3rem{
   margin-top: 3rem;
 }
-.margin_buttom_1rem{
-  margin-top: 1rem;
+.margin_bottom_1rem{
+  margin-bottom: 1rem;
 }
 // プライバシーポリシーを一時的に
 .text_wrap{
@@ -69,4 +72,7 @@
   font-size:0.6rem;
   color: gray;
   font-weight: normal;
+}
+.inline_block{
+  display: inline-block;
 }
