@@ -4,6 +4,11 @@ class UserMailer < ApplicationMailer
     @user = user
     @message_type = message_type
     @params = params
-    mail to: @user.email
+    if message_type == "new_message"
+      subject = "#{params.name}さんからメッセージが届いてます。"
+    elsif message_type == "foots"
+      subject = "Unionで足跡が付いています。"
+    end
+    mail to: @user.email, subject: subject
   end
 end

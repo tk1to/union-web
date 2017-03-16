@@ -116,7 +116,7 @@ class UsersController < ApplicationController
           @user.footed_prints.create(footer_user_id: current_user.id)
           @user.update_attribute(:new_foots_count, @user.footed_prints.where(checked: false).count)
           if @user.new_foots_count % 3 == 0
-            UserMailer.notification_mail(@user, "foots", @user.new_foots_count).deliver
+            UserMailer.notification_mail(@user, "foots", nil).deliver
           end
         end
       end
