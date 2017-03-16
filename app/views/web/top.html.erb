@@ -1,4 +1,4 @@
-<header class="header">
+<!-- <header class="header">
   <% if !user_signed_in? %>
     <%= link_to :root, class: "header__background" do %>
       <div class="header__image_top c_picture" style="background-image: url(<%= asset_path('union_lp_trim.png') %>);"></div>
@@ -11,9 +11,9 @@
       <div class="header__image_top c_picture" style="background-image: url(<%= asset_path('union_lp_trim.png') %>);"></div>
     </div>
   <% end %>
-</header>
+</header> -->
 
-<!-- <header class="topHeader">
+<header class="topHeader">
   <h1 class="slide">
     <ul class="slide_list">
       <li class="slide_item topHeader_image">
@@ -29,7 +29,7 @@
     <button class="prevBtn"></button>
     <button class="nextBtn"></button>
   </h1>
-</header> -->
+</header>
 
 
 
@@ -237,62 +237,7 @@
       });
   });
 
-// スライドショー
-  $(function(){
-    var dir = -1;
 
-    var interval = 3000;
-
-    var duration = 700;
-
-    var timer;
-
-    $('.slide_list').prepend($('.slide_item:last-child'));
-
-    $('.slide_list').css('left', -500);
-
-    timer = setInterval(slideTimer, interval);
-
-    function slideTimer(){
-      if(dir == -1){
-        $('.slide_list').animate({'left' : '-=500'}, duration,
-        function(){
-
-          $(this).append($('.slide_item:first-child'));
-
-          $(this).css('left', -500);
-        });
-      }else{
-        $('.slide_list').animate({'left': '+=500px'},
-          duration, function(){
-            $(this).prepend($('.slide_item:last-child'));
-
-            $(this).css('left', -500);
-
-            dir = -1;
-          });
-      }
-    }
-
-    $('.prevBtn').click(function(){
-      dir = 1;
-
-      clearInteral(timer);
-      timer = setInterval(slideTimer, interval);
-
-      slideTimer();
-    });
-
-    $('.nextBtn').click(function(){
-      dir = -1;
-
-      clearInterbal(timer);
-      timer = setInterval(slideTimer, interval);
-
-      slideTimer();
-    })
-  });
-</script>
 
 <!-- スライドショーライブラリ -->
 <!-- <script>
