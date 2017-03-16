@@ -17,16 +17,3 @@
 </nav>
 
 
-<script>
-  $(function(){
-    $('.nav__item').each(function(){
-      var $href = $(this).attr('href');
-      if(location.href.match($href)) {
-        $(this).addClass('selected');
-      } else {
-        $(this).removeClass('selected');
-      }
-    });
-  });
-</script>
-

@@ -125,6 +125,7 @@
   <div class="prof_item prof_item_school">学部：<%= @user.faculty %></div>
   <div class="prof_item prof_item_location">出身地：<%= @user.birth_place %></div>
   <div class="prof_item prof_item_home">住まい：<%= @user.home_place %></div>
+  <div class="prof_item prof_item_star">興味のあるカテゴリー：<%= %></div>
 </section>
 
 <section class="frame">
@@ -157,8 +158,14 @@
   </div>
 </div>
 
-<div class="user__image_zoom">
+<div class="user__image_zoom" id="user__picture">
   <div class="user__image c_picture" style="background-image: url(<%= @user.picture %>);"></div>
+  <%= link_to "プロフィール編集", [:edit, @user] , class: "button button_border"%>
+  <p class="button button_border">閉じる</p>
+</div>
+
+<div class="user__image_zoom" id="user__header_picture">
+  <div class="user__image c_picture" style="background-image: url(<%= @user.header_picture %>);"></div>
   <%= link_to "プロフィール編集", [:edit, @user] , class: "button button_border"%>
   <p class="button button_border">閉じる</p>
 </div>
