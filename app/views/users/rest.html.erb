@@ -3,6 +3,6 @@
 </header>
 
 <div class="frame ta_center">
-  <div class="normal_text"><%= link_to "アカウントを削除", @user, method: :delete %></div>
-  <div class="normal_text"><%= link_to "ログアウト", [:destroy, :user, :session], method: :delete, data: { confirm: "ログアウトしますか？" } %></div>
+  <div class="button button_lp button_color_gray"><%= link_to "アカウントを削除", @user, method: :delete ,class: "text_decoration_none color_gray" %></div>
+  <div class="button button_lp button_color_gray"><%= link_to "ログアウト", [:destroy, :user, :session], method: :delete, data: { confirm: "ログアウトしますか？" } ,class: "text_decoration_none color_gray" %></div>
 </div>
