@@ -34,24 +34,24 @@
     </div>
 
 
-    <p>
-      <label for="change_college" class="form__item">大学を変更</label>
-      <input type="checkbox" id="change_college">
-    </p>
+    <div class="margin_bottom_1rem">
+      <label for="change_college" class="form__item form__item_number">大学を変更</label>
+      <input type="checkbox" id="change_college" class="inline_block">
+    </div>
     <!-- 一時的なもの -->
-    <div style="border: 1px solid #000" id="college_form">
-
-      <%= label_tag nil, "大学名検索", class: "form__item" %>
-      <%= text_field_tag :keyword, nil, {id: "college_keyword"} %>
+    <div class="whole_from" id="college_form">
+        <%= label_tag nil, "大学名検索", class: "form__item" %>
+      <div class="margin_top_05rem margin_bottom_1rem">
+        <%= text_field_tag :keyword, nil, {id: "college_keyword" , class: "form__text_field form__text_field_70"} %>
       <!-- ここのstyleもCSSファイルに移行して -->
-      <div id="college_search_button" style="border: 1px solid #000; padding: 3px; width: 100px;">検索</div>
-
+        <div id="college_search_button" class="button button_size_small button_color_white">検索</div>
+      </div>
       <%= f.label :college, "大学" , class: "form__item" %>
       <div class="wrap_select" id="college_select_wrap">
         <%= render "shared/ajax_select", {elements: @colleges, name: "user[college]"} %>
       </div>
 
-      <%= f.label :faculty, "学部" , class: "form__item form__item_number" %>
+      <%= f.label :faculty, "学部" , class: "form__item" %>
       <div class="wrap_select" id="faculty_select_wrap">
         <%= render "shared/ajax_select", {elements: @faculties, name: "user[faculty]"} %>
       </div>
