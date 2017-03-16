@@ -54,10 +54,10 @@
 }
 @mixin favo{
   position: absolute;
-  top: 0.5rem;
-  right: 0;
-  width: 3rem;
-  height: 3rem;
+  top: 0rem;
+  right: -0.3rem;
+  width: 5rem;
+  height: 5rem;
   background:none;
   border:none;
   overflow: hidden;
@@ -67,9 +67,9 @@
 }
 .wrap_card .favorites{
   @include favo;
-  background-image: image-url("favorites.svg");
+  background-image: image-url("favorite.svg");
 }
 .wrap_card .unfavorites{
   @include favo;
-  background-image: image-url("un_favorites.svg");
+  background-image: image-url("un_favorite.svg");
 }
