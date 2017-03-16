@@ -4,11 +4,12 @@
 }
 .notice{
   width: 100%;
-  border: 1px solid $d-blue;
+  // border: 1px solid $d-blue;
   padding: 0.5rem;
   border-radius: 3px;
   box-sizing:border-box;
   margin-bottom: 3px;
+  box-shadow: 0 1px 3px gray;
   &__description{
     width: 100%;
     padding-bottom: 0.2rem;
@@ -40,14 +41,14 @@
     position: absolute;
     top: 0.7rem;
     left: 3rem;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: $gray;
   }
   &__subhead{
     position: absolute;
     top: 2rem;
     left: 3rem;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     color: gray;
   }
   &__follow{
@@ -74,7 +75,7 @@
     position: absolute;
     top: 0.7rem;
     left: 3rem;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: $gray;
   }
   &__subhead{
