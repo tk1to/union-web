@@ -145,6 +145,15 @@ class User < ActiveRecord::Base
     MessageRoom.where(creater.eq(self.id).or(created.eq(self.id))).order(last_updated_time: :DESC)
   end
 
+  def display_categories
+    response = ""
+    self.categories.each do |c|
+      response += "/" if !response.blank?
+      response += c.name
+    end
+    response
+  end
+
   private
 
     # メールアドレスをすべて小文字にする
