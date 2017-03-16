@@ -3,8 +3,8 @@
 </header>
 
 <div class="frame ta_center">
-  <div class="normal_text"><%= link_to "サークル退団", [:resign, @circle], method: :delete %></div>
+  <div class="button button_lp button_color_gray"><%= link_to "サークル退団", [:resign, @circle], method: :delete ,class: "color_gray text_decoration_none"%></div>
   <% if @status == "chief" %>
-    <div class="normal_text"><%= link_to "サークル削除", @circle, method: :delete %></div>
+    <div class="button button_lp button_color_gray"><%= link_to "サークル削除", @circle, method: :delete ,class: "color_gray text_decoration_none"%></div>
   <% end %>
 </div>

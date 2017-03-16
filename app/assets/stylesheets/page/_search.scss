@@ -13,7 +13,7 @@
   line-height: 3rem;
   margin: 0.3rem;
   font-size: 1rem;
-  box-shadow:0 1px 0 0 $gray;
+  // box-shadow:0 1px 0 0 $gray;
   background: $d-blue;
   border: 1px solid $d-blue;
   color: #fff;
@@ -28,7 +28,7 @@
   line-height: 2.5rem;
   margin: 0.3rem;
   font-size: 0.8rem;
-  box-shadow:0 1px 0 0 $gray;
+  // box-shadow:0 1px 0 0 $gray;
   // background-image: image-url("un_favorite.svg");
   // background-repeat:no-repeat;
 }
@@ -38,4 +38,17 @@
   right: 0;
   width: 3rem;
   height: 3rem;
+  background:none;
+  border:none;
+  background-image: image-url("favorites.svg");
+}
+.wrap_card .unfavorites{
+  position: absolute;
+  top: 0.5rem;
+  right: 0;
+  width: 3rem;
+  height: 3rem;
+  background:none;
+  border:none;
+  background-image: image-url("un_favorites.svg");
 }
