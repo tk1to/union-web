@@ -1,18 +1,18 @@
 <nav class="nav">
   <ul class="nav__list">
-    <li class="nav__item nav__item_home current_location"><%= link_to image_tag('普通の家.svg'), :top %></li>
-    <li class="nav__item nav__item_search"><%= link_to image_tag('検索用の虫眼鏡.svg'), [:feed, :circles] %></li>
-    <li class="nav__item nav__item_message"><%= link_to_if(user_signed_in?, image_tag('コメント.svg'), :message_rooms) %>
+    <li class="nav__item nav__item_home <%= "current_location" if params[:controller] == "web" && params[:action] == "top" %>"><%= link_to image_tag('普通の家.svg'), :top %></li>
+    <li class="nav__item nav__item_search <%= "current_location" if params[:controller] == "circles" && ["index","search","feed"].include?(params[:action]) %>"><%= link_to image_tag('検索用の虫眼鏡.svg'), [:feed, :circles] %></li>
+    <li class="nav__item nav__item_message <%= "current_location" if params[:controller] == "message_rooms" %>"><%= link_to_if(user_signed_in?, image_tag('コメント.svg'), :message_rooms) %>
       <% if user_signed_in? && current_user.new_messages_count && 0 < current_user.new_messages_count %>
         <div class="nav__notice"><%= current_user.new_messages_count %></div>
       <% end %>
     </li>
-    <li class="nav__item nav__item_notice"><%= link_to_if(user_signed_in?, image_tag('ベル.svg'), :notifications) %>
+    <li class="nav__item nav__item_notice <%= "current_location" if params[:controller] == "notifications" %>"><%= link_to_if(user_signed_in?, image_tag('ベル.svg'), :notifications) %>
       <% if user_signed_in? && current_user.new_notifications_count && 0 < current_user.new_notifications_count %>
         <div class="nav__notice"><%= current_user.new_notifications_count %></div>
       <% end %>
     </li>
-    <li class="nav__item nav__item_mypage"><%= link_to_if(user_signed_in?, image_tag('人物.svg'), current_user) %></li>
+    <li class="nav__item nav__item_mypage <%= "current_location" if params[:controller] == "users" && ["show","edit","following","followers","favorites","foots","rest"].include?(params[:action]) %>"><%= link_to_if(user_signed_in?, image_tag('人物.svg'), current_user) %></li>
   </ul>
 </nav>
 

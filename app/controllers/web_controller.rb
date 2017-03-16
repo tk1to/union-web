@@ -14,9 +14,6 @@ class WebController < ApplicationController
       @tutorialing = true
       current_user.update_attribute(:tutorialed, true)
     end
-
-    @tutorialing = true
-
   end
 
   def landing
