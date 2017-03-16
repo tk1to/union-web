@@ -78,7 +78,7 @@ class UsersController < ApplicationController
     @users = @user.footed_users.order("updated_at DESC").page(params[:page]).per(25)
     @foots = @user.footed_prints
 
-    @user.update_attributes(new_foots_exist: false, new_foots_count: 0)
+    @user.update_attributes(new_foots_count: 0)
     @foots.where(checked: false).each do |foot|
       foot.update_attribute(:checked, true)
     end

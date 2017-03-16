@@ -211,32 +211,33 @@
   </div>
 </div>
 <!-- チュートリアルjs -->
+<% if @tutorialing %><span id="tutorialing"></span><% end %>
 <script>
   $(function() {
-    $('.tutorial_first_select').fadeIn(500);
-    $(".button_color_white").on("click", function(){
-      $(".alert").fadeOut(300);
-    });
-    $('.no_belonge').on("click", function(){
-      $("#no_belonge").fadeIn();
-      $(".tutorial_close").on("click", function(){
+    if ($("#tutorialing")[0]){
+      $('.tutorial_first_select').fadeIn(500);
+      $(".button_color_white").on("click", function(){
         $(".alert").fadeOut(300);
       });
-    });
-    $('.already_belonge').on("click", function(){
-      $("#no_belonge").fadeIn();
-      $(".tutorial_close").on("click", function(){
-        $(".alert").fadeOut(300);
+      $('.no_belonge').on("click", function(){
+        $("#no_belonge").fadeIn();
+        $(".tutorial_close").on("click", function(){
+          $(".alert").fadeOut(300);
+        });
       });
-    });
-    $('.representative').on("click", function(){
-      $("#representative").fadeIn();
-      $(".tutorial_close").on("click", function(){
-        $(".alert").fadeOut(300);
+      $('.already_belonge').on("click", function(){
+        $("#no_belonge").fadeIn();
+        $(".tutorial_close").on("click", function(){
+          $(".alert").fadeOut(300);
+        });
       });
-    });
-
-
+      $('.representative').on("click", function(){
+        $("#representative").fadeIn();
+        $(".tutorial_close").on("click", function(){
+          $(".alert").fadeOut(300);
+        });
+      });
+    }
   });
 
 </script>

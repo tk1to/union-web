@@ -13,15 +13,12 @@
 <% if params[:action] == "search" %>
   <%= form_for @search_params, url: [:search, :circles], html: {method: :get} do |f| %>
 
-    <!--<%= f.label :name, "名前" %>-->
     <div class="form__search ta_center">
     <%= f.text_field :name ,:placeholder => "キーワードを入力" , class: "form__text_area_search ta_center "%>
     <%= f.submit "検索" , class: "button button_size_small button_color_blue "%>
     </div>
-    <!--
-    <%= f.label :categoies, "カテゴリー" %>
     <%= f.select :categories, @category_options.map{|t| [t.name, t.id]}, include_blank: true %>
-    -->
+
   <% end %>
 <% end %>
 

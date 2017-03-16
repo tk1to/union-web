@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170314084648) do
+ActiveRecord::Schema.define(version: 20170316003129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -241,11 +241,11 @@ ActiveRecord::Schema.define(version: 20170314084648) do
     t.boolean  "new_messages_exist",      default: false
     t.integer  "new_messages_count"
     t.integer  "new_notifications_count"
-    t.integer  "new_foots_count"
     t.boolean  "new_notifications_exist"
-    t.boolean  "new_foots_exist"
     t.integer  "joining_circle_id"
     t.boolean  "first_facebook_login",    default: true
+    t.boolean  "tutorialed",              default: false
+    t.integer  "new_foots_count"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

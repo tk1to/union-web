@@ -10,6 +10,10 @@ class WebController < ApplicationController
     @circles = Circle.all.order("created_at DESC").limit(5)
     @blogs   = Blog.all.order("created_at DESC").limit(5)
     @events  = Event.all.order("created_at DESC").limit(5)
+    if user_signed_in? && !current_user.tutorialed
+      @tutorialing = true
+      current_user.update_attribute(:tutorialed, true)
+    end
   end
 
   def landing
