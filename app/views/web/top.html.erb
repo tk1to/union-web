@@ -22,11 +22,21 @@
 
 <div class="frame_100">
   <ul class="sride_genre">
-    <li class="genre">ジャンル</li>
-    <li class="genre">ジャンル</li>
-    <li class="genre">ジャンル</li>
-    <li class="genre">ジャンル</li>
-    <li class="genre">ジャンル</li>
+    <li class="genre c_picture" style="background-image: url(<%= asset_path("categories/soccer.jpg") %>)">
+      <%= link_to "サッカー", [:circles, category: "サッカー"], class: "link_fill" %>
+    </li>
+    <li class="genre c_picture" style="background-image: url(<%= asset_path("categories/event.jpg") %>)">
+      <%= link_to "イベント", [:circles, category: "イベント"], class: "link_fill" %>
+    </li>
+    <li class="genre c_picture" style="background-image: url(<%= asset_path("categories/dance.jpg") %>)">
+      <%= link_to "ダンス", [:circles, category: "ダンス"], class: "link_fill" %>
+    </li>
+    <li class="genre c_picture" style="background-image: url(<%= asset_path("categories/travel.jpg") %>)">
+      <%= link_to "旅行", [:circles, category: "旅行"], class: "link_fill" %>
+    </li>
+    <li class="genre c_picture" style="background-image: url(<%= asset_path("categories/basket.jpg") %>)">
+      <%= link_to "バスケ", [:circles, category: "バスケットボール"], class: "link_fill" %>
+    </li>
   </ul>
   <%# image_tag 'keyboard_arrow_right.svg' , class: "arrows"%>
 </div>

@@ -22,6 +22,12 @@
   <% end %>
 <% end %>
 
+<% if @title %>
+  <header>
+    <h1 class="formHeading ta_center"><%= @title %></h1>
+  </header>
+<% end %>
+
 <% if @circles.any? %>
   <div class="wrap_card">
     <%= render "circle_cards" %>
