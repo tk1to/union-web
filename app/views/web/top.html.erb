@@ -13,13 +13,11 @@
   <% end %>
 </header> -->
 
-<header class="topHeader">
-  <h1 class="slide">
-    <div class="header__image_top c_picture" style="background-image: url(<%= asset_path('union_lp_trim.png') %>);"></div>
-    <div class="header__image_top c_picture" style="background-image: url(<%= asset_path('union_lp_trim.png') %>);"></div>
-    <button class="prevBtn"></button>
-    <button class="nextBtn"></button>
-  </h1>
+<header id="topHeader" class="slide">
+  <div class="header__image_top c_picture" style="background-image: url(<%= asset_path('union_lp_trim.png') %>);"></div>
+  <div class="header__image_top c_picture" style="background-image: url(<%= asset_path('top_image01.jpg') %>);"></div>
+  <div class="header__image_top c_picture" style="background-image: url(<%= asset_path('top_image02.jpg') %>);"></div>
+  <div class="header__image_top c_picture" style="background-image: url(<%= asset_path('top_image03.jpg') %>);"></div>
 </header>
 
 
@@ -229,7 +227,11 @@
         });
       });
     }
-    $(".slide").slick();
+    $(".slide").slick({
+      autoplay: true,
+      autoplaySpeed: 6000,
+      arrows: false,
+    });
   });
 </script>
 

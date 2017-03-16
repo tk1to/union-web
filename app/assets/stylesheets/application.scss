@@ -25,7 +25,6 @@
 @import "module/_card";
 @import "module/_flash";
 @import "module/_alert";
-@import "module/_slick";
 @import "page/_top";
 @import "page/_lp";
 @import "page/_users";
@@ -38,6 +37,8 @@
 @import "page/_events";
 @import "page/_registration";
 @import "page/_notice";
+
+@import "vendor/_slick";
 
 
 @import "for_js";
