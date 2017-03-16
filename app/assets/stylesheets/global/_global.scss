@@ -6,6 +6,7 @@
   display: inline-block;
   width: 100%;
   height: 100%;
+  text-decoration: none;
 }
 .c_picture {
   background-size: cover !important;
@@ -75,4 +76,10 @@
 }
 .inline_block{
   display: inline-block;
+}
+.color_white{
+  color: white;
+}
+.text_shadow{
+  text-shadow: 0px 3px 6px black;
 }

@@ -64,6 +64,7 @@
   text-indent: 200%;
   white-space: nowrap;
   box-shadow:0 0 0 0 #fff;
+  filter: drop-shadow(0px 1px 5px gray);
 }
 .wrap_card .favorites{
   @include favo;

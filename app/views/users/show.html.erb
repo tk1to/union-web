@@ -99,7 +99,7 @@
       <%= render !current_user.following?(@user) ? "follow" : "unfollow" %>
     </div>
     <div class="button button_round button_color_blue">
-      <%= link_to "メッセージを送る", [:new, :message_room, user_id: @user.id], class: "header__message link_fill" %>
+      <%= link_to "メッセージを送る", [:new, :message_room, user_id: @user.id], class: "header__message link_fill color_white" %>
     </div>
   <% end %>
 </div>
