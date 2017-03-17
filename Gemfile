@@ -34,6 +34,8 @@ gem 'devise',            '4.2.0'
 gem 'omniauth',          '1.6.1'
 gem 'omniauth-facebook', '4.0.0'
 
+gem 'newrelic_rpm'
+
 gem 'dotenv-rails', '2.2.0'
 
 group :development, :test do
