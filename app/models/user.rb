@@ -85,14 +85,17 @@ class User < ActiveRecord::Base
 
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
+    sex = auth.info.gender == "male" ? 0 : 1
     if !user
       user = User.create(
-        uid:      auth.uid,
-        provider: auth.provider,
-        name:     auth.info.name,
-        email:    User.get_email(auth),
-        password: Devise.friendly_token[6, 24],
-        picture:  auth.info.image,
+        uid:       auth.uid,
+        provider:  auth.provider,
+        name:      auth.info.name,
+        email:     User.get_email(auth),
+        password:  Devise.friendly_token[6, 24],
+        picture:   auth.info.picture,
+        header_picture: auth.info.cover,
+        sex:       sex,
         first_facebook_login: false,
       )
       user.skip_confirmation!
@@ -102,7 +105,9 @@ class User < ActiveRecord::Base
       user.update_attribute(:name, auth.info.name)
       user.update_attribute(:email, User.get_email(auth))
       user.update_attribute(:password, Devise.friendly_token[6, 24])
-      user.update_attribute(:picture, auth.info.image)
+      user.update_attribute(:picture, auth.info.picture)
+      user.update_attribute(:header_picture, auth.info.cover)
+      user.update_attribute(:sex, sex)
       user.skip_confirmation!
       user.save
     end
