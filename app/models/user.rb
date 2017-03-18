@@ -85,7 +85,6 @@ class User < ActiveRecord::Base
 
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
-    sex = auth.info.gender == "male" ? 0 : 1
     if !user
       user = User.create(
         uid:       auth.uid,
@@ -95,7 +94,6 @@ class User < ActiveRecord::Base
         password:  Devise.friendly_token[6, 24],
         picture:   auth.info.picture,
         header_picture: auth.info.cover,
-        sex:       sex,
         first_facebook_login: false,
       )
       user.skip_confirmation!
@@ -107,7 +105,6 @@ class User < ActiveRecord::Base
       user.update_attribute(:password, Devise.friendly_token[6, 24])
       user.update_attribute(:picture, auth.info.picture)
       user.update_attribute(:header_picture, auth.info.cover)
-      user.update_attribute(:sex, sex)
       user.skip_confirmation!
       user.save
     end
@@ -120,7 +117,7 @@ class User < ActiveRecord::Base
     properties << "大学"                if self.college.blank?
     properties << "学部"                if self.faculty.blank?
     properties << "性別"                if self.sex.blank?
-    properties << "住んでるところ"       if self.birth_place.blank?
+    properties << "住まい"              if self.birth_place.blank?
     properties << "出身地"              if self.home_place.blank?
     properties << "興味のあるカテゴリー"  if !self.categories.any?
     [properties.blank?, properties]
