@@ -1,11 +1,5 @@
 class WebController < ApplicationController
 
-  def letsencrypt
-    if params[:id] == ENV["LETSENCRYPT_REQUEST"]
-    render text: ENV["LETSENCRYPT_RESPONSE"]
-    end
-  end
-
   def top
     @circles = Circle.all.order("created_at DESC").limit(5)
     @blogs   = Blog.all.order("created_at DESC").limit(5)
@@ -14,6 +8,9 @@ class WebController < ApplicationController
       @tutorialing = true
       current_user.update_attribute(:tutorialed, true)
     end
+    if ENV["RACK_ENV"] == "staging"
+      @tutorialing = true
+    end
   end
 
   def landing
@@ -21,6 +18,12 @@ class WebController < ApplicationController
   end
 
   def privacypolicy
+  end
+
+  def letsencrypt
+    if params[:id] == ENV["LETSENCRYPT_REQUEST"]
+    render text: ENV["LETSENCRYPT_RESPONSE"]
+    end
   end
 
   include MemberKeyHelper
