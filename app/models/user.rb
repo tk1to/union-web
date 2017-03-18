@@ -92,8 +92,7 @@ class User < ActiveRecord::Base
         name:      auth.info.name,
         email:     User.get_email(auth),
         password:  Devise.friendly_token[6, 24],
-        # picture:   auth.info.picture.data,
-        header_picture: auth.info.cover.source,
+        picture:   auth.info.image,
         first_facebook_login: false,
       )
       user.skip_confirmation!
@@ -103,8 +102,7 @@ class User < ActiveRecord::Base
       user.update_attribute(:name, auth.info.name)
       user.update_attribute(:email, User.get_email(auth))
       user.update_attribute(:password, Devise.friendly_token[6, 24])
-      # user.update_attribute(:picture, auth.info.picture.data)
-      user.update_attribute(:header_picture, auth.info.cover.source)
+      user.update_attribute(:picture, auth.info.image)
       user.skip_confirmation!
       user.save
     end
