@@ -18,9 +18,12 @@
 }
 // メッセージ
 .wrap-message{
-  width: 100%;
+  // width: 100%;
   height: 95%;
   overflow: scroll;
+  box-sizing: border-box;
+  margin: 0;
+  width: 100vw;
 }
 .wrap-message__text{
   margin: 0.5rem;
@@ -39,6 +42,8 @@
   background: $d-blue;
   color: #fff;
   float: right;
+  box-sizing: border-box;
+  margin: 0;
 }
 .receiver{
   background: #ECEFF1;
@@ -46,6 +51,8 @@
   float: left;
   left: 3rem;
   position: relative;
+  box-sizing: border-box;
+  margin: 0;
 }
 .sender__image{
   width: 2.5rem;
@@ -55,6 +62,8 @@
   position: absolute;
   top: 0;
   left: -3rem;
+  box-sizing: border-box;
+  margin: 0;
 }
 .sender .sender__image{
   display: none;
@@ -75,7 +84,7 @@
 }
 
 .clearfix:after {
-    content:" ";
+    content:"";
     display:block;
     clear:both;
 }
