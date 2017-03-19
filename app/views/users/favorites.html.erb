@@ -1,20 +1,22 @@
 <header>
-	<h1 class="formHeading ta_center">お気に入り</h1>
+	<h1 class="formHeading ta_center">気になるをした団体</h1>
 </header>
 
-<div class="list__wrap">
-  <% if @user.favorites.any? %>
-    <ul>
-      <% @user.favoriting_circles.each do |circle| %>
-          <li class="thinCard"><%= link_to circle.name, circle , class: "thinCard__heading"%>
-            <div class="thinCard__image c_picture" style="background-image: url(<%= circle.picture %>)"></div>
-            <div class="thinCard__subhead">
-              <% if circle.categories.present? %>
-                <%= circle.categories.first.name %>
-              <% end %>
-            </div>
-        </li>
-      <% end %>
-    </ul>
-  <% end %>
+<div class="frame">
+  <div class="wrap-thinCard">
+    <% if @user.favorites.any? %>
+      <ul>
+        <% @user.favoriting_circles.each do |circle| %>
+            <li class="thinCard"><%= link_to circle.name, circle , class: "thinCard__heading"%>
+              <div class="thinCard__image c_picture" style="background-image: url(<%= circle.picture %>)"></div>
+              <div class="thinCard__subhead">
+                <% if circle.categories.present? %>
+                  <%= circle.categories.first.name %>
+                <% end %>
+              </div>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
 </div>
