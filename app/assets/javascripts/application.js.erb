@@ -54,9 +54,11 @@ $(function(){
   <% end %>
 
   // フラッシュメッセージ自動消失
-  setTimeout(function(){
-    $(".flash_message").slideToggle();
-  }, 3000);
+  if($(".flash_message")[0]){
+    setTimeout(function(){
+      $(".flash_message").slideToggle();
+    }, 6000);
+  }
 
   filereader();
   // $('.input_file').bind('change', function() {

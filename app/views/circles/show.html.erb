@@ -25,7 +25,6 @@
   <% end %>
 </header>
 
-<br>
 <% if @categories.any? %>
     <div class="header__subhead_circle">
       <%= @circle.display_categories %>
@@ -178,10 +177,47 @@
       <div class="ta_center">
         <%= link_to "ブログを作成", [:new, @circle, :blog] , class: "button button_square button_color_blue"%>
         <%= link_to "イベントを作成", [:new, @circle, :event] , class: "button button_square button_color_blue"%>
-        <!-- <a href="" class="button button_square button_color_blue"></a> -->
       </div>
     <% end %>
   <% end %>
 <% end %>
 
-<div class="white_back"></div>
+<% if @be_member %>
+  <div class="circle__image_zoom" id="circle__picture">
+    <div class="circle__image c_picture" style="background-image: url(<%= @circle.picture %>);"></div>
+    <%= link_to "プロフィール編集", [:edit, @circle] , class: "button button_border"%>
+    <p class="button button_border">閉じる</p>
+  </div>
+
+  <div class="circle__image_zoom" id="circle__header_picture">
+    <div class="circle__image c_picture" style="background-image: url(<%= @circle.header_picture %>);"></div>
+    <%= link_to "プロフィール編集", [:edit, @circle] , class: "button button_border"%>
+    <p class="button button_border">閉じる</p>
+  </div>
+
+  <div class="white_back"></div>
+<% end %>
+
+<% if user_signed_in? %>
+  <% if @be_member %><span id="be_member"></span><% end %>
+<% end %>
+<script type="text/javascript">
+  $(function(){
+
+    var be_member = $("#be_member")[0];
+
+    $(".circle__image_zoom").hide();
+    if (be_member) {
+      $(".header__photo_circle").on("click",function(){
+        $("#circle__picture").fadeIn(100);
+      });
+      $(".header__background").on("click",function(){
+        $("#circle__header_picture").fadeIn(100);
+      });
+      $(".circle__image_zoom").on("click",function(){
+        $(".circle__image_zoom").fadeOut(100);
+      });
+    }
+  });
+</script>
+

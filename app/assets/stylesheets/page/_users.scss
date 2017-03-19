@@ -218,4 +218,23 @@
     float: right;
   }
 }
-
+// サークル画像のズーム（ユーザーのstyleのコピー）
+.circle__image_zoom{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  z-index: 200;
+  .circle__image{
+    width: 100%;
+    height: 15rem;
+    margin: 5rem auto 0;
+    background:gray;
+  }
+  p{
+    color: white;
+    float: right;
+  }
+}

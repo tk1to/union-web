@@ -1,41 +1,3 @@
-<% if user_signed_in? %>
-  <% if current_user.mutual_follow?(@user) %><span id="mutual_follow"></span><% end %>
-  <% if current_user?(@user) %><span id="current_user"></span><% end %>
-<% end %>
-<script type="text/javascript">
-  $(function(){
-
-    var mutual_follow = $("span#mutual_follow")[0];
-    var current_user  = $("span#current_user")[0];
-
-    // 相互フォローでない人にメッセージを送ろうとした場合のポップアップ
-    $(".alert").hide();
-    $(".alert").on("click", function(){
-      $(".alert").fadeOut(300);
-    });
-    if (!mutual_follow) {
-      $(".header__message").on("click",function(){
-        $(".alert").fadeIn(300);
-        return false;
-      });
-    }
-
-    // 個人ページ、プロフィール画像からの編集
-    $(".user__image_zoom").hide();
-    if (current_user) {
-      $(".header__photo_user").on("click",function(){
-        $("#user__picture").fadeIn(100);
-      });
-      $(".header__background").on("click",function(){
-        $("#user__header_picture").fadeIn(100);
-      });
-      $(".user__image_zoom").on("click",function(){
-        $(".user__image_zoom").fadeOut(100);
-      });
-    }
-  });
-</script>
-
 <% if current_user?(@user) %>
   <div class="body_wrap"></div>
   <div class="sideMenu">
@@ -161,16 +123,57 @@
   </div>
 </div>
 
-<div class="user__image_zoom" id="user__picture">
-  <div class="user__image c_picture" style="background-image: url(<%= @user.picture %>);"></div>
-  <%= link_to "プロフィール編集", [:edit, @user] , class: "button button_border"%>
-  <p class="button button_border">閉じる</p>
-</div>
+<% if user_signed_in? && current_user?(@user) %>
+  <div class="user__image_zoom" id="user__picture">
+    <div class="user__image c_picture" style="background-image: url(<%= @user.picture %>);"></div>
+    <%= link_to "プロフィール編集", [:edit, @user] , class: "button button_border"%>
+    <p class="button button_border">閉じる</p>
+  </div>
 
-<div class="user__image_zoom" id="user__header_picture">
-  <div class="user__image c_picture" style="background-image: url(<%= @user.header_picture %>);"></div>
-  <%= link_to "プロフィール編集", [:edit, @user] , class: "button button_border"%>
-  <p class="button button_border">閉じる</p>
-</div>
+  <div class="user__image_zoom" id="user__header_picture">
+    <div class="user__image c_picture" style="background-image: url(<%= @user.header_picture %>);"></div>
+    <%= link_to "プロフィール編集", [:edit, @user] , class: "button button_border"%>
+    <p class="button button_border">閉じる</p>
+  </div>
 
-<div class="white_back"></div>
+  <div class="white_back"></div>
+<% end %>
+
+<% if user_signed_in? %>
+  <% if current_user.mutual_follow?(@user) %><span id="mutual_follow"></span><% end %>
+  <% if current_user?(@user) %><span id="current_user"></span><% end %>
+<% end %>
+<script type="text/javascript">
+  $(function(){
+
+    var mutual_follow = $("span#mutual_follow")[0];
+    var current_user  = $("span#current_user")[0];
+
+    // 相互フォローでない人にメッセージを送ろうとした場合のポップアップ
+    $(".alert").hide();
+    $(".alert").on("click", function(){
+      $(".alert").fadeOut(300);
+    });
+    if (!mutual_follow) {
+      $(".header__message").on("click",function(){
+        $(".alert").fadeIn(300);
+        return false;
+      });
+    }
+
+    // 個人ページ、プロフィール画像からの編集
+    $(".user__image_zoom").hide();
+    if (current_user) {
+      $(".header__photo_user").on("click",function(){
+        $("#user__picture").fadeIn(100);
+      });
+      $(".header__background").on("click",function(){
+        $("#user__header_picture").fadeIn(100);
+      });
+      $(".user__image_zoom").on("click",function(){
+        $(".user__image_zoom").fadeOut(100);
+      });
+    }
+  });
+</script>
+
