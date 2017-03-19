@@ -8,7 +8,7 @@
     <% user = notification.user %>
     <% circle = notification.circle %>
     <% blog = notification.blog %>
-    <li class="notice">
+    <li class="notice <%= "checking" if @checking_notification_ids.include?(notification.id) %>">
       <!-- フォローされました通知 -->
       <% if notification.followed? && user %>
         <%= link_to user do %>
