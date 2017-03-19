@@ -56,6 +56,21 @@
       <div id="new__add_college_button" class="button button_100 button_color_blue">追加</div>
     </div>
 
+    <%= f.label :people_scale, "人数（整数）",class: "form__item" %>
+    <%= f.number_field :people_scale, class: "form__text_field" %>
+
+    <%= f.label :activity_place, class: "form__item" %>
+    <%= f.text_field :activity_place, class: "form__text_field" %>
+
+    <%= f.label :annual_fee, "年会費（整数）", class: "form__item" %>
+    <%= f.number_field :annual_fee, class: "form__text_field" %>
+
+    <%= f.label :activity_frequency, class: "form__item" %>
+    <%= f.text_field :activity_frequency, class: "form__text_field" %>
+
+    <%= f.label :party_frequency, class: "form__item" %>
+    <%= f.text_field :party_frequency, class: "form__text_field" %>
+
     <div class="form__buttun ta_center">
       <%= f.submit "作成" , class: "button button_size_large button_color_blue"%>
     </div>

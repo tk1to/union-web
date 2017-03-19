@@ -31,8 +31,10 @@
     <li class="genre c_picture" style="background-image: url(<%= asset_path("categories/basket.jpg") %>)">
       <%= link_to "バスケ", [:circles, category: "バスケットボール"], class: "link_fill color_white text_shadow" %>
     </li>
+    <li class="genre">
+      <%= link_to "もっと見る", [:search, :circles], class: "link_fill" %>
+    </li>
   </ul>
-  <%# image_tag 'keyboard_arrow_right.svg' , class: "arrows"%>
 </div>
 
 <div class="frame">
