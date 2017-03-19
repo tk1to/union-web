@@ -80,6 +80,23 @@ $(function(){
   });
   set_remove_college_event();
 
+
+  $("#new__add_college_button").on("click", function(){
+    var college_name = $("#college_select_wrap option:selected").val();
+    if(college_name){
+      $("#joining_colleges").append(
+        '<div class="joining_college margin_top_05rem">'+
+          '<div class="college_name">'+college_name+'</div>'+
+          '<div class="remove_college_button">大学を削除</div>'+
+        '</div>'
+      );
+      $(".joining_college").off("click");
+      $(".joining_college").on("click", function(){
+        $(this).remove();
+      });
+    }
+  });
+
 });
 // 大学をタップして削除をするイベント
 function set_remove_college_event(){

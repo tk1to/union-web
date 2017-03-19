@@ -4,26 +4,27 @@
 
 <div class="form">
   <%= form_for(@circle) do |f| %>
-    <%= render 'shared/error_messages', object: f.object %>
 
-    <%= f.label :name , "サークル名", class: "form__item"%>
+    <%= f.label :name , "サークル名（必須）", class: "form__item"%>
     <%= f.text_field :name , class: "form__text_field"%>
 
-    <%= f.label :description ,"サークル概要", class: "form__item"%>
+    <%= f.label :description ,"サークル概要（必須）", class: "form__item"%>
     <%= f.text_area :description , class: "form__text_area" %>
 
-    <div class="form__item">カテゴリー選択</div>
-    <% for i in 1..3 %>
-      <div class="wrap_select margin_0_auto">
-        <%= select :categories, ("category_"+(i).to_s).to_sym, @category_options.map{|t| [t.name, t.id]}, {include_blank: true}, {class: "selectbox"}%>
-      </div>
-    <% end %>
+    <div class="ta_center">
+      <div class="form__item">カテゴリー選択（必須）</div>
+      <% for i in 1..3 %>
+        <div class="wrap_select margin_0_auto">
+          <%= select :categories, ("category_"+(i).to_s).to_sym, @category_options.map{|t| [t.name, t.id]}, {prompt: "☆"*(4-i)}, {class: "selectbox"}%>
+        </div>
+      <% end %>
+    </div>
 
     <div class="ta_center">
       <div>
         <%= image_tag nil, class: "circle_picture"%>
       </div>
-      <div class="form__upload">サークルのプロフィール画像を選択
+      <div class="form__upload">プロフィール画像を選択（必須）
         <%= f.file_field :picture , class: "form__file"%>
       </div>
     </div>
@@ -32,9 +33,27 @@
       <div>
         <%= image_tag nil, class: "circle_header_picture"%>
       </div>
-      <div class="form__upload">ヘッダー画像を選択
+      <div class="form__upload">ヘッダー画像を選択（必須）
         <%= f.file_field :header_picture , class: "form__file"%>
       </div>
+    </div>
+
+    <%= f.label :join_colleges, class: "form__item margin_top_1rem" %>
+    <div id="joining_colleges">
+    </div>
+    <div id="edit_joining_colleges" class="button button_100 button_color_white margin_top_05rem margin_bottom_1rem">追加・編集</div>
+
+    <div id="college_form" class="whole_from">
+      <%= label_tag nil, "大学名検索", class: "form__item" %>
+      <div class="margin_top_05rem margin_bottom_1rem">
+        <%= text_field_tag :keyword, nil, {id: "college_keyword", class: "form__text_field form__text_field_70"} %>
+        <div id="college_search_button" class="button button_size_small button_color_white">検索</div>
+      </div>
+      <%= f.label :college, "大学" , class: "form__item" %>
+      <div class="wrap_select" id="college_select_wrap">
+        <%= render "shared/ajax_select", {elements: @colleges, name: "college"} %>
+      </div>
+      <div id="new__add_college_button" class="button button_100 button_color_blue">追加</div>
     </div>
 
     <div class="form__buttun ta_center">

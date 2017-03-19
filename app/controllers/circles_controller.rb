@@ -27,7 +27,7 @@ class CirclesController < ApplicationController
       redirect_to @circle
     else
       @category_options = Category.all
-      flash.now[:notice] = "全て必須項目です"
+      flash.now[:notice] = "必須項目を記入してください"
       render "new"
     end
   end
