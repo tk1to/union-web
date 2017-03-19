@@ -74,14 +74,19 @@ class UsersController < ApplicationController
   end
   def foots
     @title = "足跡"
-    @user = current_user
-    @users = @user.footed_users.order("updated_at DESC").page(params[:page]).per(25)
-    @foots = @user.footed_prints
+    @user  = current_user
+    @users = @user.footed_users.reorder("foot_prints.updated_at DESC").page(params[:page]).per(25)
+    foots  = @user.footed_prints.page(params[:page]).per(25)
 
-    @user.update_attributes(new_foots_count: 0)
-    @foots.where(checked: false).each do |foot|
+    @checking_footed_user_ids = []
+    FootPrint.record_timestamps = false
+    foots.where(checked: false).each do |foot|
       foot.update_attribute(:checked, true)
+      @checking_footed_user_ids << foot.footer_user_id
     end
+    FootPrint.record_timestamps = true
+
+    @user.update_attributes(new_foots_count: @user.footed_prints.where(checked: false).count)
 
     render "index"
   end
@@ -110,8 +115,8 @@ class UsersController < ApplicationController
     def print_foot
       if !current_user?(@user)
         if footed_print = @user.footed_prints.find_by(footer_user_id: current_user.id)
-          footed_print.touch
-          footed_print.save
+          footed_print.update_attribute(:checked, false)
+          @user.update_attribute(:new_foots_count, @user.footed_prints.where(checked: false).count)
         else
           @user.footed_prints.create(footer_user_id: current_user.id)
           @user.update_attribute(:new_foots_count, @user.footed_prints.where(checked: false).count)
