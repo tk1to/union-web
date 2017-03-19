@@ -215,6 +215,9 @@
   box-sizing: border-box;
   display: inline-block;
   padding: 0;
+  &_already{
+    opacity: 0.6;
+  }
   &:first-child{
     border-top: none;
   }
@@ -224,6 +227,7 @@
     left: 3.4rem;
     text-decoration: none;
     font-size: 0.8rem;
+    line-height: 1rem;
     color: $gray;
     margin:0 0.5rem;
     width: 60%;
