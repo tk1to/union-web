@@ -41,7 +41,7 @@ class WebController < ApplicationController
             end
             redirect_to :top
           else
-            flash[:notice] = "登録後に#{circle.name}に加入されます"
+            flash[:notice] = "登録またはログイン後に#{circle.name}に加入されます"
             session["joining_circle_id"] = circle_id_from_key
             redirect_to [:new, :user, :registration]
             return
