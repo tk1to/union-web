@@ -1,3 +1,14 @@
+@mixin button_icon{
+  content: "";
+  width:1.5rem;
+  height:1.5rem;
+  background-size: 1.5rem auto;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+  margin-top: 0;
+  margin-bottom: 0.3rem;
+}
 .button{
 	display:inline-block;
 	text-align:center;
@@ -21,7 +32,6 @@
 		line-height: 2.5rem;
 		margin: 0.3rem;
 		font-size: 0.8rem;
-		box-shadow:0 1px 0 0 $gray;
 	}
 	&_size_large{
 		width: 15rem;
@@ -29,8 +39,19 @@
 		border-radius: 3px;
 		line-height: 2.8rem;
 		margin: 0.5rem auto;
-		box-shadow:0 1px 0 0 $gray;
 		font-size: 1rem;
+		&_member{
+			&::before{
+				@include button_icon;
+		  background-image: image-url("member_add.svg");
+			}
+		}
+		&_contact{
+			&::before{
+				@include button_icon;
+		  background-image: image-url("contact.svg");
+			}
+		}
 	}
 	&_square{
 		width: 6rem;
@@ -72,6 +93,7 @@
 		background: #fff;
 		border: 1px solid #00ACC1;
 		color: $d-blue;
+		// box-shadow:0 1px 0 0 $d-blue;
 	}
 	&_color_blue{
 		background: $d-blue;
