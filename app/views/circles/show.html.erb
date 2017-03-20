@@ -143,7 +143,7 @@
 </div>
 
 <% if user_signed_in? %>
-  <div class="ta_center">
+  <div class="ta_center margin_top_2rem">
     <% if @be_member %>
         <% if @status_num <= 1 %>
           <%= link_to "気になる一覧", [:favorited, @circle] , class: "button button_square button_color_gray"%>
@@ -159,7 +159,7 @@
         <%= link_to "お問い合わせ", [@circle, :contacts] , class: "button button_square button_color_gray" %>
       <% end %>
     <% else %>
-      <%= link_to "お問い合わせ", [:new, @circle, :contact] , class: "button button_size_large button_color_gray restricted" %>
+      <%= link_to "お問い合わせ", [:new, @circle, :contact] , class: "button button_size_large button_size_large_contact button_color_white restricted" %>
     <% end %>
 
     <% if @be_member %>
@@ -169,7 +169,7 @@
     <% else %>
       <% if !@entrying %>
       <div class="ta_center">
-        <%= link_to "メンバー申請", [@circle, :entries], method: :post , class: "button button_size_large button_color_blue restricted"%>
+        <%= link_to "メンバー申請", [@circle, :entries], method: :post , class: "button button_size_large button_size_large_member button_color_blue restricted"%>
       </div>
       <% else %>
         <%= link_to "メンバー申請キャンセル", [@circle, @entry], method: :delete , class: "button button_size_large button_color_blue"%>
@@ -186,6 +186,7 @@
   <% end %>
 <% end %>
 
+<!-- js関連 -->
 <% if @be_member %>
   <div class="circle__image_zoom" id="circle__picture">
     <div class="circle__image c_picture" style="background-image: url(<%= @circle.picture %>);"></div>
