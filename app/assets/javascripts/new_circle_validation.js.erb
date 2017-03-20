@@ -1,0 +1,37 @@
+
+$(function(){
+  $("#submit_circle").on("click", function(){
+    var valid = true;
+    <% ["name", "description", "picture", "header_picture"].each_with_index do |param, i| %>
+      if (!$("#circle_<%= param %>").val()){
+        valid = false;
+        <% if i <= 1 %>
+          $("#circle_<%= param %>").css("border", "1px solid red");
+        <% else %>
+          $("#circle_<%= param %>").parent().css({"border": "1px solid red", "color": "red"});
+        <% end %>
+      } else {
+        <% if i <= 1 %>
+          $("#circle_<%= param %>").css("border", "1px solid #ccc");
+        <% else %>
+          $("#circle_<%= param %>").parent().css({"border": "1px solid #00ACC1", "color": "#00ACC1"});
+        <% end %>
+      }
+    <% end %>
+
+    if(!($("#categories_category_1").val() || $("#categories_category_2").val() || $("#categories_category_3").val())){
+      valid = false;
+      $("#categories_category_1").parent().css("border", "1px solid red");
+      $("#categories_category_2").parent().css("border", "1px solid red");
+      $("#categories_category_3").parent().css("border", "1px solid red");
+    } else {
+      $("#categories_category_1").parent().css("border", "1px solid #ccc");
+      $("#categories_category_2").parent().css("border", "1px solid #ccc");
+      $("#categories_category_3").parent().css("border", "1px solid #ccc");
+    }
+    if(!valid){
+      alert("必須項目を入力してください");
+      return false;
+    }
+  });
+});
