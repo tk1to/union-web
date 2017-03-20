@@ -26,13 +26,13 @@
   &__button{
     margin-top: 2rem;
   }
-  &__close{
-    width: 2rem;
-    height: 2rem;
-    position:absolute;
-    top: -0.8rem;
-    right: -0.8rem;
-  }
+  // &__close{
+  //   width: 2rem;
+  //   height: 2rem;
+  //   position:absolute;
+  //   top: -0.8rem;
+  //   right: -0.8rem;
+  // }
 // チュートリアル
   .tutorial{
     width: 90%;
@@ -66,6 +66,14 @@
       box-shadow: 0 1px 3px gray;
       border-radius:5px;
     }
+    &_close{
+    width: 2rem;
+    height: 2rem;
+    position:absolute;
+    top: 2rem;
+    right: 1rem;
+    background-image: image-url("close.svg");
+  }
   }
 }
 .ta_center .tutorial__heading{
