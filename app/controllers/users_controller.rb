@@ -36,12 +36,13 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     print_foot if user_signed_in?
     @profiles = {
-      introduce:      "自己紹介",
+      introduce: "自己紹介",
     }
     if @user.circles.any?
       @profiles.merge!({
         oppotunity:     "サークルに入ったきっかけ",
         career:         "これまでやっていたこと",
+        seminar:        "所属ゼミ",
         my_circle_atom: "サークルの雰囲気",
       })
     end
