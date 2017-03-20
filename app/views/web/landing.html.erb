@@ -2,7 +2,7 @@
   <div class="keyvisual">
     <%= image_tag "union_lp.png" %>
     <% if !user_signed_in? %>
-      <div class="keyvisual__inner <%= "aaa" if @desktop %>">
+      <div class="keyvisual__inner <%= "keyvisual__inner_desktop" if @desktop %>">
         <%= link_to "Facebookで登録・ログイン", user_facebook_omniauth_authorize_path , class: "button button_lp button_facebook"%>
         <%= link_to 'E-mailで登録', [:new, :user, :registration], class: "button button_lp button_color_blue"%>
         <%= link_to "ログイン", [:new, :user, :session] , class: "button button_lp button_color_white"%>
