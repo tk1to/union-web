@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170316003129) do
+ActiveRecord::Schema.define(version: 20170320002228) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -246,6 +246,7 @@ ActiveRecord::Schema.define(version: 20170316003129) do
     t.boolean  "first_facebook_login",    default: true
     t.boolean  "tutorialed",              default: false
     t.integer  "new_foots_count"
+    t.string   "seminar"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
