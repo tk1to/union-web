@@ -32,11 +32,25 @@
   line-height: 3rem;
   margin: 0.3rem;
   font-size: 1rem;
-  box-shadow:0 1px 0 0 $d-blue;
+  // box-shadow:0 1px 0 0 $d-blue;
   background: $d-blue;
   border: 1px solid $d-blue;
   color: #fff;
   padding: 0;
+  &_icon{
+    &::before{
+      content: "";
+      width:1.5rem;
+      height:1.5rem;
+      background-size: 1.5rem auto;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 0.5rem;
+      margin-top: 0;
+      margin-bottom: 0.3rem;
+      background-image: image-url("pin_fff.svg");
+    }
+  }
 }
 .unfavorites{
   width: 15rem;
@@ -50,7 +64,21 @@
   color: $d-blue;
   background:#fff;
   border:1px solid $d-blue;
-  box-shadow:0 1px 0 0 $d-blue;
+  // box-shadow:0 1px 0 0 $d-blue;
+  &_icon{
+    &::before{
+      content: "";
+      width:1.5rem;
+      height:1.5rem;
+      background-size: 1.5rem auto;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 0.5rem;
+      margin-top: 0;
+      margin-bottom: 0.3rem;
+      background-image: image-url("pin_fff.svg");
+    }
+  }
 }
 @mixin favo{
   position: absolute;
