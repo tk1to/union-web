@@ -6,9 +6,9 @@ class CirclesController < ApplicationController
 
   def index
     @circles = Circle.order("created_at DESC").page(params[:page]).per(15)
-    if params[:category]
-      @circles = @circles.joins(:categories).where(categories: {name: params[:category]})
-      @title = params[:category]
+    if params[:category_id]
+      @circles = @circles.joins(:categories).where(categories: {id: params[:category_id]})
+      @title = Category.find(params[:category_id]).name
     end
   end
   def new
