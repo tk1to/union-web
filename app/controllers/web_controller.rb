@@ -15,6 +15,10 @@ class WebController < ApplicationController
 
   def landing
     redirect_to :top if user_signed_in?
+    ua = request.env["HTTP_USER_AGENT"]
+    unless (ua.include?('Mobile') || ua.include?('Android'))
+      @desktop = true
+    end
   end
 
   def privacypolicy
