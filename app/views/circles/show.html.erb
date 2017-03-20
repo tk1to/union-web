@@ -107,7 +107,11 @@
         <% if key == :joining_colleges %>
           <td class="table__deta"><%= @circle.joining_college_list.each{|c|print c} %></td>
         <% else %>
-          <td class="table__deta"><%= @circle[key] %></td>
+          <td class="table__deta">
+            <%= @circle[key] %>
+            <%= "人" if !@circle[key].blank? && key == :people_scale %>
+            <%= "円" if !@circle[key].blank? && key == :annual_fee %>
+          </td>
         <% end %>
       </tr>
     <% end %>
