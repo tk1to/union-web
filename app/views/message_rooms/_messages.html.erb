@@ -4,7 +4,7 @@
   <div class="wrap-message__text clearfix">
     <div class="<%= be_opp ? "receiver" : "sender" %> message__text" >
       <%= message.content %>
-      <div class="message__time"><%= message.created_at.in_time_zone('Tokyo').strftime("%k:%M") %></div>
+      <div class="message__time <%= "message__time_mine" if !be_opp %>"><%= message.created_at.in_time_zone('Tokyo').strftime("%k:%M") %></div>
       <% if be_opp %>
         <div class="sender__image c_picture" style="background-image: url(<%= message.sender.picture %>);">
           <%= link_to "", message.sender, class: "link_fill" %>

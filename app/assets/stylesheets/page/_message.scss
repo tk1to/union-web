@@ -85,6 +85,9 @@
   font-size: 0.6rem;
   display: inline-block;
   // width: 3rem;
+  &_mine{
+    width: 1rem;
+  }
 }
 
 .clearfix:after {
