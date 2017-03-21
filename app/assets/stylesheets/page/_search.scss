@@ -26,6 +26,7 @@
 }
 
 .favorites{
+  display: inline-block;
   width: 15rem;
   height: 3rem;
   border-radius: 3px;
@@ -53,6 +54,7 @@
   }
 }
 .unfavorites{
+  display: inline-block;
   width: 15rem;
   height: 3rem;
   line-height: 3rem;
