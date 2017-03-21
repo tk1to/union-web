@@ -9,6 +9,7 @@ gem 'google-analytics-rails'
 gem 'carrierwave',             '0.10.0'
 gem 'mini_magick',             '3.8.0'
 gem 'fog',                     '1.36.0'
+gem 'open_uri_redirections'
 
 # gem 'bootstrap-sass',       '3.2.0.0'
 gem 'sass-rails',         '5.0.6' #
