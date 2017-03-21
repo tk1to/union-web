@@ -1,4 +1,5 @@
 #topHeader{
+  position: relative;
   width: 100%;
   height: 13rem;
   margin-bottom: 1.5rem;
@@ -8,6 +9,17 @@
   }
 }
 .header__image_top {
+}
+.header__copy {
+  position: absolute;
+  top: 8.4rem;
+  color: white;
+  width: 100%;
+  text-align: center;
+  line-height: 25px;
+  font-weight: bold;
+  font-family: serif;
+  font-size: 1.2rem;
 }
 
 // チュートリアル
