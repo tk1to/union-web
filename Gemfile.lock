@@ -284,7 +284,6 @@ GEM
     omniauth-oauth2 (1.4.0)
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
-    open_uri_redirections (0.2.1)
     orm_adapter (0.5.0)
     pg (0.18.4)
     pry (0.10.4)
@@ -401,7 +400,6 @@ DEPENDENCIES
   newrelic_rpm
   omniauth (= 1.6.1)
   omniauth-facebook (= 4.0.0)
-  open_uri_redirections
   pg (= 0.18.4)
   puma (= 2.15.3)
   rails (= 4.2.2)

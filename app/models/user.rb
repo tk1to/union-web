@@ -85,12 +85,6 @@ class User < ActiveRecord::Base
 
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
-    picture = nil
-    if auth.info.image.present?
-      require 'open-uri'
-      require 'open_uri_redirections'
-      picture = open(auth.info.image, :allow_redirections => :safe)
-    end
     if !user
       user = User.create(
         uid:       auth.uid,
@@ -98,7 +92,7 @@ class User < ActiveRecord::Base
         name:      auth.info.name,
         email:     User.get_email(auth),
         password:  Devise.friendly_token[6, 24],
-        picture:   picture,
+        picture:   auth.info.image,
         first_facebook_login: false,
       )
       user.skip_confirmation!
@@ -108,7 +102,7 @@ class User < ActiveRecord::Base
       user.update_attribute(:name, auth.info.name)
       user.update_attribute(:email, User.get_email(auth))
       user.update_attribute(:password, Devise.friendly_token[6, 24])
-      user.update_attribute(:picture, picture)
+      user.update_attribute(:picture, auth.info.image)
       user.skip_confirmation!
       user.save
     end
