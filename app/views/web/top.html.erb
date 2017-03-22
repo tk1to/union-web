@@ -58,7 +58,7 @@
         </li>
       <% end %>
       <li>
-        <%= link_to "もっと見る", :circles, class: "link_fill miniCard miniCard__more", style: "text-decoration: none;" %>
+        <%= link_to "もっと見る", [:circles, title: "サークルランキング"], class: "link_fill miniCard miniCard__more" %>
       </li>
     </ul>
   <% end %>
@@ -66,7 +66,7 @@
 </div>
 
 <div class="frame">
-  <h1 class="frame__heading frame__heading_underline">新着サークル一覧</h1>
+  <h1 class="frame__heading frame__heading_underline">新着サークル</h1>
 </div>
 <div id="news" class="wrap_miniCard">
   <% if @circles.any? %>
@@ -86,7 +86,7 @@
         </li>
       <% end %>
       <li>
-        <%= link_to "もっと見る", :circles, class: "link_fill miniCard miniCard__more", style: "text-decoration: none;" %>
+        <%= link_to "もっと見る", [:circles, title: "新着サークル"], class: "link_fill miniCard miniCard__more" %>
       </li>
     </ul>
   <% end %>

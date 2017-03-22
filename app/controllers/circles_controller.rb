@@ -10,6 +10,7 @@ class CirclesController < ApplicationController
       @circles = @circles.joins(:categories).where(categories: {id: params[:category_id]})
       @title = Category.find(params[:category_id]).name
     end
+    @title = params[:title] if params[:title]
   end
   def new
     @circle = Circle.new
