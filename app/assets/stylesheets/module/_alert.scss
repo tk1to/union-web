@@ -87,13 +87,34 @@
       border-radius:5px;
     }
     &_close{
-    width: 2rem;
-    height: 2rem;
-    position:absolute;
-    top: 2rem;
-    right: 1rem;
-    background-image: image-url("close.svg");
+      width: 2rem;
+      height: 2rem;
+      position:absolute;
+      top: 2rem;
+      right: 1rem;
+      background-image: image-url("close.svg");
+    }
   }
+
+  // LINE@
+  .line_at__frame {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    width: 90%;
+    height: 50%;
+    background: #fff;
+    box-shadow: 0 1px 3px gray;
+    border-radius: 5px;
+    #line_at__close {
+      // ここ適当
+      width: 50px;
+      height: 50px;
+      background-color: red;
+    }
   }
 }
 .ta_center .tutorial__heading{
