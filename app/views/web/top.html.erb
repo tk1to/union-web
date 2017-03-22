@@ -9,13 +9,13 @@
   <header id="topHeader">
     <div class="slide">
       <div class="header__image_top c_picture" style="background-image: url(<%= asset_path('union_lp_trim.png') %>);"></div>
-      <div class="header__image_top c_picture" style="background-image: url(<%= asset_path('slide/yume_award.jpg') %>);">
+      <div class="header__image_top c_picture" style="background-image: url(<%= asset_path('slide/top01.jpg') %>);">
         <%= link_to "", @yume_award, class: "link_fill" %>
       </div>
-      <div class="header__image_top c_picture" style="background-image: url(<%= asset_path('slide/jagzzi.jpg') %>);">
+      <div class="header__image_top c_picture" style="background-image: url(<%= asset_path('slide/top02.jpg') %>);">
         <%= link_to "", @jagzzi, class: "link_fill" %>
       </div>
-      <div class="header__image_top c_picture" style="background-image: url(<%= asset_path('slide/sal.jpg') %>);">
+      <div class="header__image_top c_picture" style="background-image: url(<%= asset_path('slide/top03.jpg') %>);">
         <%= link_to "", @sal, class: "link_fill" %>
       </div>
     </div>
@@ -147,19 +147,22 @@
     <div class="tutorial_close"></div>
       <div class="tutorial__inner">
         <div class="tutorial__heading">チュートリアル</div>
-        <div class="tutorial__text">＜個人プロフィールを作成しましょう＞<br>詳細のプロフィールを記入するとフォローや足跡が届きやすくなります!!</div>
+        <div class="tutorial__text"><個人プロフィールを作成しましょう><br>詳細のプロフィールを記入するとフォローや足跡が届きやすくなります!!</div>
         <div class="tutorial__image">
           <%= image_tag "tutorial/new/tutorial01.jpg" %>
         </div>
-        <div class="tutorial__text">＜団体を覗いてみましょう＞<br>トップページや検索ページであなたの気になるサークル・学生団体・部活を覗いてみましょう</div>
-        <div class="tutorial__text">＜気になるボタンをプッシュor足跡をつけてみましょう＞<br>気になる団体があったら、「気になる」ボタンを押してみましょう。また、気になる団体のメンバーがいたら、その人のプロフィールに飛んで足跡をつけてみましょう!! 気になる団体のメンバーからフォローやメッセージが届くかも!!</div>
+        <div class="tutorial__text"><気になる団体を探してみましょう><br>トップページや検索ページであなたの気になるサークル・学生団体・部活を覗いてみましょう</div>
         <div class="tutorial__image">
           <%= image_tag "tutorial/new/tutorial02.jpg" %>
         </div>
-        <!-- <div class="tutorial__image"></div> -->
-        <div class="tutorial__text">＜メッセージをしてみましょう＞<br>団体メンバーからフォローが来たり、団体メンバーからスカウトが来たら、メッセージをしてみましょう!!</div>
+        <div class="tutorial__text"><気になるor足跡をつけてみましょう><br>気になる団体があったら、「気になる」ボタンを押してみましょう。また、気になる団体のメンバーがいたら、その人のプロフィールに飛んで足跡をつけてみましょう!! 気になる団体のメンバーからフォローやメッセージが届くかも!!</div>
         <div class="tutorial__image">
           <%= image_tag "tutorial/new/tutorial03.jpg" %>
+        </div>
+        <!-- <div class="tutorial__image"></div> -->
+        <div class="tutorial__text"><メッセージをしてみましょう><br>団体メンバーからフォローが来たり、団体メンバーからスカウトが来たら、メッセージをしてみましょう!!</div>
+        <div class="tutorial__image">
+          <%= image_tag "tutorial/new/tutorial04.jpg" %>
         </div>
         <div class="tutorial__text">最後に、メッセージをして団体のメンバーと仲良くなったら、新歓イベントに行ったりサークル活動に行って、自分に合う最高の団体に入りましょう!!</div>
         <div class="tutorial__image">
@@ -181,22 +184,22 @@
       <div class="tutorial_close"></div>
       <div class="tutorial__inner">
         <div class="tutorial__heading">チュートリアル</div>
-        <div class="tutorial__text">＜個人プロフィールを作成しましょう＞<br>まずは自分のプロフィールを作成しましょう。詳細のプロフィールを記入すると新入生からフォローや足跡が届きやすくなります!!</div>
+        <div class="tutorial__text"><個人プロフィールを作成しましょう><br>まずは自分のプロフィールを作成しましょう。詳細のプロフィールを記入すると新入生からフォローや足跡が届きやすくなります!!</div>
         <div class="tutorial__image">
           <%= image_tag "tutorial/circle/tutorial01.jpg" %>
         </div>
-        <div class="tutorial__text">＜団体に参加しましょう＞<br>団体の管理者の方にメンバー追加URLを発行してもらって、所属団体に追加してもらいましょう。追加してもらうと、個人プロフィールに団体マークがつきます。</div>
+        <div class="tutorial__text"><団体に参加しましょう><br>団体の管理者の方にメンバー追加URLを発行してもらって、所属団体に追加してもらいましょう。追加してもらうと、個人プロフィールに団体マークがつきます。</div>
         <div class="tutorial__image">
           <%= image_tag "tutorial/circle/tutorial02.jpg" %>
         </div>
-        <div class="tutorial__text">＜フォローをしましょう＞<br>自分の団体のメンバーや足跡をつけてくれた新入生をフォローしてみましょう。</div>
+        <div class="tutorial__text"><フォローをしましょう><br>自分の団体のメンバーや足跡をつけてくれた新入生をフォローしてみましょう。</div>
         <div class="tutorial__image">
-          <%= image_tag "tutorial/circle/tutorial03.jpg" %>
+          <%# image_tag "tutorial/circle/tutorial03.jpg" %>
         </div>
         <div class="tutorial__image">
           <%= image_tag "tutorial/circle/tutorial04.jpg" %>
         </div>
-        <div class="tutorial__text">＜メッセージをしましょう＞<br>新入生とフォロワー同士になったら、新入生にメッセージをしてみましょう!!新入生を自分の団体の新歓やイベントに招いて、最高のメンバーを団体に迎え入れましょう!!</div>
+        <div class="tutorial__text"><メッセージをしましょう><br>新入生とフォロワー同士になったら、新入生にメッセージをしてみましょう!!新入生を自分の団体の新歓やイベントに招いて、最高のメンバーを団体に迎え入れましょう!!</div>
         <div class="tutorial__image">
           <%= image_tag "tutorial/circle/tutorial05.jpg" %>
         </div>
@@ -219,23 +222,23 @@
       <div class="tutorial_close"></div>
       <div class="tutorial__inner">
         <div class="tutorial__heading">チュートリアル</div>
-        <div class="tutorial__text">＜個人プロフィールを作成しましょう＞<br>まずは自分のプロフィールを作成しましょう。詳細のプロフィールを記入すると新入生からフォローや足跡が届きやすくなります!!</div>
+        <div class="tutorial__text"><個人プロフィールを作成しましょう><br>まずは自分のプロフィールを作成しましょう。詳細のプロフィールを記入すると新入生からフォローや足跡が届きやすくなります!!</div>
         <div class="tutorial__image">
           <%= image_tag "tutorial/admin/tutorial01.jpg" %>
         </div>
-        <div class="tutorial__text">＜あなたの団体を作成しましょう＞<br>プロフィール作成が終わったら、次は右上のハンバーガーメニューを開いて、新規団体を作成しましょう!!</div>
+        <div class="tutorial__text"><あなたの団体を作成しましょう><br>プロフィール作成が終わったら、次は右上のハンバーガーメニューを開いて、新規団体を作成しましょう!!</div>
         <div class="tutorial__image">
           <%= image_tag "tutorial/admin/tutorial02.jpg" %>
         </div>
-        <div class="tutorial__text">＜団体作成を完了させましょう＞<br>団体概要を入力し画像を挿入しましょう。概要を書くと、新入生から興味を持ってもらえる可能性が高くなります。また、管理者限定のLINE＠に登録しましょう!!団体の管理者限定でUnionから特別な情報をご提供致します。（代表者交流会や協賛企業情報など）</div>
+        <div class="tutorial__text"><団体作成を完了させましょう><br>必須項目を入力し、画像を挿入しましょう。また、管理者限定のLINE@に登録して、耳よりな情報をゲットしましょう!!(代表者交流会や企業協賛情報を発信)</div>
         <div class="tutorial__image">
           <%= image_tag "tutorial/admin/tutorial03.jpg" %>
         </div>
-        <div class="tutorial__text">＜メンバーを追加しましょう＞<br>作成した団体ページの右上のメニューから団体メンバーを追加しましょう。</div>
+        <div class="tutorial__text"><メンバーを追加しましょう><br>作成した団体ページの右上のメニューから団体メンバーを追加しましょう。</div>
         <div class="tutorial__image">
           <%= image_tag "tutorial/admin/tutorial04.jpg" %>
         </div>
-        <div class="tutorial__text">＜新入生とメッセージをしましょう＞<br>新入生から「気になる」「お問い合わせ」「メンバー申請」が来たら新入生へフォローやメッセージましょう。あなたの団体にあいそうな新入生をスカウトして、最高のメンバーを迎え入れましょう!!</div>
+        <div class="tutorial__text"><新入生とメッセージをしましょう><br>新入生から「気になる」「お問い合わせ」 「メンバー申請」が来たら新入生へフォローやメッセージをしましょう。 あなたの団体に合いそうな新入生をスカウトして、最高の仲間を迎え入れましょう!!</div>
         <div class="tutorial__image">
           <%= image_tag "tutorial/admin/tutorial05.jpg" %>
         </div>
