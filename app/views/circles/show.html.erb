@@ -57,6 +57,9 @@
         <% end %>
     <% else %>
       <div id="favorite_form_<%= @circle.id %>" class="restricted">
+        <!-- <div class="wrap_favorites">
+          <div class="favorites_icon"></div>
+        </div> -->
         <%= render !current_user.favorites.find_by(circle_id: @circle.id) ? "favorite" : "unfavorite" , circle: @circle %>
       </div>
     <% end %>
