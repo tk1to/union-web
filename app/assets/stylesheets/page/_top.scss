@@ -9,18 +9,31 @@
   }
 }
 .header__image_top {
-  filter: brightness(80%);
+  filter: brightness(70%);
+  // filter: blur(0.8px);
   // saturate(90%)
 }
 .header__copy {
   position: absolute;
-  top: 8.4rem;
+  top: 22%;
   color: white;
   width: 100%;
   text-align: center;
   line-height: 25px;
-  font-family: serif;
-  font-size: 1rem;
+  // font-family: serif;
+  font-size: 0.8rem;
+  text-shadow: 0 1px 5px black;
+}
+.header__unionlogo{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  width: 60%;
+  height: auto;
+  filter: drop-shadow(0px 1px 4px black);
 }
 
 // チュートリアル
@@ -55,8 +68,8 @@
   text-decoration: none;
   background:$d-blue;
   // background: rgba(255,255,255,1);
-  -webkit-filter: saturate(70%);
-  filter: saturate(70%);
+  // -webkit-filter: saturate(70%);
+  // filter: saturate(70%);
   // filter: blur(3px);
   &:first-child{
     margin-left: 0.5rem;
