@@ -49,20 +49,39 @@
       overflow: scroll;
     }
     &__heading{
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       margin: 1rem auto;
+      color: $d-blue;
+      text-align: center;
+      font-weight: bold;
+      padding-bottom:1rem;
+      border-bottom: 1px solid $l-gray;
+    }
+    .ta_center .tutorial__heading{
+      padding:0;
+      border:none;
+    }
+    &__subhead{
       color: gray;
+      font-size: 0.9rem;
+      height: 1.1rem;
+      line-height: 1.1rem;
+      margin-top: 2rem;
+      padding-left:0.5rem;
+      border-left: 5px solid $d-blue;
+      font-weight: bold;
     }
     &__text{
       color: $gray;
       font-size: 0.8rem;
-      margin: 2rem auto;
-      line-height: 1.2rem;
+      margin: 1.5rem auto;
+      line-height: 1.4rem;
     }
     &__image{
-      width: 100%;
+      width: 90%;
       height: auto;
-      background: gray;
+      margin: 0 auto;
+      // background: gray;
       margin-bottom: 1rem;
       // box-shadow: 0 1px 3px gray;
       border-radius:5px;
