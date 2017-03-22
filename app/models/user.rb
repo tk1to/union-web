@@ -124,8 +124,8 @@ class User < ActiveRecord::Base
   def basic_info
     info = ""
     info += self.college    + "/" if !self.college.blank?
-    info += self.faculty + "/" if !self.faculty.blank?
-    info += self.grade      + "/" if !self.grade.blank?
+    info += self.faculty    + "/" if !self.faculty.blank?
+    info += self.grade+"年" + "/" if !self.grade.blank?
     info += self.sex_label  + "/" if !self.sex.blank?
     info[0..-2]
   end

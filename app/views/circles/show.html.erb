@@ -204,6 +204,8 @@
   </div>
 
   <div class="white_back"></div>
+
+  <div>LINE@のポップアップ</div>
 <% end %>
 
 <% if user_signed_in? %>
@@ -225,6 +227,10 @@
       $(".circle__image_zoom").on("click",function(){
         $(".circle__image_zoom").fadeOut(100);
       });
+    }
+
+    if ($(".flash_message").is(":contains('作成完了')") ) {
+      // LINE@リンクのポップアップを出す
     }
   });
 </script>
