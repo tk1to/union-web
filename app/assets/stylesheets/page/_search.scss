@@ -61,7 +61,7 @@
 //   height: 100%;
 //   position: relative;
 // }
-.new_favorite{
+.ta_center .new_favorite{
   position:relative;
   width: 15rem;
   height: 3rem;
@@ -69,7 +69,7 @@
   box-sizing: border-box;
   margin-bottom: 0.8rem;
 }
-.edit_favorite{
+.ta_center .edit_favorite{
   position:relative;
   width: 15rem;
   height: 3rem;
@@ -92,8 +92,8 @@
 @mixin favo{
   position: absolute;
   top: -1rem;
-  right: -0.3rem;
-  width: 5rem;
+  right: -1rem;
+  width: 6rem;
   height: 5rem;
   background:none;
   border:none;
@@ -101,7 +101,14 @@
   text-indent: 200%;
   white-space: nowrap;
   box-shadow:0 0 0 0 #fff;
-  filter: drop-shadow(0px 1px 5px gray);
+  // filter: drop-shadow(0px 1px 5px gray);
+  background:no-repeat;
+  margin: 0 0 0 auto;
+}
+.wrap_card .favorites_icon{
+  display: none;
+  // top: 0;
+  // right: 0;
 }
 .wrap_card .favorites{
   @include favo;
