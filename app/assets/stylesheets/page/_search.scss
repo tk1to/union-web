@@ -24,8 +24,10 @@
     margin-bottom: 0.2rem;
   }
 }
-
 .favorites{
+  // position: relative;
+  // top: 0;
+  // left: 0;
   display: inline-block;
   width: 15rem;
   height: 3rem;
@@ -37,21 +39,7 @@
   background: $d-blue;
   border: 1px solid $d-blue;
   color: #fff;
-  padding: 0;
-  &_icon{
-    &::before{
-      content: "";
-      width:1.5rem;
-      height:1.5rem;
-      background-size: 1.5rem auto;
-      display: inline-block;
-      vertical-align: middle;
-      margin-right: 0.5rem;
-      margin-top: 0;
-      margin-bottom: 0.3rem;
-      background-image: image-url("pin_fff.svg");
-    }
-  }
+  padding: 0 0 0 1rem;
 }
 .unfavorites{
   display: inline-block;
@@ -80,6 +68,20 @@
       margin-bottom: 0.3rem;
       background-image: image-url("pin_fff.svg");
     }
+  }
+}
+.wrap_favorites{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  .favorites_icon{
+    position:absolute;
+    top: 0;
+    left: 3rem;
+    background-image: image-url("pin_fff.svg");
+    width: 2rem;
+    height: 2rem;
+    display: inline-block;
   }
 }
 // 検索フィードでのきになる
