@@ -9,6 +9,8 @@
   }
 }
 .header__image_top {
+  filter: blur(0.9px) brightness(90%);
+  // saturate(90%)
 }
 .header__copy {
   position: absolute;
@@ -19,7 +21,7 @@
   line-height: 25px;
   font-weight: bold;
   font-family: serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 // チュートリアル
