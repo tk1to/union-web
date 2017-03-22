@@ -205,7 +205,11 @@
 
   <div class="white_back"></div>
 
-  <div>LINE@のポップアップ</div>
+  <% if @status_num <= 1 %>
+    <div id="line_at">
+      <div class="alert">LINE@のポップアップ</div>
+    </div>
+  <% end %>
 <% end %>
 
 <% if user_signed_in? %>
@@ -229,8 +233,9 @@
       });
     }
 
+    // LINE@
+    $(".line_at").hide();
     if ($(".flash_message").is(":contains('作成完了')") ) {
-      // LINE@リンクのポップアップを出す
     }
   });
 </script>
