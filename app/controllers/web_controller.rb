@@ -11,13 +11,6 @@ class WebController < ApplicationController
     if ENV["RACK_ENV"] == "staging" || Rails.env.development?
       @tutorialing = true
     end
-    # if ENV["RACK_ENV"] == "production"
-    #   @tutorialing = false
-    # end
-
-    @yume_award = Circle.find_by(id: 2)
-    @jagzzi     = Circle.find_by(id: 4)
-    @sal        = Circle.find_by(id: 6)
   end
 
   def landing
