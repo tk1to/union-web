@@ -1,5 +1,6 @@
 <%= form_for [@circle, current_user.favorites.find_by(circle_id: @circle.id)],
      html: { method: :delete }, remote: true do |f| %>
   <%= hidden_field_tag :circle_id, @circle.id %>
-  <%= f.submit "きになる解除", class: "favorites unfavorites unfavorites_icon"%>
+  <%= f.submit "気になる解除", class: "favorites unfavorites"%>
+  <%= image_tag 'pin.svg' , class: "favorites_icon"%>
 <% end %>
