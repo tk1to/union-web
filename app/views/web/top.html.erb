@@ -1,7 +1,7 @@
 <% if !user_signed_in? %>
   <header id="topHeader" class="header">
-    <%= link_to :root, class: "header__background" do %>
-      <div class="header__image_top c_picture" style="background-image: url(<%= asset_path('union_lp_trim.png') %>);"></div>
+    <%= link_to :root, class: "link_fill" do %>
+      <div class="c_picture" style="background-image: url(<%= asset_path('union_lp_trim.png') %>);"></div>
       <p class="header__paragraph">新規登録・ログインはこちら</p>
     <% end %>
   </header>
