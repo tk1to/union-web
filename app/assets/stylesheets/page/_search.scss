@@ -89,12 +89,15 @@
   display: inline-block;
 }
 // 検索フィードでのきになる
+.restricted{
+  position: relative;
+}
 @mixin favo{
   position: absolute;
-  top: -1rem;
-  right: -1rem;
-  width: 6rem;
-  height: 5rem;
+  top: -15.5rem;
+  right: 0;
+  width: 5rem;
+  height: 5.2rem;
   background:none;
   border:none;
   overflow: hidden;
@@ -104,11 +107,12 @@
   // filter: drop-shadow(0px 1px 5px gray);
   background:no-repeat;
   margin: 0 0 0 auto;
+  box-sizing: border-box;
+  background-size: 5rem auto;
+  display: inline-block;
 }
 .wrap_card .favorites_icon{
   display: none;
-  // top: 0;
-  // right: 0;
 }
 .wrap_card .favorites{
   @include favo;
