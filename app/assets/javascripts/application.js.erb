@@ -68,6 +68,13 @@ $(function(){
   //   }
   // });
 
+  // ユーザー登録画面で同じ要素の削除
+  if ($(".error_messages")){
+    if($(".error_messages li:first-child").text() == "Eメール が記入されていません。"){
+      $(".error_messages li:first-child").remove();
+    }
+  }
+
 });
 
 function filereader(){
