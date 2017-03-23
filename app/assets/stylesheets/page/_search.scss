@@ -8,7 +8,7 @@
 .form__search{
   width: 95%;
   margin: 0.5rem auto 0;
-  padding: 1rem;
+  padding:0.5rem 0.5rem 1rem;
   border: 1px solid $l-gray;
   box-sizing:border-box;
   border-radius:5px;
@@ -24,6 +24,41 @@
     margin-bottom: 0.2rem;
   }
 }
+.search_accordion{
+  position:relative;
+  display: block;
+  width: 100%;
+  height: 3rem;
+  line-height: 3rem;
+  color: $gray;
+  margin: 0 auto;
+  border-bottom: 1px solid $l-gray;
+  padding-left:0.5rem;
+  box-sizing:border-box;
+  &_icon{
+    position: absolute;
+    top: 0.2rem;
+    right: -0.2rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-image: image-url("search_arrow_right");
+  }
+  &_active{
+    border:none;
+  }
+  &_open{
+    width: 100%;
+    display: none;
+    margin: 0.5rem auto;
+    // height: 3rem;
+    line-height: 3rem;
+    // border:1px solid $l-gray;
+    box-sizing:border-box;
+    text-align: center;
+  }
+}
+
+
 .favorites{
   position: relative;
   top: 0;
