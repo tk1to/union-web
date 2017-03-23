@@ -105,6 +105,7 @@ class UsersController < ApplicationController
           :birth_place, :home_place,
           :introduce,
           :oppotunity, :career, :my_circle_atom,
+          :seminar
         )
     end
 
