@@ -79,18 +79,9 @@ $(function(){
     nextSelector: "nav.pagination a[rel=next]",
     itemSelector: ".wrap_card .page"
   });
-});
-
-// $(function(){
-//   $('.search_accordion').click(function(){
-//     $(this).toggleClass('.search_accordion_open').next().slideToggle();
-//   });
-// });
-
-$(function(){
-  $('.search_accordion').on("click", function() {
-      $(this).next().slideToggle();
-      $(this).toggleClass("search_accordion_active");
+  $('.search_accordion').on("click", function(){
+    $(this).next().slideToggle();
+    $(this).toggleClass("search_accordion_active");
   });
 });
 
