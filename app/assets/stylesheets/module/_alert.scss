@@ -105,7 +105,7 @@
     left: 0;
     margin: auto;
     width: 90%;
-    height: 50%;
+    height: 60%;
     background: #fff;
     box-shadow: 0 1px 3px gray;
     border-radius: 5px;
@@ -113,7 +113,7 @@
       width: 2rem;
       height: 2rem;
       display: inline-block;
-      background-image: url(close.svg);
+      background-image: url("close.svg");
       float: right;
     }
     .lineAt_head{
