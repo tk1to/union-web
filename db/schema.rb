@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170320002228) do
+ActiveRecord::Schema.define(version: 20170323115913) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,10 +58,10 @@ ActiveRecord::Schema.define(version: 20170320002228) do
     t.string   "picture"
     t.string   "header_picture"
     t.string   "join_colleges"
-    t.string   "people_scale"
+    t.integer  "people_scale"
     t.string   "activity_place"
     t.string   "activity_frequency"
-    t.string   "annual_fee"
+    t.integer  "annual_fee"
     t.string   "party_frequency"
   end
 

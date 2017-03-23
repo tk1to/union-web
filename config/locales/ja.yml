@@ -39,6 +39,7 @@ ja:
         seminar: "所属ゼミ"
         my_circle_atom: "サークルの雰囲気"
       circle:
+        categories: "カテゴリー"
         join_colleges: "参加大学"
         people_scale: "人数"
         activity_place: "活動場所"

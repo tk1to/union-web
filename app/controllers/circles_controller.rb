@@ -138,7 +138,30 @@ class CirclesController < ApplicationController
     @circles = Circle.all
     if !params[:circle].nil?
       @circles = @circles.joins(:categories).where(categories: {id: params[:circle][:categories]}) if params[:circle][:categories].present?
-      @circles = @circles.where(Circle.arel_table[:name].matches("%#{ params[:circle][:name] }%"))
+
+      if !params[:circle][:free_word].blank?
+        free_word_name        = Circle.arel_table[:name]
+        free_word_description = Circle.arel_table[:description]
+        @circles = @circles.where(free_word_name.matches("%#{ params[:circle][:free_word] }%")
+                              .or(free_word_description.matches("%#{ params[:circle][:free_word] }%")))
+      end
+
+      if !params[:circle][:people_scale].blank?
+        ps        = params[:circle][:people_scale]
+        ps_min    = ps.split("/")[0].to_i
+        ps_max    = ps.split("/")[1].to_i
+        psa       = Circle.arel_table[:people_scale]
+        psa_query = ps_max == 0 ? psa.gteq(ps_min) : psa.gteq(ps_min).and(psa.lt(ps_max))
+        @circles = @circles.where(psa_query)
+      end
+      if params[:circle][:annual_fee].blank?
+        af        = params[:circle][:annual_fee]
+        af_min    = af.split("/")[0].to_i
+        af_max    = af.split("/")[1].to_i
+        afa       = Circle.arel_table[:annual_fee]
+        afa_query = af_max == 0 ? afa.gteq(af_min) : afa.gteq(af_min).and(afa.lt(af_max))
+        @circles = @circles.where(afa_query)
+      end
     end
     @circles = @circles.page(params[:page]).per(15)
     render "index"
