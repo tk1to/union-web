@@ -257,7 +257,7 @@
     if ($(".flash_message").is(":contains('作成完了')") ) {
       $("#line_at").click();
     }
-    $("#line_at__close").on("click", function(){
+    $("#line_at__close, .alert").on("click", function(){
       $("#line_at__content").fadeOut(100);
     });
   });
