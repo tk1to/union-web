@@ -16,16 +16,13 @@
   <% end %>
 </div>
 
-<header class="header">
-  <h1 class="header__name"><%= @circle.name %></h1>
-  <div class="header__background c_picture" style="background-image: url(<%= @circle.header_picture %>)"></div>
-  <div class="header__photo_circle c_picture" style="background-image: url(<%= @circle.picture %>)"></div>
-  <div class="header__change"></div>
+<header class="header c_picture" style="background-image: url(<%= @circle.header_picture %>)" >
+  <div class="header__photo c_picture" style="background-image: url(<%= @circle.picture %>)"></div>
   <% if @be_member %>
     <%= image_tag "menu.svg" , class: "header__menu_humberger" %>
   <% end %>
 </header>
-
+<div class="header__name"><%= @circle.name %></div>
 <% if @categories.any? %>
     <div class="header__subhead">
       <%= @circle.display_categories %>
