@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170324064401) do
+ActiveRecord::Schema.define(version: 20170324092114) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20170324064401) do
     t.string   "activity_frequency"
     t.integer  "annual_fee"
     t.string   "party_frequency"
-    t.string   "welcome_event_schedule"
+    t.date     "welcome_event_schedule"
   end
 
   create_table "contacts", force: :cascade do |t|

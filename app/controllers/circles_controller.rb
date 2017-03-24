@@ -85,17 +85,10 @@ class CirclesController < ApplicationController
       "週3回以上", "週2回", "週1回", "2週に1回",
       "月1回", "2か月に1回", "3か月に1回", "半年に1回", "1年に1回",
     ]
-    if @circle.welcome_event_schedule
-      @welcome_event_schedule_month = @circle.welcome_event_schedule.split("年")[1].split("月")[0].to_i
-      @welcome_event_schedule_day   = @circle.welcome_event_schedule.split("年")[1].split("月")[1].to_i
-    end
   end
   def update
     @circle = Circle.find(params[:id])
     update_categories
-    if !params[:welcome_event_schedule_month].blank? && !params[:welcome_event_schedule_day].blank?
-      params[:circle][:welcome_event_schedule] = "2017年" + params[:welcome_event_schedule_month] + "月" + params[:welcome_event_schedule_day] + "日"
-    end
     if @circle.update_attributes(circle_params)
       @circle.save
       flash[:success] = "編集完了"
@@ -209,7 +202,6 @@ class CirclesController < ApplicationController
           :name, :description, :picture, :header_picture,
           :joining_colleges, :people_scale, :activity_place,
           :activity_frequency, :annual_fee, :party_frequency,
-          :welcome_event_schedule,
         )
     end
     def member_check
