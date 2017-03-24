@@ -38,7 +38,7 @@
       </div>
     </div>
 
-    <%= f.label :join_colleges, class: "form__item margin_top_1rem" %>
+    <%= f.label :join_colleges, "参加大学（１つ以上）", class: "form__item margin_top_1rem" %>
     <div id="joining_colleges">
     </div>
     <div id="edit_joining_colleges" class="button button_100 button_color_white margin_top_05rem margin_bottom_1rem">追加・編集</div>
@@ -66,10 +66,14 @@
     <%= f.number_field :annual_fee, class: "form__text_field" %>
 
     <%= f.label :activity_frequency, class: "form__item" %>
-    <%= f.text_field :activity_frequency, class: "form__text_field" %>
+    <div class="wrap_select margin_0_auto">
+      <%= f.select :activity_frequency, options_for_select(@frequencies), {include_blank: true}, {class: "selectbox"}%>
+    </div>
 
     <%= f.label :party_frequency, class: "form__item" %>
-    <%= f.text_field :party_frequency, class: "form__text_field" %>
+    <div class="wrap_select margin_0_auto">
+      <%= f.select :party_frequency, options_for_select(@frequencies), {include_blank: true}, {class: "selectbox"}%>
+    </div>
 
     <div class="form__buttun ta_center" id="submit_circle">
       <%= f.submit "作成" , class: "button button_size_large button_color_blue"%>

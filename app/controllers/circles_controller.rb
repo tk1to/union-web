@@ -15,6 +15,10 @@ class CirclesController < ApplicationController
   def new
     @circle = Circle.new
     @category_options = Category.all
+    @frequencies = [
+      "週3回以上", "週2回", "週1回", "2週に1回",
+      "月1回", "2か月に1回", "3か月に1回", "半年に1回", "1年に1回",
+    ]
   end
   def create
     @circle = Circle.new(circle_params)
@@ -64,6 +68,7 @@ class CirclesController < ApplicationController
       annual_fee: "年会費",
       activity_frequency: "活動頻度",
       party_frequency: "飲み会頻度",
+      welcome_event_schedule: "新歓日程",
     }
   end
 
@@ -76,22 +81,21 @@ class CirclesController < ApplicationController
     for i in 0..Category.max-1 do
       @category_ids[i] = @categories[i].nil? ? nil : @categories[i].id
     end
-    @informations = {
-      joining_colleges: "参加大学",
-      people_scale:  "人数",
-      activity_place: "活動場所",
-      annual_fee: "年会費",
-      activity_frequency: "活動頻度",
-      party_frequency: "飲み会頻度",
-    }
     @frequencies = [
       "週3回以上", "週2回", "週1回", "2週に1回",
       "月1回", "2か月に1回", "3か月に1回", "半年に1回", "1年に1回",
     ]
+    if @circle.welcome_event_schedule
+      @welcome_event_schedule_month = @circle.welcome_event_schedule.split("年")[1].split("月")[0].to_i
+      @welcome_event_schedule_day   = @circle.welcome_event_schedule.split("年")[1].split("月")[1].to_i
+    end
   end
   def update
     @circle = Circle.find(params[:id])
     update_categories
+    if !params[:welcome_event_schedule_month].blank? && !params[:welcome_event_schedule_day].blank?
+      params[:circle][:welcome_event_schedule] = "2017年" + params[:welcome_event_schedule_month] + "月" + params[:welcome_event_schedule_day] + "日"
+    end
     if @circle.update_attributes(circle_params)
       @circle.save
       flash[:success] = "編集完了"
@@ -202,12 +206,10 @@ class CirclesController < ApplicationController
   private
     def circle_params
       params.require(:circle).permit(
-          :name, :description,
-          :picture, :header_picture,
-          :joining_colleges, :people_scale,
-          :activity_place, :activity_frequency,
-          :annual_fee, :party_frequency,
-          :fussy_tags_list,
+          :name, :description, :picture, :header_picture,
+          :joining_colleges, :people_scale, :activity_place,
+          :activity_frequency, :annual_fee, :party_frequency,
+          :welcome_event_schedule,
         )
     end
     def member_check

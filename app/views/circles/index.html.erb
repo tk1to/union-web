@@ -35,7 +35,7 @@
         </div>
       <div class="wrap_select search_accordion_open">
         <%= f.select :people_scale,
-        [["10人未満", "0/10"], ["10人以上〜30人未満", "10/30"], ["30人以上〜100人未満", "30/100"], ["100人以上", "100/0"]],
+        [["10人未満", "0/10"], ["10人以上〜30人未満", "10/30"], ["30人以上〜50人未満", "30/50"], ["50人以上〜100人未満", "50/100"], ["100人以上", "100/0"]],
         {include_blank: true, selected: params[:circle][:people_scale]}, {class: "selectbox"} %>
       </div>
 

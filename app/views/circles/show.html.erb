@@ -169,9 +169,7 @@
       <% end %>
     <% else %>
       <% if !@entrying %>
-      <!-- <div class="ta_center"> -->
         <%= link_to "メンバー申請", [@circle, :entries], method: :post , class: "button button_size_large button_size_large_member button_color_blue restricted"%>
-      <!-- </div> -->
       <% else %>
         <%= link_to "メンバー申請キャンセル", [@circle, @entry], method: :delete , class: "button button_size_large button_color_blue restricted"%>
       <% end %>
