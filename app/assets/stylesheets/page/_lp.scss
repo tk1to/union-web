@@ -1,49 +1,151 @@
 .keyvisual{
-	position: relative;
-	width:100%;
-	// height:35rem;
-	background:gray;
-	&__inner{
-		position: absolute;
-		top: 15rem;
-		width: 100%;
-		margin: 0 auto;
-		text-align: center;
-		&_desktop{
-			top: 25rem;
-		}
-	}
-}
-.LP{
-	width:100%;
-	background:#fff;
-}
-.lp{
-	width:90%;
-	margin:3rem auto;
-	&__union{
-		font-size: 1.8rem;
+	width:100vw;
+	max-width:500px;
+	height:100vh;
+	background:#10ace2;
+	position:relative;
+	&__head{
+		position:absolute;
+		top: 12%;
+		left: 0;
+		right: 0;
+		margin: auto;
+		color: #fff;
+		// font-size: 0.9rem;
 		font-weight: normal;
 		text-align: center;
-		margin:5rem auto;
+		// text-shadow: 0 1px 3px gray;
 	}
-	&__heading{
-		text-align:center;
-		font-size: $normal;
-		margin-top: 2rem;
-		line-height: 1.4rem;
+	&__logo{
+		position: absolute;
+		top: 8%;
+		left: 0;
+		right: 0;
+		width: 90%;
+		height: auto;
+		margin: auto;
+		background-size:80% auto;
+		// filter: drop-shadow(0px 1px 3px gray);
 	}
-	&__text{
-		font-size: $small;
-		margin-top: 1rem;
-		color: gray;
-	}
-	&__inner{
-		text-align: center;
-	}
-	&__end{
-		text-align: center;
-		font-size: 1.3rem;
-		margin:6rem auto;
+	&__button{
+		position: absolute;
+		top: 55%;
+		left: 0;
+		right: 0;
+		margin: auto;
 	}
 }
+.lp_section{
+	width:100vw;
+	max-width:500px;
+	// height:10rem;
+	background:#fff;
+	text-align:center;
+	padding-bottom:3rem;
+	&_blue{
+		text-align:center;
+		// padding-bottom:3rem;
+		background: #10ace2;
+		.lp_section__head{
+			background:#fff;
+			color: #10ace2;
+			// box-shadow:none;
+			font-weight: bold;
+			margin: 6rem auto;
+		}
+	}
+	&__head{
+		font-size:1.8rem;
+		color:#fff;
+		// font-weight: normal;
+		width: 80%;
+		height: 4rem;
+		line-height: 4rem;
+		background:#10ace2;
+		border-radius: 2rem;
+		display: inline-block;
+		// box-shadow: 0 2px 2px gray;
+	}
+	&__subhead{
+		color: #10ace2;
+		font-size: 1.1rem;
+		line-height: 1.5rem;
+	}
+	&__text{
+		color: $gray;
+		font-size: 0.8rem;
+		line-height: 1.6;
+		margin: 2rem 2rem;
+		text-align: left;
+		display: block;
+	}
+	&__for{
+		width: 70%;
+		margin-top: 3rem;
+		padding-bottom:0.5rem;
+		font-size: 1.8rem;
+		border-bottom:3px solid #10ace2;
+		display: inline-block;
+		color: gray;
+	}
+}
+.lets_union{
+	color:#fff;
+	height:10rem;
+	line-height:10rem;
+	font-size:1.4rem;
+	font-weight:normal;
+}
+
+
+
+
+// .keyvisual{
+// 	position: relative;
+// 	width:100%;
+// 	// height:35rem;
+// 	background:gray;
+// 	&__inner{
+// 		position: absolute;
+// 		top: 15rem;
+// 		width: 100%;
+// 		margin: 0 auto;
+// 		text-align: center;
+// 		&_desktop{
+// 			top: 25rem;
+// 		}
+// 	}
+// }
+// .LP{
+// 	width:100%;
+// 	background:#fff;
+// }
+// .lp{
+// 	width:90%;
+// 	margin:3rem auto;
+// 	&__union{
+// 		font-size: 1.8rem;
+// 		font-weight: normal;
+// 		text-align: center;
+// 		margin:5rem auto;
+// 	}
+// 	&__heading{
+// 		text-align:center;
+// 		font-size: $normal;
+// 		margin-top: 2rem;
+// 		line-height: 1.4rem;
+// 	}
+// 	&__text{
+// 		font-size: $small;
+// 		margin-top: 1rem;
+// 		color: gray;
+// 	}
+// 	&__inner{
+// 		text-align: center;
+// 	}
+// 	&__end{
+// 		text-align: center;
+// 		font-size: 1.3rem;
+// 		margin:6rem auto;
+// 	}
+// }
