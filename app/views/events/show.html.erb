@@ -1,10 +1,10 @@
-<header class="header">
-	<div class="header__background c_picture" style="background-image: url(<%= @event.picture %>);"></div>
+<header class="header c_picture" style="background-image: url(<%= @event.picture %>);"></header>
+
 	<div class="author">
 		<div class="author__image c_picture" style="background-image: url(<%= @circle.picture %>);"></div>
 		<div class="author__circle"><span class="author__autor">主催者:</span><%= link_to @circle.name, @circle , class: "text_decoration_none color_black"%></div>
 	</div>
-</header>
+
 <div class="article">
 	<h1 class="article__title"><%= @event.title %></h1>
 	<p class="article__text"><%= simple_format(h(@event.content), class: "article__text") %></p>
