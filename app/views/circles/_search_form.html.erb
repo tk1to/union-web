@@ -36,13 +36,33 @@
         ["3000円以上5000円未満","3000/5000"], ["5000円以上10000円未満","5000/10000"], ["10000円以上", "10000/0"]],
         {include_blank: true, selected: params[:circle][:annual_fee]}, {class: "selectbox"} %>
     </div>
+
+    <div class="search_accordion">
+      <%= f.label :welcome_event_schedule %>
+      <div class="search_accordion_icon"></div>
+    </div>
+    <div class="search_accordion_open">
+      <p>2017年</p>
+      <p>
+        <%= select_tag :welcome_event_schedule_month_to, options_for_select((1..12).to_a), {include_blank: true, class: ""} %>
+        <span>月</span>
+        <%= select_tag :welcome_event_schedule_day_to  , options_for_select((1..31).to_a), {include_blank: true, class: ""} %>
+        <span>日</span>
+        <span>〜</span>
+        <%= select_tag :welcome_event_schedule_month_from, options_for_select((1..12).to_a), {include_blank: true, class: ""} %>
+        <span>月</span>
+        <%= select_tag :welcome_event_schedule_day_from  , options_for_select((1..31).to_a), {include_blank: true, class: ""} %>
+        <span>日</span>
+      </p>
+    </div>
+
     <%= f.submit "絞り込み検索" , class: "button button_100 button_color_blue margin_top_3rem"%>
   </div>
 <% end %>
 
 <script>
   $(function(){
-    $('.search_accordion').on("click", function(){
+    $(".search_accordion").on("click", function(){
       $(this).next().slideToggle();
       $(this).toggleClass("search_accordion_active");
     });
