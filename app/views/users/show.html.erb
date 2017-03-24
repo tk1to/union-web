@@ -88,12 +88,13 @@
   <div class="prof_item prof_item_sex">性別：<%= @user.sex_label %></div>
   <div class="prof_item prof_item_school">大学：<%= @user.college %></div>
   <div class="prof_item prof_item_school">学部：<%= @user.faculty %></div>
+  <div class="prof_item prof_item_school">学年：<%= @user.grade %><%= "年" if !@user.grade.blank? %></div>
   <div class="prof_item prof_item_location">出身地：<%= @user.birth_place %></div>
   <div class="prof_item prof_item_home">住まい：<%= @user.home_place %></div>
-  <div class="prof_item prof_item_star">興味のあるカテゴリー<%= @user.display_categories %></div>
-  <div class="prof_item prof_item_categories">ボランティア</div>
-  <div class="prof_item prof_item_categories">ボランティア</div>
-  <div class="prof_item prof_item_categories">ボランティア</div>
+  <div class="prof_item prof_item_star">興味のあるカテゴリー</div>
+  <% for i in 0..(@user.categories.count-1) %>
+    <div class="prof_item prof_item_categories"><%= @user.categories[i].name %></div>
+  <% end %>
 </section>
 
 <section class="frame">
