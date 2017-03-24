@@ -20,13 +20,15 @@
     $('.wrap-message').animate({
       scrollTop: $(document).height()
     },0);
-    var init_base_height = $("#message_area").css("line-height");
-    $("#message_area").keydown(function(e) {
-      if ((e.which && e.which === 13) || (e.keyCode && e.keyCode === 13)) {
-        var current_height = $(this).css("height");
-        $(this).css("height", "calc( "+init_base_height+" + "+current_height+" )");
-      }
-    });
+
+    // var init_base_height = $("#message_area").css("line-height");
+    // $("#message_area").keydown(function(e) {
+    //   if ((e.which && e.which === 13) || (e.keyCode && e.keyCode === 13)) {
+    //     var current_height = $(this).css("height");
+    //     $(this).css("height", "calc( "+init_base_height+" + "+current_height+" )");
+    //   }
+    // });
+
     // $(".page").infinitescroll({
     //   loading: {
     //     img:     "http://www.mytreedb.com/uploads/mytreedb/loader/ajax_loader_blue_48.gif",
