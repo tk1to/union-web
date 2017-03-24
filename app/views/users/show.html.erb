@@ -13,7 +13,7 @@
 <header class="header">
   <div class="header__background c_picture" style="background-image: url(<%= @user.header_picture %>)"></div>
   <div class="header__photo_user c_picture" style="background-image: url(<%= @user.picture %>);"></div>
-  <h1 class="header__name_circle"><%= @user.name %></h1>
+  <h1 class="header__name header__name_noBelonge"><%= @user.name %></h1>
   <% if current_user?(@user) %>
     <%= image_tag "menu.svg" , class: "header__menu_humberger" %>
     <div class="header__foot">
@@ -86,9 +86,9 @@
 <section class="frame">
   <h2 class="frame__heading frame__heading_side">基本プロフィール</h2>
   <div class="prof_item prof_item_sex">性別：<%= @user.sex_label %></div>
-  <div class="prof_item prof_item_school">大学：<%= @user.college %></div>
-  <div class="prof_item prof_item_school">学部：<%= @user.faculty %></div>
   <div class="prof_item prof_item_school">学年：<%= @user.grade %><%= "年" if !@user.grade.blank? %></div>
+  <div class="prof_item prof_item_univercity">大学：<%= @user.college %></div>
+  <div class="prof_item prof_item_univPen">学部：<%= @user.faculty %></div>
   <div class="prof_item prof_item_location">出身地：<%= @user.birth_place %></div>
   <div class="prof_item prof_item_home">住まい：<%= @user.home_place %></div>
   <div class="prof_item prof_item_star">興味のあるカテゴリー</div>

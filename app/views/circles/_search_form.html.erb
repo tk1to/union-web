@@ -12,7 +12,7 @@
       <%= f.label :categories %>
       <div class="search_accordion_icon"></div>
     </div>
-    <div class="wrap_select search_accordion_open">
+    <div class="wrap_select wrap_select_100 search_accordion_open">
       <%= f.select :categories, @category_options.map{|t| [t.name, t.id]}, {include_blank: true, selected: params[:circle][:categories]}, {class: "selectbox"} %>
     </div>
 
@@ -20,7 +20,7 @@
       <%= f.label :people_scale %>
       <div class="search_accordion_icon"></div>
       </div>
-    <div class="wrap_select search_accordion_open">
+    <div class="wrap_select wrap_select_100 search_accordion_open">
       <%= f.select :people_scale,
       [["10人未満", "0/10"], ["10人以上30人未満", "10/30"], ["30人以上50人未満", "30/50"], ["50人以上100人未満", "50/100"], ["100人以上", "100/0"]],
       {include_blank: true, selected: params[:circle][:people_scale]}, {class: "selectbox"} %>
@@ -30,7 +30,7 @@
       <%= f.label :annual_fee %>
       <div class="search_accordion_icon"></div>
       </div>
-    <div class="wrap_select search_accordion_open">
+    <div class="wrap_select wrap_select_100 search_accordion_open">
       <%= f.select :annual_fee,
         [["なし", "0/1"], ["1000円未満", "0/1000"], ["1000円以上3000円未満", "1000/3000"],
         ["3000円以上5000円未満","3000/5000"], ["5000円以上10000円未満","5000/10000"], ["10000円以上", "10000/0"]],
@@ -61,17 +61,25 @@
     </div>
     <div class="search_accordion_open">
       <p>2017年</p>
-      <p>
-        <%= select_tag :welcome_event_schedule_month_to, options_for_select((1..12).to_a), {include_blank: true, class: ""} %>
+      <div>
+        <div class="wrap_select wrap_select_20">
+          <%= select_tag :welcome_event_schedule_month_to, options_for_select((1..12).to_a), {include_blank: true, class: "selectbox"} %>
+        </div>
         <span>月</span>
-        <%= select_tag :welcome_event_schedule_day_to  , options_for_select((1..31).to_a), {include_blank: true, class: ""} %>
+        <div class="wrap_select wrap_select_20">
+          <%= select_tag :welcome_event_schedule_day_to  , options_for_select((1..31).to_a), {include_blank: true, class: "selectbox"} %>
+        </div>
         <span>日</span>
-        <span>〜</span>
-        <%= select_tag :welcome_event_schedule_month_from, options_for_select((1..12).to_a), {include_blank: true, class: ""} %>
+        <div class="date_to_date">〜</div>
+        <div class="wrap_select wrap_select_20">
+          <%= select_tag :welcome_event_schedule_month_from, options_for_select((1..12).to_a), {include_blank: true, class: "selectbox"} %>
+        </div>
         <span>月</span>
-        <%= select_tag :welcome_event_schedule_day_from  , options_for_select((1..31).to_a), {include_blank: true, class: ""} %>
+        <div class="wrap_select wrap_select_20">
+          <%= select_tag :welcome_event_schedule_day_from  , options_for_select((1..31).to_a), {include_blank: true, class: "selectbox"} %>
+        </div>
         <span>日</span>
-      </p>
+      </div>
     </div>
 
     <%= f.submit "絞り込み検索" , class: "button button_100 button_color_blue margin_top_3rem"%>

@@ -142,10 +142,22 @@
   display: block;
   margin: 1rem 0 0.5rem 1rem;
   color: $gray;
+  &_univercity{
+    &::before{
+      @include prof_item;
+      background-image: image-url("univercity.svg");
+    }
+  }
   &_school{
     &::before{
       @include prof_item;
       background-image: image-url("school.svg");
+    }
+  }
+  &_univPen{
+    &::before{
+      @include prof_item;
+      background-image: image-url("univ_pen.svg");
     }
   }
   &_location{
