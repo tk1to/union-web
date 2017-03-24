@@ -6,8 +6,8 @@
 
   <p>
     <%= f.label :picture, "画像" %>
-    <div style="width: 100px;">
-      <%= image_tag @event.picture ? @event.picture.url : nil, class: "event_picture"%>
+    <div>
+      <%= image_tag @event.picture ? @event.picture.url : nil, class: "event_picture form__noImage"%>
     </div>
     <%= f.file_field :picture, class: "form__file" %>
   </p>
