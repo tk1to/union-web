@@ -37,9 +37,10 @@
 		width: 15rem;
 		height: 3rem;
 		border-radius: 3px;
-		line-height: 2.8rem;
+		line-height: 3rem;
 		margin: 0 auto 0.5rem;
 		font-size: 1rem;
+		padding: 0;
 		&_member{
 			&::before{
 				@include button_icon;
@@ -100,6 +101,12 @@
 		background: $d-blue;
 		border: 1px solid $d-blue;
 		color: #fff;
+	}
+	&_color_skyblue{
+		background:  #10ace2;
+		color: #fff;
+		border:2px solid #fff;
+		box-sizing:border-box;
 	}
 	&_color_gray{
 		background: #ECEFF1;
