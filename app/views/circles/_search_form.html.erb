@@ -55,32 +55,33 @@
       {include_blank: true}, {class: "selectbox"} %>
     </div>
 
-    <div class="search_accordion">
-      <%= f.label :welcome_event_schedule %>
+    <!-- <div class="search_accordion">
+      <%# f.label :welcome_event_schedule %>
       <div class="search_accordion_icon"></div>
-    </div>
-    <div class="wrap_select wrap_select_100 search_accordion_open">
+    </div> -->
+
+    <!-- <div class="wrap_select wrap_select_100 search_accordion_open">
       <p>2017年</p>
       <div>
         <div class="wrap_select wrap_select_20">
-          <%= select_tag :welcome_event_schedule_month_to, options_for_select((1..12).to_a), {include_blank: true, class: "selectbox"} %>
+          <%# select_tag :welcome_event_schedule_month_to, options_for_select((1..12).to_a), {include_blank: true, class: "selectbox"} %>
         </div>
         <span>月</span>
         <div class="wrap_select wrap_select_20">
-          <%= select_tag :welcome_event_schedule_day_to  , options_for_select((1..31).to_a), {include_blank: true, class: "selectbox"} %>
+          <%# select_tag :welcome_event_schedule_day_to  , options_for_select((1..31).to_a), {include_blank: true, class: "selectbox"} %>
         </div>
         <span>日</span>
         <div class="date_to_date">〜</div>
         <div class="wrap_select wrap_select_20">
-          <%= select_tag :welcome_event_schedule_month_from, options_for_select((1..12).to_a), {include_blank: true, class: "selectbox"} %>
+          <%# select_tag :welcome_event_schedule_month_from, options_for_select((1..12).to_a), {include_blank: true, class: "selectbox"} %>
         </div>
         <span>月</span>
         <div class="wrap_select wrap_select_20">
-          <%= select_tag :welcome_event_schedule_day_from  , options_for_select((1..31).to_a), {include_blank: true, class: "selectbox"} %>
+          <%# select_tag :welcome_event_schedule_day_from  , options_for_select((1..31).to_a), {include_blank: true, class: "selectbox"} %>
         </div>
         <span>日</span>
       </div>
-    </div>
+    </div> -->
 
     <%= f.submit "絞り込み検索" , class: "button button_100 button_color_blue margin_top_3rem"%>
   </div>

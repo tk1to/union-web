@@ -68,7 +68,6 @@ class CirclesController < ApplicationController
       annual_fee: "年会費",
       activity_frequency: "活動頻度",
       party_frequency: "飲み会頻度",
-      welcome_event_schedule: "新歓日程",
     }
   end
 

@@ -107,8 +107,6 @@
         <th scope="row" class="table__head"><%= value %></th>
         <% if key == :joining_colleges %>
           <td class="table__deta"><%= @circle.joining_college_list.each{|c|print c} %></td>
-        <% elsif key == :welcome_event_schedule %>
-          <td class="table__deta"><%= l(@circle.welcome_event_schedule, format: :long) %></td>
         <% else %>
           <td class="table__deta">
             <%= @circle[key] %>
