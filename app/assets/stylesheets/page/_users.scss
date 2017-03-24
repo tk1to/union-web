@@ -155,6 +155,7 @@
     }
   }
   &_star{
+    margin-bottom:0.5rem;
     &::before{
       @include prof_item;
       background-image: image-url("star.svg");
@@ -171,6 +172,10 @@
       @include prof_item;
       background-image: image-url("sex.svg");
     }
+  }
+  &_categories{
+    padding-left:2rem;
+    margin-top:0;
   }
 }
 .wrap_follow_round{
