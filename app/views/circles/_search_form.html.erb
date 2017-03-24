@@ -62,6 +62,7 @@
 
 <script>
   $(function(){
+    $(".search_accordion").off("click");
     $(".search_accordion").on("click", function(){
       $(this).next().slideToggle();
       $(this).toggleClass("search_accordion_active");
