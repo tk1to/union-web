@@ -88,13 +88,16 @@
     </div>
 
     <%= f.label :welcome_event_schedule, class: "form__item" %>
-    <span>2017年</span>
-    <%= select_tag :welcome_event_schedule_month, options_for_select((1..12).to_a, selected: @welcome_event_schedule_month),
-      {include_blank: true, class: ""} %>
-    <span>月</span>
-    <%= select_tag :welcome_event_schedule_day, options_for_select((1..31).to_a, selected: @welcome_event_schedule_day),
-      {include_blank: true, class: ""}%>
-    <span>日</span>
+    <div class="ta_center margin_bottom_1rem">
+      <span>2017年</span>
+      <div class="wrap_select wrap_select_20 margin_0_auto">
+      <%= select_tag :welcome_event_schedule_month, options_for_select((1..12).to_a, selected: @welcome_event_schedule_month),{include_blank: true, class: "selectbox"} %></div>
+      <span>月</span>
+      <div class="wrap_select wrap_select_20 margin_0_auto">
+      <%= select_tag :welcome_event_schedule_day, options_for_select((1..31).to_a, selected: @welcome_event_schedule_day),
+        {include_blank: true, class: "selectbox"}%></div>
+      <span>日</span>
+    </div>
 
     <div class="form__buttun ta_center">
       <%= f.submit "更新" , class: "button button_size_large button_color_blue"%>
