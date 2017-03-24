@@ -1,22 +1,13 @@
-<% if !user_signed_in? %>
-  <header id="topHeader" class="header">
-    <%= link_to :root, class: "link_fill" do %>
-      <div class="c_picture" style="background-image: url(<%= asset_path('union_lp_trim.png') %>);"></div>
-      <p class="header__paragraph">新規登録・ログインはこちら</p>
-    <% end %>
-  </header>
-<% else %>
-  <header id="topHeader">
-    <div class="slide">
-      <div class="header__image_top c_picture" style="background-image: url(<%= asset_path('slide/top01.jpg') %>);"></div>
-      <div class="header__image_top c_picture" style="background-image: url(<%= asset_path('slide/top02.jpg') %>);"></div>
-      <div class="header__image_top c_picture" style="background-image: url(<%= asset_path('slide/top03.jpg') %>);"></div>
-    </div>
-    <div class="ta_cneter header__copy">〜理想のキャンパスライフをあなたに〜</div>
-    <!-- <div class="header__unionlogo"></div> -->
-    <%= image_tag 'union_sidelogo.png' , class: "header__unionlogo"%>
-  </header>
-<% end %>
+
+<header id="topHeader">
+  <div class="slide">
+    <div class="header__image_top c_picture" style="background-image: url(<%= asset_path('slide/top01.jpg') %>);"></div>
+    <div class="header__image_top c_picture" style="background-image: url(<%= asset_path('slide/top02.jpg') %>);"></div>
+    <div class="header__image_top c_picture" style="background-image: url(<%= asset_path('slide/top03.jpg') %>);"></div>
+  </div>
+  <div class="ta_cneter header__copy">〜理想のキャンパスライフをあなたに〜</div>
+  <%= image_tag 'union_sidelogo.png' , class: "header__unionlogo"%>
+</header>
 
 <div class="frame_100">
   <ul class="sride_genre">
