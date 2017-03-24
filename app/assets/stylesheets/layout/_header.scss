@@ -12,7 +12,7 @@
     color: #fff;
     text-shadow: 0 1px 3px gray;
   }
-  &__name_circle{
+  &__name{
     position: absolute;
     top: 100%;
     left: 50%;
@@ -22,6 +22,20 @@
     font-weight: normal;
     color: $gray;
     font-size: 1.2rem;
+    &_noBelonge{
+      &::after{
+      content: "";
+      width:1.2rem;
+      height:1.2rem;
+      background-size: 1.2rem auto;
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 0.3rem;
+      margin-top: 0;
+      margin-bottom: 0.3rem;
+      background-image: image-url("no_belonge.svg");
+      }
+    }
   }
   &__background{
     position: absolute;
