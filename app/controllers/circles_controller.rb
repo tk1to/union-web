@@ -22,7 +22,7 @@ class CirclesController < ApplicationController
   end
   def create
     @circle = Circle.new(circle_params)
-
+    preprocessing
     new_category_ids = params[:categories].values.reject(&:empty?).map{|str| str.to_i}
     new_category_ids.uniq!
     if !new_category_ids.blank? && @circle.save
@@ -87,6 +87,7 @@ class CirclesController < ApplicationController
   end
   def update
     @circle = Circle.find(params[:id])
+    preprocessing
     update_categories
     if @circle.update_attributes(circle_params)
       @circle.save
@@ -214,24 +215,10 @@ class CirclesController < ApplicationController
           :activity_frequency, :annual_fee, :party_frequency,
         )
     end
-    def member_check
-      circle = Circle.find(params[:id])
-      unless circle.members.include?(current_user)
-        flash[:alert] = "メンバーのみの機能です"
-        redirect_to :top
-      end
-    end
 
-    def correct_admin
-      circle = Circle.find(params[:id])
-      ms = current_user.memberships.find_by(circle_id: circle.id)
-      if ms.blank?
-        flash[:alert] = "サークルメンバーのみの機能です"
-        redirect_to :top
-      elsif ms[:status] > 1
-        flash[:alert] = "管理者のみの機能です"
-        redirect_to circle
-      end
+    def preprocessing
+      params[:circle][:people_scale].to_i if params[:circle][:people_scale]
+      params[:circle][:annual_fee].to_i   if params[:circle][:annual_fee]
     end
 
     def update_categories
@@ -256,6 +243,26 @@ class CirclesController < ApplicationController
     def create_categories(ids)
       for i in 0..Category.max-1 do
         @circle.circle_categories.create(category_id: ids[i], priority: i)
+      end
+    end
+
+    def member_check
+      circle = Circle.find(params[:id])
+      unless circle.members.include?(current_user)
+        flash[:alert] = "メンバーのみの機能です"
+        redirect_to :top
+      end
+    end
+
+    def correct_admin
+      circle = Circle.find(params[:id])
+      ms = current_user.memberships.find_by(circle_id: circle.id)
+      if ms.blank?
+        flash[:alert] = "サークルメンバーのみの機能です"
+        redirect_to :top
+      elsif ms[:status] > 1
+        flash[:alert] = "管理者のみの機能です"
+        redirect_to circle
       end
     end
 end
