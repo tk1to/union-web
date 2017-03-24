@@ -81,8 +81,9 @@
     <% end %>
 
     <div class="form__images ta_center">
-      <div>
-        <%= image_tag @user.picture ? @user.picture.url : nil, class: "user_picture"%>
+      <div class="wrap_form__noImage">
+        <!-- <div class="form__noImage_icon"></div> -->
+        <%= image_tag @user.picture ? @user.picture.url : nil, class: "user_picture form__noImage"%>
       </div>
       <div class="form__upload">プロフィール画像を選択
         <%= f.file_field :picture , class: "form__file"%>
@@ -90,8 +91,8 @@
     </div>
 
     <div class="form__images ta_center">
-      <div class="ta_center">
-        <%= image_tag @user.header_picture ? @user.header_picture.url : nil, class: "user_header_picture"%>
+      <div class="wrap_form__noImage">
+        <%= image_tag @user.header_picture ? @user.header_picture.url : nil, class: "user_header_picture form__noImage"%>
       </div>
       <div class="form__upload">ヘッダー画像を選択
         <%= f.file_field :header_picture, class: "form__file"%>
