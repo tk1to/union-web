@@ -72,6 +72,7 @@ $(function(){
           college_name: college_name,
         },
       }).done(function(data){
+        alert(college_name + "を追加しました。");
         $("#joining_colleges").append(data);
         $(".joining_college").off("click");
         set_remove_college_event();
