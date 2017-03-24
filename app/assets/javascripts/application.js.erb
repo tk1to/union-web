@@ -60,6 +60,13 @@ $(function(){
     }, 6000);
   }
 
+  // ENTERを押してもsubmitしない
+  $(".no_submit").keydown(function(e) {
+    if ((e.which && e.which === 13) || (e.keyCode && e.keyCode === 13)) {
+      return false;
+    }
+  });
+
   filereader();
   // $('.input_file').bind('change', function() {
   //   var size_in_megabytes = this.files[0].size/1024/1024;
