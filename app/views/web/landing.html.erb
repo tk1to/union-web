@@ -1,6 +1,6 @@
 <header class="keyvisual">
-  <h1 class="keyvisual__head">理想のキャンパスライフをあなたに</h1>
-  <div class="keyvisual__logo"><%= image_tag "unionlogo_squear.png" %></div>
+  <h1 class="keyvisual__head keyvisual_fade">理想のキャンパスライフをあなたに</h1>
+  <div class="keyvisual__logo keyvisual_fade"><%= image_tag "unionlogo_squear.png" %></div>
   <div class="keyvisual__button ta_center <%= "keyvisual__button_desktop" if @desktop %>">
     <%= link_to "Facebookで登録・ログイン", user_facebook_omniauth_authorize_path , class: "button button_lp button_facebook"%>
     <%= link_to 'E-mailで登録', [:new, :user, :registration], class: "button button_lp button_color_white"%>
@@ -8,27 +8,27 @@
   </div>
 </header>
 <div class="lp_section">
-  <h2 class="lp_section__head margin_top_3rem animated pulse">What's Union</h2>
-  <h3 class="lp_section__subhead margin_top_3rem">Unionはサークルと新入生をつなぐ<br>ソーシャルプラットホームです。</h3>
-  <p class="lp_section__text">全ての大学生が、学内サークル、インカレサークル、学生団体での活動やそこでの出会いを通して、素敵なキャンパスライフを送れることを願っています。</p>
+  <h2 class="lp_section__head margin_top_3rem">What's Union</h2>
+  <h3 class="lp_section__subhead margin_top_3rem lp_fadeSlide">Unionはサークルと新入生をつなぐ<br>ソーシャルプラットホームです。</h3>
+  <p class="lp_section__text lp_fadeSlide">全ての大学生が、学内サークル、インカレサークル、学生団体での活動やそこでの出会いを通して、素敵なキャンパスライフを送れることを願っています。</p>
 </div>
 <div class="lp_section_blue">
-  <h2 class="lp_section__head margin_top_3rem animated pulse">Union can do</h2>
+  <h2 class="lp_section__head margin_top_3rem">Union can do</h2>
 </div>
 <div class="lp_section">
-  <h2 class="lp_section__for">for user</h2>
-  <h3 class="lp_section__subhead margin_top_3rem">あなたにぴったりな<br>サークルが見つかります。</h3>
-  <p class="lp_section__text">「団体が多すぎてどこが自分にあった団体なのかわからない」こんなお悩みありませんか？Unionでは、活動ジャンルや特定の大学などあなたが求める条件で様々な団体を探せます。また、団体メンバーや団体の雰囲気が可視化されていることで、本当に入りたい団体を見つけることができます。</p>
+  <h2 class="lp_section__for lp_fadeSlide">for user</h2>
+  <h3 class="lp_section__subhead margin_top_3rem lp_fadeSlide">あなたにぴったりな<br>サークルが見つかります。</h3>
+  <p class="lp_section__text lp_fadeSlide">「団体が多すぎてどこが自分にあった団体なのかわからない」こんなお悩みありませんか？Unionでは、活動ジャンルや特定の大学などあなたが求める条件で様々な団体を探せます。また、団体メンバーや団体の雰囲気が可視化されていることで、本当に入りたい団体を見つけることができます。</p>
   <div class="ta_center margin_bottom_4rem">
-    <a class="button button_round button_color_skyblue" href="http://site-1113453-8237-3630.strikingly.com/">さらに詳しく</a>
+    <a class="button button_round button_color_skyblue keyvisual_fade" href="http://site-1113453-8237-3630.strikingly.com/">さらに詳しく</a>
   </div>
-  <h2 class="lp_section__for">for circle</h2>
-  <h3 class="lp_section__subhead margin_top_3rem">あなたのサークルにぴったりな<br>新入生と出会えます。</h3>
-  <p class="lp_section__text">学内サークル・インカレサークル・学生団体が、今までより、効率良く新入生を勧誘することができます。団体メンバーと新入生のプロフィールが可視化され、お互いのことをよく知ることで、団体と新入生がベストマッチできる環境を提供します。</p>
-  <a class="button button_round button_color_skyblue margin_bottom_4rem" href="http://site-1113453-5645-537.strikingly.com/">さらに詳しく</a>
+  <h2 class="lp_section__for lp_fadeSlide">for circle</h2>
+  <h3 class="lp_section__subhead margin_top_3rem lp_fadeSlide">あなたのサークルにぴったりな<br>新入生と出会えます。</h3>
+  <p class="lp_section__text lp_fadeSlide">学内サークル・インカレサークル・学生団体が、今までより、効率良く新入生を勧誘することができます。団体メンバーと新入生のプロフィールが可視化され、お互いのことをよく知ることで、団体と新入生がベストマッチできる環境を提供します。</p>
+  <a class="button button_round button_color_skyblue margin_bottom_4rem keyvisual_fade" href="http://site-1113453-5645-537.strikingly.com/">さらに詳しく</a>
 </div>
 <div class="lp_section_blue">
-  <h2 class="lets_union">さあ、Unionを始めよう！</h2>
+  <h2 class="lets_union lp_fadeSlide">さあ、Unionを始めよう！</h2>
   <div class="ta_center padding_bottom_3rem">
     <%= link_to "Facebookで登録・ログイン", user_facebook_omniauth_authorize_path , class: "button button_lp button_facebook"%>
     <%= link_to 'E-mailで登録', [:new, :user, :registration], class: "button button_lp button_color_white"%>
@@ -36,3 +36,47 @@
   </div>
 </div>
 
+<script>
+
+  $(function() {
+    $('.keyvisual_fade').on('inview', function(event, isInView, visiblePartX, visiblePartY) {
+      if(isInView){
+        $(this).stop().addClass('keyvisual_fadeIn');
+      }
+    });
+  });
+
+  $(function() {
+    $('.keyvisual__button').on('inview', function(event, isInView, visiblePartX, visiblePartY) {
+      if(isInView){
+        $(this).stop().addClass('keyvisual__button_fadeIn');
+      }
+      else{
+        // $(this).stop().removeClass('lp_fadeSlideIn');
+      }
+    });
+  });
+
+  $(function() {
+    $('.lp_fadeSlide').on('inview', function(event, isInView, visiblePartX, visiblePartY) {
+      if(isInView){
+        $(this).stop().addClass('lp_fadeSlideIn');
+      }
+      else{
+        // $(this).stop().removeClass('lp_fadeSlideIn');
+      }
+    });
+  });
+
+  $(function() {
+    $('.lp_section__head').on('inview', function(event, isInView, visiblePartX, visiblePartY) {
+      if(isInView){
+        $(this).stop().addClass('animated pulse');
+      }
+      else{
+        // $(this).stop().removeClass('animated pulse');
+      }
+    });
+  });
+
+</script>

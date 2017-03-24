@@ -25,6 +25,7 @@
 		height: auto;
 		margin: auto;
 		background-size:80% auto;
+		opacity: 0;
 		// filter: drop-shadow(0px 1px 3px gray);
 	}
 	&__button{
@@ -33,6 +34,14 @@
 		left: 0;
 		right: 0;
 		margin: auto;
+		opacity: 0;
+		transform: translate(0,60px);
+		&_fadeIn{
+			opacity: 1;
+			transition: 1s;
+			transition-delay:1.5s;
+			transform: translate(0,0);
+		}
 		&_desktop{
 			position: absolute;
 			top: 65%;
@@ -104,3 +113,21 @@
 	font-weight:normal;
 }
 
+// js
+.keyvisual_fade{
+	opacity:0;
+}
+.keyvisual_fadeIn{
+	opacity:1;
+	transition: 1s;
+	transition-timing-function:ease-in;
+}
+.lp_fadeSlide{
+	opacity: 0;
+	transform: translate(0,60px);
+}
+.lp_fadeSlideIn{
+	opacity: 1.0;
+	transform: translate(0,0); 
+	transition: 1s;
+}
