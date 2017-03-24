@@ -120,6 +120,18 @@
   box-sizing:border-box;
   margin-bottom:1rem;
 }
+@mixin selectBefore{
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  display: block;
+  width: 0;
+  height: 0;
+  margin: -2px 0 0 0;
+  border: 5px solid transparent;
+  border-top: 7px solid gray;
+}
 .wrap_select{
 	position: relative;
   display: inline-block;
@@ -130,16 +142,14 @@
   margin: 0.5rem auto;
   box-sizing: border-box;
   &:before{
-  	content: "";
-    position: absolute;
-    top: 50%;
-    right: 5%;
-    display: block;
-    width: 0;
-    height: 0;
-    margin: -2px 0 0 0;
-    border: 5px solid transparent;
-    border-top: 7px solid gray;
+  	@include selectBefore;
+  }
+  &_100{
+    width: 100%;
+    height: 2rem;
+  }
+  &_20{
+    width: 25%;
   }
 }
 .selectbox{
@@ -148,7 +158,7 @@
   -webkit-appearance: none;
   appearance: none;
   display: block;
-  width: 75%;
+  width: 80%;
   padding: 0.2rem 0.5rem;
   border: none;
   border-radius: 5px;
