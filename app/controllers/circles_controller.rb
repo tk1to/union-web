@@ -217,8 +217,8 @@ class CirclesController < ApplicationController
     end
 
     def preprocessing
-      params[:circle][:people_scale].to_i if params[:circle][:people_scale]
-      params[:circle][:annual_fee].to_i   if params[:circle][:annual_fee]
+      params[:circle][:people_scale] = params[:circle][:people_scale].to_i if params[:circle][:people_scale]
+      params[:circle][:annual_fee]   = params[:circle][:annual_fee].to_i   if params[:circle][:annual_fee]
     end
 
     def update_categories
