@@ -11,46 +11,7 @@
 <% end %>
 
 <% if params[:action] == "search" %>
-  <%= form_for @search_params, url: [:search, :circles], html: {method: :get} do |f| %>
-    <% params[:circle] = {} if params[:circle].nil? %>
-
-    <div class="form__search ">
-      <div class="search_accordion">
-        <%= label_tag "フリーワード検索" %>
-        <div class="search_accordion_icon"></div>
-      </div>
-      <div class="search_accordion_open"><%= f.text_field :free_word, value: params[:circle][:free_word] , class: "form__text_field ta_center "%></div> 
-
-      <div class="search_accordion">
-        <%= f.label :categories %>
-        <div class="search_accordion_icon"></div>
-      </div>
-      <div class="wrap_select search_accordion_open">
-        <%= f.select :categories, @category_options.map{|t| [t.name, t.id]}, {include_blank: true, selected: params[:circle][:categories]}, {class: "selectbox"} %>
-      </div>
-
-      <div class="search_accordion">
-        <%= f.label :people_scale %>
-        <div class="search_accordion_icon"></div>
-        </div>
-      <div class="wrap_select search_accordion_open">
-        <%= f.select :people_scale,
-        [["10人未満", "0/10"], ["10人以上〜30人未満", "10/30"], ["30人以上〜50人未満", "30/50"], ["50人以上〜100人未満", "50/100"], ["100人以上", "100/0"]],
-        {include_blank: true, selected: params[:circle][:people_scale]}, {class: "selectbox"} %>
-      </div>
-
-      <div class="search_accordion">
-        <%= f.label :annual_fee %>
-        <div class="search_accordion_icon"></div>
-        </div>
-      <div class="wrap_select search_accordion_open">
-        <%= f.select :annual_fee,
-        [["なし", " /1"], ["3000円未満", "1/3000"], ["3000円以上〜5000円未満","3000/5000"],["5000円以上","5000/0"]], {include_blank: true, selected: params[:circle][:annual_fee]}, {class: "selectbox"} %>
-      </div>
-      <%= f.submit "絞り込み検索" , class: "button button_100 button_color_blue margin_top_3rem"%>
-    </div>
-
-  <% end %>
+  <%= render "search_form" %>
 <% end %>
 
 <% if @title %>
@@ -78,10 +39,6 @@ $(function(){
     navSelector: "nav.pagination",
     nextSelector: "nav.pagination a[rel=next]",
     itemSelector: ".wrap_card .page"
-  });
-  $('.search_accordion').on("click", function(){
-    $(this).next().slideToggle();
-    $(this).toggleClass("search_accordion_active");
   });
 });
 
