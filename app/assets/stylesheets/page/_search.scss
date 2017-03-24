@@ -31,6 +31,7 @@
   border-bottom: 1px solid $l-gray;
   padding-left:0.5rem;
   box-sizing:border-box;
+  font-size: 0.9rem;
   &_icon{
     position: absolute;
     top: 0.2rem;
@@ -38,6 +39,17 @@
     width: 2.5rem;
     height: 2.5rem;
     background-image: image-url("search_arrow_right");
+  }
+  &_key{
+    position: absolute;
+    top: 0rem;
+    left: 8.5rem;
+    color: gray;
+    font-size: 0.7rem;
+    width: 45%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   &_active{
     border:none;

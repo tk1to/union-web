@@ -10,10 +10,8 @@
   </div>
 <% end %>
 
-<header class="header">
-  <div class="header__background c_picture" style="background-image: url(<%= @user.header_picture %>)"></div>
-  <div class="header__photo_user c_picture" style="background-image: url(<%= @user.picture %>);"></div>
-  <h1 class="header__name <%= "header__name_noBelonge" if @user.circles.blank? %>"><%= @user.name %></h1>
+<header class="header c_picture" style="background-image: url(<%= @user.header_picture %>)">
+  <div class="header__photo c_picture" style="background-image: url(<%= @user.picture %>);"></div>
   <% if current_user?(@user) %>
     <%= image_tag "menu.svg" , class: "header__menu_humberger" %>
     <div class="header__foot">
@@ -24,6 +22,7 @@
     </div>
   <% end %>
 </header>
+<h1 class="header__name <%= "header__name_noBelonge" if @user.circles.blank? %>"><%= @user.name %></h1>
 
 <!-- 丸タイプのフォロー関連 -->
 <div class="wrap_follow_round ta_center margin_top_3rem">
