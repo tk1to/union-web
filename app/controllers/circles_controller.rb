@@ -132,6 +132,10 @@ class CirclesController < ApplicationController
     @search_params = Circle.new
     @category_options = Category.all
     @circles = Circle.all
+    @frequencies = [
+      "週3回以上", "週2回", "週1回", "2週に1回",
+      "月1回", "2か月に1回", "3か月に1回", "半年に1回", "1年に1回",
+    ]
     if !params[:circle].nil?
       @circles = @circles.joins(:categories).where(categories: {id: params[:circle][:categories]}) if params[:circle][:categories].present?
 
@@ -150,13 +154,20 @@ class CirclesController < ApplicationController
         psa_query = ps_max == 0 ? psa.gteq(ps_min) : psa.gteq(ps_min).and(psa.lt(ps_max))
         @circles = @circles.where(psa_query)
       end
-      if params[:circle][:annual_fee].blank?
+      if !params[:circle][:annual_fee].blank?
         af        = params[:circle][:annual_fee]
         af_min    = af.split("/")[0].to_i
         af_max    = af.split("/")[1].to_i
         afa       = Circle.arel_table[:annual_fee]
         afa_query = af_max == 0 ? afa.gteq(af_min) : afa.gteq(af_min).and(afa.lt(af_max))
         @circles = @circles.where(afa_query)
+      end
+
+      if !params[:circle][:activity_frequency].blank?
+        @circles = @circles.where(activity_frequency: params[:circle][:activity_frequency])
+      end
+      if !params[:circle][:party_frequency].blank?
+        @circles = @circles.where(party_frequency: params[:circle][:party_frequency])
       end
     end
     @circles = @circles.page(params[:page]).per(15)

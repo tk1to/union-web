@@ -38,6 +38,24 @@
     </div>
 
     <div class="search_accordion">
+      <%= f.label :activity_frequency %>
+      <div class="search_accordion_icon"></div>
+    </div>
+    <div class="wrap_select search_accordion_open">
+      <%= f.select :activity_frequency, options_for_select(@frequencies, selected: params[:circle][:activity_frequency]),
+      {include_blank: true}, {class: "selectbox"} %>
+    </div>
+
+    <div class="search_accordion">
+      <%= f.label :party_frequency %>
+      <div class="search_accordion_icon"></div>
+    </div>
+    <div class="wrap_select search_accordion_open">
+      <%= f.select :party_frequency, options_for_select(@frequencies, selected: params[:circle][:party_frequency]),
+      {include_blank: true}, {class: "selectbox"} %>
+    </div>
+
+    <div class="search_accordion">
       <%= f.label :welcome_event_schedule %>
       <div class="search_accordion_icon"></div>
     </div>
