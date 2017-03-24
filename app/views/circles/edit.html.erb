@@ -24,7 +24,7 @@
   <div class="ta_center">
     <div>
       <% if @circle.picture %>
-        <%= image_tag @circle.picture.url, class: "circle_picture"%>
+        <%= image_tag @circle.picture.url, class: "circle_picture form__noImage"%>
       <% else %>
         <%= image_tag class: "circle_picture"%>
       <% end %>
@@ -37,7 +37,7 @@
   <div class="ta_center">
     <div>
       <% if @circle.header_picture %>
-        <%= image_tag @circle.header_picture.url, class: "circle_header_picture"%>
+        <%= image_tag @circle.header_picture.url, class: "circle_header_picture form__noImage"%>
       <% else %>
         <%= image_tag class: "circle_header_picture"%>
       <% end %>
