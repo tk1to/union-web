@@ -38,6 +38,8 @@ gem 'newrelic_rpm'
 
 gem 'dotenv-rails', '2.2.0'
 
+gem 'geo_pattern'
+
 group :development, :test do
   # gem 'sqlite3',     '1.3.9'
   gem 'byebug',      '3.4.0'

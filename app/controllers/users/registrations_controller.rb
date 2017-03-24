@@ -8,11 +8,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  def create
-    super
-    # resource.update_attribute(:joining_circle_id, session[:joining_circle_id])
-    # session.delete(:joining_circle_id)
-  end
+  # def create
+  #   super
+  # end
 
   # GET /resource/edit
   # def edit
