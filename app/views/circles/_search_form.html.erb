@@ -24,7 +24,6 @@
       <div class="search_accordion_value"></div>
       </div>
     <div class="search_accordion_open">
-      <%= label_tag nil, "大学名検索", class: "" %>
       <%= text_field_tag :keyword, nil, {id: "college_keyword", class: ""} %>
       <div id="college_search_button" class="" controller="circle">検索</div>
       <div class="wrap_select" id="college_select_wrap">
@@ -80,7 +79,7 @@
       <div class="search_accordion_icon"></div>
     </div>
     <div class="search_accordion_open">
-      <div>
+      <div id="date_select_wrap">
         <span>2017年</span>
         <%= date_select :circle, :schedule_from,
           {use_month_numbers: true, discard_year: true, date_separator: "月", default: Date.new(2017,1,1)}
@@ -103,5 +102,6 @@
       $(this).next().slideToggle();
       $(this).toggleClass("search_accordion_active");
     });
+    $("#date_select_wrap select").wrap($("<div>").addClass("wrap_select")).addClass("temp abc");
   });
 </script>
