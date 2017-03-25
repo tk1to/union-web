@@ -22,6 +22,9 @@ class Circle < ActiveRecord::Base
   has_many :favorited_users, through: :favorites, source: :user
   has_many :favorites, dependent: :destroy
 
+  # 新歓日程
+  has_many :welcome_event_schedules
+
   # 画像関連
   mount_uploader :picture, PictureUploader
   validate  :picture_size

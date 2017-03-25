@@ -1,0 +1,2 @@
+class WelcomeEventControllersController < ApplicationController
+end
