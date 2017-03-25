@@ -16,7 +16,8 @@
   <% end %>
 </div>
 
-<header class="header header__background c_picture" style="background-image: url(<%= @circle.header_picture %>)" >
+<header class="header c_picture" style="background-image: url(<%= @circle.header_picture %>)" >
+  <div class="header__innerCover header__background"></div>
   <div class="header__photo header__photo_circle c_picture" style="background-image: url(<%= @circle.picture %>)"></div>
   <% if @be_member %>
     <%= image_tag "menu.svg" , class: "header__menu_humberger" %>
