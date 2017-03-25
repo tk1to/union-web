@@ -91,11 +91,13 @@
     <%= date_select :welcome_event_schedules, :schedule, {use_month_numbers: true, discard_year: true, date_separator: "/"} %>
     <div id="add_welcome_event_schedule_button">追加</div>
     <div id="welcome_event_schedules">
-      <% if @circle.welcome_event_schedules.any? %>
-        <% @circle.welcome_event_schedules.each do |wes| %>
-          <p><%= wes.schedule %></p>
+      <ul>
+        <% if @circle.welcome_event_schedules.any? %>
+          <% @circle.welcome_event_schedules.each do |wes| %>
+            <li><%= l(wes.schedule, format: :middle) %></li>
+          <% end %>
         <% end %>
-      <% end %>
+      </ul>
     </div>
 
     <div class="form__buttun ta_center">

@@ -1,5 +1,34 @@
 $(function(){
   $("#add_welcome_event_schedule_button").on("click", function(){
-    
+    var year  = $("#welcome_event_schedules_schedule_1i").val();
+    var month = $("#welcome_event_schedules_schedule_2i").val();
+    var day   = $("#welcome_event_schedules_schedule_3i").val();
+    var count = $("#welcome_event_schedules li").length;
+    var schedule = year+"年"+month+"月"+day+"日";
+    var schedule_value = year+"/"+month+"/"+day;
+    if($("li:contains("+schedule+")")[0]){
+    } else {
+      exist_schedule_changed();
+      $("#welcome_event_schedules ul").append($("<li></li>").attr("id", "appearing").text(schedule)
+        .append($("<span>❌</span>").addClass("schedule_delete")
+          .on("click", function(){
+            $(this).parent().slideToggle(
+              300,
+              function(){
+                $(this).remove();
+                exist_schedule_changed();
+              }
+            );
+          })
+        ).hide()
+      );
+      $("#appearing").append("<input type='hidden' name='schedules[]' value="+schedule_value+">");
+      $("#appearing").slideToggle(300).removeAttr("id");
+    }
   });
 });
+function exist_schedule_changed(){
+  if(!$("#exist_schedule_changed")[0]){
+    $("#welcome_event_schedules").append("<input type='hidden' id='exist_schedule_changed' name='exist_schedule_changed' value='true'>");
+  }
+}

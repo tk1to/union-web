@@ -88,8 +88,9 @@ class CirclesController < ApplicationController
   def update
     @circle = Circle.find(params[:id])
     preprocessing
-    update_categories
     if @circle.update_attributes(circle_params)
+      update_categories
+      update_schedules
       @circle.save
       flash[:success] = "編集完了"
       redirect_to @circle
@@ -245,6 +246,19 @@ class CirclesController < ApplicationController
     def create_categories(ids)
       for i in 0..Category.max-1 do
         @circle.circle_categories.create(category_id: ids[i], priority: i)
+      end
+    end
+
+    def update_schedules
+      if params[:exist_schedule_changed]
+        @circle.welcome_event_schedules.each{|s|s.destroy}
+        schedules = params[:schedules].sort
+        schedules.each do |s|
+          year  = s.split("/")[0].to_i
+          month = s.split("/")[1].to_i
+          day   = s.split("/")[2].to_i
+          @circle.welcome_event_schedules.create(schedule: Date.new(year, month, day))
+        end
       end
     end
 
