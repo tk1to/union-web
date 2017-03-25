@@ -12,6 +12,9 @@ class DebugController < ApplicationController
     end
     redirect_to :top
   end
+  def debug
+    @image = 'https://scontent.xx.fbcdn.net/v/t1.0-1/p200x200/15826577_361766737516952_3314116330811571187_n.jpg?oh=57df7ed4f7ee5ace47f3477345b6ff51&oe=5929F5FA'
+  end
 
   private
     def env_develop

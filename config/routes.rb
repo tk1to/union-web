@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get    "recruit"        => "api#recruit"
 
   post "switch"  => "debug#switch"
+  get  "debug"   => "debug#debug"
 
   devise_for :users, controllers: {
     sessions:           'users/sessions',
