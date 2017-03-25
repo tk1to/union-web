@@ -2,7 +2,7 @@
     <%# image_tag @blog.picture_1 ? @blog.picture_1 : nil %>
   </div>
   <div class="author">
-    <div class="author__image c_picture" style="background-image: url(<%= @author.picture %>);"></div>
+    <div class="author__image c_picture" style="background-image: url(<%= @author.picture_url %>);"></div>
     <div class="author__name"><span class="author__autor">投稿者:</span><%= link_to @author.name, @author , class: "text_decoration_none color_gray"%></div>
     <p class="author__subhead"><%= link_to @circle.name, @circle , class: "text_decoration_none color_gray"%></p>
   </div>

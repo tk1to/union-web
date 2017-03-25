@@ -14,7 +14,7 @@
         <%= link_to user do %>
           <div class="notice__description"><%= user.name %>さんがあなたをフォローしました。</div>
           <div class="notice__content noticeFollow">
-            <div class="noticeFollow__image c_picture" style="background-image: url(<%= user.picture %>)"></div>
+            <div class="noticeFollow__image c_picture" style="background-image: url(<%= user.picture_url %>)"></div>
             <div class="noticeFollow__heading"><%= user.name %></div>
             <div class="noticeFollow__subhead"><%= user.basic_info %></div>
           </div>
@@ -23,7 +23,7 @@
         <%= link_to [blog.circle, blog] do %>
           <div class="notice__description"><%= user.name %>さんが新しいブログを投稿しました。</div>
           <div class="notice__content noticeBlog">
-            <div class="noticeBlog__image c_picture" style="background-image: url(<%= user.picture %>)"></div>
+            <div class="noticeBlog__image c_picture" style="background-image: url(<%= user.picture_url %>)"></div>
             <div class="noticeBlog__heading"><%= blog.title %></div>
             <div class="noticeBlog__subhead"><%= blog.content_1 %></div>
           </div>

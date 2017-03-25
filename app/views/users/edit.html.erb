@@ -82,7 +82,7 @@
 
     <div class="form__images ta_center margin_top_05rem">
       <div class="wrap_form__noImage">
-        <div class="user_picture form__noImage_prof c_picture" style="background-image: url(<%= @user.picture %>);" ></div>
+        <div class="user_picture form__noImage_prof c_picture" style="background-image: url(<%= @user.picture_url %>);" ></div>
       </div>
       <div class="form__upload">プロフィール画像を選択
         <%= f.file_field :picture , class: "form__file"%>

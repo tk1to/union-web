@@ -12,7 +12,7 @@
 
 <header class="header c_picture" style="background-image: url(<%= @user.header_picture %>)">
   <div class="header__innerCover header__background"></div>
-  <div class="header__photo header__photo_user c_picture" style="background-image: url(<%= @user.picture %>);"></div>
+  <div class="header__photo header__photo_user c_picture" style="background-image: url(<%= @user.picture_url %>);"></div>
   <% if current_user?(@user) %>
     <%= image_tag "menu.svg" , class: "header__menu_humberger" %>
     <div class="header__foot">
@@ -129,7 +129,7 @@
 
 <% if user_signed_in? && current_user?(@user) %>
   <div class="user__image_zoom" id="user__picture">
-    <div class="user__image c_picture" style="background-image: url(<%= @user.picture %>);"></div>
+    <div class="user__image c_picture" style="background-image: url(<%= @user.picture_url %>);"></div>
     <%= link_to "プロフィール編集", [:edit, @user] , class: "button button_border"%>
     <p class="button button_border">閉じる</p>
   </div>

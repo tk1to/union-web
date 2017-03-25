@@ -1,1 +1,10 @@
-<%= image_tag @image %>
+<div class="abc"></div>
+
+<style>
+  .abc{
+    width: 200px;
+    height: 200px;
+    border: 1px solid #000;
+    background-image: url(<%= @image %>);
+  }
+</style>

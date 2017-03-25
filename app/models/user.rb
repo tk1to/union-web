@@ -154,6 +154,17 @@ class User < ActiveRecord::Base
     response
   end
 
+  def picture_url
+    if !self.picture.blank?
+      url = self.picture
+    elsif !self.uid.blank?
+      url = 'http://graph.facebook.com/v2.8/'+self.uid+'/picture?width=200'
+    else
+      url = nil
+    end
+    url
+  end
+
   private
 
     # メールアドレスをすべて小文字にする
