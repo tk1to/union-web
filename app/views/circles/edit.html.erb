@@ -23,11 +23,7 @@
 
     <div class="ta_center margin_top_05rem">
       <div>
-        <% if @circle.picture %>
-          <%= image_tag @circle.picture.url, class: "circle_picture form__noImage_prof"%>
-        <% else %>
-          <%= image_tag class: "circle_picture"%>
-        <% end %>
+        <div class="circle_picture form__noImage_prof c_picture" style="background-image: url(<%= @circle.picture %>);" ></div>
       </div>
       <div class="form__upload">プロフィール画像を選択
         <%= f.file_field :picture , class: "form__file"%>
@@ -36,11 +32,7 @@
 
     <div class="ta_center margin_top_05rem">
       <div>
-        <% if @circle.header_picture %>
-          <%= image_tag @circle.header_picture.url, class: "circle_header_picture form__noImage"%>
-        <% else %>
-          <%= image_tag class: "circle_header_picture"%>
-        <% end %>
+        <div class="circle_header_picture form__noImage c_picture" style="background-image: url(<%= @circle.header_picture %>);" ></div>
       </div>
       <div class="form__upload">ヘッダー画像を選択
         <%= f.file_field :header_picture , class: "form__file"%>
