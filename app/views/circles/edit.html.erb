@@ -94,7 +94,11 @@
       <ul>
         <% if @circle.welcome_event_schedules.any? %>
           <% @circle.welcome_event_schedules.each do |wes| %>
-            <li><%= l(wes.schedule, format: :middle) %></li>
+            <li>
+              <%= l(wes.schedule, format: :middle) %>
+              <span class="schedule_delete">❌</span>
+              <input type="hidden" name="schedules[]" value="">
+            </li>
           <% end %>
         <% end %>
       </ul>

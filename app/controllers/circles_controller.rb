@@ -250,7 +250,7 @@ class CirclesController < ApplicationController
     end
 
     def update_schedules
-      if params[:exist_schedule_changed]
+      if !params[:exist_schedule_changed].blank?
         @circle.welcome_event_schedules.each{|s|s.destroy}
         schedules = params[:schedules].sort
         schedules.each do |s|

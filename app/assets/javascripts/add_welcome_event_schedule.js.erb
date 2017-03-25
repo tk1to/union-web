@@ -1,4 +1,13 @@
 $(function(){
+  $(".schedule_delete").on("click", function(){
+    $(this).parent().slideToggle(
+      300,
+      function(){
+        $(this).remove();
+        exist_schedule_changed();
+      }
+    );
+  });
   $("#add_welcome_event_schedule_button").on("click", function(){
     var year  = $("#welcome_event_schedules_schedule_1i").val();
     var month = $("#welcome_event_schedules_schedule_2i").val();
