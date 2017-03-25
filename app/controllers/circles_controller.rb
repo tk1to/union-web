@@ -68,6 +68,7 @@ class CirclesController < ApplicationController
       annual_fee: "年会費",
       activity_frequency: "活動頻度",
       party_frequency: "飲み会頻度",
+      welcome_event_schedule: "新歓日程",
     }
   end
 
@@ -250,14 +251,16 @@ class CirclesController < ApplicationController
     end
 
     def update_schedules
-      if !params[:exist_schedule_changed].blank?
+      if params[:exist_schedule_changed]
         @circle.welcome_event_schedules.each{|s|s.destroy}
-        schedules = params[:schedules].sort
-        schedules.each do |s|
-          year  = s.split("/")[0].to_i
-          month = s.split("/")[1].to_i
-          day   = s.split("/")[2].to_i
-          @circle.welcome_event_schedules.create(schedule: Date.new(year, month, day))
+        if !params[:schedules].blank?
+          schedules = params[:schedules].sort
+          schedules.each do |s|
+            year  = s.split("/")[0].to_i
+            month = s.split("/")[1].to_i
+            day   = s.split("/")[2].to_i
+            @circle.welcome_event_schedules.create(schedule: Date.new(year, month, day))
+          end
         end
       end
     end
