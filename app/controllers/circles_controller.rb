@@ -175,6 +175,13 @@ class CirclesController < ApplicationController
       if !params[:circle][:party_frequency].blank?
         @circles = @circles.where(party_frequency: params[:circle][:party_frequency])
       end
+
+      wesa      = WelcomeEventSchedule.arel_table[:schedule]
+      from_date = Date.new(params[:circle]["schedule_from(1i)"].to_i, params[:circle]["schedule_from(2i)"].to_i, params[:circle]["schedule_from(3i)"].to_i)
+      to_date   = Date.new(params[:circle]["schedule_to(1i)"].to_i,   params[:circle]["schedule_to(2i)"].to_i,   params[:circle]["schedule_to(3i)"].to_i)
+      if !(from_date == Date.new(2017,1,1) && to_date == Date.new(2017,12,31))
+        @circles  = @circles.joins(:welcome_event_schedules).where(wesa.gteq(from_date).and(wesa.lteq(to_date))).uniq
+      end
     end
     @circles = @circles.page(params[:page]).per(15)
     render "index"
