@@ -40,14 +40,16 @@ class User < ActiveRecord::Base
   has_many :notifications, foreign_key: "hold_user_id", dependent: :destroy
 
   #フォロー関連
-  has_many :active_relationships,  class_name:  "Relationship",
+  has_many :active_relationships,  ->{order("id DESC") },
+                                   class_name:  "Relationship",
                                    foreign_key: "follower_id",
                                    dependent:   :destroy
-  has_many :passive_relationships, class_name:  "Relationship",
+  has_many :passive_relationships, ->{order("id DESC") },
+                                   class_name:  "Relationship",
                                    foreign_key: "followed_id",
                                    dependent:   :destroy
-  has_many :following, ->{order("updated_at DESC") }, through: :active_relationships, source: :followed
-  has_many :followers, ->{order("updated_at DESC") }, through: :passive_relationships, source: :follower
+  has_many :following, through: :active_relationships, source: :followed
+  has_many :followers, through: :passive_relationships, source: :follower
 
   #ユーザー足跡関連
   has_many :footed_prints, class_name:  "FootPrint",
