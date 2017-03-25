@@ -17,7 +17,7 @@
 		}
 	}
 	&__text_field{
-		width: 90%;
+		width: 100%;
 		height: 1rem;
 		border-radius: 5px;
 		padding: 1rem 0;
@@ -35,6 +35,9 @@
       width: 85%;
     }
 	}
+  &__text_field_90{
+    width: 90%;
+  }
 	&__text_area{
 		width: 100%;
 		height: 15rem;
