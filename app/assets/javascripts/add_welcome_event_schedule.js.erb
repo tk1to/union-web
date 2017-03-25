@@ -18,8 +18,8 @@ $(function(){
     if($("li:contains("+schedule+")")[0]){
     } else {
       exist_schedule_changed();
-      $("#welcome_event_schedules ul").append($("<li></li>").attr("id", "appearing").text(schedule)
-        .append($("<span>❌</span>").addClass("schedule_delete")
+      $("#welcome_event_schedules ul").append($("<li></li>").addClass("welcome_event_schedule_item").attr("id", "appearing").text(schedule)
+        .append($("<span>| 削除</span>").addClass("schedule_delete")
           .on("click", function(){
             $(this).parent().slideToggle(
               300,
