@@ -1,7 +1,7 @@
 <%= form_for @search_params, url: [:search, :circles], html: {method: :get} do |f| %>
   <% params[:circle] = {} if params[:circle].nil? %>
 
-  <div class="form__search ">
+  <div class="form__search">
     <div class="search_accordion">
       <%= label_tag "フリーワード検索" %>
       <div class="search_accordion_icon"></div>

@@ -47,7 +47,7 @@
       </div>
     </div>
 
-    <%= f.label :join_colleges, "参加大学（１つ以上）", class: "form__item margin_top_1rem" %>
+    <%= f.label :join_colleges, "参加大学（１つ以上必須）", class: "form__item margin_top_1rem ta_center" %>
     <div id="joining_colleges">
       <% @circle.joining_college_list.each do |college| %>
         <%= render "joining_college", college: college %>
