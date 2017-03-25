@@ -16,12 +16,12 @@
       <% plab = "picture_#{i}" %>
       <div class="blog_picture_wrap">
         <%= f.label plab.to_sym, "画像#{i}" , class: "form__item"%>
-        <div>
-          <%# image_tag @blog[plab] ? @blog.picture(i) : nil , class: "blog_picture_#{i}"%>
-          <div class="blog_picture_<%= i %> form__noImage c_picture" style="background-image: url(<%= @blog.picture(i) %>)"></div>
-        </div>
-        <div class="form__upload ta_center">画像を選択
-          <%= f.file_field "picture_#{i}".to_sym, class: "form__file" %>
+          <div class="form__images ta_center margin_top_05rem">
+            <%# image_tag @blog[plab] ? @blog.picture(i) : nil , class: "blog_picture_#{i}"%>
+            <div class="blog_picture_<%= i %> form__noImage c_picture" style="background-image: url(<%= @blog.picture(i) %>)"></div>
+          <div class="form__upload ta_center">画像を選択
+            <%= f.file_field "picture_#{i}".to_sym, class: "form__file" %>
+          </div>
         </div>
       </div>
 

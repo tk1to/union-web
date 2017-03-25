@@ -70,7 +70,16 @@
 		color: gray;
 		text-decoration: none;
 	}
+  &__images{
+    position:relative;
+    border:1px solid $d-blue;
+    border-radius:3px;
+    padding:6px 0 0;
+    background: $l-gray;
+  }
 	&__upload{
+    position:absolute;
+    bottom: 0;
 		display: inline-block;
 		overflow: hidden;
 		position: relative;
@@ -78,8 +87,9 @@
 		width: 100%;
 		height: 2.5rem;
 		background: #fff;
-		border: 1px solid $d-blue;
-		border-radius:3px;
+		border-top: 1px solid $d-blue;
+		border-bottom-left-radius : 3px;
+    border-bottom-right-radius : 3px;
 		color:$d-blue;
 		font-size: 0.8rem;
 		line-height: 2.5rem;
@@ -106,7 +116,8 @@
     background-size: 5rem auto;
     background-repeat: no-repeat;
     background-position: center;
-    border:1px solid gray;
+    // border:1px solid gray;
+    border-radius:3px;
       &:before {
       display: block;
       content: "";
@@ -118,7 +129,8 @@
       background-size: 5rem auto;
       background-repeat: no-repeat;
       background-position: center;
-      border:1px solid gray;
+      // border:1px solid gray;
+      border-radius:3px;
         &:before {
         display: block;
         content: "";
@@ -232,8 +244,15 @@ border: 1px solid $d-blue;
     // box-sizing:border-box;
   }
 }
-
-
+// 画像アップロードのとこのwrap
+.wrap_form__noImage{
+  width: 80%;
+  margin: 0 auto 0.5rem;
+  &_prof{
+    width: 50%;
+    margin: 0 auto 0.5rem;
+  }
+}
 
 
 
