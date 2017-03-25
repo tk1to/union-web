@@ -5,7 +5,7 @@
       <ul class="sideMenu__lists">
         <li class="sideMenu__item sideMenu_close">閉じる</li>
         <% if @status_num <= 1 %>
-          <li class="sideMenu__item"><%= link_to "サークル情報編集", [:edit, @circle] %></li>
+          <li class="sideMenu__item"><%= link_to "団体情報編集", [:edit, @circle] %></li>
           <li class="sideMenu__item"><%= link_to "管理者設定", [:status, :edit, @circle] %></li>
           <li class="sideMenu__item"><%= link_to "メンバー追加", [:key, @circle] %></li>
           <li class="sideMenu__item" id="line_at"><%= link_to "LINE@登録", nil %></li>
@@ -94,10 +94,10 @@
 <% end %>
 
 <div class="frame">
-  <h2 class="frame__heading frame__heading_underline">サークル概要</h2>
+  <h2 class="frame__heading frame__heading_underline">団体概要</h2>
   <div class="description"><%= simple_format(h(@circle.description)) %></div>
 
-  <h2 class="frame__heading frame__heading_underline">サークル詳細情報</h2>
+  <h2 class="frame__heading frame__heading_underline">団体詳細情報</h2>
 
   <table class="table">
     <% @informations.each do |key, value| %>
