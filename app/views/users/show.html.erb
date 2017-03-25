@@ -10,8 +10,8 @@
   </div>
 <% end %>
 
-<header class="header c_picture" style="background-image: url(<%= @user.header_picture %>)">
-  <div class="header__photo c_picture" style="background-image: url(<%= @user.picture %>);"></div>
+<header class="header header__background c_picture" style="background-image: url(<%= @user.header_picture %>)">
+  <div class="header__photo header__photo_user c_picture" style="background-image: url(<%= @user.picture %>);"></div>
   <% if current_user?(@user) %>
     <%= image_tag "menu.svg" , class: "header__menu_humberger" %>
     <div class="header__foot">
