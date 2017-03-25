@@ -95,7 +95,7 @@ function filereader(){
         var reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onload = function(e) {
-          $("img.<%= prop %>").attr("src", e.target.result);
+          $(".<%= prop %>").css("background-image", "url("+e.target.result+")");
         };
     });
   <% end %>
