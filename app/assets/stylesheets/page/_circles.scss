@@ -106,3 +106,19 @@
     color: $gray;
   }
 }
+
+// 新歓日程のフォーム
+.welcome_event_schedule_item{
+  width: 70%;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  color: $gray;
+  font-size: 0.9rem;
+  border:1px solid $l-gray;
+  border-radius:3px;
+  margin: 0 auto 0.2rem;
+}
+.schedule_delete{
+  margin-left: 0.5rem;
+  color: gray;
+}
