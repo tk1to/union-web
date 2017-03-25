@@ -30,6 +30,7 @@
 		}
     &_70{
       width: 75%;
+      margin: 0;
     }
     &_80{
       width: 85%;
@@ -94,9 +95,6 @@
 		font-size: 100px;
 		cursor: pointer;
 	}
-	// &__images{
-	// 	margin-bottom: 1rem;
-	// }
 	&__picture{
 		width: 3rem;
 		height: 3rem;
@@ -128,6 +126,13 @@
         padding-top: (1 / 1) * 100%;
       }
     }
+  }
+  &__welcomeEvent{
+    width: 100%;
+    padding:0.5rem;
+    border:1px solid $l-gray;
+    border-radius:3px;
+    box-sizing: border-box;
   }
 }
 .whole_from{
@@ -166,6 +171,13 @@
     width: 100%;
     height: 2rem;
   }
+  &_90{
+    width: 95%;
+    height: 2rem;
+  }
+  &_50{
+    width: 55%;
+  }
   &_20{
     width: 25%;
   }
@@ -182,6 +194,9 @@
   border-radius: 5px;
   background: transparent;
   font-size: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .wrap_checkbox{
   width: 100%;
