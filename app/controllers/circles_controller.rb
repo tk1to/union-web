@@ -26,6 +26,7 @@ class CirclesController < ApplicationController
     new_category_ids = params[:categories].values.reject(&:empty?).map{|str| str.to_i}
     new_category_ids.uniq!
     if !new_category_ids.blank? && @circle.save
+      update_schedules
       flash[:success] = "作成完了"
       create_categories(new_category_ids)
       @membership = Membership.create(member_id: current_user.id, circle_id: @circle.id, status: 0)

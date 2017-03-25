@@ -22,7 +22,7 @@
 
     <div class="ta_center">
       <div>
-        <%= image_tag nil, class: "circle_picture"%>
+        <div class="circle_picture form__noImage_prof c_picture"></div>
       </div>
       <div class="form__upload">プロフィール画像を選択（必須）
         <%= f.file_field :picture , class: "form__file"%>
@@ -31,14 +31,14 @@
 
     <div class="ta_center">
       <div>
-        <%= image_tag nil, class: "circle_header_picture"%>
+        <div class="circle_header_picture form__noImage c_picture"></div>
       </div>
       <div class="form__upload">ヘッダー画像を選択（必須）
         <%= f.file_field :header_picture , class: "form__file"%>
       </div>
     </div>
 
-    <%= f.label :join_colleges, "参加大学（１つ以上）", class: "form__item margin_top_1rem" %>
+    <%= f.label :join_colleges, "参加大学（１つ以上）", class: "form__item margin_top_1rem ta_center" %>
     <div id="joining_colleges">
     </div>
     <div id="edit_joining_colleges" class="button button_100 button_color_white margin_top_05rem margin_bottom_1rem">追加・編集</div>
@@ -57,13 +57,13 @@
     </div>
 
     <%= f.label :people_scale, "人数",class: "form__item" %>
-    <%= f.number_field :people_scale, class: "form__text_field" %>
+    <%= f.number_field :people_scale, class: "form__text_field form__text_field_90" %><span>人</span>
 
     <%= f.label :activity_place, class: "form__item" %>
-    <%= f.text_field :activity_place, class: "form__text_field" %>
+    <%= f.text_field :activity_place, class: "form__text_field form__text_field_90" %>
 
     <%= f.label :annual_fee, "年会費", class: "form__item" %>
-    <%= f.number_field :annual_fee, class: "form__text_field" %>
+    <%= f.number_field :annual_fee, class: "form__text_field form__text_field_90" %><span>円</span>
 
     <%= f.label :activity_frequency, class: "form__item" %>
     <div class="wrap_select margin_0_auto">
@@ -75,8 +75,26 @@
       <%= f.select :party_frequency, options_for_select(@frequencies), {include_blank: true}, {class: "selectbox"}%>
     </div>
 
-    <div class="form__buttun ta_center" id="submit_circle">
+    <%= f.label :welcome_event_schedule, class: "form__item" %>
+    <div class="form__welcomeEvent ta_center margin_top_05rem">
+      <div id="date_select_wrap">
+        <%= date_select :welcome_event_schedules, :schedule, {use_month_numbers: true, discard_year: true, date_separator: "/ "} %>
+      </div>
+      <div id="add_welcome_event_schedule_button" class="button button_thin button_color_white inline-block">追加</div>
+      <div id="welcome_event_schedules">
+        <ul class="ta_center">
+        </ul>
+      </div>
+    </div>
+
+    <div class="form__buttun margin_top_2rem ta_center" id="submit_circle">
       <%= f.submit "作成" , class: "button button_size_large button_color_blue"%>
     </div>
   <% end %>
 </div>
+
+<script>
+  $(function(){
+    $("#date_select_wrap select").wrap($("<div>").addClass("wrap_select wrap_select_20")).addClass("selectbox");
+  });
+</script>

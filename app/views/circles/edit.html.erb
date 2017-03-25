@@ -1,5 +1,5 @@
 <header>
-  <h1 class="formHeading ta_center">サークルプロフィール編集</h1>
+  <h1 class="formHeading ta_center">プロフィール編集</h1>
 </header>
 
 <div class="form">
@@ -78,6 +78,7 @@
     <div class="wrap_select margin_0_auto">
       <%= f.select :party_frequency, options_for_select(@frequencies, selected: @circle.party_frequency), {include_blank: true}, {class: "selectbox"}%>
     </div>
+
     <%= f.label :welcome_event_schedule, class: "form__item" %>
     <div class="form__welcomeEvent ta_center margin_top_05rem">
       <div id="date_select_wrap">
