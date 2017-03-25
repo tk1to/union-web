@@ -86,25 +86,34 @@
     <div class="wrap_select margin_0_auto">
       <%= f.select :party_frequency, options_for_select(@frequencies, selected: @circle.party_frequency), {include_blank: true}, {class: "selectbox"}%>
     </div>
-
     <%= f.label :welcome_event_schedule, class: "form__item" %>
-    <%= date_select :welcome_event_schedules, :schedule, {use_month_numbers: true, discard_year: true, date_separator: "/"} %>
-    <div id="add_welcome_event_schedule_button">追加</div>
-    <div id="welcome_event_schedules">
-      <ul>
-        <% if @circle.welcome_event_schedules.any? %>
-          <% @circle.welcome_event_schedules.each do |wes| %>
-            <li>
-              <%= l(wes.schedule, format: :middle) %><span class="schedule_delete">❌</span>
-              <input type="hidden" name="schedules[]" value="<%=l(wes.schedule, format: :default) %>">
-            </li>
+    <div class="form__welcomeEvent ta_center margin_top_05rem">
+      <div id="date_select_wrap">
+        <%= date_select :welcome_event_schedules, :schedule, {use_month_numbers: true, discard_year: true, date_separator: "/ "} %>
+      </div>
+      <div id="add_welcome_event_schedule_button" class="button button_thin button_color_white inline-block">追加</div>
+      <div id="welcome_event_schedules">
+        <ul class="ta_center">
+          <% if @circle.welcome_event_schedules.any? %>
+            <% @circle.welcome_event_schedules.each do |wes| %>
+              <li class="welcome_event_schedule_item">
+                <%= l(wes.schedule, format: :middle) %><span class="schedule_delete">削除</span>
+                <input type="hidden" name="schedules[]" value="<%=l(wes.schedule, format: :default) %>">
+              </li>
+            <% end %>
           <% end %>
-        <% end %>
-      </ul>
+        </ul>
+      </div>
     </div>
 
-    <div class="form__buttun ta_center">
+    <div class="form__buttun ta_center margin_top_2rem">
       <%= f.submit "更新" , class: "button button_size_large button_color_blue"%>
     </div>
   <% end %>
 </div>
+
+<script>
+  $(function(){
+    $("#date_select_wrap select").wrap($("<div>").addClass("wrap_select wrap_select_20")).addClass("selectbox");
+  });
+</script>
