@@ -15,7 +15,7 @@ class ApiController < ApplicationController
       else
         @colleges = []
       end
-      name = "user[college]"
+      name = params[:origin_controller].nil? ? "college" : "#{params[:origin_controller]}[college]"
       render partial: "shared/ajax_select", locals: {elements: @colleges, name: name}
     elsif params[:request_type] == "faculties"
       code = params[:code]
@@ -28,7 +28,7 @@ class ApiController < ApplicationController
       else
         @faculties = []
       end
-      name = "user[faculty]"
+      name = params[:origin_controller].nil? ? "faculty" : "#{params[:origin_controller]}[faculty]"
       render partial: "shared/ajax_select", locals: {elements: @faculties, name: name}
     end
   end

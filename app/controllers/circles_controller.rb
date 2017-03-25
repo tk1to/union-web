@@ -146,6 +146,10 @@ class CirclesController < ApplicationController
                               .or(free_word_description.matches("%#{ params[:circle][:free_word] }%")))
       end
 
+      if !params[:circle][:college].blank?
+        @circles = @circles.tagged_with(params[:circle][:college])
+      end
+
       if !params[:circle][:people_scale].blank?
         ps        = params[:circle][:people_scale]
         ps_min    = ps.split("/")[0].to_i

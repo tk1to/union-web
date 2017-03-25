@@ -5,23 +5,37 @@
     <div class="search_accordion">
       <%= label_tag "フリーワード検索" %>
       <div class="search_accordion_icon"></div>
-      <div class="search_accordion_key">検索検索検索検索検索検索検索</div>
+      <div class="search_accordion_value"></div>
     </div>
-    <div class="search_accordion_open"><%= f.text_field :free_word, value: params[:circle][:free_word] , class: "form__text_field"%></div> 
+    <div class="search_accordion_open"><%= f.text_field :free_word, value: params[:circle][:free_word] , class: "form__text_field"%></div>
 
     <div class="search_accordion">
       <%= f.label :categories %>
       <div class="search_accordion_icon"></div>
-      <div class="search_accordion_key"></div>
+      <div class="search_accordion_value"></div>
     </div>
     <div class="wrap_select wrap_select_100 search_accordion_open">
       <%= f.select :categories, @category_options.map{|t| [t.name, t.id]}, {include_blank: true, selected: params[:circle][:categories]}, {class: "selectbox"} %>
     </div>
 
     <div class="search_accordion">
+      <%= f.label :join_colleges %>
+      <div class="search_accordion_icon"></div>
+      <div class="search_accordion_value"></div>
+      </div>
+    <div class="search_accordion_open">
+      <%= label_tag nil, "大学名検索", class: "" %>
+      <%= text_field_tag :keyword, nil, {id: "college_keyword", class: ""} %>
+      <div id="college_search_button" class="" controller="circle">検索</div>
+      <div class="wrap_select" id="college_select_wrap">
+        <%= render "shared/ajax_select", {elements: nil, name: "circle[college]"} %>
+      </div>
+    </div>
+
+    <div class="search_accordion">
       <%= f.label :people_scale %>
       <div class="search_accordion_icon"></div>
-      <div class="search_accordion_key"></div>
+      <div class="search_accordion_value"></div>
       </div>
     <div class="wrap_select wrap_select_100 search_accordion_open">
       <%= f.select :people_scale,
@@ -32,7 +46,7 @@
     <div class="search_accordion">
       <%= f.label :annual_fee %>
       <div class="search_accordion_icon"></div>
-      <div class="search_accordion_key"></div>
+      <div class="search_accordion_value"></div>
       </div>
     <div class="wrap_select wrap_select_100 search_accordion_open">
       <%= f.select :annual_fee,
@@ -44,7 +58,7 @@
     <div class="search_accordion">
       <%= f.label :activity_frequency %>
       <div class="search_accordion_icon"></div>
-      <div class="search_accordion_key"></div>
+      <div class="search_accordion_value"></div>
     </div>
     <div class="wrap_select wrap_select_100 search_accordion_open">
       <%= f.select :activity_frequency, options_for_select(@frequencies, selected: params[:circle][:activity_frequency]),
@@ -54,7 +68,7 @@
     <div class="search_accordion">
       <%= f.label :party_frequency %>
       <div class="search_accordion_icon"></div>
-      <div class="search_accordion_key"></div>
+      <div class="search_accordion_value"></div>
     </div>
     <div class="wrap_select wrap_select_100 search_accordion_open">
       <%= f.select :party_frequency, options_for_select(@frequencies, selected: params[:circle][:party_frequency]),

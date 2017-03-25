@@ -2,12 +2,14 @@ $(function(){
   // 大学・学部検索
   $('#college_search_button').on("click", function(){
     var keyword = $("#college_keyword").val();
+    var controller = $("#college_search_button").attr("controller");
     $.ajax({
         url: "/recruit",
         type: "GET",
         data: {
           keyword: keyword,
           request_type: "colleges",
+          origin_controller: controller,
         },
     }).done(function(data){
       $("#college_select_wrap").html(data);
@@ -20,6 +22,7 @@ $(function(){
               data: {
                 code: code,
                 request_type: "faculties",
+                origin_controller: controller,
               },
           }).done(function(data){
             $("#faculty_select_wrap").html(data);
