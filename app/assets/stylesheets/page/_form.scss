@@ -70,7 +70,16 @@
 		color: gray;
 		text-decoration: none;
 	}
+  &__images{
+    position:relative;
+    border:1px solid $d-blue;
+    border-radius:3px;
+    padding:6px 0 0;
+    background: $l-gray;
+  }
 	&__upload{
+    position:absolute;
+    bottom: 0;
 		display: inline-block;
 		overflow: hidden;
 		position: relative;
@@ -79,7 +88,8 @@
 		height: 2.5rem;
 		background: #fff;
 		border-top: 1px solid $d-blue;
-		// border-radius:3px;
+		border-bottom-left-radius : 3px;
+    border-bottom-right-radius : 3px;
 		color:$d-blue;
 		font-size: 0.8rem;
 		line-height: 2.5rem;
@@ -101,18 +111,12 @@
 		background: gray;
 		border-radius: 3px;
 	}
-  &__images{
-    border:1px solid $d-blue;
-    border-radius:3px;
-    padding:6px 0 0;
-    background: #fff;
-  }
   &__noImage{
     background:$l-gray;
     background-size: 5rem auto;
     background-repeat: no-repeat;
     background-position: center;
-    border:1px solid gray;
+    // border:1px solid gray;
     border-radius:3px;
       &:before {
       display: block;
@@ -125,7 +129,7 @@
       background-size: 5rem auto;
       background-repeat: no-repeat;
       background-position: center;
-      border:1px solid gray;
+      // border:1px solid gray;
       border-radius:3px;
         &:before {
         display: block;
