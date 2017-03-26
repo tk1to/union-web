@@ -19,7 +19,6 @@ gem 'kaminari'
 gem 'uglifier',     '2.5.3' #Asset Pipelineを圧縮
 gem 'coffee-rails', '4.1.0'
 gem 'jquery-rails', '4.0.3'
-# gem 'turbolinks',   '2.3.0'
 gem 'turbolinks',   '5.0.1'
 gem 'jquery-turbolinks'
 gem 'jbuilder',     '2.2.3' #JSONのテンプレートエンジン
