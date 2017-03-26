@@ -4,6 +4,15 @@ class PictureUploader < CarrierWave::Uploader::Base
 
   include CarrierWave::MiniMagick
   process resize_to_limit: [400, 400]
+  process :fix_exif_rotation
+
+  def fix_exif_rotation
+    manipulate! do |img|
+      img.auto_orient
+      img = yield(img) if block_given?
+      img
+    end
+  end
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
