@@ -109,15 +109,18 @@ class User < ActiveRecord::Base
     user
   end
 
-  def free
+  def free(strong=false)
     properties = []
     properties << "名前"                if self.name.blank?
+    properties << "性別"                if self.sex.blank?
     properties << "大学"                if self.college.blank?
     properties << "学部"                if self.faculty.blank?
-    properties << "性別"                if self.sex.blank?
     properties << "住まい"              if self.birth_place.blank?
     properties << "出身地"              if self.home_place.blank?
     properties << "興味のあるカテゴリー"  if !self.categories.any?
+    if strong
+      properties << "プロフィール画像"   if (self.picture.blank? && self.uid.blank?)
+    end
     [properties.blank?, properties]
   end
 

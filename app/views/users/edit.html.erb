@@ -14,14 +14,14 @@
           <%= select :categories, ("category_"+(i+1).to_s).to_sym, @category_options.map{|t| [t.name, t.id]}, {selected: id, prompt: "☆"*(3-i)} , {class: "selectbox"}%>
         </div>
       <% end %>
-    <% elsif @edit_item == "birth_place" || @edit_item ==  "home_place" %>
+    <% elsif @edit_item == "birth_place" || @edit_item == "home_place" %>
       <div class="wrap_select">
         <%= f.select @edit_item, @prefectures.map{|t|[t,t]}, { include_blank: true } , {class: "selectbox"} %>
       </div>
     <% else %>
       <%= f.label @edit_item , class: "form__item"%>
       <%= f.text_area @edit_item , class: "form__text_area"%>
-      <%= f.hidden_field :edit_item, :value => @edit_item %>
+      <%= f.hidden_field :edit_item, value: @edit_item %>
     <% end %>
 
   <% else %>
@@ -107,4 +107,12 @@
 </div>
 
 <% if @user.college.blank? %><span id="college_blank"></span><% end %>
+
+<script>
+  $(function(){
+  })
+</script>
+
+
+
 

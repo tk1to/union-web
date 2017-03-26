@@ -15,3 +15,21 @@
     </div>
   </div>
 <% end %>
+
+<% if user_signed_in? && !current_user.free(strong: true)[0] %>
+  <span id="user_strong_restricted"></span>
+  <div class="strong_prompt prompt">
+    <div class="prompt__box">
+      <p class="prompt__text">
+        この機能を利用するには、プロフィールの必須項目を入力してください。
+        <ul>
+          <% current_user.free(strong: true)[1].each do |label| %>
+            <li class="button button_thin"><%= link_to label, [:edit, current_user], class: "link_fill color_white" %></li>
+          <% end %>
+        </ul>
+      </p>
+      <%= link_to "設定", [:edit, current_user], class: "prompt__button button button_size_medium button_color_blue" %>
+      <%= image_tag 'close.svg' , class: "prompt__close"%>
+    </div>
+  </div>
+<% end %>
