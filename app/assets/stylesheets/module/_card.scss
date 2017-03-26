@@ -33,9 +33,8 @@
     text-decoration: none;
     color: $gray;
     overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   &__subhead{
     position: absolute;
@@ -62,6 +61,10 @@
     font-weight: normal;
     font-size: 0.8rem;
     color: $gray;
+    width: 70%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   &__category{
     position: absolute;
