@@ -38,8 +38,8 @@
         <%= f.file_field :header_picture , class: "form__file"%>
       </div>
     </div>
-
-    <%= f.label :join_colleges, "参加大学（１つ以上必須）", class: "form__item margin_top_1rem ta_center" %>
+    <div class="margin_top_2rem"></div>
+    <%= f.label :join_colleges, "参加大学（１つ以上必須）", class: "form__item margin_top_2rem ta_center" %>
     <div id="joining_colleges">
       <% @circle.joining_college_list.each do |college| %>
         <%= render "joining_college", college: college %>

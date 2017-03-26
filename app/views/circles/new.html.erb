@@ -20,25 +20,26 @@
       <% end %>
     </div>
 
-    <div class="ta_center">
-      <div>
-        <div class="circle_picture form__noImage_prof c_picture"></div>
+    <div class="form__images ta_center margin_top_05rem">
+      <div class="wrap_form__noImage_prof">
+        <div class="circle_picture form__noImage_prof c_picture" style="background-image: url(<%= @circle.picture %>);" ></div>
       </div>
-      <div class="form__upload">プロフィール画像を選択（必須）
+      <div class="form__upload">プロフィール画像を選択
         <%= f.file_field :picture , class: "form__file"%>
       </div>
     </div>
 
-    <div class="ta_center">
-      <div>
-        <div class="circle_header_picture form__noImage c_picture"></div>
+    <div class="form__images ta_center margin_top_05rem">
+      <div class="wrap_form__noImage">
+        <div class="circle_header_picture form__noImage c_picture" style="background-image: url(<%= @circle.header_picture %>);" ></div>
       </div>
-      <div class="form__upload">ヘッダー画像を選択（必須）
+      <div class="form__upload">ヘッダー画像を選択
         <%= f.file_field :header_picture , class: "form__file"%>
       </div>
     </div>
 
-    <%= f.label :join_colleges, "参加大学（１つ以上必須）", class: "form__item margin_top_1rem ta_center" %>
+    <div class="margin_top_2rem"></div>
+    <%= f.label :join_colleges, "参加大学（１つ以上必須）", class: "form__item ta_center" %>
     <div id="joining_colleges">
     </div>
     <div id="edit_joining_colleges" class="button button_100 button_color_white margin_top_05rem margin_bottom_1rem">追加・編集</div>
