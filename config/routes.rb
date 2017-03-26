@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get  "top" => "web#top"
   get  "privacypolicy" => "web#privacypolicy"
 
-  get    "recruit"        => "api#recruit"
+  get "recruit" => "api#recruit"
 
   post "switch"  => "debug#switch"
   get  "debug"   => "debug#debug"
