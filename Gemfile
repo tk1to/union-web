@@ -41,7 +41,6 @@ gem 'dotenv-rails', '2.2.0'
 gem 'geo_pattern'
 
 group :development, :test do
-  # gem 'sqlite3',     '1.3.9'
   gem 'byebug',      '3.4.0'
   gem 'web-console', '2.0.0.beta3'
   gem 'spring',      '1.1.3'
@@ -55,6 +54,5 @@ end
 
 group :production do
   gem 'rails_12factor'
-  # gem 'rails_12factor', '0.0.2'
   gem 'puma',           '2.15.3'
 end
