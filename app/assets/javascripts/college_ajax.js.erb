@@ -64,9 +64,15 @@ $(function(){
       $(".remove_college_button").show();
     }
   });
+  // サークルの参加団体が空の時
+  if(!$("#joining_colleges .joining_college")[0]){
+    $("#college_form").show();
+    $("#edit_joining_colleges").hide();
+  }
+  // 大学追加ボタン
   $("#add_college_button").on("click", function(){
     var college_name = $("#college_select_wrap option:selected").val();
-    if(college_name){
+    if(college_name && !$(".college_name:contains("+college_name+")")[0]){
       var circle_id = $(this).attr("value");
       $.ajax({
         url: "/circles/"+circle_id+"/add_college",
@@ -84,14 +90,15 @@ $(function(){
   });
   set_remove_college_event();
 
-
+  $("#new__add_college_button").off("click");
   $("#new__add_college_button").on("click", function(){
     var college_name = $("#college_select_wrap option:selected").val();
-    if(college_name){
+    if(college_name && !$(".college_name:contains("+college_name+")")[0]){
       $("#joining_colleges").append(
         '<div class="joining_college margin_top_05rem">'+
           '<div class="college_name">'+college_name+'</div>'+
           '<div class="remove_college_button">大学を削除</div>'+
+          '<input type="hidden" name="joining_colleges[]" value="'+college_name+'">'+
         '</div>'
       );
       $(".joining_college").off("click");

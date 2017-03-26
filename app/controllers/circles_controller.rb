@@ -25,14 +25,20 @@ class CirclesController < ApplicationController
     preprocessing
     new_category_ids = params[:categories].values.reject(&:empty?).map{|str| str.to_i}
     new_category_ids.uniq!
-    if !new_category_ids.blank? && @circle.save
+    college_exist = (!params[:joining_colleges].blank? || !params[:circle][:college].blank?)
+    create_joining_colleges
+    if !new_category_ids.blank? && college_exist && @circle.save
       update_schedules
-      flash[:success] = "作成完了"
       create_categories(new_category_ids)
       @membership = Membership.create(member_id: current_user.id, circle_id: @circle.id, status: 0)
+      flash[:success] = "作成完了"
       redirect_to @circle
     else
       @category_options = Category.all
+      @frequencies = [
+        "週3回以上", "週2回", "週1回", "2週に1回",
+        "月1回", "2か月に1回", "3か月に1回", "半年に1回", "1年に1回",
+      ]
       flash.now[:notice] = "必須項目を記入してください"
       render "new"
     end
@@ -255,6 +261,16 @@ class CirclesController < ApplicationController
     def create_categories(ids)
       for i in 0..Category.max-1 do
         @circle.circle_categories.create(category_id: ids[i], priority: i)
+      end
+    end
+
+    def create_joining_colleges
+      if params[:joining_colleges].blank? && params[:circle][:college]
+        @circle.joining_college_list.add(params[:circle][:college])
+      else
+        params[:joining_colleges].each do |jc|
+          @circle.joining_college_list.add(jc)
+        end
       end
     end
 

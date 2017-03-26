@@ -29,6 +29,12 @@ $(function(){
       $("#categories_category_2").parent().css("border", "1px solid #ccc");
       $("#categories_category_3").parent().css("border", "1px solid #ccc");
     }
+    if (!$(".college_name")[0] && $("#college_select").val() == ""){
+      valid = false;
+      $("#college_form").css("border", "1px solid red");
+    } else {
+      $("#college_form").css("border", "1px solid #ccc");
+    }
     if(!valid){
       alert("必須項目を入力してください");
       return false;

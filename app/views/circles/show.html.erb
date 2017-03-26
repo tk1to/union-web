@@ -189,7 +189,6 @@
           <div class="lineAt_text">管理者限定の「Union運営局」のLINE＠に登録して、代表者交流会や企業協賛情報をゲットしましょう!!</div>
           <div class="ta_center margin_top_2rem">
             <a class="button button_size_large button_line" href="https://line.me/R/ti/p/%40yny1159k">友だち追加</a>
-          <!-- <img class="line_at_button" alt="友だち追加" src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png"> -->
           </div>
         </div>
       </div>
@@ -230,7 +229,7 @@
     if ($(".flash_message").is(":contains('作成完了')") ) {
       $("#line_at").click();
     }
-    $("#line_at__close, .alert").on("click", function(){
+    $(".alert").on("click", function(){
       $("#line_at__content").fadeOut(100);
     });
   });
