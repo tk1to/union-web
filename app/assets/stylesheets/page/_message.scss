@@ -3,18 +3,29 @@
   margin: 0 auto;
 }
 .message_rooms{
-  width: 100%;
-  height: 82%;
+  width: 100vw;
+  height: 85vh;
 }
 // テキストフィールドのwrap
 .message__input{
   width: 100%;
-  height: 3rem;
+  height: 15vh;
   margin: 0 auto;
+  position: relative;
   background: #fff;
   line-height: 3rem;
   border-top: 1px solid $l-gray;
   box-sizing:border-box;
+  .form__text_area_search{
+    position: absolute;
+    top: 0.5rem;
+    left: 3%;
+  }
+  .button{
+    position: absolute;
+    top: 0.5rem;
+    left: 82%;
+  }
 }
 // メッセージ
 .wrap-message{
@@ -89,7 +100,10 @@
     width: 1rem;
   }
 }
-
+.new_message{
+  height: 15vh;
+  line-height: 13vh;
+}
 .clearfix:after {
     content:"";
     display:block;
