@@ -3,13 +3,6 @@
 
   <div class="form__search">
     <div class="search_accordion">
-      <%= label_tag "フリーワード検索" %>
-      <div class="search_accordion_icon"></div>
-      <div class="search_accordion_value"></div>
-    </div>
-    <div class="search_accordion_open"><%= f.text_field :free_word, value: params[:circle][:free_word] , class: "form__text_field"%></div>
-
-    <div class="search_accordion">
       <%= f.label :categories %>
       <div class="search_accordion_icon"></div>
       <div class="search_accordion_value"></div>
@@ -90,6 +83,13 @@
         %><span>日</span>
       </div>
     </div>
+
+    <div class="search_accordion">
+      <%= label_tag "フリーワード検索" %>
+      <div class="search_accordion_icon"></div>
+      <div class="search_accordion_value"></div>
+    </div>
+    <div class="search_accordion_open"><%= f.text_field :free_word, value: params[:circle][:free_word] , class: "form__text_field"%></div>
 
     <%= f.submit "絞り込み検索" , class: "button button_100 button_color_blue margin_top_3rem"%>
   </div>
