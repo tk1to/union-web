@@ -6,7 +6,7 @@
         この機能を利用するには、プロフィールの必須項目を入力してください。
         <ul>
           <% current_user.free[1].each do |label| %>
-            <li class="button button_thin"><%= label %></li>
+            <li class="button button_thin"><%= link_to label, [:edit, current_user], class: "link_fill color_white" %></li>
           <% end %>
         </ul>
       </p>
