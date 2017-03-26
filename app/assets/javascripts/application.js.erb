@@ -34,7 +34,7 @@ $(function(){
 
   // ユーザー必須項目不足時
   $(".prompt").hide();
-  if(!$("span#user_free")[0]) {
+  if($("span#user_restricted")[0]) {
     $(".restricted").click(function(){
       $(".prompt").fadeIn(300);
       return false;

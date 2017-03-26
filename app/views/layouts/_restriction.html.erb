@@ -1,5 +1,5 @@
-<% if user_signed_in? %>
-  <% if current_user.free[0] %><span id="user_free"></span><% end %>
+<% if user_signed_in? && !current_user.free[0] %>
+  <span id="user_restricted"></span>
   <div class="prompt">
     <div class="prompt__box">
       <p class="prompt__text">

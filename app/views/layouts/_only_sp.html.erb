@@ -1,6 +1,8 @@
-<% if @only_sp %><span id="only_sp"></span><% end %>
-<script type="text/javascript">
-  if($("span#only_sp")[0]){
-    alert("スマートフォンで見るか、web対応までもう少々お待ちください");
-  }
-</script>
+<% if @only_sp %>
+  <span id="only_sp"></span>
+  <script type="text/javascript">
+    if($("span#only_sp")[0]){
+      alert("スマートフォンで見るか、web対応までもう少々お待ちください");
+    }
+  </script>
+<% end %>
