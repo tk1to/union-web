@@ -26,6 +26,8 @@ gem 'zeroclipboard-rails'
 
 gem 'acts-as-taggable-on', '~> 3.4'
 
+gem 'meta-tags'
+
 gem 'sdoc',         '0.4.0', group: :doc
 
 gem 'rb-readline'
