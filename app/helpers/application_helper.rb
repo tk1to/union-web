@@ -14,4 +14,11 @@ module ApplicationHelper
 
     set_meta_tags(options)
   end
+
+  # http://qiita.com/hisonl/items/05e7bca31475569f400d
+  # def twitter_image_url
+  #   url = image_url("tutorial/logo.png")
+  #   url = "https:#{url}" if url =~ /\A\/\/s3/
+  #   url
+  # end
 end
