@@ -4,4 +4,10 @@ ja:
       # site: 'Union'
       title: 'Union'
       description: 'サークル探しはUnion！'
-      # keywords: ''
+      # keywords: 'サークル,Union'
+      twitter:
+        card: "summary"
+        site: "Union"
+        title: "サークル探しはUnion！"
+        description: "サークル探しはUnion！"
+        image: "asset_path('tutorial/logo.png')"
