@@ -227,6 +227,20 @@ class CirclesController < ApplicationController
     render partial: "shared/none"
   end
 
+  def update_ranking
+    circles = Circle.all
+    total   = circles.count
+    circles.each_with_index do |c, i|
+      point = 0
+      point += c.blogs.count * 30
+      point += c.events.count * 30
+      point += c.members.count * 30
+      point += 50*(total-i)/total
+      c.update_attribute(:ranking_point, point)
+    end
+    redirct_to :top
+  end
+
   private
     def circle_params
       params.require(:circle).permit(

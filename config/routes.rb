@@ -68,6 +68,7 @@ Rails.application.routes.draw do
     collection do
       get :search
       get :feed
+      get :update_ranking
     end
   end
 end
