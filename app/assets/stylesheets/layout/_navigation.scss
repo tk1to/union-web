@@ -1,10 +1,8 @@
 .nav {
   position: fixed;
-  position: relative;
-  top: 0;
-  left:0;
   background: #fafafa;
   width:100%;
+  max-width: 500px;
   z-index: 100;
   box-shadow: 0 1px 3px gray;
   &__list {
@@ -46,5 +44,8 @@
   .current_location{
     border-bottom:5px solid $d-blue;
   }
+}
+.nav_topcover{
+  height: 3rem;
 }
 
