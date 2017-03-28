@@ -1,31 +1,35 @@
-<header class="header c_picture" style="background-image: url(<%= @event.picture %>);"></header>
+<%= link_to @circle, class: "link_fill" do %>
+  <header class="header c_picture" style="background-image: url(<%= @event.picture %>);"></header>
+<% end %>
 
-	<div class="author">
-		<div class="author__image c_picture" style="background-image: url(<%= @circle.picture %>);"></div>
-		<div class="author__circle"><span class="author__autor">主催者:</span><%= link_to @circle.name, @circle , class: "text_decoration_none color_black"%></div>
-	</div>
+  <div class="author">
+    <%= link_to @circle, class: "link_fill" do %>
+      <div class="author__image c_picture" style="background-image: url(<%= @circle.picture %>);"></div>
+      <div class="author__circle"><span class="author__autor">主催者:</span><%= @circle.name %></div>
+    <% end %>
+  </div>
 
 <div class="article">
-	<h1 class="article__title"><%= @event.title %></h1>
-	<p class="article__text"><%= simple_format(h(@event.content), class: "article__text") %></p>
+  <h1 class="article__title"><%= @event.title %></h1>
+  <p class="article__text"><%= simple_format(h(@event.content), class: "article__text") %></p>
 
-	<h2 class="frame__heading frame__heading_underline">イベント詳細</h2>
-	<div class="event__detail">
-		<div class="event__detail_head">開催日時</div>
-		<div class="event__detail_item"><%= @event.schedule %></div>
-		<div class="event__detail_head">参加費</div>
-		<div class="event__detail_item"><%= @event.fee %></div>
-		<div class="event__detail_head">定員</div>
-		<div class="event__detail_item"><%= @event.capacity %></div>
-		<div class="event__detail_head">開催場所</div>
-		<div class="event__detail_item"><%= @event.place %></div>
-	</div>
+  <h2 class="frame__heading frame__heading_underline">イベント詳細</h2>
+  <div class="event__detail">
+    <div class="event__detail_head">開催日時</div>
+    <div class="event__detail_item"><%= @event.schedule %></div>
+    <div class="event__detail_head">参加費</div>
+    <div class="event__detail_item"><%= @event.fee %></div>
+    <div class="event__detail_head">定員</div>
+    <div class="event__detail_item"><%= @event.capacity %></div>
+    <div class="event__detail_head">開催場所</div>
+    <div class="event__detail_item"><%= @event.place %></div>
+  </div>
 
 </div>
 
 
 <% if @be_member %>
-	<div class="ta_center">
-	  <%= link_to "編集", [:edit, @circle, @event] , class: "button button_size_medium button_color_blue "%>
-	</div>
+  <div class="ta_center">
+    <%= link_to "編集", [:edit, @circle, @event] , class: "button button_size_medium button_color_blue "%>
+  </div>
 <% end %>
