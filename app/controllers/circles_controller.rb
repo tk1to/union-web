@@ -10,6 +10,9 @@ class CirclesController < ApplicationController
       @circles = @circles.joins(:categories).where(categories: {id: params[:category_id]})
       @title = Category.find(params[:category_id]).name
     end
+    if params[:ranking]
+      @circles = Circle.order("ranking_point DESC").page(params[:page]).per(15)
+    end
     @title = params[:title] if params[:title]
   end
   def new
@@ -238,7 +241,7 @@ class CirclesController < ApplicationController
       point += 50*(total-i)/total
       c.update_attribute(:ranking_point, point)
     end
-    redirct_to :top
+    redirect_to :top
   end
 
   private

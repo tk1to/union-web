@@ -38,7 +38,7 @@
 <div id="ranking" class="wrap_miniCard">
   <% if @circles.any? %>
     <ul class="sride-miniCard">
-      <% @circles.each do |circle| %>
+      <% @ranking.each do |circle| %>
         <li class="miniCard">
           <%= link_to circle, class: "link_fill" do %>
             <div class="miniCard__background c_picture" style="background-image: url(<%= circle.header_picture %>)"></div>
@@ -49,7 +49,7 @@
         </li>
       <% end %>
       <li>
-        <%= link_to "もっと見る", [:circles, title: "サークルランキング"], class: "link_fill miniCard miniCard__more" %>
+        <%= link_to "もっと見る", [:circles, title: "サークルランキング", ranking: true], class: "link_fill miniCard miniCard__more" %>
       </li>
     </ul>
   <% end %>
