@@ -108,5 +108,19 @@
 <script>
   $(function(){
     $("#date_select_wrap > select").wrap($("<div>").addClass("wrap_select wrap_select_20")).addClass("selectbox");
+
+    $("form.edit_circle").off("submit");
+    $("form.edit_circle").on("submit", function(){
+      $(".invalid").remove();
+      blank_validate_input($("#circle_name"), !$(".invalid")[0]);
+      blank_validate_input($("#circle_description"), !$(".invalid")[0]);
+      blank_validate_categories_select(!$(".invalid")[0]);
+      blank_validate_college(!$(".invalid")[0]);
+      var valid = !$(".invalid")[0];
+      if(!valid){
+        alert("必須項目を入力してください");
+        return false;
+      }
+    });
   });
 </script>

@@ -1,0 +1,66 @@
+function blank_validate_input(input_tag, valid){
+  if(!input_tag.val()){
+    input_tag.css("border", "1px solid red");
+    if(valid){
+      input_tag.parents("form").prepend($("<span>").addClass("invalid"));
+    }
+  } else {
+    input_tag.css("border", "1px solid #ccc");
+  }
+}
+function blank_validate_select(select_tag, valid){
+  if(!select_tag.val()){
+    // セレクトボックスを囲う親要素のスタイルを変更
+    select_tag.parent().css("border", "1px solid red");
+    if(valid){
+      select_tag.parents("form").prepend($("<span>").addClass("invalid"));
+    }
+  } else {
+    select_tag.parent().css("border", "1px solid #ccc");
+  }
+}
+function blank_validate_file(file_tag, valid){
+  if(!file_tag.val()){
+    file_tag.parent().css("border-top", "1px solid red");
+    file_tag.parent().css({
+      "border-top": "1px solid red",
+      "color": "red",
+    });
+    file_tag.parent().parent().css("border", "1px solid red");
+    if(valid){
+      file_tag.parents("form").prepend($("<span>").addClass("invalid"));
+    }
+  } else {
+    file_tag.parent().css({
+      "border-top": "1px solid #00ACC1",
+      "color": "#00ACC1",
+    });
+    file_tag.parent().parent().css("border", "1px solid #00ACC1");
+  }
+}
+function blank_validate_categories_select(valid){
+  if(!($("#categories_category_1").val() || $("#categories_category_2").val() || $("#categories_category_3").val())){
+    if(valid){
+      $("#categories_category_1").parents("form").prepend($("<span>").addClass("invalid"));
+    }
+    $("#categories_category_1").parent().css("border", "1px solid red");
+    $("#categories_category_2").parent().css("border", "1px solid red");
+    $("#categories_category_3").parent().css("border", "1px solid red");
+  } else {
+    $("#categories_category_1").parent().css("border", "1px solid #ccc");
+    $("#categories_category_2").parent().css("border", "1px solid #ccc");
+    $("#categories_category_3").parent().css("border", "1px solid #ccc");
+  }
+}
+function blank_validate_college(valid){
+  if (!$(".college_name")[0] && $("#college_select").val() == ""){
+    $("#college_form").css("border", "1px solid red");
+    if(valid){
+      $("#college_form").parents("form").prepend($("<span>").addClass("invalid"));
+    }
+  } else {
+    $("#college_form").css("border", "1px solid #ccc");
+  }
+}
+
+

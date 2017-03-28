@@ -36,30 +36,19 @@
 
 <script>
   $(function(){
-    $("input[type='submit']").on("click", function(){
-      var valid = true;
-      $(".edit_event input[type='text']").each(function(){
-        if(!$(this).val()){
-          valid = false;
-          $(this).css("border", "1px solid red");
-        } else {
-          $(this).css("border", "1px solid #ccc");
-        }
-      });
-      if(!$("input[type='file']").val()){
-        valid = false;
-        $(".form__upload").css({
-          "border-top": "1px solid red",
-          "color": "red",
-        });
-        $(".form__images").css("border", "1px solid red");
-      } else {
-        $(".form__upload").css({
-          "border-top": "1px solid #00ACC1",
-          "color": "#00ACC1",
-        });
-        $(".form__images").css("border", "1px solid #00ACC1");
+    $("form").off("submit");
+    $("form").on("submit", function(){
+      $(".invalid").remove();
+      blank_validate_input($("#event_title"), !$(".invalid")[0]);
+      if($(this).attr("id")=="new_event"){
+        blank_validate_file($("#event_picture"), !$(".invalid")[0]);
       }
+      blank_validate_input($("#event_content"), !$(".invalid")[0]);
+      blank_validate_input($("#event_schedule"), !$(".invalid")[0]);
+      blank_validate_input($("#event_fee"), !$(".invalid")[0]);
+      blank_validate_input($("#event_capacity"), !$(".invalid")[0]);
+      blank_validate_input($("#event_place"), !$(".invalid")[0]);
+      var valid = !$(".invalid")[0];
       if(!valid){
         alert("必須項目を入力してください");
         return false;

@@ -78,12 +78,6 @@ $(function(){
   });
 
   filereader();
-  // $('.input_file').bind('change', function() {
-  //   var size_in_megabytes = this.files[0].size/1024/1024;
-  //   if (size_in_megabytes > 5) {
-  //     alert("ファイルの最大サイズは5MBです。");
-  //   }
-  // });
 
   // ユーザー登録画面で同じ要素の削除
   if ($(".error_messages")){
@@ -91,7 +85,6 @@ $(function(){
       $(".error_messages li:first-child").remove();
     }
   }
-
 });
 
 function filereader(){
@@ -109,6 +102,4 @@ function filereader(){
     });
   <% end %>
 }
-
-
 
