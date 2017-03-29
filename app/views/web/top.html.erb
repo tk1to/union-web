@@ -104,12 +104,6 @@
   <% end %>
 </div>
 
-<% if !user_signed_in? %>
-  <div class="wrap_to_lp">
-    <div class="to_lp"><%= link_to "ログイン・新規登録はこちら！", :root, class: "link_fill" %></div>
-  </div>
-<% end %>
-
 <% if @tutorialing %>
   <%= render "tutorial" %>
 <% end %>

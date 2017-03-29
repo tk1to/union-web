@@ -25,6 +25,12 @@
 
   <%= yield %>
 
+  <% if !user_signed_in? && params[:action] != "landing" %>
+    <div class="wrap_to_lp">
+      <div class="to_lp"><%= link_to "ログイン・新規登録はこちら！", :root, class: "link_fill" %></div>
+    </div>
+  <% end %>
+
   <% if !(params[:controller] == "message_rooms" && params[:action] == "show") %>
     <footer class="footer">
       <p><%= link_to "プライバシーポリシー", :privacypolicy, style: "color: gray; text-decoration: none;" %></p>
