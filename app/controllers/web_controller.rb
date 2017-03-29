@@ -25,10 +25,12 @@ class WebController < ApplicationController
   def privacypolicy
   end
 
-  def send_mail_form
+  def mail_form
     unless user_signed_in? && current_user.status == "admin"
       redirect_to :top
     end
+  end
+  def send_ad_mails
   end
 
   def letsencrypt

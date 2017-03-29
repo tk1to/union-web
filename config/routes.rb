@@ -10,7 +10,9 @@ Rails.application.routes.draw do
 
   post "switch"  => "debug#switch"
   get  "debug"   => "debug#debug"
-  get  "send_mail_form" => "web#send_mail_form"
+
+  get  "mail_form" => "web#mail_form"
+  post "send_mail" => "web#send_mail"
 
   devise_for :users, controllers: {
     sessions:           'users/sessions',
