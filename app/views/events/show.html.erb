@@ -3,9 +3,9 @@
 <% end %>
 
   <div class="author">
-    <%= link_to @circle, class: "link_fill" do %>
+    <%= link_to @circle, class: "link_fill color_gray" do %>
       <div class="author__image c_picture" style="background-image: url(<%= @circle.picture %>);"></div>
-      <div class="author__circle"><span class="author__autor">主催者:</span><%= @circle.name %></div>
+      <div class="author__circle"><span class="author__autor">主催者:</span>  <%= @circle.name %></div>
     <% end %>
   </div>
 
