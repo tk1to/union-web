@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  default from: "Union"
+  default from: "Union運営局"
   def notification_mail(user, message_type, params)
     @user = user
     @message_type = message_type
@@ -10,5 +10,12 @@ class UserMailer < ApplicationMailer
       subject = "Unionで足跡が付いています。"
     end
     mail to: @user.email, subject: subject
+  end
+
+  def ad_mail(email, name)
+    @email = email
+    @name  = name
+    subject = "【新入生勧誘のお手伝いのご提案】Union運営局"
+    mail to: @email, subject: subject
   end
 end

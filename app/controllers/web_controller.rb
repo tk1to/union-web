@@ -25,6 +25,12 @@ class WebController < ApplicationController
   def privacypolicy
   end
 
+  def send_mail_form
+    unless user_signed_in? && current_user.status == "admin"
+      redirect_to :top
+    end
+  end
+
   def letsencrypt
     if params[:id] == ENV["LETSENCRYPT_REQUEST"]
     render text: ENV["LETSENCRYPT_RESPONSE"]
