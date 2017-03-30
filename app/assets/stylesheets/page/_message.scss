@@ -42,12 +42,13 @@
 }
 .message__text{
   background: $d-blue;
-  padding: 0.8rem 1rem;
-  max-width: 60%;
+  padding: 0.8rem 0.8rem;
+  max-width: 65%;
   min-width: 0%;
   border-radius: 3px;
   box-sizing: border-box;
   position:relative;
+  word-break:break-all;
 }
 .sender{
   background: $d-blue;
@@ -86,6 +87,7 @@
   color: gray;
   font-size: 0.6rem;
   display: inline-block;
+  word-break:normal;
   // width: 3rem;
 }
 .sender .message__time{
