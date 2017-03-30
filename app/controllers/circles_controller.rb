@@ -5,10 +5,14 @@ class CirclesController < ApplicationController
   before_action :correct_admin, only: [:edit, :update]
 
   def index
-    @circles = Circle.order("created_at DESC").page(params[:page]).per(15)
+    @circles = Circle.order("ranking_point DESC").page(params[:page]).per(15)
     if params[:category_id]
-      @circles = @circles.joins(:categories).where(categories: {id: params[:category_id]})
+      @circles = Circle.joins(:categories).where(categories: {id: params[:category_id]}).page(params[:page]).per(15)
       @title = Category.find(params[:category_id]).name
+      if @circles.blank?
+        @circles = Circle.order("ranking_point DESC").page(params[:page]).per(15)
+        @title = nil
+      end
     end
     if params[:ranking]
       condition = Circle.arel_table
@@ -203,11 +207,11 @@ class CirclesController < ApplicationController
         @circles  = @circles.joins(:welcome_event_schedules).where(wesa.gteq(from_date).and(wesa.lteq(to_date))).uniq
       end
     end
-    @circles = @circles.page(params[:page]).per(15)
+    @circles = @circles.order("ranking_point DESC").page(params[:page]).per(15)
     render "index"
   end
   def feed
-    @circles = Circle.order("created_at DESC").page(params[:page]).per(15)
+    @circles = Circle.order("ranking_point DESC").page(params[:page]).per(15)
     # if user_signed_in? && (fed_category = current_user.categories.first).present?
     #   @circles = @circles.joins(:categories).where(categories: {id: fed_category.id})
     # end
