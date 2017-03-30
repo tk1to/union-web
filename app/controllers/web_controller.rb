@@ -37,8 +37,9 @@ class WebController < ApplicationController
       for i in 0..emails.count-1 do
         UserMailer.ad_mail(emails[i].chomp, names[i].chomp).deliver_now
       end
+      flash[:notice] = "送信完了"
     else
-      flash[:failure] = "行数違い"
+      flash[:alert]  = "行数違い"
     end
     redirect_to :mail_form
   end

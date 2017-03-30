@@ -20,10 +20,10 @@
       $("#confirm_table tr").remove();
       var names  = $("#ad_names").val().split(/\r\n|\r|\n/);
       var emails = $("#ad_emails").val().split(/\r\n|\r|\n/);
-      for(var i=0;i<names.length;i++){
+      for(var i=0;i<emails.length;i++){
         $("#confirm_table").append(
           $("<tr>").append(
-            $("<td>").text(emails[i])
+            $("<td>").addClass("email").text(emails[i])
                   ).append(
             $("<td>").text(names[i])
           )
@@ -46,12 +46,14 @@
   }
   td {
     background: #fff;
-    border: 1px solid #ccc;
+    border: 1px solid #000;
     height: 1rem;
     width: 50%;
     max-width: 45vw;
     min-width: 100px;
     word-wrap:break-word;
+    color: #333;
+    padding: 3px;
   }
   button {
     width: 100px;
