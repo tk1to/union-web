@@ -239,7 +239,7 @@ class CirclesController < ApplicationController
       point += c.events.count * 30
       point += c.members.count * 30
       point += 50*(total-i)/total
-      if c.id == id
+      if c.id == 1
         point = -1
       end
       c.update_attribute(:ranking_point, point)
