@@ -64,8 +64,8 @@
     <% end %>
     <% if @status_num <= 2 %>
       <div class="ta_center">
-        <%= link_to "ブログを作成", [:new, @circle, :blog] , class: "button button_square button_color_blue"%>
         <%= link_to "イベントを作成", [:new, @circle, :event] , class: "button button_square button_color_blue"%>
+        <%= link_to "ブログを作成", [:new, @circle, :blog] , class: "button button_square button_color_blue"%>
       </div>
     <% end %>
   <% else %>
@@ -114,18 +114,6 @@
   </table>
 </div>
 
-<div class="frame frame_blog">
-  <h2 class="frame__heading">ブログ一覧(<%= @circle.blogs.count %>)</h2>
-  <% if @blogs.any? %>
-    <ul class="wrap-thinCard">
-      <%= render "shared/blog_cards" %>
-      <li><%= link_to "もっと見る", [@circle, :blogs], class: "thinCard thinCard__more" %></li>
-    </ul>
-  <% else %>
-    <p class="thinCard thinCard_no">ブログがありません。</p>
-  <% end %>
-</div>
-
 <div class="frame">
   <h2 class="frame__heading">イベント一覧(<%= @circle.events.count %>)</h2>
   <% if @events.any? %>
@@ -135,6 +123,18 @@
     </ul>
   <% else %>
     <p class="thinCard thinCard_no">イベントがありません。</p>
+  <% end %>
+</div>
+
+<div class="frame frame_blog">
+  <h2 class="frame__heading">ブログ一覧(<%= @circle.blogs.count %>)</h2>
+  <% if @blogs.any? %>
+    <ul class="wrap-thinCard">
+      <%= render "shared/blog_cards" %>
+      <li><%= link_to "もっと見る", [@circle, :blogs], class: "thinCard thinCard__more" %></li>
+    </ul>
+  <% else %>
+    <p class="thinCard thinCard_no">ブログがありません。</p>
   <% end %>
 </div>
 
@@ -150,8 +150,8 @@
       <% end %>
       <% if @status_num <= 2 %>
         <div class="ta_center">
-          <%= link_to "ブログを作成", [:new, @circle, :blog] , class: "button button_square button_color_blue"%>
           <%= link_to "イベントを作成", [:new, @circle, :event] , class: "button button_square button_color_blue"%>
+          <%= link_to "ブログを作成", [:new, @circle, :blog] , class: "button button_square button_color_blue"%>
         </div>
       <% end %>
     <% else %>
