@@ -17,6 +17,7 @@
             <div class="noticeFollow__image c_picture" style="background-image: url(<%= user.picture_url %>)"></div>
             <div class="noticeFollow__heading"><%= user.name %></div>
             <div class="noticeFollow__subhead"><%= user.basic_info %></div>
+            <div class="noticeFollow__follow"></div>
           </div>
         <% end %>
       <% elsif notification.new_user_blog? && blog %>
