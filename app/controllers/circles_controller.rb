@@ -11,7 +11,8 @@ class CirclesController < ApplicationController
       @title = Category.find(params[:category_id]).name
     end
     if params[:ranking]
-      @circles = Circle.order("ranking_point DESC").page(params[:page]).per(15)
+      condition = Circle.arel_table
+      @circles  = Circle.where(condition[:ranking_point].gt(0)).order("ranking_point DESC").page(params[:page]).per(15)
     end
     @title = params[:title] if params[:title]
   end
