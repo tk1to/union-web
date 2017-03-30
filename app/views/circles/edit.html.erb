@@ -38,7 +38,9 @@
         <%= f.file_field :header_picture , class: "form__file"%>
       </div>
     </div>
+
     <div class="margin_top_2rem"></div>
+
     <%= f.label :join_colleges, "参加大学（１つ以上必須）", class: "form__item margin_top_2rem ta_center" %>
     <div id="joining_colleges">
       <% @circle.joining_college_list.each do |college| %>
@@ -58,6 +60,11 @@
         <%= render "shared/ajax_select", {elements: @colleges, name: "college"} %>
       </div>
       <div id="add_college_button" value="<%= @circle.id %>" class="button button_100 button_color_blue">追加</div>
+    </div>
+
+    <%= f.label :org_type, class: "form__item" %>
+    <div class="wrap_select margin_0_auto">
+      <%= f.select :org_type, options_for_select(@types, selected: @circle.org_type), {include_blank: true}, {class: "selectbox"} %>
     </div>
 
     <%= f.label :people_scale,class: "form__item" %>

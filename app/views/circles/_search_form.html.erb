@@ -25,6 +25,16 @@
     </div>
 
     <div class="search_accordion">
+      <%= f.label :org_type %>
+      <div class="search_accordion_icon"></div>
+      <div class="search_accordion_value"></div>
+      </div>
+    <div class="wrap_select wrap_select_100 search_accordion_open">
+      <%= f.select :org_type,
+      options_for_select(@types, selected: params[:circle][:org_type]), {include_blank: true}, {class: "selectbox"} %>
+    </div>
+
+    <div class="search_accordion">
       <%= f.label :people_scale %>
       <div class="search_accordion_icon"></div>
       <div class="search_accordion_value"></div>

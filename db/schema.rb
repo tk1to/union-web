@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170329135235) do
+ActiveRecord::Schema.define(version: 20170330164243) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 20170329135235) do
     t.integer  "annual_fee"
     t.string   "party_frequency"
     t.integer  "ranking_point",      default: 0
+    t.string   "org_type"
   end
 
   create_table "contacts", force: :cascade do |t|

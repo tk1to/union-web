@@ -23,6 +23,7 @@ class CirclesController < ApplicationController
       "週3回以上", "週2回", "週1回", "2週に1回",
       "月1回", "2か月に1回", "3か月に1回", "半年に1回", "1年に1回",
     ]
+    @types = ["学内", "インカレ", "学生団体", "部活"]
   end
   def create
     @circle = Circle.new(circle_params)
@@ -43,6 +44,7 @@ class CirclesController < ApplicationController
         "週3回以上", "週2回", "週1回", "2週に1回",
         "月1回", "2か月に1回", "3か月に1回", "半年に1回", "1年に1回",
       ]
+      @types = ["学内", "インカレ", "学生団体", "部活"]
       flash.now[:notice] = "必須項目を記入してください"
       render "new"
     end
@@ -74,6 +76,7 @@ class CirclesController < ApplicationController
     end
     @informations = {
       joining_colleges: "参加大学",
+      org_type: "団体形態",
       people_scale:  "人数",
       activity_place: "活動場所",
       annual_fee: "年会費",
@@ -96,6 +99,7 @@ class CirclesController < ApplicationController
       "週3回以上", "週2回", "週1回", "2週に1回",
       "月1回", "2か月に1回", "3か月に1回", "半年に1回", "1年に1回",
     ]
+    @types = ["学内", "インカレ", "学生団体", "部活"]
   end
   def update
     @circle = Circle.find(params[:id])
@@ -149,18 +153,16 @@ class CirclesController < ApplicationController
       "週3回以上", "週2回", "週1回", "2週に1回",
       "月1回", "2か月に1回", "3か月に1回", "半年に1回", "1年に1回",
     ]
+    @types = ["学内", "インカレ", "学生団体", "部活"]
     if !params[:circle].nil?
       @circles = @circles.joins(:categories).where(categories: {id: params[:circle][:categories]}) if params[:circle][:categories].present?
 
-      if !params[:circle][:free_word].blank?
-        free_word_name        = Circle.arel_table[:name]
-        free_word_description = Circle.arel_table[:description]
-        @circles = @circles.where(free_word_name.matches("%#{ params[:circle][:free_word] }%")
-                              .or(free_word_description.matches("%#{ params[:circle][:free_word] }%")))
-      end
-
       if !params[:circle][:college].blank?
         @circles = @circles.tagged_with(params[:circle][:college])
+      end
+
+      if !params[:circle][:org_type].blank?
+        @circles = @circles.where(org_type: params[:circle][:org_type])
       end
 
       if !params[:circle][:people_scale].blank?
@@ -185,6 +187,13 @@ class CirclesController < ApplicationController
       end
       if !params[:circle][:party_frequency].blank?
         @circles = @circles.where(party_frequency: params[:circle][:party_frequency])
+      end
+
+      if !params[:circle][:free_word].blank?
+        free_word_name        = Circle.arel_table[:name]
+        free_word_description = Circle.arel_table[:description]
+        @circles = @circles.where(free_word_name.matches("%#{ params[:circle][:free_word] }%")
+                              .or(free_word_description.matches("%#{ params[:circle][:free_word] }%")))
       end
 
       wesa      = WelcomeEventSchedule.arel_table[:schedule]
@@ -252,6 +261,7 @@ class CirclesController < ApplicationController
     def circle_params
       params.require(:circle).permit(
           :name, :description, :picture, :header_picture,
+          :type,
           :joining_colleges, :people_scale, :activity_place,
           :activity_frequency, :annual_fee, :party_frequency,
         )
