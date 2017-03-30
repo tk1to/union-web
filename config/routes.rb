@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get  "debug"   => "debug#debug"
 
   get  "mail_form" => "web#mail_form"
-  post "send_mail" => "web#send_mail"
+  post "send_ad_mails" => "web#send_ad_mails"
 
   devise_for :users, controllers: {
     sessions:           'users/sessions',

@@ -1,14 +1,64 @@
 
-<%= form_tag :send_mail do %>
-  <%= text_area :ad, :names ,class: "mail_form"%>
-  <%= text_area :ad, :names ,class: "mail_form"%>
+<%= form_tag :send_ad_mails do %>
+  <div class="margin_top_2rem">
+  <label for="">email</label>
+  <label for="">名前</label>
+  </div>
+  <%= text_area :ad, :emails %>
+  <%= text_area :ad, :names %>
+
+  <div class="ta_center margin_top_1rem" id="confirm"><button>確認</button></div>
+  <table id="confirm_table">
+  </table>
+  <div class="ta_center margin_top_1rem" id="submit"><button>送信</button></div>
+
 <% end %>
 
+<script>
+  $(function(){
+    $("#confirm").on("click", function(){
+      $("#confirm_table tr").remove();
+      var names  = $("#ad_names").val().split(/\r\n|\r|\n/);
+      var emails = $("#ad_emails").val().split(/\r\n|\r|\n/);
+      for(var i=0;i<names.length;i++){
+        $("#confirm_table").append(
+          $("<tr>").append(
+            $("<td>").text(emails[i])
+                  ).append(
+            $("<td>").text(names[i])
+          )
+        );
+      }
+      return false;
+    });
+  })
+</script>
+
 <style>
-  .mail_form {
+  textarea {
     display: inline-block;
     width: 48%;
-    margin-top: 2rem;
+    margin-top: .5rem;
     height: 50vh;
+  }
+  table {
+    margin-top: 2rem;
+  }
+  td {
+    background: #fff;
+    border: 1px solid #ccc;
+    height: 1rem;
+    width: 50%;
+    max-width: 45vw;
+    min-width: 100px;
+    word-wrap:break-word;
+  }
+  button {
+    width: 100px;
+    height: 40px;
+  }
+  label {
+    width: 49%;
+    display: inline-block;
   }
 </style>

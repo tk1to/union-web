@@ -31,6 +31,16 @@ class WebController < ApplicationController
     end
   end
   def send_ad_mails
+    emails = params[:ad][:emails].lines
+    names  = params[:ad][:names].lines
+    if emails.count == names.count
+      for i in 0..emails.count-1 do
+        UserMailer.ad_mail(emails[i].chomp, names[i].chomp).deliver_now
+      end
+    else
+      flash[:failure] = "行数違い"
+    end
+    redirect_to :mail_form
   end
 
   def letsencrypt
