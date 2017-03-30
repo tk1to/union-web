@@ -261,7 +261,7 @@ class CirclesController < ApplicationController
     def circle_params
       params.require(:circle).permit(
           :name, :description, :picture, :header_picture,
-          :type,
+          :org_type,
           :joining_colleges, :people_scale, :activity_place,
           :activity_frequency, :annual_fee, :party_frequency,
         )
