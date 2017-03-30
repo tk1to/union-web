@@ -79,7 +79,11 @@
 
 <div class="frame">
   <h2 class="frame__heading frame__heading_underline">団体概要</h2>
-  <div class="description"><%= simple_format(h(@circle.description)) %></div>
+  <div class="description">
+    <% @circle.description.lines.each do |line| %>
+      <p class="article__text"><%= line %></p>
+    <% end %>
+  </div>
 
   <h2 class="frame__heading frame__heading_underline">団体詳細情報</h2>
 

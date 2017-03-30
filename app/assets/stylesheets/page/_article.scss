@@ -58,14 +58,12 @@
 		line-height: 2rem;
 	}
 	&__text{
-		margin-top:1rem;
 		color: $gray;
 		font-size: 0.9rem;
-		line-height: 1.3rem;
-		margin-bottom: 2rem;
-	}
-	&_br{
-		
+		line-height: 1rem;
+		min-height: 1.2rem;
+		height: auto;
+		word-break: break-all;
 	}
 }
 // ブログの写真を囲むdiv

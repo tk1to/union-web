@@ -103,7 +103,13 @@
     <div class="introduce">
       <h1 class="introduce__heading"><%= value %></h1>
       <% if key != :categories %>
-        <p class="introduce__text"><%= simple_format(h(@user[key])) %></p>
+        <div class="introduce__text">
+          <% if !@user[key].blank? %>
+            <% @user[key].lines.each do |line| %>
+              <p class="article__text"><%= line %></p>
+            <% end %>
+          <% end %>
+        </div>
       <% else %>
         <% @user.categories.each do |category| %>
           <p class="introduce__text"><%= category.name %></p>

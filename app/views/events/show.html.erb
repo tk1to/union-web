@@ -11,7 +11,9 @@
 
 <div class="article">
   <h1 class="article__title"><%= @event.title %></h1>
-  <p class="article__text"><%= simple_format(h(@event.content), class: "article__text") %></p>
+  <% @event.content.lines.each do |line| %>
+    <p class="article__text"><%= line %></p>
+  <% end %>
 
   <h2 class="frame__heading frame__heading_underline">イベント詳細</h2>
   <div class="event__detail">
