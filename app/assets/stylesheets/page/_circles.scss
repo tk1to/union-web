@@ -106,7 +106,22 @@
     color: $gray;
   }
 }
-
+.fixed_favorite{
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  .favorites{
+    width: 4rem;
+    height: 4rem;
+    border-radius:50%;
+    background:$d-blue;
+    box-shadow: 0 2px 1px gray;
+    background-image: image-url("pin_fff.svg");
+    background-size: 2rem 2rem;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
 // 新歓日程のフォーム
 .welcome_event_schedule_item{
   width: 70%;
