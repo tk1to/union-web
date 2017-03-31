@@ -5,11 +5,8 @@ class CirclesController < ApplicationController
   before_action :correct_admin, only: [:edit, :update]
 
   def index
-    @circles = Circle.order("ranking_point DESC").page(params[:page]).per(15)
     if params[:category_id]
-      hit_circles    = Circle.joins(:categories).where(categories: {id: params[:category_id]}).order("ranking_point DESC")
-      no_hit_circles = Circle.joins(:categories).where.not(categories: {id: params[:category_id]}).order("ranking_point DESC")
-      @circles = hit_circles.merge(no_hit_circles).page(params[:page]).per(15)
+      @circles = Circle.joins(:categories).where(categories: {id: params[:category_id]}).order("ranking_point DESC")
       @title = Category.find(params[:category_id]).name
       if @circles.blank?
         @circles = Circle.order("ranking_point DESC").page(params[:page]).per(15)
@@ -19,6 +16,9 @@ class CirclesController < ApplicationController
     if params[:ranking]
       condition = Circle.arel_table
       @circles  = Circle.where(condition[:ranking_point].gt(0)).order("ranking_point DESC").page(params[:page]).per(15)
+    end
+    if params[:category_id].nil? && params[:ranking].nil?
+      @circles = Circle.order("ranking_point DESC").page(params[:page]).per(15)
     end
     @title = params[:title] if params[:title]
   end
