@@ -30,7 +30,7 @@
 
   <%= yield %>
 
-  <% if !user_signed_in? && params[:action] != "landing" %>
+  <% if !user_signed_in? && !@logining %>
     <div class="wrap_to_lp">
       <div class="to_lp"><%= link_to "ログイン・新規登録はこちら！", :root, class: "link_fill" %></div>
     </div>

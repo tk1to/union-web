@@ -20,6 +20,7 @@ class WebController < ApplicationController
     unless (ua.include?('Mobile') || ua.include?('Android'))
       @desktop = true
     end
+    @logining = true
   end
 
   def privacypolicy
