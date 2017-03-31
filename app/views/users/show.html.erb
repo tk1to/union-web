@@ -29,7 +29,7 @@
 <div class="wrap_follow_round ta_center margin_top_3rem">
   <% if user_signed_in? && current_user?(@user) %>
     <div class="follow_round follow_round_setting">
-      <%= link_to [:edit, @user] , class: "follow__link" do %>
+      <%= link_to [:edit, @user] , class: "follow__link link_fill" do %>
       <span id="following_count" class="follow__number" ><br><span class="small_text">編集</span>
       <% end %>
     </div>
