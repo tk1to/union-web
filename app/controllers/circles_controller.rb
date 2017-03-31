@@ -7,7 +7,6 @@ class CirclesController < ApplicationController
   def index
     @circles = Circle.order("ranking_point DESC").page(params[:page]).per(15)
     if params[:category_id]
-      params[:category_id] = 5
       hit_circles    = Circle.joins(:categories).where(categories: {id: params[:category_id]}).order("ranking_point DESC")
       no_hit_circles = Circle.joins(:categories).where.not(categories: {id: params[:category_id]}).order("ranking_point DESC")
       @circles = hit_circles.merge(no_hit_circles).page(params[:page]).per(15)
