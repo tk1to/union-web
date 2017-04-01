@@ -7,7 +7,9 @@
   </div>
   <div class="ta_cneter header__copy">〜理想のキャンパスライフをあなたに〜</div>
   <%= image_tag 'union_sidelogo.png' , class: "header__unionlogo"%>
-  <meta name="google-site-verification" content="pG2UvDBSw8KgEFrrTWSiNnfE46L7K89Bv45ahFh6O9c" />
+  <% if ENV["RACK_ENV"] == "production" %>
+    <meta name="google-site-verification" content="pG2UvDBSw8KgEFrrTWSiNnfE46L7K89Bv45ahFh6O9c" />
+  <% end %>
 </header>
 
 <div class="frame_100">
