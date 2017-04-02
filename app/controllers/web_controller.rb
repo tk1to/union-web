@@ -1,10 +1,27 @@
 class WebController < ApplicationController
 
   def top
-    @circles = Circle.all.order("created_at DESC").limit(5)
-    @blogs   = Blog.all.order("created_at DESC").limit(5)
-    @events  = Event.all.order("created_at DESC").limit(5)
-    @ranking = Circle.all.order("ranking_point DESC").limit(5)
+    @circles = Circle.order("created_at DESC").limit(5)
+
+    blog_ids = []
+    before_processing = Blog.pluck(:circle_id, :id, :created_at)
+    bloging_circle_ids = Blog.group(:circle_id).pluck(:circle_id)
+    bloging_circle_ids.each do |n|
+      this_circle_blogs = before_processing.select{|e|e[0] == n}
+      blog_ids << this_circle_blogs.sort_by!{|e|e[2]}[-1][1]
+    end
+    @blogs = Blog.where(id: blog_ids).order("created_at DESC").limit(5)
+
+    event_ids = []
+    before_processing = Event.pluck(:circle_id, :id, :created_at)
+    eventing_circle_ids = Event.group(:circle_id).pluck(:circle_id)
+    eventing_circle_ids.each do |n|
+      this_circle_events = before_processing.select{|e|e[0] == n}
+      event_ids << this_circle_events.sort_by!{|e|e[2]}[-1][1]
+    end
+    @events = Event.where(id: event_ids).order("created_at DESC").limit(5)
+
+    @ranking = Circle.order("ranking_point DESC").limit(5)
     if user_signed_in? && !current_user.tutorialed
       @tutorialing = true
       current_user.update_attribute(:tutorialed, true)

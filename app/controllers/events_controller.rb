@@ -5,7 +5,15 @@ class EventsController < ApplicationController
   before_action :correct_editor, only: [:new, :create, :edit, :update, :destroy]
 
   def indexes
-    @events = Event.order("created_at DESC").page(params[:page]).per(25)
+    event_ids = []
+    before_processing = Event.pluck(:circle_id, :id, :created_at)
+    eventing_circle_ids = Event.group(:circle_id).pluck(:circle_id)
+    eventing_circle_ids.each do |n|
+      this_circle_events = before_processing.select{|e|e[0] == n}
+      event_ids << this_circle_events.sort_by!{|e|e[2]}[-1][1]
+    end
+    @events = Event.where(id: event_ids).order("created_at DESC").page(params[:page]).per(25)
+
     render "index"
   end
   def index

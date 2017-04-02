@@ -6,7 +6,14 @@ class BlogsController < ApplicationController
   before_action :correct_editor, only: [:new, :create, :edit, :update, :destroy]
 
   def indexes
-    @blogs = Blog.order("created_at DESC").page(params[:page]).per(25)
+    blog_ids = []
+    before_processing = Blog.pluck(:circle_id, :id, :created_at)
+    bloging_circle_ids = Blog.group(:circle_id).pluck(:circle_id)
+    bloging_circle_ids.each do |n|
+      this_circle_blogs = before_processing.select{|e|e[0] == n}
+      blog_ids << this_circle_blogs.sort_by!{|e|e[2]}[-1][1]
+    end
+    @blogs = Blog.where(id: blog_ids).order("created_at DESC").page(params[:page]).per(25)
     render "index"
   end
   def index
