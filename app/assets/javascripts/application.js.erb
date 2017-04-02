@@ -26,7 +26,9 @@ $(function(){
   $(".sideMenu").removeClass("sideMenu_show");
   $('.header__menu_humberger').on("click", function(){
     $('.sideMenu').addClass('sideMenu_show');
-    $('.white_back').fadeIn(300);
+    if($(".sideMenu_show")[0]){
+      $('.white_back').fadeIn(300);
+    }
   });
   $('.sideMenu_close, .white_back').on("click", function(){
     $('.sideMenu').removeClass('sideMenu_show');
