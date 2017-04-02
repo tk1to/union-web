@@ -23,6 +23,7 @@ $(function(){
 
   // ハンバーガーメニューの開閉
   $('.white_back').hide();
+  $(".sideMenu").removeClass("sideMenu_show");
   $('.header__menu_humberger').click(function(){
     $('.sideMenu').toggleClass('sideMenu_show');
     $('.white_back').fadeIn(300);
