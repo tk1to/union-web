@@ -24,11 +24,11 @@ $(function(){
   // ハンバーガーメニューの開閉
   $('.white_back').hide();
   $(".sideMenu").removeClass("sideMenu_show");
-  $('.header__menu_humberger').click(function(){
+  $('.header__menu_humberger').on("click", function(){
     $('.sideMenu').toggleClass('sideMenu_show');
     $('.white_back').fadeIn(300);
   });
-  $('.sideMenu_close, .white_back').click(function(){
+  $('.sideMenu_close, .white_back').on("click", function(){
     $('.sideMenu').toggleClass('sideMenu_show');
     $('.white_back').fadeOut(300);
   });
@@ -36,20 +36,20 @@ $(function(){
   // ユーザー必須項目不足時
   $(".prompt").hide();
   if($("span#user_restricted")[0]) {
-    $(".restricted").click(function(){
+    $(".restricted").on("click", function(){
       $(".prompt").fadeIn(300);
       return false;
     });
-    $(".prompt").click(function(){
+    $(".prompt").on("click", function(){
       $(".prompt").fadeOut(300);
     });
   }
   if($("span#user_strong_restricted")[0]) {
-    $(".strong_restricted").click(function(){
+    $(".strong_restricted").on("click", function(){
       $(".strong_prompt").fadeIn(300);
       return false;
     });
-    $(".strong_prompt").click(function(){
+    $(".strong_prompt").on("click", function(){
       $(".strong_prompt").fadeOut(300);
     });
   }
