@@ -80,8 +80,10 @@
 <div class="frame">
   <h2 class="frame__heading frame__heading_underline">団体概要</h2>
   <div class="description">
-    <% @circle.description.lines.each do |line| %>
-      <p class="article__text"><%= line %></p>
+    <% if !@circle.description.blank? %>
+      <% @circle.description.lines.each do |line| %>
+        <p class="article__text"><%= line %></p>
+      <% end %>
     <% end %>
   </div>
 
