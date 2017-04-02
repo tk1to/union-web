@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  default from: "Union運営局"
+  default from: "学生団体Union"
   def notification_mail(user, message_type, params)
     @user = user
     @message_type = message_type
