@@ -25,11 +25,11 @@ $(function(){
   $('.white_back').hide();
   $(".sideMenu").removeClass("sideMenu_show");
   $('.header__menu_humberger').on("click", function(){
-    $('.sideMenu').toggleClass('sideMenu_show');
+    $('.sideMenu').addClass('sideMenu_show');
     $('.white_back').fadeIn(300);
   });
   $('.sideMenu_close, .white_back').on("click", function(){
-    $('.sideMenu').toggleClass('sideMenu_show');
+    $('.sideMenu').removeClass('sideMenu_show');
     $('.white_back').fadeOut(300);
   });
 
