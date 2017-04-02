@@ -3,13 +3,13 @@
     <div class="body_wrap"></div>
     <div class="sideMenu">
       <ul class="sideMenu__lists">
-        <li class="sideMenu__item sideMenu_close">閉じる</li>
+          <li class="sideMenu__item sideMenu_close">閉じる</li>
         <% if @status_num <= 1 %>
           <li class="sideMenu__item"><%= link_to "団体情報編集", [:edit, @circle] %></li>
           <li class="sideMenu__item"><%= link_to "管理者設定", [:status, :edit, @circle] %></li>
           <li class="sideMenu__item" id="line_at"><%= link_to "LINE@登録", nil %></li>
-          <li class="sideMenu__item"><%= link_to "その他", [:rest, @circle] %></li>
         <% end %>
+          <li class="sideMenu__item"><%= link_to "その他", [:rest, @circle] %></li>
       </ul>
     </div>
   <% end %>
