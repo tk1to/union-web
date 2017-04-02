@@ -159,6 +159,17 @@
     var mutual_follow = $("span#mutual_follow")[0];
     var current_user  = $("span#current_user")[0];
 
+    // ハンバーガーメニューの開閉
+    $('.white_back').hide();
+    $('.header__menu_humberger').click(function(){
+      $('.sideMenu').toggleClass('sideMenu_show');
+      $('.white_back').fadeIn(300);
+    });
+    $('.sideMenu_close, .white_back').click(function(){
+      $('.sideMenu').toggleClass('sideMenu_show');
+      $('.white_back').fadeOut(300);
+    });
+
     // 相互フォローでない人にメッセージを送ろうとした場合のポップアップ
     $(".alert").hide();
     $(".alert").on("click", function(){

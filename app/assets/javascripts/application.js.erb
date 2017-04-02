@@ -21,17 +21,6 @@
 
 $(function(){
 
-  // ハンバーガーメニューの開閉
-  $('.white_back').hide();
-  $('.header__menu_humberger').click(function(){
-    $('.sideMenu').toggleClass('sideMenu_show');
-    $('.white_back').fadeIn(300);
-  });
-  $('.sideMenu_close, .white_back').click(function(){
-    $('.sideMenu').toggleClass('sideMenu_show');
-    $('.white_back').fadeOut(300);
-  });
-
   // ユーザー必須項目不足時
   $(".prompt").hide();
   if($("span#user_restricted")[0]) {
