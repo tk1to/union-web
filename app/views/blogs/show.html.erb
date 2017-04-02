@@ -14,8 +14,10 @@
   <% for i in 1..3 do %>
     <div class="article__subhead"><%= @blog["header_#{i}"] %></div>
     <%= image_tag @blog["picture_#{i}"] ? @blog.picture(i).url : nil , class: "article__image"%>
-    <% @blog["content_#{i}"].lines.each do |line| %>
-      <p class="article__text"><%= line %></p>
+    <% if !@blog["content_#{i}"].blank? %>
+      <% @blog["content_#{i}"].lines.each do |line| %>
+        <p class="article__text"><%= line %></p>
+      <% end %>
     <% end %>
   <% end %>
 

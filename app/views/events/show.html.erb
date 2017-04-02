@@ -11,8 +11,10 @@
 
 <div class="article">
   <h1 class="article__title"><%= @event.title %></h1>
-  <% @event.content.lines.each do |line| %>
-    <p class="article__text"><%= line %></p>
+  <% if !@event.content.blank? %>
+    <% @event.content.lines.each do |line| %>
+      <p class="article__text"><%= line %></p>
+    <% end %>
   <% end %>
 
   <h2 class="frame__heading frame__heading_underline">イベント詳細</h2>
