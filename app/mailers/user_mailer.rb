@@ -15,7 +15,7 @@ class UserMailer < ApplicationMailer
   def ad_mail(email, name)
     @email = email
     @name  = name
-    subject = "【新入生勧誘のお手伝いのご提案】Union運営局"
+    subject = "【新入生勧誘のお手伝いのご提案】学生団体Union"
     mail to: @email, subject: subject
   end
 end
