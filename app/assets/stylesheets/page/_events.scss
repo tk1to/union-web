@@ -1,16 +1,30 @@
 .event__detail{
-  text-align: center;
   width: 100%;
+  border: 1px solid $l-gray;
+  border-radius: 3px;
+  box-sizing: border-box;
   &_head{
-    background: #4DD0E1;
+    text-align: center;
+    // background: #4DD0E1;
+    background:$d-blue;
     color: #fff;
     height: 2rem;
     line-height: 2rem;
+    &:first-child{
+      border-top-left-radius: 2px;
+      border-top-right-radius: 2px;
+    }
   }
   &_item{
-    height: 2rem;
+    min-height: 2rem;
     background: #fff;
-    line-height: 2rem;
+    line-height: 1.3rem;
     color: $gray;
+    font-size: 0.8rem;
+    padding: 0 0.3rem;
+    &:last-child{
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+    }
   }
 }
