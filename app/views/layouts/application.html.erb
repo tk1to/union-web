@@ -6,6 +6,9 @@
   <%= csrf_meta_tags %>
   <%= favicon_link_tag('favicon.ico') %>
   <%= analytics_init if ENV["RACK_ENV"] == "production" %>
+  <% if ENV["RACK_ENV"] == "production" && params[:action] == "top" %>
+    <meta name="google-site-verification" content="pG2UvDBSw8KgEFrrTWSiNnfE46L7K89Bv45ahFh6O9c" />
+  <% end %>
 
   <%= show_meta_tags %>
   <meta property="og:title" content="Union〜理想のキャンパスライフをあなたに〜" />
