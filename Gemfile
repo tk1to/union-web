@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails',        '5.0.1'
+gem 'rails',        '5.0.0'
 gem 'bcrypt',       '3.1.11'    #暗号系
 gem 'pg',           '0.20.0'
 gem 'google-analytics-rails'
@@ -17,13 +17,13 @@ gem 'autoprefixer-rails', '6.7.7.1' #ベンダープレフィクス自動化
 gem 'kaminari'
 
 gem 'uglifier',     '3.1.13' #Asset Pipelineを圧縮
-gem 'coffee-rails', '4.1.0'
+gem 'coffee-rails', '4.2.1'
 gem 'jquery-rails', '4.3.1'
 gem 'turbolinks',   '5.0.1'
 gem 'jquery-turbolinks'
 gem 'jbuilder',     '2.6.3' #JSONのテンプレートエンジン
 
-gem 'acts-as-taggable-on', '~> 3.4'
+gem 'acts-as-taggable-on', '4.0.0'
 
 gem 'meta-tags'
 
@@ -43,7 +43,7 @@ gem 'geo_pattern'
 
 group :development, :test do
   gem 'byebug',      '9.0.6'
-  gem 'web-console', '2.0.0.beta3'
+  gem 'web-console', '3.5.0'
   gem 'spring',      '2.0.1'
 end
 
