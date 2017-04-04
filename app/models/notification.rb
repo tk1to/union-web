@@ -1,4 +1,4 @@
-class Notification < ActiveRecord::Base
+class Notification < ApplicationRecord
 
   belongs_to :hold_user, class_name: "User"
 

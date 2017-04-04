@@ -1,4 +1,4 @@
-class Entry < ActiveRecord::Base
+class Entry < ApplicationRecord
   belongs_to :user
   belongs_to :circle
   validates :user_id, presence: true

@@ -1,4 +1,4 @@
-class FootPrint < ActiveRecord::Base
+class FootPrint < ApplicationRecord
   default_scope -> {order("updated_at DESC")}
   belongs_to :footer_user, class_name: "User"
   belongs_to :footed_user, class_name: "User"

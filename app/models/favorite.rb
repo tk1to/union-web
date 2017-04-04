@@ -1,4 +1,4 @@
-class Favorite < ActiveRecord::Base
+class Favorite < ApplicationRecord
   belongs_to :circle
   belongs_to :user
   validates :circle_id, presence: true

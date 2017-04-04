@@ -1,4 +1,4 @@
-class Blog < ActiveRecord::Base
+class Blog < ApplicationRecord
   belongs_to :circle
   belongs_to :author, class_name: "User"
 

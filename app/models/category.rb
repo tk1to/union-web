@@ -1,4 +1,4 @@
-class Category < ActiveRecord::Base
+class Category < ApplicationRecord
   has_many :circles, through: :circle_categories
   has_many :circle_categories
   validates :name, presence: true

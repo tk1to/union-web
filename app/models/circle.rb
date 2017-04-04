@@ -1,4 +1,4 @@
-class Circle < ActiveRecord::Base
+class Circle < ApplicationRecord
   validates :name, presence: true
   validates :description, presence: true
   validates :picture, presence: true

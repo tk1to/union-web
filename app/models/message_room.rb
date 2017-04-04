@@ -1,4 +1,4 @@
-class MessageRoom < ActiveRecord::Base
+class MessageRoom < ApplicationRecord
   belongs_to :creater, class_name: "User"
   belongs_to :created, class_name: "User"
   has_many :messages, dependent: :destroy
