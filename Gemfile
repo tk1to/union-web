@@ -12,17 +12,16 @@ gem 'fog',         '1.40.0'
 
 # gem 'bootstrap-sass',       '3.2.0.0'
 gem 'sass-rails',         '5.0.6' #
-gem 'autoprefixer-rails', '6.7.2' #ベンダープレフィクス自動化
+gem 'autoprefixer-rails', '6.7.7.1' #ベンダープレフィクス自動化
 
 gem 'kaminari'
 
-gem 'uglifier',     '2.5.3' #Asset Pipelineを圧縮
+gem 'uglifier',     '3.1.13' #Asset Pipelineを圧縮
 gem 'coffee-rails', '4.1.0'
-gem 'jquery-rails', '4.0.3'
+gem 'jquery-rails', '4.3.1'
 gem 'turbolinks',   '5.0.1'
 gem 'jquery-turbolinks'
-gem 'jbuilder',     '2.2.3' #JSONのテンプレートエンジン
-gem 'zeroclipboard-rails'
+gem 'jbuilder',     '2.6.3' #JSONのテンプレートエンジン
 
 gem 'acts-as-taggable-on', '~> 3.4'
 
@@ -32,7 +31,7 @@ gem 'sdoc',         '0.4.0', group: :doc
 
 gem 'rb-readline'
 
-gem 'devise',            '4.2.0'
+gem 'devise',            '4.2.1'
 gem 'omniauth',          '1.6.1'
 gem 'omniauth-facebook', '4.0.0'
 
@@ -43,7 +42,7 @@ gem 'dotenv-rails', '2.2.0'
 gem 'geo_pattern'
 
 group :development, :test do
-  gem 'byebug',      '3.4.0'
+  gem 'byebug',      '9.0.6'
   gem 'web-console', '2.0.0.beta3'
   gem 'spring',      '1.1.3'
 end
