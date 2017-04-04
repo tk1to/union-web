@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails',        '4.2.2'
+gem 'rails',        '5.0.1'
 gem 'bcrypt',       '3.1.11'    #暗号系
 gem 'pg',           '0.20.0'
 gem 'google-analytics-rails'
@@ -55,5 +55,5 @@ end
 
 group :production do
   gem 'rails_12factor'
-  gem 'puma',           '3.8.2'
+  gem 'puma', '3.8.2'
 end
