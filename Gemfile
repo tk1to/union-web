@@ -7,8 +7,8 @@ gem 'google-analytics-rails'
 
 # 画像投稿用
 gem 'carrierwave', '1.0.0'
-gem 'mini_magick', '3.8.0'
-gem 'fog',         '1.36.0'
+gem 'mini_magick', '4.7.0'
+gem 'fog',         '1.40.0'
 
 # gem 'bootstrap-sass',       '3.2.0.0'
 gem 'sass-rails',         '5.0.6' #
