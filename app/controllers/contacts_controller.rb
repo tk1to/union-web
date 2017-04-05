@@ -19,6 +19,16 @@ class ContactsController < ApplicationController
         @contact.send_user_id      = current_user.id
         @contact.receive_circle_id = params[:circle_id]
         @contact.save
+        circle = Circle.find(params[:circle_id])
+        circle.memberships.each do |m|
+          if m.chief? || m.admin?
+            if !Notification.find_by(notification_type: 4, hold_user_id: m.id, circle_id: circle.id, user_id: current_user.id)
+              Notification.create(notification_type: 4, hold_user_id: m.id, circle_id: circle.id, user_id: current_user.id)
+              m.member.update_attribute(:new_notifications_exist, true)
+              # UserMailer.notification_mail(nil, nil, nil).deliver_now
+            end
+          end
+        end
         flash[:success] = "送信完了"
         redirect_to @contact.receive_circle
       else
