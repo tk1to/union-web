@@ -228,6 +228,9 @@ display: inline-block;
 border-radius:3px;
 background: $d-blue;
 border: 1px solid $d-blue;
+display:flex;
+align-items: center;
+margin-bottom:0.5rem;
   .college_name{
     color: #fff;
     display: inline-block;
@@ -235,6 +238,9 @@ border: 1px solid $d-blue;
     padding-left: 0.5rem;
     font-size: 0.8rem;
     font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   .remove_college_button{
     display: inline-block;
