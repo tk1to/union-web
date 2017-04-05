@@ -26,7 +26,7 @@ class WebController < ApplicationController
       @tutorialing = true
       current_user.update_attribute(:tutorialed, true)
     end
-    if ENV["RACK_ENV"] == "staging" || Rails.env.development?
+    if ENV["RACK_ENV"] == "staging"
       @tutorialing = true
     end
   end

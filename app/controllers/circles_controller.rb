@@ -67,7 +67,7 @@ class CirclesController < ApplicationController
     if @be_member = @members.include?(current_user)
       membership  = @circle.memberships.find_by(member_id: current_user.id)
       @status     = membership.status
-      @status_num = membership[:status]
+      @status_num = membership[:status].to_i
     end
 
     if user_signed_in?
@@ -340,7 +340,7 @@ class CirclesController < ApplicationController
       if ms.blank?
         flash[:alert] = "サークルメンバーのみの機能です"
         redirect_to :top
-      elsif ms[:status] > 1
+      elsif ms[:status].to_i > 1
         flash[:alert] = "管理者のみの機能です"
         redirect_to circle
       end
