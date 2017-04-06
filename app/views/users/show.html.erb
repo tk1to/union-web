@@ -21,6 +21,9 @@
         <div class="header__notice"><%= current_user.new_foots_count %></div>
       <% end %>
     </div>
+    <div class="admin_link">
+      <%= link_to "", :debug, class: "link_fill" %>
+    </div>
   <% end %>
 </header>
 <h1 class="header__name <%= "header__name_noBelonge" if @user.circles.blank? %>"><%= @user.name %></h1>
