@@ -85,7 +85,7 @@ class EventsController < ApplicationController
       if ms.blank?
         flash[:alert] = "サークルメンバーのみの機能です"
         redirect_to :top
-      elsif ms[:status] > 2
+      elsif ms.ordinary?
         flash[:alert] = "編集者のみの機能です"
         redirect_to circle
       end
