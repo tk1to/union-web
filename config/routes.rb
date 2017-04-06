@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   post "switch"  => "debug#switch"
   get  "debug"   => "debug#debug"
-  get  "create_dummy" => "debug#create_dummy"
+  post "create_dummy" => "debug#create_dummy"
 
   get  "mail_form" => "web#mail_form"
   post "send_ad_mails" => "web#send_ad_mails"

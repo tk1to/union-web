@@ -16,7 +16,9 @@ class DebugController < ApplicationController
   def debug
   end
   def create_dummy
-    
+    # email_string =
+    # dummy = User.create()
+    redirect_to :debug
   end
 
   private
@@ -24,5 +26,9 @@ class DebugController < ApplicationController
       if !Rails.env.development? && !(user_signed_in? && current_user.status == "admin")
         redirect_to :top
       end
+    end
+    def get_random_alphabet
+      n = rand(26)
+      ("a".."z").to_a[n] || n.to_s
     end
 end
