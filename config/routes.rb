@@ -36,10 +36,10 @@ Rails.application.routes.draw do
 
   resources :notifications
 
-  get "blogs"  => "blogs#indexes"
-  get "events" => "events#indexes"
-
   get "entry/:key" => "web#circle_key"
+
+  resources :blogs , only: [:index]
+  resources :events, only: [:index]
 
   resources :circles do
     resources :blogs
