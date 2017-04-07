@@ -8,7 +8,7 @@ class ApiController < ApplicationController
       count = 100
       uri = URI.parse("http://webservice.recruit.co.jp/shingaku/school/v1/?key=#{key}
                       &count=#{count}&format=#{form}&order=3&name=#{college_name}
-                      &category_cd=0011&category_cd=0012&category_cd=0013&category_cd=0012")
+                      &category_cd=0011&category_cd=0012&category_cd=0013")
       json = Net::HTTP.get(uri)
       result = JSON.parse(json)["results"]["school"]
 
