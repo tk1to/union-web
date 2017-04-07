@@ -19,7 +19,7 @@ class ApiController < ApplicationController
       render partial: "shared/ajax_select", locals: {elements: @colleges, name: name}
     elsif params[:request_type] == "faculties"
       code = params[:code]
-      uri = URI.parse("http://webservice.recruit.co.jp/shingaku/school/v1/?key=#{key}&format=#{form}&code=#{code}")
+      uri = URI.parse("http://webservice.recruit.co.jp/shingaku/school/v1/?key=#{key}&format=#{form}&code=#{code}&count=100")
       json = Net::HTTP.get(uri)
       result = JSON.parse(json)["results"]["school"][0]["faculty"]
 
