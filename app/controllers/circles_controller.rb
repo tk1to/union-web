@@ -7,58 +7,21 @@ class CirclesController < ApplicationController
 
   def index
     if params[:category_id]
-      @circles = Circle.joins(:categories).where(categories: {id: params[:category_id]}).order("ranking_point DESC")
+      @circles = Circle.joins(:categories).where(categories: {id: params[:category_id]}).order("ranking_point DESC").page(params[:page]).per(15)
       if @circles.blank?
-        @circles = Circle.order("ranking_point DESC")
+        @circles = Circle.order("ranking_point DESC").page(params[:page]).per(15)
         @title = "選択したカテゴリーの団体はありません"
       end
     elsif params[:ranking]
-      condition = Circle.arel_table
-      @circles  = Circle.where(condition[:ranking_point].gt(0)).order("ranking_point DESC")
+      @circles  = Circle.where(Circle.arel_table[:ranking_point].gt(0)).order("ranking_point DESC").page(params[:page]).per(15)
     elsif params[:news]
-      @cirlces = Circle.order("created_at DESC")
+      @circles = Circle.order("created_at DESC").page(params[:page]).per(15)
     else
-      @circles = Circle.order("ranking_point DESC")
+      @circles = Circle.order("ranking_point DESC").page(params[:page]).per(15)
     end
-    @circles = @circles.page(params[:page]).per(15)
-
     @title = Category.find(params[:category_id]).name if params[:category_id]
     @title = params[:title]                           if params[:title]
   end
-  def new
-    @circle = Circle.new
-    @category_options = Category.all
-    @frequencies = [
-      "週3回以上", "週2回", "週1回", "2週に1回",
-      "月1回", "2か月に1回", "3か月に1回", "半年に1回", "1年に1回",
-    ]
-    @types = ["学内", "インカレ", "学生団体", "部活"]
-  end
-  def create
-    @circle = Circle.new(circle_params)
-    preprocessing
-    new_category_ids = params[:categories].values.reject(&:empty?).map{|str| str.to_i}
-    new_category_ids.uniq!
-    college_exist = (!params[:joining_colleges].blank? || !params[:circle][:college].blank?)
-    create_joining_colleges
-    if !new_category_ids.blank? && college_exist && @circle.save
-      update_schedules
-      create_categories(new_category_ids)
-      @membership = Membership.create(member_id: current_user.id, circle_id: @circle.id, status: 0)
-      flash[:success] = "作成完了"
-      redirect_to @circle
-    else
-      @category_options = Category.all
-      @frequencies = [
-        "週3回以上", "週2回", "週1回", "2週に1回",
-        "月1回", "2か月に1回", "3か月に1回", "半年に1回", "1年に1回",
-      ]
-      @types = ["学内", "インカレ", "学生団体", "部活"]
-      flash.now[:notice] = "必須項目を記入してください"
-      render "new"
-    end
-  end
-
   def show
     @circle = Circle.find(params[:id])
 
@@ -93,25 +56,39 @@ class CirclesController < ApplicationController
     }
   end
 
+  def new
+    @circle = Circle.new
+    before_information
+    @new = true
+  end
   def edit
     @circle = Circle.find(params[:id])
-
-    @categories = @circle.categories
-    @category_options = Category.all
-    @category_ids = Array.new
-    for i in 0..Category.max-1 do
-      @category_ids[i] = @categories[i].nil? ? nil : @categories[i].id
+    before_information
+  end
+  def create
+    @circle = Circle.new(circle_params)
+    new_category_ids = params[:categories].values.reject(&:empty?).map{|str| str.to_i}
+    new_category_ids.uniq!
+    college_exist = params[:joining_colleges].present?
+    if !new_category_ids.blank? && college_exist && @circle.save
+      update_joining_colleges if params[:exist_colleges_changed]
+      @circle.save
+      update_schedules
+      create_categories(new_category_ids)
+      @membership = Membership.create(member_id: current_user.id, circle_id: @circle.id, status: 0)
+      flash[:success] = "作成完了"
+      redirect_to @circle
+    else
+      before_information
+      @new = true
+      flash.now[:notice] = "必須項目を記入してください"
+      render "new"
     end
-    @frequencies = [
-      "週3回以上", "週2回", "週1回", "2週に1回",
-      "月1回", "2か月に1回", "3か月に1回", "半年に1回", "1年に1回",
-    ]
-    @types = ["学内", "インカレ", "学生団体", "部活"]
   end
   def update
     @circle = Circle.find(params[:id])
-    preprocessing
     if @circle.update_attributes(circle_params)
+      update_joining_colleges if params[:exist_colleges_changed]
       update_categories
       update_schedules
       @circle.save
@@ -234,19 +211,6 @@ class CirclesController < ApplicationController
     @status     = membership.status
   end
 
-  def add_college
-    @circle = Circle.find(params[:id])
-    @circle.joining_college_list.add(params[:college_name])
-    @circle.save
-    render partial: "circles/joining_college", locals: {college: params[:college_name]}
-  end
-  def remove_college
-    @circle = Circle.find(params[:id])
-    @circle.joining_college_list.remove(params[:college_name])
-    @circle.save
-    render partial: "shared/none"
-  end
-
   def update_ranking
     circles = Circle.all
     total   = circles.count
@@ -274,9 +238,6 @@ class CirclesController < ApplicationController
         )
     end
 
-    def preprocessing
-    end
-
     def update_categories
       new_category_ids = params[:categories].values.reject(&:empty?).map{|str| str.to_i}
       new_category_ids.uniq!
@@ -302,13 +263,10 @@ class CirclesController < ApplicationController
       end
     end
 
-    def create_joining_colleges
-      if params[:joining_colleges].blank? && params[:circle][:college]
-        @circle.joining_college_list.add(params[:circle][:college])
-      else
-        params[:joining_colleges].each do |jc|
-          @circle.joining_college_list.add(jc)
-        end
+    def update_joining_colleges
+      @circle.joining_college_list.clear
+      params[:joining_colleges].each do |jc|
+        @circle.joining_college_list.add(jc)
       end
     end
 
@@ -325,5 +283,15 @@ class CirclesController < ApplicationController
           end
         end
       end
+    end
+
+    def before_information
+      @category_options = Category.all
+      @category_ids = @circle.categories.ids
+      @frequencies = [
+        "週3回以上", "週2回", "週1回", "2週に1回",
+        "月1回", "2か月に1回", "3か月に1回", "半年に1回", "1年に1回",
+      ]
+      @types = ["学内", "インカレ", "学生団体", "部活"]
     end
 end
