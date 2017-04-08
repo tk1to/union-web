@@ -1,7 +1,8 @@
 class EntriesController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :member_check, only: [:index, :accept]
+  before_action -> { member_check(params[:circle_id]) },          only: [:index, :accept]
+  before_action -> { status_check(params[:circle_id], "admin") }, only: [:index, :accept]
   before_action :external_check, only: [:create, :destroy]
 
   def index
@@ -44,13 +45,6 @@ class EntriesController < ApplicationController
   end
 
   private
-    def member_check
-      circle = Circle.find(params[:circle_id])
-      unless circle.members.include?(current_user)
-        flash[:alert] = "メンバーのみの機能です"
-        redirect_to :top
-      end
-    end
     def external_check
       circle = Circle.find(params[:circle_id])
       if circle.members.include?(current_user)
