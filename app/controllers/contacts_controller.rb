@@ -14,17 +14,16 @@ class ContactsController < ApplicationController
   end
   def create
     @contact = Contact.new(contact_params)
+    circle = Circle.find(params[:circle_id])
     if @contact.valid?
       if params[:contact][:confirmed]
-        @contact.send_user_id      = current_user.id
-        @contact.receive_circle_id = params[:circle_id]
+        @contact.assign_attributes(send_user_id: current_user.id, receive_circle_id: circle.id)
         @contact.save
-        circle = Circle.find(params[:circle_id])
-        circle.memberships.each do |m|
-          if m.chief? || m.admin?
-            if !Notification.find_by(notification_type: 4, hold_user_id: m.id, circle_id: circle.id, user_id: current_user.id)
-              Notification.create(notification_type: 4, hold_user_id: m.id, circle_id: circle.id, user_id: current_user.id)
-              m.member.update_attribute(:new_notifications_exist, true)
+        circle.memberships.each do |ms|
+          if ms.chief? || ms.admin?
+            if !Notification.find_by(notification_type: 4, hold_user_id: ms.id, circle_id: circle.id, user_id: current_user.id)
+              Notification.create(notification_type: 4, hold_user_id: ms.id, circle_id: circle.id, user_id: current_user.id)
+              ms.member.update_attribute(:new_notifications_exist, true)
               # UserMailer.notification_mail(nil, nil, nil).deliver_now
             end
           end
@@ -41,11 +40,6 @@ class ContactsController < ApplicationController
 
   def show
     @contact = Contact.find(params[:id])
-  end
-
-  def edit
-  end
-  def update
   end
   def destroy
   end

@@ -44,7 +44,7 @@ Rails.application.routes.draw do
   resources :circles do
     resources :blogs
     resources :events
-    resources :contacts
+    resources :contacts, except: [:edit, :update]
     resources :favorites, only: [:create, :destroy]
     resources :entries, only: [:index, :create, :destroy] do
       member do
