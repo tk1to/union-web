@@ -1,24 +1,16 @@
 class EventsController < ApplicationController
 
-  before_action :authenticate_user!, except: [:show, :indexes, :index]
-  before_action :member_check, only: [:new, :edit, :create, :update, :destroy]
-  before_action :correct_editor, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!,                               except: [:show, :indexes, :index]
+  before_action -> { member_check(params[:circle_id]) },           only: [:new, :edit, :create, :update, :destroy]
+  before_action -> { status_check(params[:circle_id], "editor") }, only: [:new, :create, :edit, :update, :destroy]
 
-  def indexes
-    event_ids = []
-    before_processing = Event.pluck(:circle_id, :id, :created_at)
-    eventing_circle_ids = Event.group(:circle_id).pluck(:circle_id)
-    eventing_circle_ids.each do |n|
-      this_circle_events = before_processing.select{|e|e[0] == n}
-      event_ids << this_circle_events.sort_by!{|e|e[2]}[-1][1]
-    end
-    @events = Event.where(id: event_ids).order("created_at DESC").page(params[:page]).per(25)
-
-    render "index"
-  end
   def index
-    @circle = Circle.find(params[:circle_id])
-    @events = Event.where(circle_id: @circle.id).order("created_at DESC").page(params[:page]).per(25)
+    if params[:circle_id]
+      @circle = Circle.find(params[:circle_id])
+      @events = Event.where(circle_id: @circle.id).order("created_at DESC").page(params[:page]).per(25)
+    else
+      @events = Event.objects_per_circles.page(params[:page]).per(25)
+    end
   end
 
   def new
