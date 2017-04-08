@@ -16,7 +16,7 @@ class FavoritesController < ApplicationController
     end
     respond_to do |format|
       format.html {
-        flash[:success] = "気になるしました"
+        flash[:success] = "気になるしました！"
         redirect_to request.referer
       }
       format.js
@@ -28,7 +28,7 @@ class FavoritesController < ApplicationController
     Favorite.find_by(circle_id: params[:circle_id], user_id: current_user.id).destroy
     respond_to do |format|
       format.html {
-        flash[:success] = "気にならなくなりました"
+        flash[:success] = "気になるを解除しました"
         redirect_to request.referer
       }
       format.js
