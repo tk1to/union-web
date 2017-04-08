@@ -7,21 +7,23 @@ class CirclesController < ApplicationController
 
   def index
     if params[:category_id]
-      @circles = Circle.joins(:categories).where(categories: {id: params[:category_id]}).order("ranking_point DESC").page(params[:page]).per(15)
-      @title = Category.find(params[:category_id]).name
+      @circles = Circle.joins(:categories).where(categories: {id: params[:category_id]}).order("ranking_point DESC")
       if @circles.blank?
-        @circles = Circle.order("ranking_point DESC").page(params[:page]).per(15)
-        @title = nil
+        @circles = Circle.order("ranking_point DESC")
+        @title = "選択したカテゴリーの団体はありません"
       end
-    end
-    if params[:ranking]
+    elsif params[:ranking]
       condition = Circle.arel_table
-      @circles  = Circle.where(condition[:ranking_point].gt(0)).order("ranking_point DESC").page(params[:page]).per(15)
+      @circles  = Circle.where(condition[:ranking_point].gt(0)).order("ranking_point DESC")
+    elsif params[:news]
+      @cirlces = Circle.order("created_at DESC")
+    else
+      @circles = Circle.order("ranking_point DESC")
     end
-    if params[:category_id].nil? && params[:ranking].nil?
-      @circles = Circle.order("ranking_point DESC").page(params[:page]).per(15)
-    end
-    @title = params[:title] if params[:title]
+    @circles = @circles.page(params[:page]).per(15)
+
+    @title = Category.find(params[:category_id]).name if params[:category_id]
+    @title = params[:title]                           if params[:title]
   end
   def new
     @circle = Circle.new
