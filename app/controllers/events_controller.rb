@@ -23,15 +23,14 @@ class EventsController < ApplicationController
       flash[:success] = "作成完了"
       redirect_to [@event.circle, @event]
     else
-      render 'new'
+      render "new"
     end
   end
 
   def show
     @event = Event.find(params[:id])
     @circle = @event.circle
-
-    @be_member = @circle.members.include?(current_user)
+    @be_member = @circle.be_member?
   end
 
   def edit
@@ -43,14 +42,14 @@ class EventsController < ApplicationController
       flash[:success] = "編集完了"
       redirect_to [@event.circle, @event]
     else
-      render 'edit'
+      render "edit"
     end
   end
 
   def destroy
-    @event = Event.find(params[:id])
+    event = Event.find(params[:id])
     @circle = @event.circle
-    @event.destroy
+    event.destroy
     flash[:success] = "削除完了"
     redirect_to @circle
   end
@@ -63,23 +62,5 @@ class EventsController < ApplicationController
           :picture,
           :schedule, :fee, :capacity, :place,
         )
-    end
-    def member_check
-      circle = Circle.find(params[:circle_id])
-      unless circle.members.include?(current_user)
-        flash[:alert] = "メンバーのみの機能です"
-        redirect_to :top
-      end
-    end
-    def correct_editor
-      circle = Circle.find(params[:circle_id])
-      ms = current_user.memberships.find_by(circle_id: circle.id)
-      if ms.blank?
-        flash[:alert] = "サークルメンバーのみの機能です"
-        redirect_to :top
-      elsif ms.ordinary?
-        flash[:alert] = "編集者のみの機能です"
-        redirect_to circle
-      end
     end
 end
