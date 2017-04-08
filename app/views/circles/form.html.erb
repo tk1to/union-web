@@ -1,14 +1,14 @@
 <header>
-  <h1 class="formHeading ta_center">プロフィール編集</h1>
+  <h1 class="formHeading ta_center"><%= @title %></h1>
 </header>
 
 <div class="form">
   <%= form_for(@circle) do |f| %>
 
-    <%= f.label :name ,"団体名", class: "form__item"%>
-    <%= f.text_field :name , class: "form__text_field" %>
+    <%= f.label :name , "団体名（必須）", class: "form__item"%>
+    <%= f.text_field :name, class: "form__text_field"%>
 
-    <%= f.label :description ,"団体概要", class: "form__item"%>
+    <%= f.label :description ,"団体概要（必須）", class: "form__item"%>
     <%= f.text_area :description , class: "form__text_area" %>
 
     <div class="ta_center margin_bottom_2rem">
@@ -66,13 +66,13 @@
       <%= f.select :org_type, options_for_select(@types, selected: @circle.org_type), {include_blank: true}, {class: "selectbox"} %>
     </div>
 
-    <%= f.label :people_scale,class: "form__item" %>
+    <%= f.label :people_scale, "人数",class: "form__item" %>
     <%= f.number_field :people_scale, class: "form__text_field form__text_field_90" %><span>人</span>
 
     <%= f.label :activity_place, class: "form__item" %>
     <%= f.text_field :activity_place, class: "form__text_field form__text_field_90" %>
 
-    <%= f.label :annual_fee, class: "form__item" %>
+    <%= f.label :annual_fee, "年会費", class: "form__item" %>
     <%= f.number_field :annual_fee, class: "form__text_field form__text_field_90" %><span>円</span>
 
     <%= f.label :activity_frequency, class: "form__item" %>
@@ -105,10 +105,11 @@
       </div>
     </div>
 
-    <div class="form__buttun ta_center margin_top_2rem">
-      <%= f.submit "更新" , class: "button button_size_large button_color_blue"%>
+    <div class="form__buttun margin_top_2rem ta_center">
+      <%= f.submit @submit_label , class: "button button_size_large button_color_blue"%>
     </div>
   <% end %>
+  <% if @new %><span id="new"></span><% end %>
 </div>
 
 <script>
@@ -121,8 +122,10 @@
       blank_validate_input($("#circle_name"), !$(".invalid")[0]);
       blank_validate_input($("#circle_description"), !$(".invalid")[0]);
       blank_validate_categories_select(!$(".invalid")[0]);
-      blank_validate_file($("#circle_picture"), !$(".invalid")[0]);
-      blank_validate_file($("#circle_header_picture"), !$(".invalid")[0]);
+      if($("#new")[0]){
+        blank_validate_file($("#circle_picture"), !$(".invalid")[0]);
+        blank_validate_file($("#circle_header_picture"), !$(".invalid")[0]);
+      }
       blank_validate_college(!$(".invalid")[0]);
       var valid = !$(".invalid")[0];
       if(!valid){

@@ -44,6 +44,13 @@ class Circle < ApplicationRecord
     response
   end
 
+  def be_member?(user)
+    self.members.ids.include?(current_user.id)
+  end
+  def find_membership(user)
+    self.memberships.find_by(member_id: user.id)
+  end
+
   private
     def picture_size
       if picture.size > 5.megabytes

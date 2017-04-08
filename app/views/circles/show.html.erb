@@ -1,5 +1,5 @@
 <div class="aside__menu_wrap">
-  <% if @be_member %>
+  <% if @membership %>
     <div class="body_wrap"></div>
     <div class="sideMenu">
       <ul class="sideMenu__lists">
@@ -18,7 +18,7 @@
 <header class="header c_picture" style="background-image: url(<%= @circle.header_picture %>)" >
   <div class="header__innerCover header__background"></div>
   <div class="header__photo header__photo_circle c_picture" style="background-image: url(<%= @circle.picture %>)"></div>
-  <% if @be_member %>
+  <% if @membership %>
     <%= image_tag "menu.svg" , class: "header__menu_humberger" %>
   <% end %>
 </header>
@@ -45,7 +45,7 @@
   </div>
 <% end %>
 
-<% if @be_member && (@membership.chief? || @membership.admin?) %>
+<% if @membership && (@membership.chief? || @membership.admin?) %>
   <div class="ta_center">
     <div class="button button_round button_color_blue"><%= link_to "団体メンバー追加", [:key, @circle], class: "link_fill color_white" %></div>
   </div>
@@ -54,7 +54,7 @@
 <div class="separate"></div>
 
 <% if user_signed_in? %>
-  <% if @be_member %>
+  <% if @membership %>
     <% if @membership.chief? || @membership.admin? %>
       <div class="ta_center">
         <%= link_to "気になる一覧", [:favorited, @circle] , class: "button button_square button_color_gray"%>
@@ -146,7 +146,7 @@
 
 <% if user_signed_in? %>
   <div class="margin_top_2rem">
-    <% if @be_member %>
+    <% if @membership %>
       <% if @membership.chief? || @membership.admin? %>
         <div class="ta_center">
           <%= link_to "気になる一覧", [:favorited, @circle] , class: "button button_square button_color_gray"%>
@@ -181,7 +181,7 @@
 </div> -->
 
 <!-- js関連 -->
-<% if @be_member %>
+<% if @membership %>
   <div class="circle__image_zoom" id="circle__picture">
     <div class="circle__image c_picture" style="background-image: url(<%= @circle.picture %>);"></div>
     <%= link_to "プロフィール編集", [:edit, @circle] , class: "button button_border"%>
@@ -214,7 +214,7 @@
 <% end %>
 
 <% if user_signed_in? %>
-  <% if @be_member %><span id="be_member"></span><% end %>
+  <% if @membership %><span id="be_member"></span><% end %>
 <% end %>
 <script type="text/javascript">
   $(function(){
