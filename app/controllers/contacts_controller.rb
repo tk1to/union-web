@@ -1,8 +1,8 @@
 class ContactsController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :member_check, only: [:index, :show]
-  before_action :external_check, only: [:new, :create]
+  before_action -> { member_check(params[:circle_id]) }, only: [:index, :show]
+  before_action :external_check,                         only: [:new, :create]
 
   def index
     @circle   = Circle.find(params[:circle_id])
@@ -56,14 +56,6 @@ class ContactsController < ApplicationController
           :content, :send_user_id, :receive_circle_id
         )
     end
-
-    def member_check
-      circle = Circle.find(params[:circle_id])
-      unless circle.members.include?(current_user)
-        flash[:alert] = "メンバーのみの機能です"
-        redirect_to :top
-      end
-    end
     def external_check
       circle = Circle.find(params[:circle_id])
       if circle.members.include?(current_user)
@@ -71,5 +63,4 @@ class ContactsController < ApplicationController
         redirect_to :top
       end
     end
-
 end

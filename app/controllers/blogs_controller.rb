@@ -1,9 +1,9 @@
 class BlogsController < ApplicationController
 
-  before_action :authenticate_user!, except: [:show, :index]
-  before_action :member_check, only: [:new, :edit, :create, :update, :destroy]
-  before_action :author_check, only: [:edit, :update, :destroy]
-  before_action :editor_check, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!,                               except: [:show, :index]
+  before_action -> { member_check(params[:circle_id]) },           only: [:new, :create, :edit, :update, :destroy]
+  before_action -> { status_check(params[:circle_id], "editor") }, only: [:new, :create, :edit, :update, :destroy]
+  before_action :author_check,                                     only: [:edit, :update, :destroy]
 
   def index
     if params[:circle_id]
@@ -76,8 +76,8 @@ class BlogsController < ApplicationController
 
     def author_check
       blog = Blog.find(params[:id])
-      unless blog.author == current_user
-        flash[:alert] = "ブログを投稿したユーザーのみが編集できます"
+      if blog.author.id != current_user.id
+        flash[:alert] = "ブログの投稿者のみが編集できます"
         redirect_to :top
       end
     end

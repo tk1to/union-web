@@ -48,21 +48,19 @@ class ApplicationController < ActionController::Base
   end
 
   private
-    def member_check
-      circle = Circle.find(params[:circle_id])
-      unless circle.members.include?(current_user)
-        flash[:alert] = "メンバーのみの機能ですtest"
+    def member_check(circle_id)
+      circle = Circle.find(circle_id)
+      ms = current_user.memberships.find_by(circle_id: circle.id)
+      if ms.blank?
+        flash[:alert] = "団体メンバーのみの機能です"
         redirect_to :top
       end
     end
-    def editor_check
-      circle = Circle.find(params[:circle_id])
+    def status_check(circle_id, status)
+      circle = Circle.find(circle_id)
       ms = current_user.memberships.find_by(circle_id: circle.id)
-      if ms.blank?
-        flash[:alert] = "サークルメンバーのみの機能です"
-        redirect_to :top
-      elsif ms.ordinary?
-        flash[:alert] = "編集者のみの機能です"
+      if Membership.statuses[status] < ms.status_num
+        flash[:alert] = "#{Membership.status_label(status)}のみの機能です"
         redirect_to circle
       end
     end

@@ -1,8 +1,9 @@
 class CirclesController < ApplicationController
 
-  before_action :authenticate_user!, except: [:index, :show, :feed, :search, :members]
-  before_action :member_check, only: [:edit, :update, :destroy, :resign, :favorited, :rest]
-  before_action :correct_admin, only: [:edit, :update]
+  before_action :authenticate_user!,                       except: [:index, :show, :feed, :search, :members]
+  before_action -> { member_check(params[:id]) },          only: [:edit, :update, :destroy, :resign, :favorited, :rest]
+  before_action -> { status_check(params[:id], "admin") }, only: [:edit, :update, :favorited]
+  before_action -> { status_check(params[:id], "chief") }, only: [:destroy]
 
   def index
     if params[:category_id]
@@ -91,7 +92,7 @@ class CirclesController < ApplicationController
   end
 
   def edit
-    @circle     = Circle.find(params[:id])
+    @circle = Circle.find(params[:id])
 
     @categories = @circle.categories
     @category_options = Category.all
@@ -321,26 +322,6 @@ class CirclesController < ApplicationController
             @circle.welcome_event_schedules.create(schedule: Date.new(year, month, day))
           end
         end
-      end
-    end
-
-    def member_check
-      circle = Circle.find(params[:id])
-      unless circle.members.include?(current_user)
-        flash[:alert] = "メンバーのみの機能です"
-        redirect_to :top
-      end
-    end
-
-    def correct_admin
-      circle = Circle.find(params[:id])
-      ms = current_user.memberships.find_by(circle_id: circle.id)
-      if ms.blank?
-        flash[:alert] = "サークルメンバーのみの機能です"
-        redirect_to :top
-      elsif !(ms.chief? || ms.admin?)
-        flash[:alert] = "管理者のみの機能です"
-        redirect_to circle
       end
     end
 end
