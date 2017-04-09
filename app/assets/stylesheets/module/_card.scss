@@ -91,6 +91,41 @@
   box-shadow:0 2px 5px gray;
   padding:0;
   margin:0.2rem;
+  &__label{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-top-left-radius:3px;
+    border: 1rem solid transparent;
+    // ラベルの色
+    &_gold{
+      border-top: 1rem solid  #ffd700;
+      border-left: 1rem solid  #ffd700;
+    }
+    &_silver{
+      border-top: 1rem solid  silver;
+      border-left: 1rem solid  silver;
+    }
+    &_brown{
+      border-top: 1rem solid  #F39800;
+      border-left: 1rem solid  #F39800;
+    }
+    &_normal{
+      border-top: 1rem solid  $d-blue;
+      border-left: 1rem solid  $d-blue;
+    }
+    &__contents{
+      position: relative;
+      &_number{
+        position:absolute;
+        top: -0.8rem;
+        left: -0.8rem;
+        color: #fff;
+      }
+    }
+  }
   &:first-child{
     margin-left: 0.5rem;
   }

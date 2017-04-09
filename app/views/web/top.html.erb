@@ -41,6 +41,11 @@
       <% @ranking.each do |circle| %>
         <li class="miniCard">
           <%= link_to circle, class: "link_fill" do %>
+            <div class="miniCard__label miniCard__label_normal">
+              <div class="miniCard__label__contents">
+                <span class="miniCard__label__contents_number">1</span>
+              </div>
+            </div>
             <div class="miniCard__background c_picture" style="background-image: url(<%= circle.header_picture %>)"></div>
             <div class="miniCard__image c_picture" style="background-image: url(<%= circle.picture %>)"></div>
             <p class="miniCard__name"><%= circle.name %></p>
@@ -77,7 +82,7 @@
         </li>
       <% end %>
       <li>
-        <%= link_to "もっと見る", [:circles, title: "新着サークル"], class: "link_fill miniCard miniCard__more" %>
+        <%= link_to "もっと見る", [:circles, news: true, title: "新着サークル"], class: "link_fill miniCard miniCard__more" %>
       </li>
     </ul>
   <% end %>

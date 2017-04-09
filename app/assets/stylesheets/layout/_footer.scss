@@ -8,18 +8,16 @@
 	box-sizing:border-box;
 	&__copyright{
 		font-size: $x-small;
+		margin-top: 1rem;
 	}
 	&__navi{
 		margin:1rem;
 	}
 	&__item{
 		display: inline-block;
-		margin: 0 1rem;
-		font-size: $small;
-	}
-	&__link{
+		margin: 0.5rem 1rem 0;
 		text-decoration: none;
-		font-size: $small;
-		color: gray;
+		color: $gray;
+    font-size: 0.8rem;
 	}
 }

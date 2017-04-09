@@ -1,7 +1,8 @@
 class EntriesController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :member_check, only: [:index, :accept]
+  before_action -> { member_check(params[:circle_id]) },          only: [:index, :accept]
+  before_action -> { status_check(params[:circle_id], "admin") }, only: [:index, :accept]
   before_action :external_check, only: [:create, :destroy]
 
   def index
@@ -13,6 +14,16 @@ class EntriesController < ApplicationController
 
   def create
     Entry.create(user_id: current_user.id, circle_id: params[:circle_id])
+    circle = Circle.find(params[:circle_id])
+    circle.memberships.each do |m|
+      if m.chief? || m.admin?
+        if !Notification.find_by(notification_type: 3, hold_user_id: m.id, circle_id: circle.id, user_id: current_user.id)
+          Notification.create(notification_type: 3, hold_user_id: m.id, circle_id: circle.id, user_id: current_user.id)
+          m.member.update_attribute(:new_notifications_exist, true)
+          # UserMailer.notification_mail(nil, nil, nil).deliver_now
+        end
+      end
+    end
     flash[:success] = "申請完了"
     redirect_to controller: :circles, action: :show, id: params[:circle_id]
   end
@@ -34,13 +45,6 @@ class EntriesController < ApplicationController
   end
 
   private
-    def member_check
-      circle = Circle.find(params[:circle_id])
-      unless circle.members.include?(current_user)
-        flash[:alert] = "メンバーのみの機能です"
-        redirect_to :top
-      end
-    end
     def external_check
       circle = Circle.find(params[:circle_id])
       if circle.members.include?(current_user)

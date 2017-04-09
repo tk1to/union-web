@@ -122,7 +122,7 @@ class MembershipsController < ApplicationController
       if ms.blank?
         flash[:alert] = "サークルメンバーのみの機能です"
         redirect_to :top
-      elsif ms[:status] != 0
+      elsif !ms.chief?
         flash[:alert] = "代表のみの機能です"
         redirect_to circle
       end
@@ -133,7 +133,7 @@ class MembershipsController < ApplicationController
       if ms.blank?
         flash[:alert] = "サークルメンバーのみの機能です"
         redirect_to :top
-      elsif ms[:status] > 1
+      elsif !(ms.chief? || ms.admin?)
         flash[:alert] = "管理者のみの機能です"
         redirect_to circle
       end

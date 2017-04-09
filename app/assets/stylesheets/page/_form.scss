@@ -76,6 +76,7 @@
     border:1px solid $d-blue;
     border-radius:3px;
     padding:6px 0 0;
+    margin-bottom: 2rem;
     background: $l-gray;
   }
 	&__upload{
@@ -220,14 +221,14 @@
 }
 
 .joining_college{
-width: 100%;
-height: 2rem;
-border-radius:3px;
-line-height: 1.8rem;
-display: inline-block;
-border-radius:3px;
-background: $d-blue;
-border: 1px solid $d-blue;
+  width: 100%;
+  height: 2rem;
+  border-radius:3px;
+  line-height: 1.8rem;
+  display: inline-block;
+  background: $d-blue;
+  border: 1px solid $d-blue;
+  margin-bottom: 0.5rem;
   .college_name{
     color: #fff;
     display: inline-block;
@@ -235,6 +236,7 @@ border: 1px solid $d-blue;
     padding-left: 0.5rem;
     font-size: 0.8rem;
     font-weight: bold;
+    box-sizing: border-box;
   }
   .remove_college_button{
     display: inline-block;
@@ -242,7 +244,9 @@ border: 1px solid $d-blue;
     padding-left:0.6rem;
     border-left:1px solid $l-gray;
     font-size: 0.6rem;
-    // box-sizing:border-box;
+    width: 30%;
+    box-sizing: border-box;
+    height: 100%;
   }
 }
 // 画像アップロードのとこのwrap

@@ -6,9 +6,6 @@
   <%= csrf_meta_tags %>
   <%= favicon_link_tag('favicon.ico') %>
   <%= analytics_init if ENV["RACK_ENV"] == "production" %>
-  <% if ENV["RACK_ENV"] == "production" && params[:action] == "top" %>
-    <meta name="google-site-verification" content="pG2UvDBSw8KgEFrrTWSiNnfE46L7K89Bv45ahFh6O9c" />
-  <% end %>
 
   <%= show_meta_tags %>
   <meta property="og:title" content="Union〜理想のキャンパスライフをあなたに〜" />
@@ -18,6 +15,9 @@
   <meta property="og:site_name" content="Union" />
   <meta property="og:description" content="Unionはサークル版のSNSです。" />
   <meta name="viewport" content="width=device-whidth, initial-scale=1.0">
+  <% if ENV["RACK_ENV"] == "production" && params[:action] == "top" %>
+    <meta name="google-site-verification" content="pG2UvDBSw8KgEFrrTWSiNnfE46L7K89Bv45ahFh6O9c" />
+  <% end %>
 </head>
 <body>
   <% if !(params[:controller] == "message_rooms" && params[:action] == "show") %>
@@ -41,7 +41,10 @@
 
   <% if !(params[:controller] == "message_rooms" && params[:action] == "show") %>
     <footer class="footer">
-      <p><%= link_to "プライバシーポリシー", :privacypolicy, style: "color: gray; text-decoration: none;" %></p>
+      <p><%= link_to "Unionとは", :privacypolicy, class: "footer__item" %></p>
+      <p><%= link_to "プライバシーポリシー", :privacypolicy, class: "footer__item" %></p>
+      <p><%= link_to "お問い合わせ", :privacypolicy, class: "footer__item" %></p>
+      <p><%= link_to "Unionに込めた思い", :privacypolicy, class: "footer__item" %></p>
       <p class="footer__copyright">COPYRIGHT &#169; 2017 UNION ALL RIGHTS RESERVED. </p>
     </footer>
     </div>

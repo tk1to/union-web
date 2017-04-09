@@ -1,4 +1,4 @@
-class CircleCategory < ActiveRecord::Base
+class CircleCategory < ApplicationRecord
   belongs_to :circle
   belongs_to :category
   validates :circle_id, presence: true

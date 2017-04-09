@@ -29,6 +29,36 @@
             <div class="noticeBlog__subhead"><%= blog.content_1 %></div>
           </div>
         <% end %>
+      <% elsif notification.favorited? && user && circle %>
+        <%= link_to user do %>
+          <div class="notice__description"><%= user.name %>さんから<%= circle.name %>へ気になるが来ました。</div>
+          <div class="notice__content noticeFollow">
+            <div class="noticeFollow__image c_picture" style="background-image: url(<%= user.picture_url %>)"></div>
+            <div class="noticeFollow__heading"><%= user.name %></div>
+            <div class="noticeFollow__subhead"><%= user.basic_info %></div>
+            <div class="noticeFollow__follow"></div>
+          </div>
+        <% end %>
+      <% elsif notification.new_member? && user && circle %>
+        <%= link_to user do %>
+          <div class="notice__description"><%= user.name %>さんから<%= circle.name %>へメンバー申請が来ました。</div>
+          <div class="notice__content noticeFollow">
+            <div class="noticeFollow__image c_picture" style="background-image: url(<%= user.picture_url %>)"></div>
+            <div class="noticeFollow__heading"><%= user.name %></div>
+            <div class="noticeFollow__subhead"><%= user.basic_info %></div>
+            <div class="noticeFollow__follow"></div>
+          </div>
+        <% end %>
+      <% elsif notification.contacted? && user && circle %>
+        <%= link_to user do %>
+          <div class="notice__description"><%= user.name %>さんから<%= circle.name %>へお問い合わせが来ました。</div>
+          <div class="notice__content noticeFollow">
+            <div class="noticeFollow__image c_picture" style="background-image: url(<%= user.picture_url %>)"></div>
+            <div class="noticeFollow__heading"><%= user.name %></div>
+            <div class="noticeFollow__subhead"><%= user.basic_info %></div>
+            <div class="noticeFollow__follow"></div>
+          </div>
+        <% end %>
       <% end %>
     </li>
   <% end %>
