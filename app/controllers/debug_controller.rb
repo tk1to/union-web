@@ -14,10 +14,14 @@ class DebugController < ApplicationController
   end
 
   def debug
+    @dummies = User.where(status: "dummy")
   end
   def create_dummy
-    # email_string =
-    # dummy = User.create()
+    dummy = User.new(email: create_dummy_email, password: "union188", status: "dummy")
+    dummy.name = dummy.email
+    dummy.skip_confirmation!
+    dummy.save
+    dummy.update_attributes(email: "no." + dummy.id.to_s + "@union.com")
     redirect_to :debug
   end
 
@@ -26,6 +30,19 @@ class DebugController < ApplicationController
       if !Rails.env.development? && !(user_signed_in? && current_user.status == "admin")
         redirect_to :top
       end
+    end
+    def create_dummy_email
+      email_string = ""
+      11.times do |i|
+        if i == 3
+          email_string += "@"
+        elsif i == 7
+          email_string += "."
+        else
+          email_string += get_random_alphabet
+        end
+      end
+      email_string
     end
     def get_random_alphabet
       n = rand(26)
