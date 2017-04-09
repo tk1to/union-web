@@ -21,7 +21,7 @@
         <div class="header__notice"><%= current_user.new_foots_count %></div>
       <% end %>
     </div>
-    <% if @user.status == "admin" %>
+    <% if @user.status == "admin" || @user.status == "dummy" %>
       <div class="admin_link">
         <%= link_to "", :debug, class: "link_fill" %>
       </div>

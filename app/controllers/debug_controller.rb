@@ -1,10 +1,12 @@
 class DebugController < ApplicationController
-  before_action :env_develop
+
+  before_action :env_develop, only: [:switch]
+  before_action :admin_check, except: [:switch]
+
   def switch
     id = params[:id].to_i
     if id == 0
-      redirect_to [:destroy, :user, :session]
-      return
+      sign_out
     elsif user = User.find_by(id: id)
       sign_out
       sign_in user
@@ -14,11 +16,28 @@ class DebugController < ApplicationController
   end
 
   def debug
-    @dummies = User.where(status: "dummy")
+    @dummies = User.where(status: "dummy").order(:id)
+    if current_user.status == "admin"
+      @admin = current_user
+    elsif current_user.status == "dummy"
+      @admin = User.find(current_user.uid)
+    end
+  end
+  def admin_login
+    if user = User.find_by(id: params[:user_id])
+      sign_out
+      sign_in user
+    end
+    redirect_to :debug
   end
   def create_dummy
     dummy = User.new(email: create_dummy_email, password: "union188", status: "dummy")
     dummy.name = dummy.email
+    if current_user.status == "admin"
+      dummy.uid = current_user.id
+    elsif
+      dummy.uid = current_user.uid
+    end
     dummy.skip_confirmation!
     dummy.save
     dummy.update_attributes(email: "no." + dummy.id.to_s + "@union.com")
@@ -27,10 +46,16 @@ class DebugController < ApplicationController
 
   private
     def env_develop
-      if !Rails.env.development? && !(user_signed_in? && current_user.status == "admin")
+      if !Rails.env.development?
         redirect_to :top
       end
     end
+    def admin_check
+      if !(user_signed_in? && (current_user.status == "admin" || current_user.status == "dummy"))
+        redirect_to :top
+      end
+    end
+
     def create_dummy_email
       email_string = ""
       11.times do |i|

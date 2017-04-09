@@ -3,24 +3,59 @@
 <%= link_to "ユーザー追加", :create_dummy, method: :post %>
 <div class="margin_top_2rem"></div>
 
+<h1>管理者</h1>
+<% if @admin %>
+  <table id="dummies">
+    <tr>
+      <th>名前</th>
+      <th>大学</th>
+      <th>画像</th>
+      <th class="dummy__login">ログイン</th>
+      <th class="dummy__delete"></th>
+    </tr>
+    <% logining = current_user.id == @admin.id %>
+    <tr id="<%= "logining" if logining %>">
+      <td class="dummy__info"><%= @admin.name %></td>
+      <td class="dummy__info_college"><%= @admin.college %></td>
+      <td class="dummy__image">
+        <div class="c_picture" style="background-image: url(<%= @admin.picture %>)"></div>
+      </td>
+      <% if logining %>
+        <td class="dummy__login" style="font-size: 5px;">ログイン中</td>
+      <% else %>
+        <td class="dummy__login"><%= link_to "ログイン", [:admin_login, user_id: @admin.id], class: "link_fill" %></td>
+      <% end %>
+      <td class="dummy__delete"></td>
+    </tr>
+  </table>
+<% end %>
+
+<div class="margin_top_2rem"></div>
+
 <table id="dummies">
   <tr>
     <th>名前</th>
+    <th>大学</th>
     <th>画像</th>
-    <th class="dummies__login">ログイン</th>
-    <th class="dummies__delete">削除</th>
+    <th class="dummy__login">ログイン</th>
+    <th class="dummy__delete">削除</th>
   </tr>
   <% @dummies.each do |d| %>
-    <tr>
-      <td><%= d.name %></td>
-      <td>
-        <div></div>
+    <% logining = current_user.id == d.id %>
+    <tr id="<%= "logining" if logining %>">
+      <td class="dummy__info"><%= d.name %></td>
+      <td class="dummy__info_college"><%= d.college %></td>
+      <td class="dummy__image">
+        <div class="c_picture" style="background-image: url(<%= d.picture %>)"></div>
       </td>
-      <td class="dummies__login">ログイン</td>
-      <td class="dummies__delete">削除</td>
+      <% if logining %>
+        <td class="dummy__login" style="font-size: 5px;">ログイン中</td>
+      <% else %>
+        <td class="dummy__login"><%= link_to "ログイン", [:admin_login, user_id: d.id], class: "link_fill" %></td>
+      <% end %>
+      <td class="dummy__delete">削除</td>
     </tr>
-    <% end %>
-  </tr>
+  <% end %>
 </table>
 
 <style>
@@ -32,13 +67,42 @@
   #dummies td {
     border: 1px solid #333;
     padding: 3px;
+    box-sizing: border-box;
+    vertical-align: middle;
   }
-  #dummies td {
-    height: 100px;
+  #logining > td {
+    background-color: #FFEF85;
   }
-  .dummies__login,
-  .dummies__delete {
-    width: 80px;
+  .dummy__info_college {
+    width: 30%;
+  }
+  .dummy__info,
+  .dummy__info_college {
+    font-size: 11px;
+  }
+
+  .dummy__login,
+  .dummy__delete {
+    width: 40px;
     text-align: center;
+    font-size: 7px;
+    background-color: #ddd;
+  }
+  #dummies td a{
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    vertical-align: middle;
+    color: blue;
+  }
+
+  .dummy__image {
+    width: 46px;
+  }
+  .dummy__image > div {
+    width: 40px;
+    height: 40px;
+    background-color: gray;
+    border-radius: 50%;
   }
 </style>
