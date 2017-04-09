@@ -161,7 +161,9 @@ class User < ApplicationRecord
     if !self.picture.blank?
       url = self.picture
     elsif !self.uid.blank?
-      url = 'http://graph.facebook.com/v2.8/'+self.uid+'/picture?width=200'
+      if self.provider == "facebook"
+        url = 'http://graph.facebook.com/v2.8/'+self.uid+'/picture?width=200'
+      end
     else
       url = nil
     end

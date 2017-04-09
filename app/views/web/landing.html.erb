@@ -2,9 +2,8 @@
   <h1 class="keyvisual__head keyvisual_fade">理想のキャンパスライフをあなたに</h1>
   <div class="keyvisual__logo keyvisual_fade"><%= image_tag "unionlogo_squear.png" %></div>
   <div class="keyvisual__button ta_center <%= "keyvisual__button_desktop" if @desktop %>">
-    <%= link_to "Unionを試しに使ってみる！", "" , class: "button button_lp button_color_white"%>
+    <%= link_to "Unionを試しに使ってみる！", :top , class: "button button_lp button_color_white"%>
     <%= link_to "Facebookで登録・ログイン", user_facebook_omniauth_authorize_path , class: "button button_lp button_facebook"%>
-    <!-- <%= link_to 'E-mailで登録', [:new, :user, :registration], class: "button button_lp button_color_white"%> -->
     <%= link_to "E-mailで登録・ログイン", [:new, :user, :session] , class: "button button_lp button_color_skyblue"%>
   </div>
 </header>
@@ -31,9 +30,9 @@
 <div class="lp_section_blue">
   <h2 class="lets_union lp_fadeSlide">さあ、Unionを始めよう！</h2>
   <div class="ta_center padding_bottom_3rem">
+    <%= link_to "Unionを試しに使ってみる！", :top , class: "button button_lp button_color_white"%>
     <%= link_to "Facebookで登録・ログイン", user_facebook_omniauth_authorize_path , class: "button button_lp button_facebook"%>
-    <%= link_to 'E-mailで登録', [:new, :user, :registration], class: "button button_lp button_color_white"%>
-    <%= link_to "ログイン", [:new, :user, :session] , class: "button button_lp button_color_skyblue"%>
+    <%= link_to "E-mailで登録・ログイン", [:new, :user, :session] , class: "button button_lp button_color_skyblue"%>
   </div>
 </div>
 

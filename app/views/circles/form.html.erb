@@ -56,7 +56,7 @@
       </div>
       <%= f.label :college, "大学", class: "form__item" %>
       <div class="wrap_select" id="college_select_wrap">
-        <%= render "shared/ajax_select", {elements: @colleges, request_type: "colleges"} %>
+        <%= render "shared/ajax_select", {elements: nil, request_type: "colleges"} %>
       </div>
       <div id="add_college_button" class="button button_100 button_color_blue">追加</div>
     </div>
