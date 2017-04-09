@@ -53,10 +53,21 @@
       <% else %>
         <td class="dummy__login"><%= link_to "ログイン", [:admin_login, user_id: d.id], class: "link_fill" %></td>
       <% end %>
-      <td class="dummy__delete">削除</td>
+      <td class="dummy__delete"><%= link_to "削除", [:admin_delete, user_id: d.id], method: :delete, class: "link_fill" %></td>
     </tr>
   <% end %>
 </table>
+
+<script>
+  $(function(){
+    $(".dummy__delete").off("click");
+    $(".dummy__delete").on("click", function(){
+      if(!confirm("削除確認")){
+        return false;
+      }
+    });
+  });
+</script>
 
 <style>
   #dummies {

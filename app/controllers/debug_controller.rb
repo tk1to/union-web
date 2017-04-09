@@ -30,6 +30,15 @@ class DebugController < ApplicationController
     end
     redirect_to :debug
   end
+  def admin_delete
+    if params[:user_id] == current_user.id.to_s
+      admin = User.find(current_user.uid)
+      sign_out
+      sign_in admin
+    end
+    User.find(params[:user_id]).destroy
+    redirect_to :debug
+  end
   def create_dummy
     dummy = User.new(email: create_dummy_email, password: "union188", status: "dummy")
     dummy.name = dummy.email

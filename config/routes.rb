@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   post "switch"  => "debug#switch"
   get  "debug"   => "debug#debug"
   get  "admin_login"  => "debug#admin_login"
-  post "create_dummy" => "debug#create_dummy"
+  delete "admin_delete" => "debug#admin_delete"
+  post   "create_dummy" => "debug#create_dummy"
 
   get  "mail_form" => "web#mail_form"
   post "send_ad_mails" => "web#send_ad_mails"
