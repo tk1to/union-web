@@ -1,4 +1,4 @@
-class UserCategory < ActiveRecord::Base
+class UserCategory < ApplicationRecord
   belongs_to :user
   belongs_to :category
   validates :user_id, presence: true

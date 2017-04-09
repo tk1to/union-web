@@ -1,4 +1,4 @@
-class Message < ActiveRecord::Base
+class Message < ApplicationRecord
   belongs_to :message_room
   belongs_to :sender, class_name: "User"
   belongs_to :receiver, class_name: "User"

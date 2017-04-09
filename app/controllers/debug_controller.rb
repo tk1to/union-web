@@ -12,12 +12,23 @@ class DebugController < ApplicationController
     end
     redirect_to :top
   end
+
   def debug
-    @image = 'http://graph.facebook.com/v2.8/'+'/picture?width=200'
+  end
+  def create_dummy
+    # email_string =
+    # dummy = User.create()
+    redirect_to :debug
   end
 
   private
     def env_develop
-      redirect_to :top if !Rails.env.development?
+      if !Rails.env.development? && !(user_signed_in? && current_user.status == "admin")
+        redirect_to :top
+      end
+    end
+    def get_random_alphabet
+      n = rand(26)
+      ("a".."z").to_a[n] || n.to_s
     end
 end

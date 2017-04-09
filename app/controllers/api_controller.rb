@@ -6,30 +6,20 @@ class ApiController < ApplicationController
     if params[:request_type] == "colleges"
       college_name = params[:keyword].bytes.map{|v|"%"+v.to_s(16)}.join
       count = 100
-      uri = URI.parse("http://webservice.recruit.co.jp/shingaku/school/v1/?key=#{key}&count=#{count}&format=#{form}&order=3&name=#{college_name}")
+      uri = URI.parse("http://webservice.recruit.co.jp/shingaku/school/v1/?key=#{key}
+                      &count=#{count}&format=#{form}&order=3&name=#{college_name}
+                      &category_cd=0011&category_cd=0012&category_cd=0013")
       json = Net::HTTP.get(uri)
-      result = JSON.parse(json)["results"]["school"]
+      @colleges = JSON.parse(json)["results"]["school"]
 
-      if result && 0 < result.count
-        @colleges = result
-      else
-        @colleges = []
-      end
-      name = params[:origin_controller].nil? ? "college" : "#{params[:origin_controller]}[college]"
-      render partial: "shared/ajax_select", locals: {elements: @colleges, name: name}
+      render partial: "shared/ajax_select", locals: {elements: @colleges, request_type: "colleges"}
     elsif params[:request_type] == "faculties"
       code = params[:code]
       uri = URI.parse("http://webservice.recruit.co.jp/shingaku/school/v1/?key=#{key}&format=#{form}&code=#{code}")
       json = Net::HTTP.get(uri)
-      result = JSON.parse(json)["results"]["school"][0]["faculty"]
+      @faculties = JSON.parse(json)["results"]["school"][0]["faculty"]
 
-      if result && 0 < result.count
-        @faculties = result
-      else
-        @faculties = []
-      end
-      name = params[:origin_controller].nil? ? "faculty" : "#{params[:origin_controller]}[faculty]"
-      render partial: "shared/ajax_select", locals: {elements: @faculties, name: name}
+      render partial: "shared/ajax_select", locals: {elements: @faculties, request_type: "faculties"}
     end
   end
 end

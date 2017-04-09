@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get ".well-known/acme-challenge/:id" => "web#letsencrypt"
 
   root "web#landing"
@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   post "switch"  => "debug#switch"
   get  "debug"   => "debug#debug"
+  post "create_dummy" => "debug#create_dummy"
 
   get  "mail_form" => "web#mail_form"
   post "send_ad_mails" => "web#send_ad_mails"
@@ -35,15 +36,15 @@ Rails.application.routes.draw do
 
   resources :notifications
 
-  get "blogs"  => "blogs#indexes"
-  get "events" => "events#indexes"
-
   get "entry/:key" => "web#circle_key"
+
+  resources :blogs , only: [:index]
+  resources :events, only: [:index]
 
   resources :circles do
     resources :blogs
     resources :events
-    resources :contacts
+    resources :contacts, except: [:edit, :update]
     resources :favorites, only: [:create, :destroy]
     resources :entries, only: [:index, :create, :destroy] do
       member do

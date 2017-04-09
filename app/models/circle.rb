@@ -1,4 +1,4 @@
-class Circle < ActiveRecord::Base
+class Circle < ApplicationRecord
   validates :name, presence: true
   validates :description, presence: true
   validates :picture, presence: true
@@ -42,6 +42,13 @@ class Circle < ActiveRecord::Base
       response += c.name
     end
     response
+  end
+
+  def be_member?(user)
+    self.members.ids.include?(current_user.id)
+  end
+  def find_membership(user)
+    self.memberships.find_by(member_id: user.id)
   end
 
   private
