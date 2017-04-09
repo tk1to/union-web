@@ -15,12 +15,12 @@
       <%= f.label :join_colleges %>
       <div class="search_accordion_icon"></div>
       <div class="search_accordion_value"></div>
-      </div>
+    </div>
     <div class="search_accordion_open">
       <%= text_field_tag :keyword, nil, {id: "college_keyword", class: "form__text_field form__text_field_70"} %>
-      <div id="college_search_button" class="button button_size_small button_color_white" controller="circle">検索</div>
+      <div id="college_search_button" class="button button_size_small button_color_white">検索</div>
       <div class="wrap_select wrap_select_90" id="college_select_wrap">
-        <%= render "shared/ajax_select", {elements: nil, name: "circle[college]"} %>
+        <%= render "shared/ajax_select", {elements: nil, request_type: "colleges"} %>
       </div>
     </div>
 
