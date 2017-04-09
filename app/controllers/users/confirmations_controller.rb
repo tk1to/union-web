@@ -5,18 +5,9 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
   # end
 
   # POST /resource/confirmation
-  def create
-    if self.confirmed_at
-      self.resource = resource_class.send_confirmation_instructions(resource_params)
-    end
-    yield resource if block_given?
-
-    if successfully_sent?(resource)
-      respond_with({}, location: after_resending_confirmation_instructions_path_for(resource_name))
-    else
-      respond_with(resource)
-    end
-  end
+  # def create
+  #   super
+  # end
 
   # GET /resource/confirmation?confirmation_token=abcdef
   def show

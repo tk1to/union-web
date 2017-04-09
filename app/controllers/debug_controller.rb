@@ -40,7 +40,6 @@ class DebugController < ApplicationController
     end
     dummy.skip_confirmation!
     dummy.save
-    dummy.update_attributes(email: "no." + dummy.id.to_s + "@union.com")
     redirect_to :debug
   end
 
