@@ -162,9 +162,6 @@
       <% end %>
     <% else %>
       <div class="ta_center">
-        <div id="favorite_form_<%= @circle.id %>" class="restricted">
-          <%= render !current_user.favorites.find_by(circle_id: @circle.id) ? "favorite" : "unfavorite" , circle: @circle %>
-        </div>
         <%= link_to "お問い合わせ", [:new, @circle, :contact] , class: "button button_size_large button_size_large_contact button_color_white restricted" %>
         <% if !@entrying %>
           <%= link_to "メンバー申請", [@circle, :entries], method: :post , class: "button button_size_large button_size_large_member button_color_blue restricted"%>
@@ -174,11 +171,10 @@
       </div>
     <% end %>
   </div>
+  <div id="fixed_favorite" class="fixed_favorite">
+    <%= render !current_user.favorites.find_by(circle_id: @circle.id) ? "favorite" : "unfavorite" , circle: @circle %>
+  </div>
 <% end %>
-
-<!-- <div class="fixed_favorite">
-  <%# render !current_user.favorites.find_by(circle_id: @circle.id) ? "favorite" : "unfavorite" , circle: @circle %>
-</div> -->
 
 <!-- js関連 -->
 <% if @membership %>

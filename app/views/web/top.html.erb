@@ -38,12 +38,13 @@
 <div id="ranking" class="wrap_miniCard">
   <% if @circles.any? %>
     <ul class="sride-miniCard">
-      <% @ranking.each do |circle| %>
+      <% top3 = ["gold", "silver", "bronze"] %>
+      <% @ranking.each.with_index(1) do |circle, i| %>
         <li class="miniCard">
           <%= link_to circle, class: "link_fill" do %>
-            <div class="miniCard__label miniCard__label_normal">
+            <div class="miniCard__label miniCard__label_<%= top3[i-1] ? top3[i-1] : "normal" %>">
               <div class="miniCard__label__contents">
-                <span class="miniCard__label__contents_number">1</span>
+                <span class="miniCard__label__contents_number"><%= i %></span>
               </div>
             </div>
             <div class="miniCard__background c_picture" style="background-image: url(<%= circle.header_picture %>)"></div>
