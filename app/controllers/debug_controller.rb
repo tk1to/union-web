@@ -16,12 +16,12 @@ class DebugController < ApplicationController
   end
 
   def debug
-    @dummies = User.where(status: "dummy").order(:id)
     if current_user.status == "admin"
       @admin = current_user
     elsif current_user.status == "dummy"
       @admin = User.find(current_user.uid)
     end
+    @dummies = User.where(status: "dummy", uid: @admin.id).order(:id)
   end
   def admin_login
     if user = User.find_by(id: params[:user_id])
