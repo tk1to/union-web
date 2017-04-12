@@ -30,7 +30,9 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @circle = @event.circle
-    @be_member = @circle.be_member?
+    if user_signed_in?
+      @be_member = @circle.be_member?(current_user)
+    end
   end
 
   def edit
