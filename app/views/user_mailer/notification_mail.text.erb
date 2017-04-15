@@ -11,6 +11,12 @@ Unionで新着の"足跡"が付きました。
 <% elsif @message_type == "favorite" %>
 <%= @params.user_name %>さんから<%= @params.circle_name %>へ"気になる"が届いてます。
 下記のURLから"メッセージ"をご確認下さい。
+<% elsif @message_type == "entry" %>
+<%= @params.user_name %>さんから<%= @params.circle_name %>へ"メンバー申請"が届いてます。
+下記のURLから"メッセージ"をご確認下さい。
+<% elsif @message_type == "contact" %>
+<%= @params.user_name %>さんから<%= @params.circle_name %>へ"お問い合わせ"が届いてます。
+下記のURLから"メッセージ"をご確認下さい。
 <% end %>
 
 https://www.union-frc.com

@@ -10,6 +10,10 @@ class UserMailer < ApplicationMailer
       subject = "Unionで足跡が付いています。"
     elsif message_type == "favorite"
       subject = "#{params.user_name}さんから#{params.circle_name}へ気になるが来ました。"
+    elsif message_type = "entry"
+      subject = "#{params.user_name}さんから#{params.circle_name}へメンバー申請が来ました。"
+    elsif message_type = "contact"
+      subject = "#{params.user_name}さんから#{params.circle_name}へお問い合わせが来ました。"
     end
     mail to: @user.email, subject: subject
   end
