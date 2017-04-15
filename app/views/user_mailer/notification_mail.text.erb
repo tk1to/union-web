@@ -1,32 +1,17 @@
-<% if @message_type == "foots" %>
 
 こんにちは!!
 Union運営部です。
 
+<% if @message_type == "foots" %>
 Unionで新着の"足跡"が付きました。
 下記のURLから"足跡"をご確認下さい。
-
-https://www.union-frc.com
-
-※このメールに覚えがない場合、メールアドレスが誤って送信された可能性があります。
- 大変お手数ですが、破棄してください。
-
-※このメールには返信できません。
-
-※ご登録やご利用に際して、ご不明点などございましたら、下記のメールアドレスにいつでもお気軽にお問い合わせください。
-
-※メールアドレス:union.web.fr@gmail.com
-
-————————————————————————————————
-
-Union運営局 ~理想のキャンパスライフをあなたに~
 <% elsif @message_type == "new_message" %>
-
-こんにちは!!
-Union運営部です。
-
-<%= @params.name %>から"新着メッセージ"が届いてます。
+<%= @params.name %>さんから"新着メッセージ"が届いてます。
 下記のURLから"メッセージ"をご確認下さい。
+<% elsif @message_type == "favorite" %>
+<%= @params.user_name %>さんから<%= @params.circle_name %>へ"気になる"が届いてます。
+下記のURLから"メッセージ"をご確認下さい。
+<% end %>
 
 https://www.union-frc.com
 
@@ -42,4 +27,3 @@ https://www.union-frc.com
 ————————————————————————————————
 
 Union運営局 ~理想のキャンパスライフをあなたに~
-<% end %>
