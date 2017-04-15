@@ -24,7 +24,7 @@ class ContactsController < ApplicationController
             if !Notification.find_by(notification_type: 4, hold_user_id: ms.id, circle_id: circle.id, user_id: current_user.id)
               Notification.create(notification_type: 4, hold_user_id: ms.id, circle_id: circle.id, user_id: current_user.id)
               ms.member.update_attribute(:new_notifications_exist, true)
-              UserMailer.notification_mail(ms.member, "contact", [user_name: current_user.name, circle_name: circle.name]).deliver_now
+              # UserMailer.notification_mail(ms.member, "contact", [user_name: current_user.name, circle_name: circle.name]).deliver_now
             end
           end
         end
