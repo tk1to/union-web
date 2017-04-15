@@ -45,7 +45,7 @@ class Circle < ApplicationRecord
   end
 
   def be_member?(user)
-    self.members.ids.include?(current_user.id)
+    self.members.ids.include?(user.id)
   end
   def find_membership(user)
     self.memberships.find_by(member_id: user.id)

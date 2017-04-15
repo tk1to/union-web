@@ -88,21 +88,23 @@ class User < ApplicationRecord
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
     if !user
-      user = User.create(
+      user = User.new(
         uid:       auth.uid,
         provider:  auth.provider,
         name:      auth.info.name,
         email:     User.get_email(auth),
         password:  Devise.friendly_token[6, 24],
-        first_facebook_login: false,
+        first_facebook_login: false
       )
       user.skip_confirmation!
       user.save
     elsif user.first_facebook_login
-      user.update_attribute(:first_facebook_login, false)
-      user.update_attribute(:name, auth.info.name)
-      user.update_attribute(:email, User.get_email(auth))
-      user.update_attribute(:password, Devise.friendly_token[6, 24])
+      user.assign_attributes(
+        first_facebook_login: false,
+        name: auth.info.name,
+        email: User.get_email(auth),
+        password: Devise.friendly_token[6, 24]
+      )
       user.skip_confirmation!
       user.save
     end

@@ -18,9 +18,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     update_categories if params[:categories].present?
     if params[:user]
-      if params[:user][:college].blank?
-        params[:user][:college] = @user.college
-        params[:user][:faculty] = @user.faculty
+      if params[:college].present?
+        params[:user][:college] = params[:college]
+        params[:user][:faculty] = params[:faculty]
       end
       if !@user.update_attributes(user_params)
         @edit_item = params[:user][:edit_item]

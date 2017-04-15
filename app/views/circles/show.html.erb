@@ -172,7 +172,7 @@
     <% end %>
   </div>
   <div id="fixed_favorite" class="fixed_favorite restricted">
-    <%= render !current_user.favorites.find_by(circle_id: @circle.id) ? "favorite" : "unfavorite" , circle: @circle %>
+    <%# render !current_user.favorites.find_by(circle_id: @circle.id) ? "favorite" : "unfavorite" , circle: @circle %>
   </div>
 <% end %>
 
