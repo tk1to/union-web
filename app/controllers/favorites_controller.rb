@@ -7,8 +7,8 @@ class FavoritesController < ApplicationController
     current_user.favorites.create(circle_id: @circle.id)
     @circle.memberships.each do |m|
       if m.chief? || m.admin?
-        if !Notification.find_by(notification_type: 2, hold_user_id: m.id, circle_id: @circle.id, user_id: current_user.id)
-          Notification.create(notification_type: 2, hold_user_id: m.id, circle_id: @circle.id, user_id: current_user.id)
+        if !Notification.find_by(notification_type: 2, hold_user_id: m.member.id, circle_id: @circle.id, user_id: current_user.id)
+          Notification.create(notification_type: 2, hold_user_id: m.member.id, circle_id: @circle.id, user_id: current_user.id)
           m.member.update_attribute(:new_notifications_exist, true)
           # UserMailer.notification_mail(m.member, "favorite", [user_name: current_user.name, circle_name: @circle.name]).deliver_now
         end
