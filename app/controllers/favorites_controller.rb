@@ -10,28 +10,32 @@ class FavoritesController < ApplicationController
         if !Notification.find_by(notification_type: 2, hold_user_id: m.member.id, circle_id: @circle.id, user_id: current_user.id)
           Notification.create(notification_type: 2, hold_user_id: m.member.id, circle_id: @circle.id, user_id: current_user.id)
           m.member.update_attribute(:new_notifications_exist, true)
-          # UserMailer.notification_mail(m.member, "favorite", [user_name: current_user.name, circle_name: @circle.name]).deliver_now
+          UserMailer.notification_mail(m.member, "favorite", [user_name: current_user.name, circle_name: @circle.name]).deliver_now
         end
       end
     end
-    respond_to do |format|
-      format.html {
-        flash[:success] = "気になるしました！"
-        redirect_to request.referer
-      }
-      format.js
-    end
+    # respond_to do |format|
+    #   format.html {
+    #     flash[:success] = "気になるしました！"
+    #     redirect_to request.referer
+    #   }
+    #   format.js
+    # end
+    flash[:success] = "気になるしました！"
+    redirect_to request.referer
   end
 
   def destroy
     @circle = Circle.find(params[:circle_id])
     Favorite.find_by(circle_id: params[:circle_id], user_id: current_user.id).destroy
-    respond_to do |format|
-      format.html {
-        flash[:success] = "気になるを解除しました"
-        redirect_to request.referer
-      }
-      format.js
-    end
+    # respond_to do |format|
+    #   format.html {
+    #     flash[:success] = "気になるを解除しました"
+    #     redirect_to request.referer
+    #   }
+    #   format.js
+    # end
+    flash[:success] = "気になるを解除しました"
+    redirect_to request.referer
   end
 end
